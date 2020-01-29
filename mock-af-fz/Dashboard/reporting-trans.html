@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<base href="//db.anytimefitness.com">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Reporting | Anytime Fitness Dashboard</title>
+<meta name="description" content="Anytime Fitness Dashboard" />
+<meta name="keywords" content="" />
+<link rel="shortcut icon" atype="image/x-icon" href="/Content/favicon.ico" />
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
+	
+<link href="https://anytimefitness.blob.core.windows.net/shared-assets/pds/css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="/Scripts/app/styles/common/dashboard.css" rel="stylesheet" type="text/css" />
+<link href="https://anytimefitness.blob.core.windows.net/shared-assets/mocks/af/franchise/css/custom.css" rel="stylesheet" type="text/css" />
+<link href="https://anytimefitness.blob.core.windows.net/shared-assets/mocks/af/franchise/Dashboard/css/db.css" rel="stylesheet" type="text/css" />
+
+<link href="/Content/Styles/datepicker.css" rel="stylesheet" />
+<link href="/Content/Scripts/DatePicker/css/smoothness/jquery-ui-1.9.0.custom.css" rel="stylesheet" />
+<link href="/Content/Scripts/DataTable/css/Data_table.css" rel="stylesheet" />
+	
+
+
+	
+	
+	
+<style>
+	
+	/* change in dashboard.css */
+	.report-listing-container .box-icon {
+		left: inherit;
+	}
+
+	/* Add to transitional */
+	body {
+		    font-family: 'Neue Helvetica W02',sans-serif;
+	}
+	
+	/* temporarily carry over from old Bootstrap */
+	
+	
+	#header {
+		margin:25px auto 20px;
+		padding: 0 15px;
+		display: flex;
+    	flex-wrap: wrap;
+	    justify-content: space-between;
+		    max-width: 1140px;
+	}
+	
+	
+	
+	#header .menu-trigger {
+		display: none;
+	}
+	
+	@media (max-width: 767px) {
+		#header {
+			margin: 2%;
+			padding-left: 2%;
+		}
+		#header .menu-trigger {
+			border: none;
+			display: block;
+			position: absolute;
+			right: 2%;
+			top: 7px;
+		}
+		#header .nav {
+			position: relative;
+		    flex-direction: column;
+		    width: 100%;
+		}
+		#header .nav .dropdown-menu {
+			top: 0;
+		}
+		
+		.site-search input {
+			height: auto;
+			border-radius: 4px;
+			
+		}
+	}
+	#header .brand {
+
+		display: block;
+		height: 35px;
+		width: 200px;
+		margin-bottom: 15px;
+	}
+	#header .nav > li > a {
+	    color: #595959;
+		display: block;
+		font-size: 19px;
+		letter-spacing: 0.4px;
+		line-height: 20px;
+		margin-top: 1px;
+		margin-left: 0;
+		padding: 4px 6px;
+	}
+	
+   
+
+	
+	#header .nav > li > a.selected {
+		color: #fff;
+		border-radius: 3px;
+		
+	}
+	#header .nav .dropdown .caret {
+		display: none;
+	}
+	#header .dropdown-toggle::after {
+		display: inline-block;
+		margin-left: 0;
+		vertical-align: 0.255em;
+		content: "";
+		border-top: 0.25rem solid;
+		border-right: 0.25rem solid transparent;
+		border-bottom: 0;
+		border-left: 0.25rem solid transparent;
+		opacity: .8;
+	}
+	#header .nav .sprite-nav-top {
+		width: 1.5rem;
+		height: 1.5rem;
+		display: inline-block;
+		margin-top: -4px;
+		vertical-align: middle;
+		max-width: 24px;
+        max-height: 24px;
+        margin-left: 5px;
+	    margin-right: 5px;
+	}
+		
+	
+	#header .nav .navtext {
+	    font-weight: 400;
+	}
+	
+	
+	#header ul.nav li.dropdown:hover > ul.dropdown-menu {
+		display: block;
+	}
+	#header .nav .dropdown-submenu {
+		position: relative;
+		white-space: nowrap;
+	}
+	.dropdown-submenu > a:after {
+		display: block;
+		float: right;
+		width: 0;
+		height: 0;
+		margin-top: 5px;
+		margin-right: -10px;
+		border-color: transparent;
+		border-left-color: #cccccc;
+		border-style: solid;
+		border-width: 5px 0 5px 5px;
+		content: " ";
+	}
+	#header .nav .dropdown-submenu:hover > .dropdown-menu {
+		display: block;
+		left: 100%;
+		top: 0;		
+	
+	}
+	#header .nav .dropdown-menu li {
+		white-space: nowrap;
+		margin-bottom: 5px;
+	}
+	 #header .nav .dropdown-menu li a {
+        padding: 3px 20px;
+		padding-left: 5px;
+	    color: #333333;
+		display: block;
+		
+    }
+	
+	
+	
+	
+	
+	
+	
+	.menu-clubs-list {
+		max-height: 38vh;
+		overflow: auto;
+		font-size: small;
+	}
+	
+	
+	.btn-check {
+		color: #666666;
+		background-color: #999;
+		font-size: .7em;
+		padding: 12px;
+	}
+	.btn-check.active, .btn-check:active {
+		background-color: #9ACB3B;
+		background-position: -284px 4px;
+		background-image: url(//anytimefitness.blob.core.windows.net/shared-images/imported/glyphicons-halflings-white.png);
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+		color: white;
+		outline: 0 none;
+		transition: none;
+	}
+	
+
+	
+.image-none {
+    background-image: none !important;
+}
+	
+</style>
+
+</head>
+
+<body class=" ">
+<div id="main" class="dashboard af  ">
+<div class="modal dialog fade" role="dialog" aria-d-none="true">
+  <div class="modal-header dialog" style="background-color: #9e69c8">
+    <button type="button" class="close" data-dismiss="modal" aria-d-none="true">&times;</button>
+    <div class="modal-title dialog" style="font-weight: bold; color: white"></div>
+  </div>
+  <div class="modal-body dialog">
+    <div class="modal-text dialog"></div>
+  </div>
+  <div class="modal-footer dialog">
+    <div class="first-button-panel" style="display: inline"> </div>
+    <div class="second-button-panel" style="display: inline"> </div>
+  </div>
+</div>
+<header id="header">
+            <a href="/" class="brand"></a>
+
+<ul class="nav nav-pills floatright">
+
+        <li class="dropdown">
+                <a class="dropdown-toggle selected" href="/news">
+                        <i class="sprite-nav-sel-news sprite-nav-top"></i>
+
+                    <span class="navtext">news &amp; events</span>
+                        <b class="caret"></b>
+                </a>
+
+            <ul class="dropdown-menu">
+
+                    <li id="nav-notices" class=" ">
+                        
+
+
+
+                            <a href="/news/notices" class="image-none" target="_self">
+                                <i class="sprite-nav-top image-none">
+                                    <img src="//afdashboard.blob.core.windows.net/en-us/Images/News/nav-franchise-notices.png">
+                                </i>
+                                Franchise Notices
+                            </a>
+
+                    </li>
+                    <li id="nav-calendar" class="dropdown-submenu ">
+                        
+
+
+
+                            <a href="/news/events/Calendar" class="image-none" target="_self">
+                                <i class="sprite-nav-top image-none">
+                                    <img src="//afdashboard.blob.core.windows.net/en-us/Images/News/calendar-nav-icon.png">
+                                </i>
+                                Calendar
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                    <li id="nav-manageevents">
+                                            <a href="/news/events/EventTypes/ManageEventTypes">
+                                                Manage Events
+                                            </a>
+                                    </li>
+                                    <li id="nav-promo-code">
+                                            <a href="/news/events/PromoCode/PromocodeReport">
+                                                Promo Code
+                                            </a>
+                                    </li>
+                            </ul>
+                    </li>
+                    <li id="nav-training" class="dropdown-submenu ">
+                        
+
+
+
+                            <a href="/news/training" class="image-none" target="_self">
+                                <i class="sprite-nav-top image-none">
+                                    <img src="//afdashboard.blob.core.windows.net/en-us/Images/News/training-nav-icon.png">
+                                </i>
+                                Training
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                    <li id="nav-operations">
+                                            <a href="/news/training/operations">
+                                                Operations
+                                            </a>
+                                    </li>
+                                    <li id="nav-consumer">
+                                            <a href="/news/training/consumer">
+                                                Consumer
+                                            </a>
+                                    </li>
+                                    <li id="nav-vitals">
+                                            <a href="/news/training/vitals">
+                                                Vitals
+                                            </a>
+                                    </li>
+                                    <li id="nav-af-training-workshop">
+                                            <a href="/news/training/af-training">
+                                                AF Training Workshop
+                                            </a>
+                                    </li>
+                                    <li id="nav-in-club-operations-consultation">
+                                            <a href="/news/training/club-consult">
+                                                In-club Operations Consultation
+                                            </a>
+                                    </li>
+                                    <li id="nav-learning-link">
+                                            <a href="/news/training/learning-link">
+                                                Learning Link
+                                            </a>
+                                    </li>
+                            </ul>
+                    </li>
+                    <li id="nav-annual-conference" class="dropdown-submenu ">
+                        
+
+
+
+                            <a href="/news/conference/Static/Home" class="image-none" target="_self">
+                                <i class="sprite-nav-top image-none">
+                                    <img src="//afdashboard.blob.core.windows.net/en-us/Images/News/conference-nav-icon.png">
+                                </i>
+                                Conference
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                    <li id="nav-conf-registration">
+                                            <a href="/news/conference/conference-reports/ViewConferenceSummaryReport">
+                                                Conference Reports
+                                            </a>
+                                    </li>
+                                    <li id="nav-conf-ribbon-mgmt">
+                                            <a href="/news/conference/manage-ribbons/EditRibbons">
+                                                Edit Ribbons
+                                            </a>
+                                    </li>
+                                    <li id="nav-conference-management">
+                                            <a href="/news/conference/ConferenceManagement">
+                                                Conference Management
+                                            </a>
+                                    </li>
+                            </ul>
+                    </li>
+            </ul>
+        </li>
+        <li class="dropdown">
+                <a class="dropdown-toggle " href="/club">
+                        <i class="sprite-nav-club sprite-nav-top"></i>
+
+                    <span class="navtext">club</span>
+                        <b class="caret"></b>
+                </a>
+
+            <ul class="dropdown-menu">
+
+                    <li id="nav-reporting" class=" ">
+                        
+
+
+
+                            <a href="/club/reports" class="image-none" target="_self">
+                                <i class="sprite-nav-top image-none">
+                                    <img src="//afdashboard.blob.core.windows.net/en-us/Images/News/reporting-nav-icon.png">
+                                </i>
+                                Reporting
+                            </a>
+
+                    </li>
+                    <li id="nav-club-at-a-glance" class=" ">
+                        
+
+
+
+                            <a href="/club/caag/Club_at_a_Glance_Init" target="_self">
+                                <i class="sprite-nav-top image-none"></i>
+                                Club At A Glance
+                            </a>
+
+                    </li>
+                    <li id="nav-club-member-onboarding-report" class=" ">
+                        
+
+
+
+                            <a href="/club/mop" class="image-none" target="_self">
+                                <i class="sprite-nav-top image-none">
+                                    <img src="//afdashboard.blob.core.windows.net/en-us/Images/News/mop-nav-icon.png">
+                                </i>
+                                Member Onboarding Report
+                            </a>
+
+                    </li>
+                    <li id="nav-staff-management" class=" ">
+                        
+
+
+
+                            <a href="/club/manage-staff/Staff" target="_self">
+                                <i class="sprite-nav-top image-none"></i>
+                                Staff Management
+                            </a>
+
+                    </li>
+                    <li id="nav-club-website" class=" ">
+                        
+
+
+
+                            <a href="/club/clubwebsite" class="image-none" target="_self">
+                                <i class="sprite-nav-top image-none">
+                                    <img src="//afdashboard.blob.core.windows.net/en-us/Images/News/club-website-nav-icon.png">
+                                </i>
+                                Club Website
+                            </a>
+
+                    </li>
+                    <li id="nav-ipad" class="dropdown-submenu ">
+                        
+
+
+
+                            <a href="/#" target="_self">
+                                <i class="sprite-nav-top image-none"></i>
+                                Digital Membership Agreements
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                    <li id="nav-plan-management">
+                                            <a href="/config/InitPlansList/Init">
+                                                Plans
+                                            </a>
+                                    </li>
+                                    <li id="nav-agreement-settings">
+                                            <a href="/config/InitAgreementSettings/Init">
+                                                Agreement Settings
+                                            </a>
+                                    </li>
+                                    <li id="nav-club-settings">
+                                            <a href="/config/InitClubSettings/Init">
+                                                Club Settings
+                                            </a>
+                                    </li>
+                            </ul>
+                    </li>
+                    <li id="nav-workout-templates" class=" ">
+                        
+
+
+
+                            <a href="/club/workout-templates" class="image-none" target="_self">
+                                <i class="sprite-nav-top image-none">
+                                    <img src="//afdashboard.blob.core.windows.net/en-us/Images/Club/nav-document-landscape.png">
+                                </i>
+                                Workout Templates
+                            </a>
+
+                    </li>
+                    <li id="nav-initiative-participation" class=" ">
+                        
+
+
+
+                            <a href="/club/initiative" class="image-none" target="_self">
+                                <i class="sprite-nav-top image-none">
+                                    <img src="//afdashboard.blob.core.windows.net/en-us/Images/Club/ip-page-icon.png">
+                                </i>
+                                Initiative Participation
+                            </a>
+
+                    </li>
+            </ul>
+        </li>
+        <li class="dropdown">
+                <a class="dropdown-toggle " href="/resources">
+                        <i class="sprite-nav-resources sprite-nav-top"></i>
+
+                    <span class="navtext">resources</span>
+                        <b class="caret"></b>
+                </a>
+
+            <ul class="dropdown-menu">
+
+                    <li id="nav-anytime-academy" class=" ">
+                        
+
+
+
+                            <a href="/resources/academy" class="image-none" target="_self">
+                                <i class="sprite-nav-top image-none">
+                                    <img src="//afdashboard.blob.core.windows.net/en-us/Images/News/academy-nav-icon.png">
+                                </i>
+                                Anytime Academy
+                            </a>
+
+                    </li>
+                    <li id="nav-scorecard" class=" ">
+                        
+
+
+
+                            <a href="/resources/scorecard" class="image-none" target="_self">
+                                <i class="sprite-nav-top image-none">
+                                    <img src="//afdashboard.blob.core.windows.net/en-us/Images/Club/nav-scorecard.png">
+                                </i>
+                                Scorecard
+                            </a>
+
+                    </li>
+                    <li id="nav-live-programming-" class=" ">
+                        
+
+
+
+                            <a href="/resources/af-training" class="image-none" target="_self">
+                                <i class="sprite-nav-top image-none">
+                                    <img src="//afdashboard.blob.core.windows.net/en-us/Images/Training/nav-live-programming.png">
+                                </i>
+                                AF Training
+                            </a>
+
+                    </li>
+                    <li id="nav-idea-clubconnect" class=" ">
+                        
+
+
+
+                            <a href="/resources/idea" class="image-none" target="_self">
+                                <i class="sprite-nav-top image-none">
+                                    <img src="//afdashboard.blob.core.windows.net/en-us/Images/News/idea-clubconnect-nav-icon.png">
+                                </i>
+                                IDEA ClubConnect
+                            </a>
+
+                    </li>
+                    <li id="nav-technology" class=" ">
+                        
+
+
+
+                            <a href="/resources/technology" class="image-none" target="_self">
+                                <i class="sprite-nav-top image-none">
+                                    <img src="//afdashboard.blob.core.windows.net/en-us/Images/News/technology-nav-icon.png">
+                                </i>
+                                Technology
+                            </a>
+
+                    </li>
+                    <li id="nav-marketing" class=" ">
+                        
+
+
+
+                            <a href="/resources/marketing" class="image-none" target="_self">
+                                <i class="sprite-nav-top image-none">
+                                    <img src="//afdashboard.blob.core.windows.net/en-us/Images/News/marketing-nav-icon.png">
+                                </i>
+                                Marketing
+                            </a>
+
+                    </li>
+                    <li id="nav-please-resources" class=" ">
+                        
+
+
+
+                            <a href="/resources/please-score" class="image-none" target="_self">
+                                <i class="sprite-nav-top image-none">
+                                    <img src="//afdashboard.blob.core.windows.net/en-us/Images/News/please-nav-icon.png">
+                                </i>
+                                PLEASE Resources
+                            </a>
+
+                    </li>
+                    <li id="nav-wellness-resource-center" class=" ">
+                        
+
+
+
+                            <a href="/resources/wellness-resources" class="image-none" target="_self">
+                                <i class="sprite-nav-top image-none">
+                                    <img src="//afdashboard.blob.core.windows.net/en-us/Images/News/wellness-nav-icon.png">
+                                </i>
+                                Wellness Resource Center
+                            </a>
+
+                    </li>
+                    <li id="nav-emotional-intelligence-resource-center" class=" ">
+                        
+
+
+
+                            <a href="/resources/ei-resource-center" class="image-none" target="_self">
+                                <i class="sprite-nav-top image-none">
+                                    <img src="//afdashboard.blob.core.windows.net/en-us/Images/News/ei-nav-icon.png">
+                                </i>
+                                Emotional Intelligence Resource Center
+                            </a>
+
+                    </li>
+                    <li id="nav-vendors" class=" ">
+                        
+
+
+
+                            <a href="/resources/vendors" class="image-none" target="_self">
+                                <i class="sprite-nav-top image-none">
+                                    <img src="//afdashboard.blob.core.windows.net/en-us/Images/News/vendors-nav-icon.png">
+                                </i>
+                                Vendors
+                            </a>
+
+                    </li>
+                    <li id="nav-pumpone" class=" ">
+                        
+
+
+
+                            <a href="/resources/sso/pumpone" target="_self">
+                                <i class="sprite-nav-top image-none"></i>
+                                Anytime Workouts
+                            </a>
+
+                    </li>
+            </ul>
+        </li>
+        <li class="dropdown">
+                <a class="dropdown-toggle " href="/community">
+                        <i class="sprite-nav-community sprite-nav-top"></i>
+
+                    <span class="navtext">community</span>
+                        <b class="caret"></b>
+                </a>
+
+            <ul class="dropdown-menu">
+
+                    <li id="nav-forums" class=" ">
+                        
+
+
+
+                            <a href="/community/forum" class="image-none" target="_self">
+                                <i class="sprite-nav-top image-none">
+                                    <img src="//afdashboard.blob.core.windows.net/en-us/Images/News/forums-nav-icon.png">
+                                </i>
+                                Forums
+                            </a>
+
+                    </li>
+                    <li id="nav-corporate-staff" class=" ">
+                        
+
+
+
+                            <a href="/community/corporate" target="_self">
+                                <i class="sprite-nav-top image-none"></i>
+                                Corporate Contacts
+                            </a>
+
+                    </li>
+                    <li id="nav-fac" class=" ">
+                        
+
+
+
+                            <a href="/community/franchise-advisory-council" class="image-none" target="_self">
+                                <i class="sprite-nav-top image-none">
+                                    <img src="//afdashboard.blob.core.windows.net/en-us/Images/News/fac-nav-icon.png">
+                                </i>
+                                Franchise Advisory Council
+                            </a>
+
+                    </li>
+                    <li id="nav-success-story" class=" ">
+                        
+
+
+
+                            <a href="/community/successstory" class="image-none" target="_self">
+                                <i class="sprite-nav-top image-none">
+                                    <img src="//afdashboard.blob.core.windows.net/en-us/Files/News/nav-successstories.png">
+                                </i>
+                                Success Story
+                            </a>
+
+                    </li>
+                    <li id="nav-master-dashboard" class=" ">
+                        
+
+
+
+                            <a href="//master.anytimefitness.com" target="_blank">
+                                <i class="sprite-nav-top image-none"></i>
+                                Master Dashboard
+                            </a>
+
+                    </li>
+                    <li id="nav-heart-first" class=" ">
+                        
+
+
+
+                            <a href="/community/heartfirst" class="image-none" target="_self">
+                                <i class="sprite-nav-top image-none">
+                                    <img src="//afdashboard.blob.core.windows.net/en-us/Images/News/ei-nav-icon.png">
+                                </i>
+                                Heart First
+                            </a>
+
+                    </li>
+            </ul>
+        </li>
+        <li class="dropdown">
+                <a class="" href="/profile">
+                    <i class="sprite-nav-top" style="background-image: none;">
+                        <img src="//anytimefitness.blob.core.windows.net/user-photos/d517e8d0-b8e6-4926-93de-8568fdb3d5dd.jpg" style="max-width: 24px; max-height: 24px;">
+                    </i>
+
+                    <span class="navtext">profile</span>
+                        <b class="caret"></b>
+                </a>
+
+            <ul class="dropdown-menu">
+
+                    <li id="nav-account" class=" ">
+                        
+
+
+
+                            <a href="/club/staff/account" target="_self">
+                                <i class="sprite-nav-top image-none"></i>
+                                Account
+                            </a>
+
+                    </li>
+                        <li class="divider"></li>
+                    <li id="nav-logout" class=" ">
+                        
+
+
+
+                            <a href="/profile/login/Logout" target="_self">
+                                <i class="sprite-nav-top image-none"></i>
+                                Logout
+                            </a>
+
+                    </li>
+            </ul>
+        </li>
+    <li id="nav-site-search">
+        <a href="#"><i class="sprite-nav-search sprite-nav-top"></i></a>
+    </li>
+</ul>
+<button class="menu-trigger icom-menu"></button>
+
+<script>
+    document.querySelector(`#header .menu-trigger`).addEventListener('click', function () {
+        document.body.classList.toggle('nav-expanded');
+    })
+</script>
+
+        </header>
+<div class="site-search"> <i class="point"></i>
+  <form action="/search" method="GET">
+    <input name="query" id="query" placeholder="Search the Dashboard">
+    <button class="btn btn-secondary pull-right">search</button>
+  </form>
+</div>
+<main id="torso">
+	<div class="container">
+  <div id="firstlevel">
+    <h1 class="h2"> reporting <span class="h6"> <a id="helpReportingLink" href="javascript:void(0)" class="help-link" data-original-title="" data-bind="click: OpenHelpReportingLink"> <img src="https://anytimefitness.blob.core.windows.net/shared-images/16x16/icon-info-link.png" alt="">&nbsp;help </a> </span> </h1>
+    <div class="nav2"></div>
+  </div>
+  <style type="text/css">
+
+
+
+    .report-details table tr td:first-child, .report-details table tr th:first-child {
+
+        padding-left: 8px;
+
+        min-width: 85px;
+
+    }
+
+
+
+    .member-reports .btn:before {
+
+        content: "\e805";
+
+    }
+
+
+
+    .member-reports #comp:before {
+
+        content: "\e802";
+
+    }
+
+
+
+    .member-reports #ppv:before {
+
+        content: "\e803";
+
+    }
+
+
+
+    .member-reports #pending:before {
+
+        content: "\e800";
+
+    }
+
+
+
+    .member-reports #archived:before {
+
+        content: "\e801";
+
+    }
+
+
+
+    .member-reports #reactivated:before {
+
+        content: "\e61e";
+
+    }
+
+
+
+    .member-reports #staff:before {
+
+        content: "\e806";
+
+    }
+
+
+
+    .member-reports #inactive:before {
+
+        content: "\e804";
+
+    }
+
+
+
+    .disabled-not-allowed {
+
+        cursor: not-allowed;
+
+    }
+
+</style>
+  <div class="row d-flex flex-column-reverse flex-md-row ">
+    <div class="col-md-9 clear report-listing-container headerSection">
+      <div class="member-reports bg-dark">
+        <h4 class="margin-bot">member reports by type:</h4>
+        <ul class="list-unstyled list-inline">
+          <li class="list-inline-item">
+            <div class="tooltip-wrapper " data-bind="">
+              <button id="allActive" class="btn btn-primary" data-bind="enable: true, click: function(){ OpenColorReport('allactive')}" type="button"></button>
+            </div>
+            all active </li>
+          <li class="list-inline-item">
+            <div class="tooltip-wrapper " data-bind="">
+              <button id="green" class="btn btn-success" data-bind="enable: true, click: function(){ OpenColorReport('green')}" type="button"></button>
+            </div>
+            green </li>
+          <li class="list-inline-item">
+            <div class="tooltip-wrapper " data-bind="">
+              <button id="yellow" class="btn btn-warning" data-bind="enable: true, click: function(){ OpenColorReport('yellow')}" type="button"></button>
+            </div>
+            yellow </li>
+          <li class="list-inline-item">
+            <div class="tooltip-wrapper " data-bind="">
+              <button id="red" class="btn btn-danger" data-bind="enable: true, click: function(){ OpenColorReport('red')}" type="button"></button>
+            </div>
+            red </li>
+          <li class="list-inline-item">
+            <div class="tooltip-wrapper " data-bind="">
+              <button id="frozen" class="btn btn-info" data-bind="enable: true, click: function(){ OpenColorReport('frozen')}" type="button"></button>
+            </div>
+            frozen </li>
+          <li class="list-inline-item">
+            <div class="tooltip-wrapper " data-bind="">
+              <button id="pending" class="btn btn-secondary" data-bind="enable: true, click: function(){ OpenColorReport('pending')}" type="button"></button>
+            </div>
+            pending </li>
+          <li class="list-inline-item">
+            <div class="tooltip-wrapper " data-bind="">
+              <button id="comp" class="btn btn-secondary" data-bind="enable: true, click: function(){ OpenColorReport('comp')}" type="button"></button>
+            </div>
+            comp </li>
+          <li class="list-inline-item">
+            <div class="tooltip-wrapper " data-bind="">
+              <button id="ppv" class="btn btn-secondary" data-bind="enable: true, click: function(){ OpenColorReport('ppv')}" type="button"></button>
+            </div>
+            ppv </li>
+          <li class="list-inline-item">
+            <div class="tooltip-wrapper " data-bind="">
+              <button id="reactivated" class="btn btn-secondary" data-bind="enable: true, click: function(){ OpenColorReport('reactivated')}" type="button"></button>
+            </div>
+            reactivated </li>
+          <li class="list-inline-item">
+            <div class="tooltip-wrapper " data-bind="">
+              <button id="inactive" class="btn btn-secondary" data-bind="enable: true, click: function(){ OpenColorReport('inactive')}" type="button"></button>
+            </div>
+            inactive </li>
+          <li class="list-inline-item">
+            <div class="tooltip-wrapper " data-bind="">
+              <button id="archived" class="btn btn-secondary" data-bind="enable: true, click: function(){ OpenColorReport('archived')}" type="button"></button>
+            </div>
+            archived </li>
+          <li class="list-inline-item">
+            <div class="tooltip-wrapper " data-bind="">
+              <button id="staff" class="btn btn-secondary" data-bind="enable: true, click: function(){ OpenColorReport('staff')}" type="button"></button>
+            </div>
+            staff </li>
+        </ul>
+      </div>
+      <div id="helpReporting" class="section-help margin-bot round d-none"> <a class="close btn-close" href="javascript:void(0)" data-original-title="">×</a>
+        <div class="pad">
+          <p>Reporting includes several great features that will improve the reporting process; queuing of reports, aggregate reporting for multiple club owners and an improved Excel export.  Additionally, all reports will be kept in Report History for quick reference at a later date, but can be deleted at any time.</p>
+          <div class="fancy-columns" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+            <div class="fcol3" style="display: flex;">
+              <div class="margin pad field-purple">
+                <h4 class="margin-bot">Select Clubs</h4>
+                The first step in generating a report is to <strong>select club(s) from the right</strong>.  The list will display only the clubs assigned to your account in Staff Management. For reports that require a date range (usage reports), select the appropriate start and end date using the date filters on the right as well.</div>
+            </div>
+            <div class="fcol3" style="display: flex;">
+              <div class="margin pad field-orange">
+                <h4 class="margin-bot">Queue Reports</h4>
+                <p>Once the club filters and dates have been selected, click the <strong>queue report</strong> button to generate that report.  If there are several reports you want to generate using the same club and date filters, you can click Queue Report for each one.  You do not have to wait for the first report to finish before starting a new one.  The reports will then process in the order you queued them.</p>
+              </div>
+            </div>
+            <div class="fcol3" style="display: flex;">
+              <div class="margin pad field-green">
+                <h4 class="margin-bot">View Reports</h4>
+                <p>When the report is ready to view, just click the <strong>view report</strong> button next to that report in the Report History dropdown. You can export the report to Excel or print the report as a PDF by using the corresponding icons in the upper right hand corner.</p>
+              </div>
+            </div>
+          </div>
+          <p>When viewing a specific report, it is incredibly easy to sort the information in the order you wish to view it.  In each column header are two sort icons that look like up and down arrows.  Click the appropriate one to sort by that column whether ascending (up arrow) or descending (down arrow). </p>
+          <p>Member color counts, as well as other critical stats, including member usage, guest usage, and tanning usage, are now included in the <a href="/club/club-at-a-glance-init">Club At A Glance</a> page.</p>
+        </div>
+        <div class="align-right pad"> <a href="javascript:void(0)" class=" btn btn-secondary btn-close" data-original-title="">close</a> </div>
+      </div>
+		
+		<div id="reportsList"></div>
+		
+		
+      
+ 
+      <div>
+      </div>
+      
+      
+    </div>
+    <div id="sticky-anchor" class="col-md-3">
+      <div id="sticky" class="nav-right">
+        <multi-club-selector params="snippets: Snippets.clubSelectorSnippets,
+                                         settings: Settings, interface: ClubSelector,
+                                         isLoaded: ko.observable(true),
+                                         isShowVisible: false,
+                                         isCurrentUserCorporate: Settings.params.isCurrentUserCorporate"><a data-bind="attr: {'data-original-title': Snippets.title }, css: { disabled: !IsLoaded() || IsClubsLoading() }, click: ToggleVisibility" id="select-clubs" class="btn btn-primary btn-block" href="javascript:void(0)" data-placement="left" data-original-title="select clubs to display">
+    <span data-bind="text: SelectClubsMessage() || Snippets.selectClubsMessage">no clubs selected</span>
+    <span class="caret d-none" data-bind="visible: !IsClubsLoading()" style=""></span>
+    <img src="/Content/images/icon-spinner-white.gif" alt="loading" data-bind="visible: IsClubsLoading" style="display: none;">
+</a>
+<div class="menu-clubs multi-clubs-selector" data-bind="slideVisible: IsLoaded() &amp;&amp; IsVisible()" style="display: block;">
+    <input class="search-query roundest" type="text" data-bind="value: ClubToFind, valueUpdate: ['input', 'afterkeydown'], attr: { placeholder: Snippets.searchQueryPlaceHolder}" placeholder="Filter by city or club #">
+    <div class="select-all" data-bind="visible: IsCorporate() === false" style="display: none;">
+        <span data-bind="text: Snippets.selectAllMessage">select all</span>
+        <span type="button" class="btn btn-check" id="btnAll" data-bind="click: SelectAll, css: { active: AreAllClubsSelected }"></span>
+    </div>
+    <div class="menu-clubs-list">
+        <table class="table clear">
+            <thead>
+            <!-- ko foreach: ClubsSelected --><!-- /ko -->
+            </thead>
+            <tbody>
+            <!-- ko foreach: Clubs -->
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">2585</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">1482</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">Aberdeen, WA</span>
+                    <br>
+                    (<span data-bind="text: Street1">2700 Simpson Ave</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">982</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">1677</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">Brigham City, UT</span>
+                    <br>
+                    (<span data-bind="text: Street1">35 Skyline Dr</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">1980</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">2709</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">Patterson, CA</span>
+                    <br>
+                    (<span data-bind="text: Street1">1075 Sperry Ave</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">2157</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">2848</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">Spring Creek, NV</span>
+                    <br>
+                    (<span data-bind="text: Street1">278 Spring Creek Pkwy</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">2378</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">1981</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">Zephyr Cove, NV</span>
+                    <br>
+                    (<span data-bind="text: Street1">212 Elks Point Rd</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">735</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">1348</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">Windsor, CA</span>
+                    <br>
+                    (<span data-bind="text: Street1">6422 Old Redwood Hwy</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">311</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">1122</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">Ammon, ID</span>
+                    <br>
+                    (<span data-bind="text: Street1">1615 S Midway Ave</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">2417</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">2919</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">Morgan Hill, CA</span>
+                    <br>
+                    (<span data-bind="text: Street1">715 Cochrane Rd</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">2687</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">1060</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">Redlands, CA</span>
+                    <br>
+                    (<span data-bind="text: Street1">500 N Orange St</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">2705</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">3039</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">Tucson, AZ (8868 Tanque Verde Rd)</span>
+                    <br>
+                    (<span data-bind="text: Street1">8868 Tanque Verde Rd</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">337</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">1680</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">McCalla, AL</span>
+                    <br>
+                    (<span data-bind="text: Street1">4955 McAdory School Rd</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">119</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">1952</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">Newington, CT</span>
+                    <br>
+                    (<span data-bind="text: Street1">3310 Berlin Tpke</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">2754</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">3108</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">Winnipeg, MB (Lorimer Blvd)</span>
+                    <br>
+                    (<span data-bind="text: Street1">980 Lorimer Blvd</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">1836</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">2168</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">Stevensville, MI</span>
+                    <br>
+                    (<span data-bind="text: Street1">5643 Cleveland Ave</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">2515</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">3384</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">Pittsburgh, PA (251 Mt. Nebo Pointe Dr)</span>
+                    <br>
+                    (<span data-bind="text: Street1">251 Mt. Nebo Pointe Dr</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">1816</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">2929</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">Muncie, IN</span>
+                    <br>
+                    (<span data-bind="text: Street1">3600 S Chandler Dr</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">2107</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">3174</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">Woodbridge, VA</span>
+                    <br>
+                    (<span data-bind="text: Street1">12751 Marblestone Dr</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">2699</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">1043</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">Trussville, AL</span>
+                    <br>
+                    (<span data-bind="text: Street1">322 Main St</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">919</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">1372</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">Stephens City, VA</span>
+                    <br>
+                    (<span data-bind="text: Street1">640 Warrior Dr</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">934</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">1324</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">Blythewood, SC</span>
+                    <br>
+                    (<span data-bind="text: Street1">715 University Vlg Dr</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">1960</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">2780</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">Kensington, MD</span>
+                    <br>
+                    (<span data-bind="text: Street1">4265 Howard Ave</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">1349</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">2045</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">Jackson, MS</span>
+                    <br>
+                    (<span data-bind="text: Street1">4924 I-55 N</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">2098</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">2942</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">New Castle, PA</span>
+                    <br>
+                    (<span data-bind="text: Street1">3443 Wilmington Rd</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">1936</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">2188</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">Lebanon, OH</span>
+                    <br>
+                    (<span data-bind="text: Street1">1525 Genntown Dr</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">1843</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">2222</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">Titusville, FL</span>
+                    <br>
+                    (<span data-bind="text: Street1">722 Cheney Hwy</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">24</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">1930</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">Martinez, GA (Fury's Ferry Rd)</span>
+                    <br>
+                    (<span data-bind="text: Street1">341 Fury's Ferry Rd.</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">464</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">1613</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">Chelsea, AL</span>
+                    <br>
+                    (<span data-bind="text: Street1">16054 Hwy. 280</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">629</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">1227</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">Fort Mill, SC</span>
+                    <br>
+                    (<span data-bind="text: Street1">855 Gold Hill Rd</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">922</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">2673</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">Madras, OR</span>
+                    <br>
+                    (<span data-bind="text: Street1">212 SW 4th St</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            
+            <tr data-bind="click: $parent.SelectItem">
+                <td>
+                    <span data-bind="text: Number">2298</span>
+                    <br>
+                    <span data-bind="text: BillingNumber">2862</span>
+                </td>
+                <td>
+                    <span data-bind="text: Name">Peachtree City, GA</span>
+                    <br>
+                    (<span data-bind="text: Street1">1259 N Peachtree Pkwy</span>)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-check" id="btn"></button>
+                </td>
+            </tr>
+            <!-- /ko -->
+            </tbody>
+        </table>
+    </div>
+    <div data-bind="if: Clubs().length == 0 &amp;&amp; ClubsSelected().length == 0"></div>
+    <div class="clear align-center padtop15 show-clubs-message-container" data-bind="visible: IsShowVisible" style="display: none;">
+        <a class="btn btn-success btn-full" data-bind="text: Snippets.showClubsMessage, click: OnClubsShow">show</a>
+    </div>
+</div>
+<warning-banner params="IsBannerVisible: IsTrainingClubSelected, Message: Snippets.trainingClubUsageWarning"><div data-bind="slideVisible: IsBannerVisible" class="text-red-dark pad " style="display: none;">
+    <small>
+        <i style="margin-left: -16px;" class="icom-warning"></i>
+        <span data-bind="html: Message"><strong>You have selected a TRAINING CLUB. </strong> Any changes you make will not affect your Home Club</span>
+    </small>
+</div></warning-banner></multi-club-selector>
+        <hr />
+        <div class="float padtop10"> <span class="col-sm-3">
+          <div style="width: 75px; float: left;">start date:</div>
+          <input type="text" id="startDate" name="startDate" value="4/13/2019" size="14" class="" data-bind="datepicker: StartDate, value: StartDate">
+          </span> <span class="span">
+          <div style="width: 75px; float: left;">end date:</div>
+          <input type="text" id="endDate" name="endDate" value="5/13/2019" size="14" class="" data-bind="datepicker: EndDate, value: EndDate">
+          </span> </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Delete Report Modal -->
+  
+  <div id="delete-report-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-d-none="true">
+    <div class="modal-body">
+      <p> Are you sure you want to remove this report from the queue? </p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" data-dismiss="modal" aria-d-none="true">cancel</button>
+      <button class="btn btn-danger" data-dismiss="modal" id="delete-report" data-bind="click: deleteReports" data-queue="0">delete report</button>
+    </div>
+  </div>
+</div>
+</main>
+<div id="footer">
+<p class="float" style="color: #999999;"> © <script>var d=new Date(); yr=d.getFullYear();if (yr!=1998)document.write(""+yr);</script> Anytime Fitness, LLC | 111 Weir Drive | Woodbury, MN 55125 
+  
+  
+
+
+    <!-- Error Modal -->
+  
+<div id="error-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel" aria-d-none="true" style="display: none;">
+  <div class="modal-body">
+    <p></p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-secondary" data-dismiss="modal" aria-d-none="true">close</button>
+  </div>
+</div>
+<link type="text/css" rel="stylesheet" href="//fast.fonts.net/cssapi/497cd0f0-7b80-4572-b992-2abc27b555a9.css"/>
+	
+		<script src="https://anytimefitness.blob.core.windows.net/shared-assets/pds/js/jquery-3.3.1.min.js"></script>
+	<script src="https://anytimefitness.blob.core.windows.net/shared-assets/pds/js/popper.min.js"></script>
+	<script src="https://anytimefitness.blob.core.windows.net/shared-assets/pds/js/bootstrap.min.js"></script>
+	
+<script type="text/javascript">
+
+        var localeCulture = "";
+
+
+
+
+
+        require(['jquery', 'knockout', 'modules/reports/ReportsViewModel', 'modules/common/binders/tooltipBinder', localeCulture], function($, ko, ReportsViewModel) {
+
+        
+
+
+
+            var parameters = {
+
+                isCurrentUserCorporate: true,
+
+                reportsGuestUsageId: 14,
+
+                reportsTransferMembersId: 22,
+
+                guestUsageDateRange:  30,
+
+                transferMembersDateRange: 90,
+
+                culture: 'en-US',
+
+                iconSpinnerUrl: '/Content/images/icon-spinner.gif',
+
+                dateFormat: 'M/D/YYYY',
+
+                getClubsUrl: '/club/clubs',
+
+                checkReportQueuesStatusUrl: '/club/reports/reportIsComplete',
+
+                checkManyReportQueuesStatusUrl: '/club/reports/reportsAreComplete',
+
+                queueReportUrl: '/club/reports/QueueReport',
+
+                deleteReportsUrl: '/club/reports/delete',
+
+                dashboardCultureID: 1
+
+            };
+
+
+
+            var viewModel = new ReportsViewModel(parameters, snippets);
+
+            ko.applyBindings(viewModel);
+
+        });
+
+    </script> 
+<script type="text/javascript">
+
+            require(['modules/common/searchService'], function (searchService) { searchService.initialize(); });
+
+        </script> 
+<script>
+
+    </script> 
+<script>
+
+            function isMobileView() {
+
+                if (window.innerWidth <= 800 && window.innerHeight <= 900) {
+
+                    return true;
+
+                } else {
+
+                    return false;
+
+                }
+
+            }
+
+
+
+            function isIOS() {
+
+                var iDevices = [
+
+                    'iPad Simulator',
+
+                    'iPhone Simulator',
+
+                    'iPod Simulator',
+
+                    'iPad',
+
+                    'iPhone',
+
+                    'iPod'
+
+                ];
+
+
+
+                if (navigator.platform) {
+
+                    while (iDevices.length) {
+
+                        if (navigator.platform === iDevices.pop()) {
+
+                            return true;
+
+                        }
+
+                    }
+
+                }
+
+
+
+                return false;
+
+            }
+
+
+
+            function setupMobileMenuDoubleTap() {
+
+                var menuLinks = document.querySelectorAll('.nav a');
+
+
+
+                for (var i = 0; i < menuLinks.length; i++) {
+
+                    menuLinks[i].addEventListener('click',
+
+                        function(e) {
+
+                            var $el = $(this);
+
+
+
+                            if ($el.hasClass('prev-tapped')) {
+
+                                return;
+
+                            } else {
+
+                                e.preventDefault();
+
+                                $('.nav a').removeClass('prev-tapped');
+
+                                $el.addClass('prev-tapped');
+
+                            }
+
+                        });
+
+                }
+
+            }
+
+
+
+            if (isMobileView() && !isIOS()) {
+
+                setupMobileMenuDoubleTap();
+
+            }
+
+        </script> 
+<script type="text/javascript">
+
+var data = { "reports":[ 
+
+	
+
+//ALABAMA
+
+
+
+{
+
+          "id": "virtual-coach",
+          "name": "coaching report (beta) without retention score",
+          "desc": "BETA - Displays a list of coaches for the selected club(s) and a summary of the data and stats for each client. **NOTE: The Retention Score data on this specific report is currently not up to date."
+ 	},{
+          "id": "most-active-members",
+          "name": "Most Active Members",
+          "desc": "Displays a list of the 15 Most Active members in the club."        
+ },
+	{
+
+          "id": "retention-score",
+          "name": "Retention Score",
+          "desc": "Displays a list of members with their retention score on the date selected in the End Date. The retention score at any given time is comprised of the member's engagement over the previous 30 days."
+ 	},	
+	{
+
+          "id": "member-usage-report",
+          "name": "member usage report",
+          "desc": "Displays a list of members with totals of their usage based on the selected time period."
+ 	},
+	{
+
+          "id": "member-usage-report-unique-days",
+          "name": "member usage report (unique days)",
+          "desc": "Displays a list of members that only includes one visit to the club per day, even if the member had more than one door swipe."
+ 	},
+	{
+
+          "id": "guest-usage-report",
+          "name": "guest usage report",
+          "desc": "This report displays all guests and each time they accessed your club. The link to RELOCATE a member will be available for up to three (3) hours from the time the report is generated. Please process any relocation within that time frame."
+ 	},
+	{
+
+          "id": "full-usage-report",
+          "name": "full usage report",
+          "desc": "Displays all visits to your club based on the selected time period."
+ 	},
+	{
+
+          "id": "demographic-report",
+          "name": "demographic report",
+          "desc": "Displays a list of all Green and Yellow members in the selected club. The link to RELEASE a member will be available for up to three (3) hours from the time the report is generated. Please process any release within that time frame."
+ 	},
+	{
+
+          "id": "transfer-eligible-report",
+          "name": "eligible for transfer",
+          "desc": "Displays a list of members who over the past 60 days have used your club more than 50% of the time, or over past 90 days have used your club 100% of the time.The link to TRANSFER a member will be available for up to three (3) hours from the time the report is generated. Please process any eligible transfers within that time frame."
+ 	},
+	{
+
+          "id": "my-transfer-report",
+          "name": "my transfers",
+          "desc": "Displays a list of all transfers requested to the selected clubs on the selected time period."
+ 	},
+	{
+
+          "id": "member-abuse-report",
+          "name": "member abuse report",
+          "desc": "Displays a list of members with unusual usage patterns, e.g., multiple visits per day repeated multiple times per reporting period."
+ 	},
+	{
+
+          "id": "digital-leads",
+          "name": "Digital Leads",
+          "desc": "Displays a list of potential members who have submitted an inquiry or requested a pass."
+ 	},
+	{
+
+          "id": "non-usage-report",
+          "name": "member non-usage report",
+          "desc": "Displays a list of potential members who have submitted an inquiry or requested a pass."
+ 	},
+	{
+
+          "id": "map-members-report",
+          "name": "map my members",
+          "desc": "Displays a map with the club location and the locations of its members."
+ 	},
+	{
+
+          "id": "clubhub-sales-report",
+          "name": "Digital Membership Sales Report (Club Hub Sales Report)",
+          "desc": "Displays stats about digital membership agreements created via Club Hub iOS and Online Signup."
+ 	},
+	{
+
+          "id": "agreement-history-report",
+          "name": "Agreement History Report",
+          "desc": "Displays information about agreement changes made using Club Hub iOS during the selected date range. If the selected club(s) are not using Club Hub iOS, the report will return no data."
+ 	}
+	
+
+]}
+
+	
+
+	
+
+	
+
+    var output="<ul class='list-group list-group-flush'>";
+
+    for (var i in data.reports) {
+
+        output+='<li id="'+data.reports[i].id+'" class="list-group-item"><div class="row"><div class="col-md-2"><div class="box-icon margin"></div></div><div class="col-md-7"><div class=""><h3>'+data.reports[i].name+'</h3><p>'+data.reports[i].desc+'</p></div></div><div class="col-md-3"><button class="btn btn-secondary btn-block" data-bind="" data-id="23" data-typed="false" data-report="#tbl-'+data.reports[i].id+'"> queue <span class="d-md-none d-lg-inline">report</span> <img class="d-none" data-bind="" src="/Content/images/icon-spinner.gif" alt="processing" width="20" height="20"> </button></div></div><button class="btn btn-block p-0 border-0 bg-gray" type="button" data-toggle="collapse" data-target="#toggle-'+data.reports[i].id+'" aria-expanded="false" aria-controls="#toggle-'+data.reports[i].id+'"><i class="icom-caret-down"></i> report history</button><div id="toggle-'+data.reports[i].id+'" class="report-details collapse"><table id="#tbl-'+data.reports[i].id+'" data-reportid="23" name="#tbl-'+data.reports[i].id+'" width="100%" border="0" style="width: 100%; border-collapse: collapse;" class="table table-striped table-bordered report "><tr><th class="derp align-left"> <label class="slickcheck m-0 clear-checks"> <input type="checkbox" data-bind="click: SelectAllReports"><div class="checkbox"></div> <span class="fake-label"> <span class="mobile-label">all</span> </span> </label> <a class="btn btn-sm btn-danger delete-report icom-trash" style="display:none;" href="#delete-report-modal" role="button" data-toggle="modal" data-original-title="delete this report" data-bind="click: DeleteSelectedReports"> </a></th><th>requested</th><th>club(s)</th><th>date range</th><th>&nbsp;</th></tr><tr id="tr-2926771" data-queue="2926771" data-typed="false" style="border-bottom: 1pt solid #dddddd;"><td class="delete-report align-left"><label class="slickcheck m-0"> <input type="checkbox" data-queue="2926771" data-bind="click: SelectReport"><div class="checkbox"></div> </label> <a class="btn btn-sm btn-secondary text-muted delete-report icom-trash" href="#delete-report-modal" data-queue="2926771" data-toggle="modal" role="button" data-original-title="delete this report" data-bind="click: DeleteSingleReport"> </a></td><td>3/7/2018 11:36:57 PM</td><td>1677</td><td><span class="">2/5/2018-3/7/2018</span></td><td id="td-2926771" align="right"><a class="btn btn-sm btn-primary floatright" href="/club/reports/most-active-members/2926771?hidemenu=true&amp;isStronglyTyped=false" target="_blank">view report</a></td></tr><tr id="tr-2926781" data-queue="2926781" data-typed="false" style="border-bottom: 1pt solid #dddddd;"><td class="delete-report align-left"><label class="slickcheck m-0"> <input type="checkbox" data-queue="2926781" data-bind="click: SelectReport"><div class="checkbox"></div> </label> <a class="btn btn-sm btn-secondary text-muted delete-report icom-trash" href="#delete-report-modal" data-queue="2926781" data-toggle="modal" role="button" data-original-title="delete this report" data-bind="click: DeleteSingleReport"> </a></td><td>3/7/2018 11:42:31 PM</td><td>1677</td><td><span class="">2/5/2018-3/7/2018</span></td><td id="td-2926781" align="right"><a class="btn btn-sm btn-primary floatright" href="/club/reports/most-active-members/2926781?hidemenu=true&amp;isStronglyTyped=false" target="_blank">view report</a></td></tr></table></div></li>';
+
+    }
+
+    output+="</ul>";
+
+
+
+    document.getElementById("reportsList").innerHTML=output;
+
+	
+	
+	$('[data-report="#tbl-virtual-coach"]').text('open report').addClass('btn-primary').removeClass('btn-secondary')
+
+
+
+    </script>
+</body>
+
+<!-- Current culture en-US (cid: 1, lid: 1) -->
+
+</html>

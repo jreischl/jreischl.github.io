@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reporting | Anytime Fitness Dashboard</title>
+
+	
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/fontawesome.css">	
+	<link rel="stylesheet" href="../css/custom.css">
+	<link rel="stylesheet" href="../css/fonts.css">
+	<link rel="stylesheet" href="css/db.css">
+	<style>
+		.badge-status {
+			width: 10em
+		}
+		.badge-paid {
+			border-radius: 100%;			
+			display: inline-block;
+			background: green;
+			color: #fff;
+			font-size: .5em;
+			height: 1.5em;
+			width: 1.5em;
+			text-align: center;
+			line-height: 1.5em;
+			vertical-align: middle;
+			position: relative;
+			top: -.5em
+		}
+		
+		[data-list="generated"] li {
+		 	transition:background-color 0.5s ease;
+		}
+		li.highlight {
+			background-color:rgba(248,255,0,.25); 
+		}
+		
+		
+		/* This page only */
+		.btn-lg {
+			width: 100%;
+			max-width: 8em;
+			margin: .25em
+		}
+		.btn-lg small {
+			font-size: .6em;
+		}
+		
+		
+				
+	</style>
+</head>
+	<body class="d-md-flex">
+<header></header>
+<nav id="navbar" class="sidebar"></nav>		
+	<main class="container-fluid">
+		<div class="ml-md-3">
+		<nav aria-label="breadcrumb">
+  <ol class="breadcrumb bg-white">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Club</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Reporting</li>
+  </ol>
+</nav>
+		<div class="jumbotron bg-dark text-white ">
+  <div class="container">
+	  <div class="d-sm-flex">
+	  <i class="icom-line-graph display-1 mr-4" style="opacity: .25"></i>
+    <div><h1 class="display-4">Reporting</h1>
+    <p class="lead">Get a bird's eye view of your club's performance.</p>
+    <p> <a href="#" class="link-reverse">Learn how to make reports work for you in the Help Center <i class="pl-2 icom-angle-right"></i></a></p>
+		  </div>
+		  </div>
+  </div>
+</div>
+		<div class="row">
+		<aside class=" p-3 col-xl-3 col-lg-4">
+			
+			<div class="card bg-light mb-4">
+					<div class="card-header"><span class="heading">GENERATOR Settings</span></div>
+					
+					<div class="card-body">
+					<div class="row">
+						<div class="col-sm-6 form-group">
+						<label for="start-date" class=""><strong>Start Date</strong></label>
+						<input type="text" id="start-date" class="date-picker form-control form-control-sm" placeholder="Jan 1, 2019">
+					</div>
+					<div class="col-sm-6 form-group">
+						<label for="end-date"><strong>End Date</strong></label>
+						<input type="text" id="end-date" class="date-picker form-control form-control-sm" placeholder="Jan 31, 2019">
+					</div>
+					<div class="col-sm-12"><strong>Selected Clubs </strong>
+					<ul class="list-inline">
+						<li class="list-inline-item">
+												Woodbury, MN (Tamarack)<br>
+						</li>
+					</ul>
+						<a href="#select-clubs-modal" data-toggle="modal" data-target="#select-clubs-modal" class="btn btn-block btn-sm btn-primary" data-action="Select Clubs">Select Clubs</a>
+						</div>
+				  	</div>
+
+					
+						</div>
+				</div>		
+						
+
+			<div class="row">				
+				<div class="col-xl-12">
+					<h2 class="heading"><strong>Recent</strong></h2>
+			<ul class="list-unstyled list-ruled m-0">
+				<li class="p-2 d-sm-flex position-relative align-items-start"><i class="icom-check-circle text-success mr-2 mt-2"></i>
+					<div class="flex-grow-1"><div><strong>Club Hub Sales</strong><br>
+ Jan 1, 2019 –&nbsp;Jan 31, 2019</div> <small>Clubs: 1677</small></div> <a data-action="jump-to-report" data-collection="#reports_group_2" data-report="#variable_5" href="#report123" class="btn-takeover"><span class="sr-only">Manage Report</span></a></li>
+				<li class="p-2 d-sm-flex position-relative align-items-center"><img src="http://anytimefitness.blob.core.windows.net/shared-images/16x16/loader-on-white.gif" alt="loading" class="mr-2 mt-2">
+					<div class="flex-grow-1">
+ <div><strong>Eligible for Transfer</strong><br>
+ Jan 1, 2019 –&nbsp;Jan 31, 2019</div> 
+ <small>Clubs: 1677</small></div> <a data-action="jump-to-report" data-collection="#reports_group_1" data-report="#variable_1" href="#report1" class="btn-takeover"><span class="sr-only">Manage Report</span></a></li>
+			</ul>
+				</div>
+				
+</div>
+			
+			</aside>
+		<article class=" p-3  col-xl-9 col-lg-8">
+			<div class="container p-0 float-left">
+				<input id="search-reports" class="form-control mb-4" type="search" placeholder="Find a report" aria-label="Find a report">
+			  <h1 class="heading"><strong>Reports by type</strong></h1>				
+				
+				<section class="card mb-2 bg-light">
+				<h2 class="subheading m-0"><a class="card-header d-block " id="" data-toggle="collapse" href="#reports_group_members" role="button" aria-expanded="true" aria-controls="reports_group_members">
+						<i class="indicator-collapse"></i> People
+					</a></h2>
+				<ul class="collapse show p-sm-4 p-2 list-inline mb-0" id="reports_group_members" >
+					
+					
+					<li data-report class="d-sm-flex justify-content-between align-items-start">
+                    <div class="mx-2 text-center"><span class="list-icon icom-people" style="font-size:1.75rem"></span></div>
+                    <div class="mx-2  flex-grow-1">
+                        <div class="d-sm-flex align-items-start">
+                        <div class="mr-sm-4 flex-grow-1">
+                            <h3 class="h4">Members by Type</h3>
+                            <p>Displays a current list of your members, filterable by type.</p>
+                          </div>
+                        </div>
+                        <button class="btn btn-primary m-1"> All Active</button><button class="btn btn-success m-1"> Green</button><button class="btn btn-warning m-1">Yellow</button><button class="btn btn-danger m-1">Red</button><button class="btn btn-info m-1">Frozen</button><button class="btn btn-secondary m-1"><i class="icom-gift"></i> Comp</button><button class="btn btn-secondary m-1"><i class="icom-refresh"></i> Reactivated</button><button class="btn btn-secondary m-1"><i class="icom-sleep"></i> Inactive</button><span class="nowrap"><button class="btn btn-secondary m-1"><i class="icom-filebox"></i> Archived</button><button class="btn btn-secondary m-1"><i class="icom-badge"></i> Staff</button><button class="btn btn-secondary m-1"><i class="icom-spinner"></i> Pending</button></span>
+                        <hr>
+                      </div>
+                  </li>
+					<li data-report class="d-sm-flex justify-content-between align-items-start">
+                    <div class="mx-2 text-center"><span class="list-icon icom-handshake" style=""></span></div>
+                    <div class="mx-2  flex-grow-1">
+                        <div class="d-sm-flex align-items-start">
+                        <div class="mr-sm-4 flex-grow-1">
+                            <h3 class="h4">Prospects by Type</h3>
+                            <p>Displays a current list of your prospective members, filterable by type.</p>
+                          </div>
+                        </div>
+                        <button class="btn btn-primary m-1"> All Prospects</button><button class="btn btn-secondary m-1"><i class="icon-star"></i> New Prospects</button><button class="btn btn-secondary m-1"><i class="icon-busy1"></i> Trial Member</button><button class="btn btn-secondary m-1"><i class="icom-warning"></i> Expired Trial</button><span class="nowrap"><button class="btn btn-secondary m-1"><i class="icon-question"></i> No Show</button><button class="btn btn-secondary m-1"><i class="icon-missed-sales"></i> Missed Sales</button><button class="btn btn-secondary m-1"><i class="icom-no"></i> Not Interested</button></span>
+                        <hr>
+                      </div>
+                  </li>
+					
+					
+					
+					
+					
+				</ul>
+			</section>
+			  
+			
+			<section class="card mb-2 bg-light">
+					<h2 class="subheading m-0"><a class="card-header d-block " id="" data-toggle="collapse" href="#reports_group_1" role="button" aria-expanded="true" aria-controls="reports_group_1">
+						<i class="indicator-collapse"></i> Transfers & Digital Leads
+					</a></h2>
+					<ul class="collapse show p-sm-4 p-2" id="reports_group_1">
+											
+					</ul>
+					
+			</section>	
+				<section class="card mb-2 bg-light">
+					<h2 class="subheading m-0"><a class="card-header d-block" id="" data-toggle="collapse" href="#reports_group_2" role="button" aria-expanded="true" aria-controls="reports_group_1">
+						<i class="indicator-collapse"></i> Club Hub Sales
+					</a></h2>
+					<ul class="collapse show p-sm-4 p-2" id="reports_group_2">
+											
+					</ul>
+					
+			</section>	
+				<section class="card mb-2 bg-light">
+					<h2 class="subheading m-0"><a class="card-header d-block" id="" data-toggle="collapse" href="#reports_group_3" role="button" aria-expanded="true" aria-controls="reports_group_1">
+						<i class="indicator-collapse"></i> Member Usage
+					</a></h2>
+					<ul class="collapse show p-sm-4 p-2" id="reports_group_3">
+											
+					</ul>
+					
+			</section>	
+				<section class="card mb-2 bg-light">
+					<h2 class="subheading m-0"><a class="card-header d-block " id="" data-toggle="collapse" href="#reports_group_4" role="button" aria-expanded="true" aria-controls="reports_group_1">
+						<i class="indicator-collapse"></i> Member Information
+					</a></h2>
+					<ul class="collapse show p-sm-4 p-2" id="reports_group_4">
+											
+					</ul>
+					
+			</section>	
+				<section class="card mb-2">
+					<h2 class="subheading m-0"><a class="card-header text-white bg-dark d-block" id="" data-toggle="collapse" href="#reports_group_5" role="button" aria-expanded="true" aria-controls="reports_group_1">
+						<i class="indicator-collapse"></i> Corporate
+					</a></h2>
+					<ul class="collapse show p-sm-4 p-2" id="reports_group_5">
+											
+					</ul>
+					
+			</section>	
+		<div class="collapse show p-sm-4 p-2" id="reports_queue">This is just here to queue the reports before they get sorted.</div>
+				
+		</div>				
+		</article>
+		</div>
+	</div>
+	</main>	
+		<!-- Generate Report Modal --> 
+		<div class="modal fade" id="select-clubs-modal" tabindex="-1" role="dialog" aria-labelledby="select-clubs-modal-label" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h3 class="modal-title h5" id="select-clubs-modal-label">Select Clubs</h3>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+				 
+				
+				 
+				  
+  			    <div class="d-flex justify-content-between align-items-center my-2"><input id="find-club" class="form-control form-control-sm" type="search" placeholder="Find a club" aria-label="Find a club"><label class="slickcheck ml-2 mb-0 nowrap"><small class="">Select All</small><input id="all-clubs" type="checkbox"><i class="checkbox m-2"></i></label></div>
+					<div id="club-selector"  style="max-height: 45vh; overflow: auto">
+					<ul id="selected-clubs" class="list-unstyled list-ruled-light bg-gray">						
+						
+					</ul>	
+					<ul id="unselected-clubs" class="list-unstyled list-ruled">
+					  <li>
+						  <label class="d-flex p-2 justify-content-between slickcheck">
+							  <span><div>Aoodbury, MN (Tamarack)</div>
+							  <small>AF: 2858 – ABC: 1482</small>
+							  </span>
+							  <input type="checkbox">
+							  <i class="checkbox"></i>
+						  </label>
+					  </li>
+					  <li>
+						  <label class="d-flex p-2 justify-content-between slickcheck">
+							  <span><div>Boodbury, MN (Tamarack)</div>
+							  <small>AF: 2858 – ABC: 1482</small>
+							  </span>
+							  <input type="checkbox">
+							   <i class="checkbox"></i>
+						  </label>
+					  </li>
+						 <li>
+						  <label class="d-flex p-2 justify-content-between slickcheck">
+							  <span><div>Coodbury, MN (Tamarack)</div>
+							  <small>AF: 2858 – ABC: 1482</small>
+							  </span>
+							  <input type="checkbox">
+							 <i class="checkbox"></i>
+						  </label>
+					  </li>
+						 <li>
+						  <label class="d-flex p-2 justify-content-between slickcheck">
+							  <span><div>Doodbury, MN (Tamarack)</div>
+							  <small>AF: 2858 – ABC: 1482</small>
+							  </span>
+							  <input type="checkbox">
+							  <i class="checkbox"></i>
+						  </label>
+					  </li>
+						 <li>
+						  <label class="d-flex p-2 justify-content-between slickcheck">
+							  <span><div>Woodbury, MN (Tamarack)</div>
+							  <small>AF: 2858 – ABC: 1482</small>
+							  </span>
+							  <input type="checkbox">
+							  <i class="checkbox"></i>
+						  </label>
+					  </li>
+					  
+				  </ul>					  
+					</div>
+				
+
+				  
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Done</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	<footer id="footer"></footer>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/popper.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="js/dashboard.js"></script>
+
+
+		
+<!-- For Datepicker -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">		
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>	
+		<script>
+	
+			
+
+$(function() {
+	$('.collapse').collapse('hide');
+	
+	//  Load Reports
+var data = { "reports":[            
+	
+	{
+		"id" : "1",
+        "name": "Eligible for Transfer",
+		"icon": "icom-transfer-eligible",
+		"blurb": "Displays a list of members who over the past 60 days have used your club more than 50% of the time, or over past 90 days have used your club 100% of the time.",
+		"collection" : "1"
+		
+ 	},
+	{
+		"id" : "2",
+        "name": "My Transfers",
+		"icon": "icom-arrows-h",
+		"blurb": "Displays a list of all transfers requested to the selected clubs on the selected time period.",
+		"collection" : "1"
+		
+ 	},
+	{
+		"id" : "3",
+        "name": "Guest Usage",
+		"icon": "icom-guest",
+		"blurb": "This report displays all guests and each time they accessed your club. <small class='text-danger d-block mt-2'>The link to RELOCATE a member will be available for up to three (3) hours from the time the report is generated. Please process any relocation within that time frame.</small>",
+		"collection" : "1"
+		
+ 	},
+	{
+		"id" : "4",
+        "name": "Digital Leads",
+		"icon": "icom-marketing",
+		"blurb": "Displays a list of potential members who have submitted an inquiry or requested a pass.",
+		"collection" : "1"
+		
+ 	},
+	{
+		"id" : "5",
+        "name": "Club Hub Sales",
+		"icon": "icom-ch-ipad",
+		"blurb": "Displays stats about agreements created using Club Hub iOS.",
+		"collection" : "2"
+		
+ 	},
+	{
+		"id" : "6",
+        "name": "Agreement History",
+		"icon": "icom-agreement-history",
+		"blurb": "Displays information about agreement changes made using Club Hub iOS during the selected date range. If the selected club(s) are not using Club Hub iOS, the report will return no data.",
+		"collection" : "2"
+		
+ 	},
+	{
+		"id" : "7",
+        "name": "Most Active Members",
+		"icon": "icom-trophy",
+		"blurb": "Displays a list of the 15 Most Active members in the club.",
+		"collection" : "3"
+		
+ 	},
+	{
+		"id" : "8",
+        "name": "Member Usage",
+		"icon": "icom-silhouette",
+		"blurb": "Displays a list of members with totals of their usage based on the selected time period.",
+		"collection" : "3"
+		
+ 	},
+	{
+		"id" : "9",
+        "name": "Member Usage (Unique Days)",
+		"icon": "icom-date",
+		"blurb": "Displays a list of members that only includes one visit to the club per day, even if the member had more than one door swipe.",
+		"collection" : "3"
+		
+ 	},
+	{
+		"id" : "10",
+        "name": "Full Usage",
+		"icon": "icom-fob",
+		"blurb": "Displays all visits to your club based on the selected time period.",
+		"collection" : "3"
+		
+ 	},
+	{
+		"id" : "11",
+        "name": "Member Abuse",
+		"icon": "icom-warning",
+		"blurb": "Displays a list of members with unusual usage patterns, e.g., multiple visits per day repeated multiple times per reporting period.",
+		"collection" : "3"
+		
+ 	},
+	{
+		"id" : "12",
+        "name": "Member Non-Usage",
+		"icon": "icom-sleep",
+		"blurb": "Displays a list of members who have not used the club during the selected time period.",
+		"collection" : "3"
+		
+ 	},
+	{
+		"id" : "13",
+        "name": "Demographic",
+		"icon": "icom-earth",
+		"blurb": "Displays a list of all Green and Yellow members in the selected club. <small class='text-danger d-block mt-2'>The link to RELEASE a member will be available for up to three (3) hours from the time the report is generated. Please process any release within that time frame.</small>",
+		"collection" : "4"
+		
+ 	},
+	{
+		"id" : "14",
+        "name": "Retention Score",
+		"icon": "icon-retention-score",
+		"blurb": "Displays a list of members with their retention score on the date selected in the End Date. The retention score at any given time is comprised of the member's engagement over the previous 30 days.",
+		"collection" : "4"
+		
+ 	},
+	{
+		"id" : "15",
+        "name": "Map My Members",
+		"icon": "icom-globe-pin",
+		"blurb": "Displays a map with the club location and the locations of its members.",
+		"collection" : "4"
+		
+ 	},
+	{
+		"id" : "16",
+        "name": "App Engagement",
+		"icon": "icom-iphone",
+		"blurb": "Something something something App Engagement",
+		"collection" : "5"
+		
+ 	},
+	{
+		"id" : "17",
+        "name": "Conference",
+		"icon": "icom-firework",
+		"blurb": "Something something something Conference",
+		"collection" : "5"
+		
+ 	},
+	{
+		"id" : "18",
+        "name": "Marketing Campaign",
+		"icon": "icom-dart-target",
+		"blurb": "Something something something Marketing Campaign",
+		"collection" : "5"
+		
+ 	},
+	{
+		"id" : "19",
+        "name": "In-Club Workshop",
+		"icon": "icom-conference-speaker",
+		"blurb": "Something something something In-Club Workshop",
+		"collection" : "5"
+		
+ 	},
+	
+	   ]}
+
+ 	var output="<ul class='list-unstyled'>";
+
+    for (var i in data.reports) {
+	// load the report types
+        output+='<li data-report="'+data.reports[i].collection+'" class="d-sm-flex justify-content-between align-items-start"><div class="mx-2 text-center"><span class="list-icon '+data.reports[i].icon+'"></span></div><div class="mx-2  flex-grow-1"><div class="d-sm-flex align-items-start"><div class="mr-sm-4 flex-grow-1"><h3 class="h4">'+data.reports[i].name+'</h3><p>'+data.reports[i].blurb+'</p></div><a href="#generate-report" data-toggle="modal" data-target="#generate-report" class="btn btn-primary d-block mb-2" data-action="Generate '+data.reports[i].name+'">Generate Report</a></div><a class="" data-toggle="collapse" href="#variable_'+data.reports[i].id+'" role="button" aria-expanded="false" aria-controls="variable_'+data.reports[i].id+'"><i class="indicator-collapse"></i>Generated Reports</a><div class="bg-light border collapse" id="variable_'+data.reports[i].id+'" style=""><ul data-list="generated" class="list-unstyled list-ruled m-0"></ul></div><hr></div></li>';
+    }
+
+    output+="</ul>";
+
+    document.getElementById("reports_queue").innerHTML=output;
+
+	// add some fake generated reports
+	$('#reports_queue li').each(function(){
+		var theReport = $(this).attr('data-report')
+		$(this).appendTo('#reports_group_'+theReport);
+		$(this).find('[data-list="generated"]').append('<li class="p-2 d-sm-flex position-relative align-items-center"><div class="flex-grow-1"><div>Jan 1, 2019 –&nbsp;Jan 31, 2019</div> <small>Clubs: 1677</small></div> <div class="actions"><a href="#link_to_report" class="icon-point-right p-2 ml-2 btn btn-link btn-takeover float-right"><span class="sr-only">View Report</span></a> <button data-toggle="tooltip" data-placement="top" title="" class="btn btn-secondary btn-sm position-relative" data-original-title="Export to Excel"><i class="icon-download"></i> <span class="sr-only">Download</span></button> <button class="btn btn-secondary btn-sm position-relative" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete Report"><i class="icon-trash"></i> <span class="sr-only">Delete</span></button><label class="slickcheck m-0"><span class="sr-only">Select</span><input type="checkbox"><i class="checkbox m-2"></i></label></div></li><li class="p-2 d-sm-flex position-relative align-items-center"><div class="flex-grow-1"><div>Feb 5, 2018 –&nbsp;Mar 7, 2018</div> <small>Clubs: 1677, 1342</small></div> <div class="actions"><a href="#link_to_report" class="icon-point-right p-2 ml-2 btn btn-link btn-takeover float-right"><span class="sr-only">View Report</span></a> <button data-toggle="tooltip" data-placement="top" title="" class="btn btn-secondary btn-sm position-relative" data-original-title="Export to Excel"><i class="icon-download"></i> <span class="sr-only">Download</span></button> <button class="btn btn-secondary btn-sm position-relative" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete Report"><i class="icon-trash"></i> <span class="sr-only">Delete</span></button><label class="slickcheck m-0"><span class="sr-only">Select</span><input type="checkbox"><i class="checkbox m-2"></i></label></div></li>');
+		
+	// Enable Tooltips
+	$('[data-toggle="tooltip"]').tooltip();
+		
+	});
+	
+	
+	// For mockup purposes only
+	$('#variable_5 [data-list="generated"] li:first-child').attr('id', 'report123');
+	$('#variable_1 [data-list="generated"] li:first-child').attr('id', 'report1').find('.actions').html('<img class="mx-2" src="http://anytimefitness.blob.core.windows.net/shared-images/16x16/loader-on-white.gif" alt="loading">');
+	
+	
+	
+	
+	
+	
+	// Jump to Report 
+	$('[data-action="jump-to-report"]').click(function(){
+		var theInstance = $(this).attr('href');
+		var theReport = $(this).attr('data-report');
+		var theCollection = $(this).attr('data-collection');
+		$(theReport).collapse('show');
+		$(theCollection).collapse('show');
+		$([document.documentElement, document.body]).animate({
+			scrollTop: $(theInstance).offset().top - 200
+		}, 1000);
+		$(theInstance).addClass('highlight');
+		setTimeout(function() {
+		   $(theInstance).removeClass("highlight");
+	   }, 1000);
+	})
+	
+	
+	// Generate 
+	$('[href="#generate-report"]').click(function(){
+	
+	})
+
+	
+	
+// Date Picker 
+	  $( ".date-picker" ).datepicker();
+	
+
+	
+// Find a report
+$('#search-reports').keyup(function() {
+//	 if( this.value.length < 3 ) return;
+  $('[data-report]').attr('style','display:none!important');
+  $('section.card').hide();
+  var txt = $('#search-reports').val();
+  $('[data-report]').each(function() {
+    if ($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1) {
+      $(this).show().closest('.collapse').collapse('show').closest('section.card').show();
+    }
+  });
+});
+	
+// 	Club Selector Modal 
+	// Move selected clubs to list
+	
+	$('#club-selector input[type="checkbox"]').change(function(){
+
+	
+				
+		if ($(this).is(':checked')) {	
+
+			$(this).closest('li').appendTo('#selected-clubs');
+			$("#selected-clubs li").sort(asc_sort).appendTo('#selected-clubs');
+				// accending sort
+				function asc_sort(a, b){
+					return ($(b).text()) < ($(a).text()) ? 1 : -1;    
+				}
+								
+		}
+		else {
+			$(this).closest('li').appendTo('#unselected-clubs');
+			$("#unselected-clubs li").sort(asc_sort).appendTo('#unselected-clubs');
+				// accending sort
+				function asc_sort(a, b){
+					return ($(b).text()) < ($(a).text()) ? 1 : -1;    
+				}
+		}
+		
+		
+		
+		
+	})
+	
+	
+
+});
+			
+			
+		</script>
+</body>
+</html>

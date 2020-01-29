@@ -1,0 +1,609 @@
+<style>
+		
+
+	
+	
+	[class*="field-"] .list-icon {
+		color: inherit;
+	}
+	
+	
+	
+	[data-status="published"] .badge {
+		display: none!important;
+	}
+	
+		
+</style>
+<section id="wall_Inventory" class="flex-fill flex-shrink-1 p-md-5 p-3 bg-white width-limited" data-roll="enganged" style="overflow-x: hidden">
+  <h1 class="h3"><strong>WORKOUTS</strong></h1>
+  <div id="admin-only" class="contents field-admin rounded mb-4">
+    <h2 class="subheading m-1 p-2"><small>ADMINISTRATIVE <span class="icon-lock" data-toggle="tooltip" data-placement="right" title="This section is only visible to system admistrators"></span></small></h2>
+    <div class="pl-3">
+      <ul class="list-unstyled list-items list-ruled mb-0">
+        <li><i class="list-icon icon-earth"></i>
+          <div class="d-flex flex-column flex-fill name p-3"><span>Global Workouts </span></div>
+          <button class="p-2 ml-2 btn btn-link btn-takeover" data-action="wall_GlobalWorkouts" data-collection="system"><span class="sr-only">View Plan</span></button>
+        </li>
+        <li class=""><i class="list-icon icon-group-training"></i>
+          <div class="d-flex flex-column flex-fill name p-3"><span>Global AF Training </span></div>
+          <button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_GlobalAFT" data-collection="system"><span class="sr-only">View Plan</span></button>
+        </li>
+        <li><i class="list-icon flag-icon flag-icon-be"></i>
+          <div class="d-flex flex-column flex-fill name p-3"><span>Belgium</span></div>
+          <button class="p-2 ml-2 btn btn-link btn-takeover" data-action="wall_GlobalWorkouts" data-collection="system"><span class="sr-only">View Plan</span></button>
+        </li>
+		  <li><i class="list-icon flag-icon flag-icon-nl"></i>
+          <div class="d-flex flex-column flex-fill name p-3"><span>Netherlands/Luxembourg</span></div>
+          <button class="p-2 ml-2 btn btn-link btn-takeover" data-action="wall_GlobalWorkouts" data-collection="system"><span class="sr-only">View Plan</span></button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="contents">
+    <div class="d-flex align-items-center justify-content-between">
+      <button type="button" class="btn btn-link mr-4 p-0 d-lg-none d-block" data-action="done_adding_existing_workouts"><span class="sr-only">Back</span><span aria-hidden="true"><i class="icon-arrow-left3"></i></span></button>
+    </div>
+    <ul class="list-unstyled list-items list-ruled">
+      
+      
+      <li><i class="list-icon icon-gps-markers"></i>
+        <div class="d-flex flex-column flex-fill name p-3"><span>Club Network </span><small class="text-muted">0 Workouts</small></div>
+        <button class="p-2 ml-2 btn btn-link btn-takeover" data-action="wall_GlobalWorkouts" data-collection="favorites"><span class="sr-only">View Plan</span></button>
+      </li>
+      <!--<li class=""><i class="list-icon icon-group-training"></i>
+        <div class="d-flex flex-column flex-fill name p-3"><span>AF Training </span><small class="text-muted">3 new workouts delivered weekly</small></div>
+        <button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_AFT" data-collection="system"><span class="sr-only">View Plan</span></button>
+        <small class="badge badge-pill badge-success">1</small> </li>-->
+      <li><i class="list-icon mug" style="background-image: url(//anytimefitness.blob.core.windows.net/user-photos/d517e8d0-b8e6-4926-93de-8568fdb3d5dd.jpg)"></i>
+        <div class="d-flex flex-column flex-fill name p-3"><span>My Workouts</span><small class="text-muted">0 Workouts</small></div>
+        <button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_collection" data-collection="custom"><span class="sr-only">View Plan</span></button>
+      </li>
+    </ul>
+  </div>
+</section>
+<section id="wall_GlobalWorkouts" data-roll="absent" class="flex-fill flex-shrink-1 p-md-5 p-3 bg-gray-lightest border-left width-limited overflow-sm-auto">
+  <div class="d-flex justify-content-between align-items-start">
+    <button type="button" class="btn btn-link mr-4 p-0 d-block d-lg-none" data-action="back_to_workouts"><span class="sr-only">Back</span><span aria-hidden="true"><i class="icon-arrow-left3"></i></span></button>
+    <h1 class="heading "><strong>[Collection Name]</strong></h1>
+	  <a class="btn btn-primary rounded-pill" href="workout-builder.html">New Workout <small class="icon-plus"></small></a>
+  </div>
+  <div class="mb-4">
+
+	    <span data-insert="aft_menu"></span>
+	</div>
+</section>
+<section id="wall_GlobalAFT" data-roll="absent" class="flex-fill flex-shrink-1 p-md-5 p-3 bg-gray-lightest border-left width-limited overflow-sm-auto">
+  <div class="d-flex justify-content-between align-items-start">
+    <button type="button" class="btn btn-link mr-4 p-0 d-block d-lg-none" data-action="back_to_workouts"><span class="sr-only">Back</span><span aria-hidden="true"><i class="icon-arrow-left3"></i></span></button>
+    <h1 class="heading "><strong>[Collection Name]</strong></h1>
+	  <a class="btn btn-primary btn-sm" href="workout-builder.html">New Workout</a>
+  </div>
+  <div class="mb-4">
+    <div class="d-flex justify-content-between p-1 bg-gray rounded mb-2">
+      <h2 class="subheading m-1">Week 34 2019 </h2>
+      <a class="mx-1" href="" data-action="download_all"><i class="icon-download" aria-hidden="true"></i> <span class="d-none d-sm-inline">Download All</span></a> </div>
+	    <span data-insert="aft_menu_week"></span>
+  </div>
+  <div>
+    <div class="d-flex justify-content-between p-1 bg-gray rounded mb-2">
+      <h2 class="subheading m-1">Week 32 2019 </h2>
+      <a class="mx-1" href="" data-action="download_all"><i class="icon-download" aria-hidden="true"></i> <span class="d-none d-sm-inline">Download All</span></a> </div>
+    <span data-insert="aft_menu_week"></span>
+  </div>
+  
+</section>
+<section id="wall_AFT" data-roll="absent" class="flex-fill flex-shrink-1 p-md-5 p-3 bg-gray-lightest border-left width-limited overflow-sm-auto">
+  <div class="d-flex justify-content-start align-items-start">
+    <button type="button" class="btn btn-link mr-4 p-0 d-block d-lg-none" data-action="back_to_workouts"><span class="sr-only">Back</span><span aria-hidden="true"><i class="icon-arrow-left3"></i></span></button>
+    <h1 class="heading "><strong>AF Training Workouts</strong></h1>
+  </div>
+  <div class="mb-4">
+    <div class="d-flex justify-content-between p-1 bg-gray rounded mb-2">
+      <h2 class="subheading m-1">Week 34 2019 </h2>
+      <a class="mx-1" href="" data-action="download_all"><i class="icon-download" aria-hidden="true"></i> <span class="d-none d-sm-inline">Download All</span></a> </div>
+    <ul class="list-unstyled list-items list-ruled my-2">
+      <li class=""><i class="list-icon icon-build"></i>
+        <div class="d-flex flex-column flex-fill name p-3"><span>Build</span><small class="text-muted">1 CIRC of 10 exercises.</small></div>
+        <button class="p-2 ml-2 btn btn-link btn-takeover" data-toggle="modal" data-target="#buildModal"><span class="sr-only">View Plan</span></button>
+      </li>
+      <li class=""><i class="list-icon icon-base"></i>
+        <div class="d-flex flex-column flex-fill name p-3"><span>Base</span><small class="text-muted">1 CIRC of 10 exercises.</small></div>
+        <button class="p-2 ml-2 btn btn-link btn-takeover" data-toggle="modal" data-target="#buildModal"><span class="sr-only">View Plan</span></button>
+      </li>
+      <li class="border-0"><i class="list-icon icon-burn"></i>
+        <div class="d-flex flex-column flex-fill name p-3"><span>Burn</span><small class="text-muted">1 CIRC of 10 exercises.</small></div>
+        <button class="p-2 ml-2 btn btn-link btn-takeover" data-toggle="modal" data-target="#buildModal"><span class="sr-only">View Plan</span></button>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <div class="d-flex justify-content-between p-1 bg-gray rounded mb-2">
+      <h2 class="subheading m-1">Week 32 2019 </h2>
+      <a class="mx-1" href="" data-action="download_all"><i class="icon-download" aria-hidden="true"></i> <span class="d-none d-sm-inline">Download All</span></a> </div>
+    <ul class="list-unstyled list-items list-ruled my-2">
+      <li class=""><i class="list-icon icon-build"></i>
+        <div class="d-flex flex-column flex-fill name p-3"><span>Build</span><small class="text-muted">1 CIRC of 10 exercises.</small></div>
+        <button class="p-2 ml-2 btn btn-link btn-takeover" data-toggle="modal" data-target="#buildModal"><span class="sr-only">View Plan</span></button>
+      </li>
+      <li class=""><i class="list-icon icon-base"></i>
+        <div class="d-flex flex-column flex-fill name p-3"><span>Base</span><small class="text-muted">1 CIRC of 10 exercises.</small></div>
+        <button class="p-2 ml-2 btn btn-link btn-takeover" data-toggle="modal" data-target="#buildModal"><span class="sr-only">View Plan</span></button>
+      </li>
+      <li class="border-0"><i class="list-icon icon-burn"></i>
+        <div class="d-flex flex-column flex-fill name p-3"><span>Burn</span><small class="text-muted">1 CIRC of 10 exercises.</small></div>
+        <button class="p-2 ml-2 btn btn-link btn-takeover" data-toggle="modal" data-target="#buildModal"><span class="sr-only">View Plan</span></button>
+      </li>
+    </ul>
+  </div>
+  
+</section>
+<section id="wall_Collection" class="flex-fill flex-shrink-1 p-md-5 p-3 bg-white border-left overflow-sm-auto" data-roll="absent" style="overflow-x: hidden; max-height: calc(100vh - 4rem); z-index: 2">
+  
+</section>
+<section id="wall_Overview" class="flex-fill flex-shrink-1 bg-white border-left overflow-sm-auto p-md-5 p-3 width-limited" data-roll="absent" style="max-height: calc(100vh - 4rem); z-index: 1">
+
+</section>
+
+
+<div id="save-bar" class="status-bar alert alert-warning m-0" role="region" aria-label="Save or cancel changes to Workout">
+  <form class="form-inline">
+    <div class="justify-content-between d-flex flex-fill">
+      <div class="">
+        <button type="submit" class="btn btn-sm btn-secondary float-left">Cancel</button>
+      </div>
+      <div class="d-flex align-items-center justify-content-around">
+
+        <label for="catalog" class="d-inline nowrap m-0 mr-2">Save to audience: </label>
+        <select id="catalog" class="form-control form-control-sm mr-2">
+          <option>Belgium</option>
+			<option>Netherlands/Luxembourg</option>
+          <option>Club Network</option>
+          <option>My Workouts</option>
+        </select>
+		  <label for="week" class="d-inline nowrap m-0 mr-2">Week: </label>
+        <select id="week" class="form-control form-control-sm mr-2">
+          <option>33 2019</option>
+          <option>34 2019</option>
+          <option>Create Week</option>
+        </select>
+        <button type="button" class="btn btn-primary btn-sm">Save</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div id="success-bar" class="status-bar alert alert-success m-0" role="region" aria-label="Your changes have been saved">
+  <div class="justify-content-end align-items-center d-flex">
+    <div class="text-right h5 m-0"> Nice save!</div>
+    <i class="icon-check2 h2 m-0 mx-2"></i> </div>
+</div>
+<style>
+	
+	section[data-roll="present"] [data-action="back_to_workouts"] {
+		display: inherit!important;
+	}
+	.status-bar {
+		position: fixed;
+		display: none;
+		bottom:0;
+		width: 100vw;
+		z-index: 60;
+		box-shadow: 0 0px 10px rgba(0,0,0,.25);
+	}
+
+</style>
+<script>
+ $(function () {  
+
+	 
+$('.status-bar').appendTo('body');
+
+	  // Load Walls 
+	 
+	 $('#wall_Overview').load('includes/workout_overview.html');	 
+	 
+	 $('#wall_Collection').load('includes/workouts_inventory.html');	 
+	
+// Vew collection
+ $('[data-action="view_collection"]').click(function(){	 
+	 var theHeading = $(this).prev().children('span').text();
+	 var theCollection = $(this).attr('data-collection');
+    $('[data-roll]').attr('data-roll','absent');
+
+	$('#wall_Collection [data-collection="'+theCollection+'"]').show(); 
+	$('.indicate').removeClass('indicate');
+
+	$(this).closest('li').addClass('indicate');
+	$(this).closest('section').attr('data-roll','present').siblings('#wall_Collection').attr('data-roll','engaged');
+	$('[data-roll="engaged"] .heading').text(theHeading).wrapInner('<strong></strong>');
+	$('#planView a[href="#active-clients"]').tab('show') // Select tab by name
+
+})
+
+// Load AFT Menus
+	 	 
+	 $('[data-insert="aft_menu"]').each(function() {
+	 	 $(this).load("includes/aft_menu.html");
+	 })
+	 $('[data-insert="aft_menu_week"]').each(function() {
+	 	 $(this).load("includes/aft_menu_week.html");
+	 })
+
+
+	  
+	// Load Exercises
+	   $.getJSON('js/exercises-trunc.json', function(data) {
+       $.each(data.exercise, function(i, f) {
+          var tblRow = '<li class="item-exercise p-2">		<div class="d-flex align-items-center position-relative"><i class="thumbnail" style="background-image:url('+ f.poster +')"></i>		<div class="embed-responsive embed-responsive-16by9 mb-4"><video controls="" muted src="'+ f.video +'"></video></div>		<div class="d-flex flex-column flex-fill name"><span>'+ f.name +'</span><small>' + f.details +'</small></div>		<button class="p-2 ml-2 btn btn-link  btn-takeover" data-action="view_detail"><span class="sr-only">View Exercise Details</span></button>	<button class="p-2 ml-2 btn btn-link" data-action="play_video" style="z-index: 1"><i class="icon-play"></i><span class="sr-only">Play Video</span></button></div>		<div class="details"><pre class="description mt-4"> '+ f.desc +' </pre>		<div class="intensities center-block"><p class="subheading">Target Intensities</p><div class="form-group form-row"><div class="col-2"><input aria-label="Number of Reps or Seconds" type="number" class="form-control text-right" value="10"></div><div class="col-4"><select aria-label="Reps or seconds" class="form-control"><option>Reps</option><option>Seconds</option></select></div><div class="col-6"><input aria-label="Per Unit" type="text" value="Per Set" class="form-control"></div></div><div class="form-group form-row"><div class="col-2"><input aria-label="Number of Sets" type="number" class="form-control text-right" value="3"></div><div class="col-4"><select aria-label="Set Type" class="form-control"><option>Sets</option><option>Supersets</option><option>Triple sets</option><option>Quad sets</option><option>Circuits</option><option>Pyramids</option><option>Intervals</option><option>Tabata</option></select></div><div class="col-6"><input aria-label="Per Exercise" type="text" value="Per Exercise" class="form-control"></div></div><div class="form-group form-row"><div class="col-2"><input aria-label="Number of Seconds" type="number" class="form-control text-right" value="60"></div><div class="col-4"><input aria-label="Seconds" type="text" class="form-control" value="Seconds"></div><div class="col-6"><input aria-label="Per Unit" type="text" placeholder="Rest Between Set" class="form-control"></div></div><textarea class="form-control" placeholder="Additional intensities."></textarea></div></div>		</li>'			  
+           $(tblRow).appendTo("#wall_Overview #list_exercises");
+     });
+		   
+		   // Insert sets 
+		   		   
+		   $("#wall_Overview #list_exercises > li:nth-child(3)").after("<li class='item-set'>Set 2</li>");
+		   $("#wall_Overview #list_exercises > li:nth-child(7)").after("<li class='item-set'>Set 3</li>");
+		   $("#wall_Overview #list_exercises > li:nth-child(1)").before("<li class='item-set'>Set 1</li>");
+		   
+		   
+		   // Edit exercise (toggle Save UI)
+		   
+		   $('.intensities .form-control').change(function(){
+			   $('#save-bar').slideDown();
+		   });
+		   
+		   $('#save-bar [type="submit"]').click(function(){
+			   $('#success-bar').fadeIn();
+			   $('#save-bar').fadeOut();
+		   });
+		   
+		   
+		   
+	   
+	   
+	   });
+	  
+	  
+	// Load Workouts
+	  $.getJSON('js/workouts.json', function(data) {
+       $.each(data.mine, function(i, f) {
+		    var workoutItem = '<li data-collection="mine" data-status="'+ f.status +'"><div class="m-2 plan-day d-flex flex-grow-1 align-items-center"><button class="btn btn-sm btn-primary icon-plus p-2 mr-4" data-action="add_existing_to_plan"><span class="sr-only">Add to Workout</span></button><i class="thumbnail populated" style="background-image: url(https://pumpone.com/static_images/320/'+ f.poster +'.jpg)"></i><div class="d-flex flex-column flex-fill"><span class="workout-name">'+ f.name +' <span class="badge badge-warning">'+ f.status +'</span></span><small>'+ f.exercises +' Exercises, '+ f.duration +', '+ f.energy +'</small></div><a href="#thisPlan" class="icon-point-right p-2 ml-2 btn btn-link btn-takeover"  data-action="view_workout_detail"></a></div></li>'			  
+           $(workoutItem).appendTo("#Workouts-Library");
+	   });
+       $.each(data.workout, function(i, f) {
+          var workoutItem = '<li data-collection="system" data-status="'+ f.status +'"><div class="m-2 plan-day d-flex flex-grow-1 align-items-center"><button class="btn btn-sm btn-primary icon-plus p-2 mr-4" data-action="add_existing_to_plan"><span class="sr-only">Add to Workout</span></button><i class="thumbnail populated" style="background-image: url(https://pumpone.com/static_images/320/'+ f.poster +'.jpg)"></i><div class="d-flex flex-column flex-fill"><span class="workout-name">'+ f.name +' <span class="badge badge-warning">'+ f.status +'</span></span><small>'+ f.exercises +' Exercises, '+ f.duration +', '+ f.energy +'</small></div><a href="#thisPlan" class="icon-point-right p-2 ml-2 btn btn-link btn-takeover"  data-action="view_workout_detail"></a></div></li>'			  
+           $(workoutItem).appendTo("#Workouts-Library");
+		   	   
+		   
+		   // Remove broken image path
+		   $( "#Workouts-Library i[style*='/.jpg']" ).css( "background-image", "" ).removeClass('populated');
+
+
+		   
+		   
+		   // Search Workouts 
+			$('#search_workouts').keyup(function() {
+			  $('#Workouts-Library [data-collection]').hide();
+			  var txt = $('#search_workouts').val();
+			  $('#Workouts-Library [data-collection]').each(function() {
+				if ($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1) {
+				  $(this).show();
+				}
+			  });
+			});
+
+		   
+     });
+		  
+		
+		// Show Workout Detail		  
+
+		$('[data-action="view_workout_detail"]').click(function(){
+			
+			var theCollect = $(this).parent().parent('li');
+			var theWorkout = $(this).prev().children('.workout-name').html();
+			var theWOPoster = $(this).siblings('.populated').css('background-image');
+			
+			if ($(theCollect).attr('data-collection') == 'custom' ){
+				$('[data-action="edit_workout"]').show();
+			}
+			else {
+				$('[data-action="edit_workout"]').show();
+			}						
+
+
+			$('#workout_name').html(theWorkout);
+			$('.indicate').removeClass('indicate');
+
+			$('[data-roll]').attr('data-roll','absent');
+
+			$(this).closest('li').addClass('indicate');
+			$(this).closest('section').attr('data-roll','present').siblings('#wall_Overview').attr('data-roll','engaged');
+			$('.poster').addClass('populated').css('background-image', theWOPoster);
+			$('button[data-action="back_to_workouts"]').removeClass('d-sm-none');
+			
+			
+			// Draft/Publish UI
+			if ($(theCollect).attr('data-status') == 'draft' ){
+				$('[data-action="publish"]').show();
+				$('[data-action="unpublish"]').hide();
+				$('#wall_Overview #workout_name .badge').removeClass('badge-success').addClass('badge-warning')
+			}
+			else {
+				$('[data-action="unpublish"]').show();
+				$('[data-action="publish"]').hide();
+				$('#wall_Overview #workout_name .badge').addClass('badge-success').removeClass('badge-warning')
+			}
+			
+			
+			$('[data-action="publish"]').click(function(){
+				$(this).hide().siblings('[data-action="unpublish"]').show();
+				$('#wall_Overview #workout_name .badge').addClass('badge-success').removeClass('badge-warning').text('published');
+				$('#Workouts-Library .indicate').attr('data-status', 'published');
+			});
+			$('[data-action="unpublish"]').click(function(){
+				$(this).hide().siblings('[data-action="publish"]').show();
+				$('#wall_Overview #workout_name .badge').removeClass('badge-success').addClass('badge-warning').text('draft');
+				$('#Workouts-Library .indicate').attr('data-status', 'draft').find('.badge').text('draft');
+			})
+
+			
+			 // Show Exercise Detail 
+			   $('[data-action="view_detail"]').click(function(){		   		   
+//				   $('#wall_Overview').addClass('view-exercise');
+//				   $(this).closest('li').show().addClass('detail');
+				   $(this).closest('li').find('.details').slideToggle();
+				   $([document.documentElement, document.body]).animate({
+						scrollTop: $(this).closest('li').offset().top-80
+					}, 500);
+				   var theVid = $(this).parent().children().children('video');
+				   var vidSrc = $(this).parent().children().children('video').attr('src');
+				   var thePoster = $(this).siblings('.populated').css('background-image');
+
+				   if (vidSrc == "") {
+					  $(theVid).hide();
+					  $(theVid).parent().css('background', thePoster+'no-repeat center center')
+				   }
+				   else {
+						$('video').get(0).play();
+				   }
+			   });
+			
+
+		});
+		  
+		  
+		  // Close Exercises 
+		  $('[data-action="close_exercises"]').click(function(){
+			$('#wall_Overview').attr('data-roll','absent'); 
+			   $('#wall_Collection').attr('data-roll','engaged');
+		  })
+		  
+		  // Close Workout Detail
+		  $('[data-action="back_to_workouts"]').click(function(){
+			 $('[data-roll]').attr('data-roll','absent');
+			  $('#wall_Inventory').attr('data-roll','engaged');
+			  $(this).addClass('d-sm-none');
+			  $('#Workouts-Library .indicate').removeClass('indicate')
+		  });
+		  	
+		
+		// Show AFT Detail		  
+
+		$('[data-action="view_AFT_detail"]').click(function(){
+			
+			var theCollect = $(this).parent().parent('li');
+			var theWorkout = $(this).prev().children('span').text();
+			var theWOPoster = $(this).siblings('.populated').css('background-image');
+			
+			if ($(theCollect).attr('data-collection') == 'custom' ){
+				$('[data-action="edit_workout"]').show();
+			}
+			else {
+				$('[data-action="edit_workout"]').show();
+			}
+			$('#workout_name').text(theWorkout);
+			$('.indicate').removeClass('indicate');
+//			$('#wall_Overview').attr('data-roll','absent');
+			$('#wall_Inventory').attr('data-roll','absent');
+			$(this).closest('li').addClass('indicate');
+			$(this).closest('section').attr('data-roll','present').siblings('#wall_Overview').attr('data-roll','engaged');
+			$('.poster').hide();
+			$('button[data-action="back_to_workouts"]').removeClass('d-sm-none');
+
+			
+			 // Show Exercise Detail 
+			   $('[data-action="view_detail"]').click(function(){		   		   
+//				   $('#wall_Overview').addClass('view-exercise');
+//				   $(this).closest('li').show().addClass('detail');
+				   $(this).closest('li').find('.details').slideToggle();
+				   $([document.documentElement, document.body]).animate({
+						scrollTop: $(this).closest('li').offset().top-80
+					}, 500);
+				   var theVid = $(this).parent().children().children('video');
+				   var vidSrc = $(this).parent().children().children('video').attr('src');
+				   var thePoster = $(this).siblings('.populated').css('background-image');
+
+				   if (vidSrc == "") {
+					  $(theVid).hide();
+					  $(theVid).parent().css('background', thePoster+'no-repeat center center')
+				   }
+				   else {
+						$('video').get(0).play();
+				   }
+			   });
+			
+
+		});	   
+		  
+		  
+	// Close Exercise Detail
+	  $('[data-action="back_to_library"]').click(function(){
+ 		   $('[data-action="back_to_library"]').hide();
+		  $('#wall_Overview .item-exercise ').show();
+		  $('.item-exercise.detail').removeClass('detail');
+		   $('#wall_Overview').removeClass('view-exercise');
+		  $(this).addClass('d-sm-none');
+	  });
+	  
+	   
+	   
+   });
+	  
+	//  Load Filters
+
+   $.getJSON('js/filters.json', function(data) {
+       $.each(data.equipment, function(i, f) {
+          var filterChecks = '<div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="'+ f.id +'"><label class="form-check-label small" for="'+ f.id +'">'+ f.label +'</label></div>'			  
+           $(filterChecks).appendTo("#filter_workouts #filters_equipment > span");
+     });
+	    $.each(data.bodypart, function(i, f) {
+          var filterChecks = '<div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="'+ f.id +'"><label class="form-check-label small" for="'+ f.id +'">'+ f.label +'</label></div>'			  
+           $(filterChecks).appendTo("#filter_workouts #filters_bodyparts > span");
+     });
+	   
+	   
+   });
+
+
+	 	
+	// Done adding Workouts
+	$('[data-action="done_adding_existing_workouts"]').click(function(){
+		$('#wall_Plan').attr('data-roll','engaged');
+		$("#plan-autosave").show().delay(400).fadeOut();
+		
+		$('#wall_Inventory').attr('data-roll','absent');
+		
+		
+		
+		$('[data-action="add_workout"]').prop('disabled', false).css('opacity','1');
+		$('[data-action="save_plan"]').prop('disabled', false).css('opacity','1');	
+		$('.plan-day.active').removeClass('active');
+		
+		// count the days
+		$("#wall_Plan ul > li [data-day]").each(function(i) {
+			$(this).text(++i);
+		});
+	});
+	 
+	 
+	 
+	 
+	 $('[data-action="change_collection"]').click(function(){
+		 var theCollection = $(this).attr('data-collection');
+		 var theText = $(this).text();
+		 $('#selected_catalog').text(theText)
+		 $('#Workouts-Library [data-collection]').hide();
+		 $('#Workouts-Library [data-collection="'+theCollection+'"]').show();
+		 if ($('#Workouts-Library [data-collection="'+theCollection+'"]').length) {
+			 $('#wall_Collection [data-noresults]').hide();
+			 
+		 }
+		 else {
+			 $('#wall_Collection [data-noresults]').show();
+		 }
+		 
+	 })
+	 
+	 // Global Workotus  
+	  $('[data-action="wall_GlobalWorkouts"]').click(function(){
+			$('.indicate').removeClass('indicate');
+			$(this).closest('li').addClass('indicate');
+		    $('[data-roll]').attr('data-roll','absent');
+			$('#wall_Inventory').attr('data-roll','present');
+			$('#wall_GlobalWorkouts').attr('data-roll','engaged');
+		  	$('#wall_Overview .field-admin').show();
+		  var theHeading = $(this).prev().children('span').text();
+		  $('[data-roll="engaged"] .heading').text(theHeading).wrapInner('<strong></strong>');
+		});
+	 
+	  
+	 // Global AFT 
+	 
+	 $('[data-action="view_GlobalAFT"]').click(function(){
+		 	$('.indicate').removeClass('indicate');
+			$(this).closest('li').addClass('indicate');
+		 	$('[data-roll]').attr('data-roll','absent');
+			$('#wall_Inventory').attr('data-roll','present');
+			$('#wall_GlobalAFT').attr('data-roll','engaged');
+		 	$('#wall_Overview .field-admin').show();
+		 var theHeading = $(this).prev().children('span').text();
+		 $('[data-roll="engaged"] .heading').text(theHeading).wrapInner('<strong></strong>');
+
+		});
+	 
+	 // AFT Stuff
+	 
+	  $('[data-action="view_AFT"]').click(function(){
+			$('.indicate').removeClass('indicate');
+			$(this).closest('li').addClass('indicate');
+		   $('[data-roll]').attr('data-roll','absent');
+			$('#wall_Inventory').attr('data-roll','present');
+			$('#wall_AFT').attr('data-roll','engaged');		 
+		  var theHeading = $(this).prev().children('span').text();
+		  $('[data-roll="engaged"] .heading').text(theHeading).wrapInner('<strong></strong>');
+		});
+	 
+	 
+	 
+	 
+	 // Vew AFT collection
+		 $(document.body).on('click', '[data-action="view_AFT_collection"]' ,function(){
+			 
+			 var theHeading = $(this).prev().children('span').text();
+			 var theCollection = $(this).attr('data-collection');
+			$('[data-roll]').attr('data-roll','absent');
+			 $('#wall_Collection [data-collection]').hide(); 
+			$('#wall_Collection [data-collection="'+theCollection+'"]').show(); 
+			$('.indicate').removeClass('indicate');
+			$(this).closest('li').addClass('indicate');
+			$(this).closest('section').attr('data-roll','present');
+		    $('#wall_Collection[data-roll]').attr('data-roll','engaged');
+			$('[data-roll="engaged"] .heading').text(theHeading).wrapInner('<strong></strong>');
+			$('#planView a[href="#active-clients"]').tab('show') // Select tab by name
+
+		})
+	 	
+	 
+	$('button[data-action="print"]').click(function(){
+		  window.print();     	
+	});
+	 
+	 $('button[data-action="download"]').click(function(){
+		  alert("Downloads the current workout as a PDF");
+	});
+	 
+	 $('button[data-action="download_all"]').click(function(){
+		  alert("Downloads all workouts for this week as a multi-page PDF");
+	});
+	 
+
+	 
+	 
+	 //tooltips, yo 
+	 $('[data-toggle="tooltip"]').tooltip();
+ 	 	  
+  });	 
+</script> 
+<script  type="text/javascript" src="js/typeahead.bundle.js"></script> 
+<script>
+
+	// Type Ahead
+$(document).ready(function(){
+    // Sonstructs the suggestion engine
+    var products = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.whitespace,
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        // The url points to a json file that contains an array of country names
+        prefetch: 'js/products.json'
+    });
+    
+    // Initializing the typeahead with remote dataset
+    $('.typeahead').typeahead(null, {
+        name: 'products',
+        source: products,
+        limit: 10 /* Specify maximum number of suggestions to be displayed */
+    });
+}); 
+
+
+</script> 

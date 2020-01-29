@@ -1,0 +1,1479 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client Management | AF Coaching</title>
+<link rel="stylesheet" href="../css/bootstrap.css">
+<link rel="stylesheet" href="../css/fontawesome.css">
+<link rel="stylesheet" href="../css/custom.css">
+<link rel="stylesheet" href="../css/fonts.css">
+<link rel="stylesheet" href="css/coaching.css">
+
+<!-- Page Specific-->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="css/react-wysiwyg.css">
+<style>
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    background-color: transparent;
+}
+	
+	[data-roll="present"] [data-action="view_client"]{
+		display: none;
+	}	
+#wall_Detail {
+}
+</style>
+</head>
+<body class="d-md-flex">
+<header id="header" data-role="header"></header>
+<nav id="navbar" class="sidebar"></nav>
+<main class="container-relative d-lg-flex align-items-stretch  bg-gray-lightest" id="clients_library">
+
+  <section id="wall_Clients" class="flex-fill p-md-5 p-3 bg-white width-limited" data-roll="enganged" style="overflow-x: hidden; max-height: calc(100vh - 4rem);">
+    <div class="">
+			<div class="alert alert-danger">This mockup is obsolete. It's been replaced by <a href="home.html">this one</a> </div>
+      <h1 class="heading"><strong>Manage Clients</strong></h1>
+    </div>
+    <div class="contents">
+      <div class="d-flex p-3 bg-gray rounded mb-4">
+        <div class="mr-2">
+          <label for="select_club"><small>Club</small></label>
+          <select class="form-control form-control-sm" id="select_club" style="max-width: 300px;">
+            <option value="2515">Pittsburgh, PA (251 Mt. Nebo Pointe Dr)</option>
+            <option value="2705">Tucson, AZ (8868 Tanque Verde Rd) </option>
+            <option value="3652">Richmond, VA (Chippenham Parkway & Forest Hill Avenue)</option>
+          </select>
+        </div>
+        <div class="mr-2">
+          <label for="select_member_status"><small>Show</small></label>
+          <select class="form-control form-control-sm" id="select_member_status">
+            <option value="client">Clients</option>
+            <option value="all">All Members </option>
+          </select>
+        </div>
+        <div class="">
+          <label for="select_coach"><small>Coach</small></label>
+          <select class="form-control form-control-sm" id="select_coach">
+            <option value="1">Jon Reischl (Me)</option>
+            <option value="2">Phyllis Saroka</option>
+          </select>
+        </div>
+      </div>
+      <form class="my-2">
+        <div class=" d-flex align-items-start">
+          <div class="input-group mb-3 mr-2">
+            <div class="input-group-prepend"> <span class="input-group-text" id="basic-addon1"><i class="icon-search"> </i></span> </div>
+            <input id="search_clients" type="text" class="form-control" placeholder="Search by name" aria-label="Search by name" aria-describedby="basic-addon1">
+          </div>
+          <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#clientFilters" aria-expanded="false" aria-controls="clientFilters"><i class="icon-filter"></i> <span class="sr-only">Filters</span></button>
+        </div>
+        <div id="clientFilters" class="collapse">
+          <div class="d-flex justify-content-end">
+            <div class="dropdown mr-2">
+              <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="selected_plan" data-toggle="dropdown" aria-expanded="false"> All Plans </button>
+              <div class="dropdown-menu" aria-labelledby="selected_plan">
+                <button id="all_plans" class="dropdown-item checked" type="button" data-action="filter_plan">All Plans</button>
+                <button id="no_plans" class="dropdown-item" type="button" data-action="filter_plan">No Plan</button>
+                <div class="dropdown-divider"></div>
+                <button class="dropdown-item " type="button" data-action="filter_plan">Fat Loss Level 1</button>
+                <button class="dropdown-item" type="button" data-action="filter_plan">Plan B</button>
+                <button class="dropdown-item" type="button" data-action="filter_plan">Plan 9 From Outer Space</button>
+              </div>
+            </div>
+            <div class="dropdown mr-2">
+              <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="selected_week" data-toggle="dropdown" aria-expanded="false"> All Weeks </button>
+              <div class="dropdown-menu" aria-labelledby="selected_week">
+                <button id="all_weeks" class="dropdown-item checked" type="button" data-action="filter_week" data-week="all">All Weeks</button>
+                <div class="dropdown-divider"></div>
+                <button class="dropdown-item" type="button" data-action="filter_week" data-week="1">Week 1</button>
+                <button class="dropdown-item" type="button" data-action="filter_week" data-week="2">Week 2</button>
+                <button class="dropdown-item" type="button" data-action="filter_week" data-week="3">Week 3</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div id="no_results" class="text-center p4" style="display: none"> No matching clients. </div>
+      <ul id="clients_list" class="list-unstyled list-items list-ruled">
+      </ul>
+    </div>
+  </section>
+  <section id="wall_Chat" class="p-md-5 p-3 bg-white border-left width-limited" data-roll="absent" style="overflow: hidden; max-height: calc(100vh - 4rem);">
+	  
+    <div class="d-flex align-items-center justify-content-between mb-5"> <span class="d-flex align-items-center">
+      <button type="button" class="btn btn-link mr-4 p-0 d-block d-lg-none" data-action="back_to_clients"><span class="sr-only">Back</span><span aria-hidden="true"><i class="icon-arrow-left3"></i></span></button>
+      <h1 class="heading m-0"><strong><span class="sr-only">Chat with</span> <span data-name>Firstname Lastname</span></strong></h1>
+      </span>
+      <button type="button" class="btn btn-secondary rounded-pill" data-action="view_client"><span class=""></span> <i class="icon-person-fill" aria-hidden="true"></i> Profile</button>
+    </div>
+    <div class="mesgs ">
+      <div class="msg_history">
+        <div class="incoming_msg">
+          <div class="incoming_msg_img"> <i class="mug mug-md mr-2" style="background-image: url(//randomuser.me/api/portraits/women/1.jpg)"></i> </div>
+          <div class="received_msg">
+            <div class="received_withd_msg">
+              <p>This is the first thing the client said to their coach</p>
+              <span class="time_date"> 11:01 AM    |    June 9</span></div>
+          </div>
+        </div>
+        <div class="outgoing_msg">
+          <div class="sent_msg">
+            <p>This is how the coach responded to their client </p>
+            <span class="time_date"> 11:01 AM    |    June 9</span> </div>
+        </div>
+        <div class="incoming_msg">
+          <div class="incoming_msg_img"> <i class="mug mug-md mr-2" style="background-image: url(//randomuser.me/api/portraits/women/1.jpg)"></i> </div>
+          <div class="received_msg">
+            <div class="received_withd_msg">
+              <p>Then the client said this</p>
+              <span class="time_date"> 11:01 AM    |    Yesterday</span></div>
+          </div>
+        </div>
+        <div class="outgoing_msg">
+          <div class="sent_msg">
+            <p>And the coach said this</p>
+            <span class="time_date"> 11:01 AM    |    Today</span> </div>
+        </div>
+        <div class=" mb-4">
+          <div class=" chat-injection">
+            <div class="border py-2 px-1 rounded-pill"> <i class="icon-workouts rounded-circle bg-gray p-2 mr-2"></i> <small>Total Body: Level 1: Foundation: Workout 1</small> </div>
+            <span class="time_date"> 11:01 AM    |    Today</span> </div>
+        </div>
+        <div class="incoming_msg">
+          <div class="incoming_msg_img"> <i class="mug mug-md mr-2" style="background-image: url(//randomuser.me/api/portraits/women/1.jpg)"></i> </div>
+          <div class="received_msg">
+            <div class="received_withd_msg">
+              <p>And the client responded with such verbosity that it wrapped to multiple lines which allowed us to see what that looks like</p>
+              <span class="time_date"> 11:01 AM    |    Today</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="type_msg">
+        <div class="input_msg_write d-flex align-items-center justify-content-between">
+          <button type="button" class="btn btn-sm btn-secondary mr-2" data-toggle="modal" data-target="#attachment_modal"><i class="icon-attachment"></i><span class="sr-only">Attachment</span></button>
+          <label class="sr-only" for="msg-input">Message input</label>
+          <input id="msg-input" type="text" class="write_msg" placeholder="Type a message" />
+          <button class="msg_send_btn" type="button"><i class="icon-send" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </div>
+    <style>
+		
+.container{max-width:1170px; margin:auto;}
+img{ max-width:100%;}
+.inbox_people {
+  background: #f8f8f8 none repeat scroll 0 0;
+  float: left;
+  overflow: hidden;
+  width: 40%; border-right:1px solid #c4c4c4;
+}
+.inbox_msg {
+  border: 1px solid #c4c4c4;
+  clear: both;
+  overflow: hidden;
+}
+.top_spac{ margin: 20px 0 0;}
+
+
+.recent_heading {float: left; width:40%;}
+.srch_bar {
+  display: inline-block;
+  text-align: right;
+  width: 60%; padding:
+}
+.headind_srch{ padding:10px 29px 10px 20px; overflow:hidden; border-bottom:1px solid #c4c4c4;}
+
+.recent_heading h4 {
+  color: #05728f;
+  font-size: 21px;
+  margin: auto;
+}
+.srch_bar input{ border:1px solid #cdcdcd; border-width:0 0 1px 0; width:80%; padding:2px 0 4px 6px; background:none;}
+.srch_bar .input-group-addon button {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: medium none;
+  padding: 0;
+  color: #707070;
+  font-size: 18px;
+}
+.srch_bar .input-group-addon { margin: 0 0 0 -27px;}
+
+.chat_ib h5{ font-size:15px; color:#464646; margin:0 0 8px 0;}
+.chat_ib h5 span{ font-size:13px; float:right;}
+.chat_ib p{ font-size:14px; color:#989898; margin:auto}
+.chat_img {
+  float: left;
+  width: 11%;
+}
+.chat_ib {
+  float: left;
+  padding: 0 0 0 15px;
+  width: 88%;
+}
+
+.chat_people{ overflow:hidden; clear:both;}
+.chat_list {
+  border-bottom: 1px solid #c4c4c4;
+  margin: 0;
+  padding: 18px 16px 10px;
+}
+.inbox_chat { height: 550px; overflow-y: scroll;}
+
+.active_chat{ background:#ebebeb;}
+
+.incoming_msg {
+	display: flex;
+	justify-content: space-between;
+	align-content: start;
+
+}
+	
+.incoming_msg_img {
+}
+.received_msg {
+  display: inline-block;
+  padding: 0 0 0 10px;
+  vertical-align: top;
+  width: 92%;
+ }
+ .received_withd_msg p {
+  background: var(--gray-light) none repeat scroll 0 0;
+  border-radius: 10px;
+  color: #646464;
+  font-size: 14px;
+  margin: 0;
+  padding: 5px 10px 5px 12px;
+  width: 100%;
+}
+.time_date {
+  color: #747474;
+  display: block;
+  font-size: 12px;
+  margin: 8px 0 0;
+}
+.received_withd_msg { width: 57%;}
+.mesgs {
+}
+
+ .sent_msg p {
+  background: var(--primary-color) none repeat scroll 0 0;
+  border-radius: 10px;
+  font-size: 14px;
+  margin: 0; color:#fff;
+  padding: 5px 10px 5px 12px;
+  width:100%;
+}
+.outgoing_msg{ overflow:hidden; margin:26px 0 26px;}
+.sent_msg {
+  float: right;
+  width: 46%;
+}
+.input_msg_write input {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: medium none;
+  color: #4c4c4c;
+  font-size: 15px;
+  min-height: 48px;
+  width: 100%;
+}
+
+.type_msg {border-top: 1px solid #c4c4c4;position: relative;}
+.msg_send_btn {
+  background: var(--primary-color) none repeat scroll 0 0;
+  border: medium none;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  font-size: 17px;
+  height: 33px;
+  position: absolute;
+  right: 0;
+  top: 11px;
+  width: 33px;
+}
+.messaging { padding: 0 0 50px 0;}
+
+	
+.msg_history {
+  height: 516px;
+  height: calc(100vh - 13em);
+  overflow-y: auto;
+}
+	
+	@media (min-width: 768px) {	
+		.msg_history {
+		  height: calc(100vh - 18em);
+		}		
+	}
+		</style>
+  </section>
+  <section id="wall_Detail" class="flex-fill p-md-5 p-3 bg-gray-lightest border-left" data-roll="absent" style="overflow-x: hidden; max-height: calc(100vh - 4rem);">
+    <div class="d-flex align-items-center position-relative">
+     
+      <h1 class="heading m-0 sr-only"><strong>Client Detail</strong></h1>
+		 <button type="button" class="btn btn-secondary rounded-pill position-absolute m-4 d-lg-none" data-action="back_to_chat" style="right: 0;"><span class=""></span> <i class="icon-bubbles" aria-hidden="true"></i> Chat</button>
+		
+    </div>
+    <div class="d-flex justify-content-between"> <i class="mug center-block mr-2" style="background-image:url(//anytimefitness.blob.core.windows.net/shared-assets/mugs/spenser-davidson.jpg)"></i>
+      <div class="p-2 flex-grow-1">
+        <div class="d-flex justify-content-center justify-content-sm-between">
+          <h2 data-name class="mb-2 h4">Spenser Davidson</h2>
+        </div>
+        <h3 class="h6"><strong>Coach</strong></h3>
+        <p>
+          <button class=" btn btn-secondary btn-sm" data-toggle="modal" data-target="#coachesModal"><i class="icon-pencil-stub"></i> <span class="sr-only">Assign Coach</span></button>
+          <span data-coach>Coach Name</span></p>
+      </div>
+    </div>
+    <div data-proprietary> </div>
+    <div>
+      <ul class="nav nav-tabs my-4">
+        <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#tab_plans"><i class="icon-activity"></i> <span class="d-none d-sm-inline-block">Activity</span></a> </li>
+        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab_notes"><i class="icon-pencil-stub"></i> <span class="d-none d-sm-inline-block">Coach's Notes</span></a> </li>
+        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab_stats"><i class="icon-af-consult"></i> <span class="d-none d-sm-inline-block">Stats</span></a> </li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="tab_plans" role="tabpanel">
+          <h3 class="h6"><strong>Current Plan(s)</strong></h3>
+          <div class="d-sm-flex justify-content-between align-items-start">
+            <ul class="list-unstyled" data-plans>
+              <li></li>
+            </ul>
+            <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#planAssignmentModal">Add Plan</button>
+          </div>
+          <hr>
+          <div class="">
+            <h3 class="h6 my-4"><strong>Goals & Adherence</strong></h3>
+			  <figure>
+              <div class="row align-items-center">
+                <div class="col-6 col-sm-3 text-md-right"> Workouts<br>
+                  <small class="text-muted">4 of 5</small> </div>
+                <div class="col-6 col-sm-3">
+                  <div id="progress-workouts" class="progress-circle" data-percentage="80"> <span class="progress-left"> <span class="progress-bar"></span> </span> <span class="progress-right"> <span class="progress-bar"></span> </span>
+                    <div class="progress-value">
+                      <div> 80% </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6 col-sm-3 text-md-right"> Nutrition<br>
+                  <small class="text-muted">3 of 7</small> </div>
+                <div class="col-6 col-sm-3">
+                  <div id="progress-nutrition" class="progress-circle" data-percentage="40"> <span class="progress-left"> <span class="progress-bar"></span> </span> <span class="progress-right"> <span class="progress-bar"></span> </span>
+                    <div class="progress-value">
+                      <div> 43% </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+			  <figcaption class="my-4 text-center text-muted">Last 7 Days</figcaption>
+				  </figure>              
+</div>
+            <h4><a class="subheading p-1 bg-gray rounded my-4 d-block text-dark" href="#adherence-graphs" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="adherence-graphs"><i class="indicator-collapse"></i> Daily Adherence</a></h4>
+            <div id="adherence-graphs" class="container collapse ">
+              <ul id="last7days" class="list-unstyled">
+                <li class="item border-bottom my-2 pb-2 text-left">
+                  <div class="mb-2"><strong>SATURDAY</strong> <small>Aug 30, 2019</small></div>
+                  <div><i class="icon-workouts list-icon-sm text-primary"></i> Total Strength: Program 3: Workout 1 <i class="text-success icon-check" aria-hidden="true"><span class="sr-only"></span></i></div>
+                  <div><i class="icon-apple list-icon-sm text-nutrition"></i> Avoid sugary drinks <i class="text-success icon-check" aria-hidden="true"><span class="sr-only"></span></i></div>
+					<div><i class="icon-quotes-left list-icon-sm text-muted"></i> <em>Challenging</em></div>
+                </li>
+                <li class="item border-bottom my-2 pb-2 text-left">
+                  <div class="mb-2"><strong>SUNDAY</strong> <small>Aug 31, 2019</small></div>
+                  <div><i class="icon-workouts list-icon-sm text-primary"></i> MMA Conditioning: Workout 1 <i class="icon-x-small text-danger" aria-hidden="true"><span class="sr-only"></span></i></div>
+                  <div><i class="icon-apple list-icon-sm text-nutrition"></i> Cut out carbs <i class="icon-x-small text-danger" aria-hidden="true"><span class="sr-only"></span></i></div>
+					<div><i class="icon-quotes-left list-icon-sm text-muted"></i> <em>Disappointed</em></div>
+                </li>
+                <li class="item border-bottom my-2 pb-2 text-left">
+                  <div class="mb-2"><strong>MONDAY</strong> <small>Sep 01, 2019</small></div>
+                  <div><i class="icon-workouts list-icon-sm text-primary"></i> Total Strength: Program 3: Workout 2 <i class="text-success icon-check" aria-hidden="true"><span class="sr-only"></span></i></div>
+                  <div><i class="icon-apple list-icon-sm text-nutrition"></i> Eat less garbage <i class="icon-x-small text-danger" aria-hidden="true"><span class="sr-only"></span></i></div>
+					<div><i class="icon-quotes-left list-icon-sm text-muted"></i> <em>Sore</em></div>
+                </li>
+                <li class="item border-bottom my-2 pb-2 text-left">
+                  <div class="mb-2"><strong>TUESDAY</strong> <small>Sep 02, 2019</small></div>
+                  <div><i class="icon-workouts list-icon-sm text-primary"></i> 10 of the Fastest <i class="text-success icon-check" aria-hidden="true"><span class="sr-only"></span></i></div>
+                  <div><i class="icon-apple list-icon-sm text-nutrition"></i> Only drink Bud Light Platinum <i class="text-success icon-check" aria-hidden="true"><span class="sr-only"></span></i></div>
+					<div><i class="icon-quotes-left list-icon-sm text-muted"></i> <em>Great</em></div>
+                </li>
+                <li class="item border-bottom my-2 pb-2 text-left">
+                  <div class="mb-2"><strong>WEDNESDAY</strong> <small>Sep 03, 2019</small></div>
+                  <div><i class="icon-workouts list-icon-sm text-primary"></i> 10 of the Most Complicated <i class="text-success icon-check" aria-hidden="true"><span class="sr-only"></span></i></div>
+                  <div><i class="icon-apple list-icon-sm text-nutrition"></i> Limit yourself to only one pie <i class="text-success icon-check" aria-hidden="true"><span class="sr-only"></span></i></div>
+					<div><i class="icon-quotes-left list-icon-sm text-muted"></i> <em>%?$#!</em></div>
+                </li>
+                <li class="item border-bottom my-2 pb-2 text-left">
+                  <div class="mb-2"><strong>THURSDAY</strong> <small>Sep 04, 2019</small></div>
+                  <div><i class="icon-workouts list-icon-sm text-primary"></i> 10 of the Loudest <i class="icon-x-small text-danger" aria-hidden="true"><span class="sr-only"></span></i></div>
+                  <div><i class="icon-apple list-icon-sm text-nutrition"></i> Avoid rooms that contain cheese <i class="text-success icon-check" aria-hidden="true"><span class="sr-only"></span></i></div>
+					<div><i class="icon-quotes-left list-icon-sm text-muted"></i> <em>Oops</em></div>
+                </li>
+                <li class="item border-bottom my-2 pb-2 text-left">
+                  <div class="mb-2"><strong>FRIDAY</strong> <small>Sep 05, 2019</small></div>
+                  <div><i class="icon-workouts list-icon-sm text-primary"></i> 10 of the Sweatiest <i class="text-success icon-check" aria-hidden="true"><span class="sr-only"></span></i></div>
+                  <div><i class="icon-apple list-icon-sm text-nutrition"></i> Try yogurt <i class="text-success icon-check" aria-hidden="true"><span class="sr-only"></span></i></div>
+					<div><i class="icon-quotes-left list-icon-sm text-muted"></i> <em>Proud</em></div>
+                </li>
+              </ul>
+				<button type="button" class="btn btn-sm btn-block btn-secondary" data-toggle="modal" data-target="#adherenceModal">See More</button>
+            </div>
+            <!--<h4> <a class="subheading p-1 bg-gray rounded my-4 d-block text-dark" href="#adherence-daily" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="adherence-daily"><i class="indicator-collapse"></i> Daily Adherence</a></h4>
+            <div id="adherence-daily" class="collapse">
+              <ul id="adherence-daily-json" class="list-unstyled">
+              </ul>
+              <button type="button" class="btn btn-sm btn-block btn-secondary" data-toggle="modal" data-target="#adherenceModal">See More</button>
+            </div>-->
+          
+          <h3><a class="subheading p-1 bg-gray rounded mb-4 d-block text-dark" href="#adherence-upcoming" data-toggle="collapse" role="button" aria-expanded="FALSE" aria-controls="adherence-upcoming"><i class="indicator-collapse"></i> Upcoming</a></h3>
+          <div id="adherence-upcoming" class="collapse">
+            <ul id="next7days" class="list-unstyled">
+            </ul>
+          </div>
+          <h3><a class="subheading p-1 bg-gray rounded mb-4 d-block text-dark" href="#special-tasks" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="adherence-upcoming"><i class="indicator-collapse"></i> Special Tasks</a></h3>
+          <div id="special-tasks" class="collapse">
+            <div class="d-sm-flex justify-content-between align-items-start">
+              <ul class="list-unstyled">
+                <li>
+                  <p class="d-flex align-items-start"><i class="icon-check px-2 mr-1 text-success"></i> <span>Take a walk around the lake<br>
+                    <small class="text-muted">Oct 22, 2019</small></span></p>
+                </li>
+                <li>
+                  <p class="d-flex align-items-start">
+                    <button class="icon-x-small btn btn-secondary btn-sm mr-1" data-toggle="modal" data-target="#managePlanConf"></button>
+                    <span>Complete a Body Scan <br>
+                    <small class="text-muted">Due Nov 8, 2019</small></span></p>
+                </li>
+              </ul>
+              <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#taskAssignmentModal">Assign Task</button>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" id="tab_notes" role="tabpanel">
+          <div class="d-flex align-items-end mb-5">
+            <div class="form-group m-0">
+              <label class="mb-1" for="scan-datepicker1"><strong>Previous Notes</strong></label>
+              <select class="form-control">
+                <option>10/1/2019 — Video Check-in</option>
+                <option>9/8/2019 – Initial Interview</option>
+                <option>8/8/2019 – Pre-Interview</option>
+              </select>
+            </div>
+            <button type="button" class="btn btn-secondary mx-2">Edit</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#view_note">View</button>
+          </div>
+          <hr>
+          <div class="my-5">
+            <h3 class="h6"><strong>New Note</strong></h3>
+            <div class="form-group">
+              <label for="note_title" class="sr-only">Title</label>
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="form-group-miminal input-group-text ">
+                    <label class="m-0 text-primary" for="note-datepicker1"><i class="icon-schedule"></i><span class="sr-only">Note Date</span></label>
+                    <input type="text" id="note-datepicker1" class="text-right" value="10/8/2019" style="max-width: 5.5rem">
+                  </div>
+                </div>
+                <input id="note_title" type="text" class="form-control" placeholder="Check-in Notes">
+              </div>
+            </div>
+            <style>
+					.max-width-x {
+						max-width: 5rem;
+					}
+				</style>
+            <p class="text-muted">Whatever you type here will not be displayed to the client (unless you show it to them). </p>
+            <div id="fake_wysiwyg" class=""></div>
+            <h4><a class="subheading p-1 bg-gray rounded my-4 d-block text-dark collapsed" href="#performance-measurements" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="adherence-graphs"><i class="indicator-collapse"></i> Performance Measurements</a></h4>
+            <div id="performance-measurements">
+              <p class="text-muted">Log today's count for each exercise. Compare to previous sessions in the Stats tab</p>
+              <ol>
+                <li class="form-group">
+                  <label>Squats</label>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <input class="form-control form-control-lg mr-2 max-width-x text-right" type="number" placeholder="0">
+                    <label class="sr-only">Notes</label>
+                    <textarea class="form-control  form-control-sm" type="text" placeholder="notes..."></textarea>
+                  </div>
+                </li>
+                <li class="form-group">
+                  <label>Skaters</label>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <input class="form-control form-control-lg mr-2 max-width-x text-right" type="number" placeholder="0">
+                    <label class="sr-only">Notes</label>
+                    <textarea class="form-control  form-control-sm" type="text" placeholder="notes..."></textarea>
+                  </div>
+                </li>
+                <li class="form-group">
+                  <label>Push-ups</label>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <input class="form-control form-control-lg mr-2 max-width-x text-right" type="number" placeholder="0">
+                    <label class="sr-only">Notes</label>
+                    <textarea class="form-control  form-control-sm" type="text" placeholder="notes..."></textarea>
+                  </div>
+                </li>
+                <li class="form-group">
+                  <label>Bridges</label>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <input class="form-control form-control-lg mr-2 max-width-x text-right" type="number" placeholder="0">
+                    <label class="sr-only">Notes</label>
+                    <textarea class="form-control  form-control-sm" type="text" placeholder="notes..."></textarea>
+                  </div>
+                </li>
+                <li class="form-group">
+                  <label>Mountain Climbers</label>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <input class="form-control form-control-lg mr-2 max-width-x text-right" type="number" placeholder="0">
+                    <label class="sr-only">Notes</label>
+                    <textarea class="form-control  form-control-sm" type="text" placeholder="notes..."></textarea>
+                  </div>
+                </li>
+                <li class="form-group">
+                  <label>Alternating Reverse Lunges</label>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <input class="form-control form-control-lg mr-2 max-width-x text-right" type="number" placeholder="0">
+                    <label class="sr-only">Notes</label>
+                    <textarea class="form-control  form-control-sm" type="text" placeholder="notes..."></textarea>
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <div class="d-flex justify-content-center mt-4">
+              <button type="button" class="btn btn-primary">Save</button>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" id="tab_stats" role="tabpanel">
+          <div id="chartContainer" style="height: 370px; width: 100%; margin: 2rem 0; display: none"></div>
+          <small class="text-muted">Select two dates to compare results.</small>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col" class="text-right"> <select class="form-control">
+                    <option>Bio Scans</option>
+                    <option>Fit Check</option>
+                  </select>
+                </th>
+                <th scope="col"> <div class="form-group-miminal">
+                    <label class="m-0 text-primary" for="scan-datepicker1"><span class="sr-only">First Date</span></label>
+                    <select class="form-control">
+                      <option>10/8/2019</option>
+                      <option>9/8/2019</option>
+                      <option>8/8/2019</option>
+                    </select>
+                  </div>
+                </th>
+                <th scope="col"> <div class="form-group-miminal">
+                    <label class="m-0 text-primary" for="scan-datepicker1"><span class="sr-only">Second  Date</span></label>
+                    <select class="form-control">
+                      <option>10/8/2019</option>
+                      <option>9/8/2019</option>
+                      <option>8/8/2019</option>
+                    </select>
+                  </div>
+                </th>
+                <th scope="col" class="text-center">+/-</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Weight</th>
+                <td>162</td>
+                <td>163</td>
+                <td class="text-center"><span class="text-muted">-1</span></td>
+              </tr>
+              <tr>
+                <th>Lean Body Mass</th>
+                <td>123.2/High</td>
+                <td>122.1/High</td>
+                <td class="text-center"><span class="text-muted">+1.1</span></td>
+              </tr>
+              <tr>
+                <th>Body Fat %</th>
+                <td>24%/High</td>
+                <td>25%/High</td>
+                <td class="text-center"><span class="text-muted">-1</span></td>
+              </tr>
+              <tr>
+                <th>Bio Age</th>
+                <td>28 years</td>
+                <td>28 years</td>
+                <td class="text-center"><span class="text-muted">=</span></td>
+              </tr>
+              <tr>
+                <th>Fitness Score</th>
+                <td>77/100</td>
+                <td>76/100</td>
+                <td class="text-center"><span class="text-muted">+1</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<aside>
+  <div id="toasts" class="position-absolute" style=" left:0; right: 0; bottom: 0;">
+    <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center">
+      <div id="coachesSuccess" class="toast toast-success hide" role="alert" aria-live="assertive" aria-atomic="true" data-delay="1500" style=" z-index: 60">
+        <div class="toast-header"> <i class="icon-circle-check mr-2"></i> <strong class="mr-auto">Success</strong>
+          <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+        </div>
+        <div class="toast-body"> <span data-coach-name></span> has been assigned as <span data-client-name></span> coach. </div>
+      </div>
+      <div id="planSuccess" class="toast toast-success hide" role="alert" aria-live="assertive" aria-atomic="true" data-delay="1500" style=" z-index: 60">
+        <div class="toast-header"> <i class="icon-circle-check mr-2"></i> <strong class="mr-auto">Success</strong>
+          <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+        </div>
+        <div class="toast-body"> <span data-plan-name></span> has been sent to <span data-client-name></span> coach. </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Manage Coaches Modal-->
+  
+  <div class="modal fade" id="coachesModal" tabindex="-1" role="dialog" aria-labelledby="coachesModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div id="assignment-clients" class="modal-content">
+        <div class="modal-header d-block">
+          <h1 class="modal-title h5" id="coachesModalLabel"><strong>Assign Coach</strong></h1>
+          <div class="input-group mt-2">
+            <div class="input-group-prepend"> <span class="input-group-text"><i class="icon-search"></i></span> </div>
+            <input id="coach_list_search" type="text" class="form-control" placeholder="Search by name" aria-label="Search by name" aria-describedby="basic-addon1">
+          </div>
+        </div>
+        <div class="modal-body p-0" id="list_coaches">
+          <ul id="the_coaches_list" class="list-group list-group-flush">
+            <li class="list-group-item ">
+              <label class=" d-flex align-items-center  custom-radio">
+              <i class="mug mug-md mr-2" style="background-image: url(//anytimefitness.blob.core.windows.net/user-photos/d517e8d0-b8e6-4926-93de-8568fdb3d5dd.jpg)"></i>
+              <div class="d-flex flex-column flex-fill name px-2"><span data-type="name">Jon Reischl (Me)</span><small class="text-muted">6 clients</small></div>
+              <input type="radio" name="coaches" value="option1">
+              <i class="indicator"></i>
+              </label>
+            </li>
+            <li class="list-group-item ">
+              <label class=" d-flex align-items-center custom-radio">
+              <i class="mug mug-md mr-2" style="background-image: url(//randomuser.me/api/portraits/women/60.jpg)"></i>
+              <div class="d-flex flex-column flex-fill name px-2"><span data-type="name">Phyllis Saroka</span><small class="text-muted">4 clients</small></div>
+              <input type="radio" name="coaches" value="option1">
+              <i class="indicator"></i>
+              </label>
+            </li>
+          </ul>
+          <p id="no_coach_results" class="p-4" style="display: none;">No matching coaches.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" data-action="assign_coach">Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Assign Plan-->
+  
+  <div class="modal fade" id="planAssignmentModal" tabindex="-1" role="dialog" aria-labelledby="planAssignmentModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div id="assignment-plan" class="modal-content">
+        <div class="modal-header d-block">
+          <h2 class="modal-title heading  mt-2 " id="planAssignmentModalLabel"><strong>Select Plan</strong></h2>
+          <div class="d-flex justify-content-between">
+            <select class="form-control mr-sm-2">
+              <option>My Plans</option>
+            </select>
+            <div class="input-group">
+              <div class="input-group-prepend"> <span class="input-group-text"><i class="icon-search"></i></span> </div>
+              <input id="plan_list_search" type="text" class="form-control" placeholder="Search by plan name" aria-label="Search by name" aria-describedby="basic-addon1">
+            </div>
+          </div>
+        </div>
+        <div class="modal-body p-0" id="list_plans">
+          <ul id="the_plans_list" class="list-group list-group-flush">
+            <li class="list-group-item ">
+              <label class=" d-flex align-items-center  custom-radio">
+              <div class="d-flex flex-column flex-fill name px-2"><span data-type="plan">Fat Loss Level 1</span><small class="text-muted">6 week plan</small></div>
+              <input type="radio" name="plans" value="option1">
+              <i class="indicator"></i>
+              </label>
+            </li>
+            <li class="list-group-item ">
+              <label class=" d-flex align-items-center custom-radio">
+              <div class="d-flex flex-column flex-fill name px-2"><span data-type="plan">Plan B</span><small class="text-muted">12 week plan</small></div>
+              <input type="radio" name="plans" value="option2">
+              <i class="indicator"></i>
+              </label>
+            </li>
+            <li class="list-group-item ">
+              <label class=" d-flex align-items-center custom-radio">
+              <div class="d-flex flex-column flex-fill name px-2"><span data-type="plan">Plan 9 from Outer Space</span><small class="text-muted">9 week plan</small></div>
+              <input type="radio" name="plans" value="option3">
+              <i class="indicator"></i>
+              </label>
+            </li>
+          </ul>
+          <p id="no_plan_results" class="p-4" style="display: none;">No matching plans.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-action="schedule_assignment">Next</button>
+        </div>
+      </div>
+      <div id="assignment-send" class="modal-content">
+        <div class="modal-header d-flex">
+          <button type="button" class="btn btn-link mr-2 d-block" data-action="back_to_plans"><span class="sr-only">Back</span><span aria-hidden="true"><i class="icon-arrow-left3"></i></span></button>
+          <h2 class="modal-title heading mt-2 flex-grow-1 border-left pl-4" id=""><strong>Send Assignment</strong></h2>
+        </div>
+        <div class="modal-body">
+          <div>
+            <div class="form-group">
+              <label for="assignment-datepicker">Start Date</label>
+              <input type="text" id="assignment-datepicker" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="assignment-message">Additional Message</label>
+              <textarea id="assignment-message" class="form-control"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" data-action="send_assignemnt">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Assign Task-->
+  
+  <div class="modal fade" id="taskAssignmentModal" tabindex="-1" role="dialog" aria-labelledby="taskAssignmentModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header d-block">
+          <h2 class="modal-title heading  mt-2 " id="taskAssignmentModalLabel"><strong>Assign Special Task</strong></h2>
+          <div class="d-flex justify-content-between">
+            <div class="form-group">
+              <label for="task-select">Task Type</label>
+              <select id="task-select" class="form-control mr-sm-2">
+                <option>Scheduel Body Scan</option>
+                <option>Schedule Assessment</option>
+                <option>Generic Task</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="task-datepicker">Start Date</label>
+              <input type="text" id="task-datepicker" class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="task-message">Additional Message</label>
+            <textarea id="task-message" class="form-control"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" data-action="send_assignemnt">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Manage Plan Modal-->
+  <div class="modal fade" id="managePlanConf" tabindex="-1" role="dialog" aria-labelledby="managePlanConfLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title h5" id="managePlanConfLabel">Are you sure you want to unassign this plan?</h1>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+        </div>
+        <div class="modal-body"> Something about the consequences of unassigning this plan. </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Never mind</button>
+          <button type="button" class="btn btn-primary">Proceed!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Manage Plan Modal-->
+  <div class="modal fade" id="view_note" tabindex="-1" role="dialog" aria-labelledby="view_note_label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title h5" id="view_note_label">10/1/2019 — Video Check-in — Charles Atlas</h1>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+        </div>
+        <div class="modal-body">
+          <p>Angelo Siciliano was born in Acri, Cosenza, on October 30, 1892.[1][5] Angelino, as he was also called, moved to Brooklyn, New York, in 1903,[1] and eventually became a leather worker. He tried many forms of exercise initially, using <strong>weights, pulley-style resistance, and gymnastic-style calisthenics</strong>. Atlas claimed that they did not build his body. He was inspired by other fitness and health advocates who preceded him, including world-renowned strongman Eugen Sandow and Bernarr MacFadden (a major proponent of "Physical Culture"). He was too poor to join the local YMCA, so he watched how exercises were performed, then performed them at home. He attended the strongman shows at Coney Island, and would question the strongmen about their diets and exercise regimens after the show. He would read Physical Culture magazine for further information on health, strength, and physical development, and finally developed his own system of exercises which was later called 'Dynamic Tension', a phrase coined by Charles Roman.</p>
+          <img src="img/charles-atlas.jpg" alt=""> </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Edit</button>
+          <button type="button" class="btn btn-primary"  data-dismiss="modal">Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Adherence Modal-->
+  <div class="modal fade" id="adherenceModal" tabindex="-1" role="dialog" aria-labelledby="adherenceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title h5" id="adherenceModalLabel">Daily Adherence</h1>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+        </div>
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table table-striped table-sm nowrap" style="font-size: small">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">DATE</th>
+                  <th scope="col">WORKOUT</th>
+                  <th scope="col">NUTRITION</th>
+                  <th scope="col">MOOD</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="">Sep 01, 2019</td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> <span>10 of the Toughest</span></td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> Eat less garbage </td>
+                  <td>👍  Happy</td>
+                </tr>
+                <tr>
+                  <td>Aug 31, 2019</td>
+                  <td><i class="icon-x-small text-danger mr-1" aria-hidden="true" aria-label="success"></i> 10 of the Fastest</td>
+                  <td><i class="icon-ellipses text-muted mr-1" aria-hidden="true" aria-label="no response"></i> Only drink Bud Light Platinum </td>
+                  <td>👍  Happy</td>
+                </tr>
+                <tr>
+                  <td>Aug 30, 2019</td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> 10 of the Most Complicated</td>
+                  <td><i class="icon-x-small text-danger mr-1" aria-hidden="true" aria-label="fail"></i> Limit yourself to only one pie </td>
+                  <td>👎  Disappointed</td>
+                </tr>
+                <tr>
+                  <td>Aug 29, 2019</td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> 10 of the Loudest</td>
+                  <td><i class="icon-x-small text-danger mr-1" aria-hidden="true" aria-label="fail"></i> Avoid rooms that contain cheese </td>
+                  <td>No Reponse</td>
+                </tr>
+                <tr>
+                  <td class="">Sep 01, 2019</td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> <span>10 of the Toughest</span></td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> Eat less garbage </td>
+                  <td>👍  Happy</td>
+                </tr>
+                <tr>
+                  <td>Aug 31, 2019</td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> 10 of the Fastest</td>
+                  <td><i class="icon-ellipses text-muted mr-1" aria-hidden="true" aria-label="no response"></i> Only drink Bud Light Platinum </td>
+                  <td>👍  Happy</td>
+                </tr>
+                <tr>
+                  <td>Aug 30, 2019</td>
+                  <td><i class="icon-x-small text-danger mr-1" aria-hidden="true" aria-label="success"></i> 10 of the Most Complicated</td>
+                  <td><i class="icon-x-small text-danger mr-1" aria-hidden="true" aria-label="fail"></i> Limit yourself to only one pie </td>
+                  <td>👎  Disappointed</td>
+                </tr>
+                <tr>
+                  <td>Aug 29, 2019</td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> 10 of the Loudest</td>
+                  <td><i class="icon-x-small text-danger mr-1" aria-hidden="true" aria-label="fail"></i> Avoid rooms that contain cheese </td>
+                  <td>No Reponse</td>
+                </tr>
+                <tr>
+                  <td class="">Sep 01, 2019</td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> <span>10 of the Toughest</span></td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> Eat less garbage </td>
+                  <td>👍  Happy</td>
+                </tr>
+                <tr>
+                  <td>Aug 31, 2019</td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> 10 of the Fastest</td>
+                  <td><i class="icon-ellipses text-muted mr-1" aria-hidden="true" aria-label="no response"></i> Only drink Bud Light Platinum </td>
+                  <td>👍  Happy</td>
+                </tr>
+                <tr>
+                  <td>Aug 30, 2019</td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> 10 of the Most Complicated</td>
+                  <td><i class="icon-x-small text-danger mr-1" aria-hidden="true" aria-label="fail"></i> Limit yourself to only one pie </td>
+                  <td>👎  Disappointed</td>
+                </tr>
+                <tr>
+                  <td>Aug 29, 2019</td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> 10 of the Loudest</td>
+                  <td><i class="icon-x-small text-danger mr-1" aria-hidden="true" aria-label="fail"></i> Avoid rooms that contain cheese </td>
+                  <td>No Reponse</td>
+                </tr>
+                <tr>
+                  <td class="">Sep 01, 2019</td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> <span>10 of the Toughest</span></td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> Eat less garbage </td>
+                  <td>👍  Happy</td>
+                </tr>
+                <tr>
+                  <td>Aug 31, 2019</td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> 10 of the Fastest</td>
+                  <td><i class="icon-ellipses text-muted mr-1" aria-hidden="true" aria-label="no response"></i> Only drink Bud Light Platinum </td>
+                  <td>👍  Happy</td>
+                </tr>
+                <tr>
+                  <td>Aug 30, 2019</td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> 10 of the Most Complicated</td>
+                  <td><i class="icon-x-small text-danger mr-1" aria-hidden="true" aria-label="fail"></i> Limit yourself to only one pie </td>
+                  <td>👎  Disappointed</td>
+                </tr>
+                <tr>
+                  <td>Aug 29, 2019</td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> 10 of the Loudest</td>
+                  <td><i class="icon-x-small text-danger mr-1" aria-hidden="true" aria-label="fail"></i> Avoid rooms that contain cheese </td>
+                  <td>No Reponse</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <hr>
+          <nav aria-label="...">
+            <ul class="pagination  pagination-sm">
+              <li class="page-item disabled"> <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a> </li>
+              <li class="page-item active"  aria-current="page"><a class="page-link" href="#">1 <span class="sr-only">(current)</span></a></li>
+              <li class="page-item "> <a class="page-link" href="#">2</a> </li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"> <a class="page-link" href="#">Next</a> </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</aside>
+<footer id="footer"></footer>
+<script src="../js/jquery-3.3.1.min.js"></script> 
+<script src="../js/popper.min.js"></script> 
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script><!-- required for Datepicker--> 
+
+<script src="js/coaching.js"></script> 
+<script src="../js/jquery.ui.touch-punch.min.js"></script> 
+
+<!--Graph --> 
+<script src="js/jquery.canvasjs.min.js"></script> 
+<script>
+
+ $(function () {
+	 
+	 // Fire Graph
+	 $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+		 
+
+
+var options = {
+	exportEnabled: true,
+	animationEnabled: true,
+	 backgroundColor: "#F8F8F8",
+
+	title:{
+		text: ""
+	},
+	subtitles: [{
+		text: "",
+		fontFamily: "tahoma",
+	}],
+	axisX: {
+		title: ""
+	},
+	axisY: {
+		title: "",
+		titleFontColor: "#4F81BC",
+		lineColor: "#4F81BC",
+		labelFontColor: "#4F81BC",
+		tickColor: "#4F81BC",
+		includeZero: false
+	},
+	axisY2: {
+		title: "Bio Age",
+		titleFontColor: "#C0504E",
+		lineColor: "#C0504E",
+		labelFontColor: "#C0504E",
+		tickColor: "#C0504E",
+		includeZero: false
+	},
+	toolTip: {
+		shared: true
+	},
+	legend: {
+		cursor: "pointer",
+		itemclick: toggleDataSeries
+	},
+	data: [{
+		type: "spline",
+		name: "Weight",
+		showInLegend: true,
+		xValueFormatString: "MMM YYYY",
+		yValueFormatString: "#,##0 lbs",
+		dataPoints: [
+			{ x: new Date(2016, 0, 1),  y: 162 },
+			{ x: new Date(2016, 1, 1), y: 163 },
+			{ x: new Date(2016, 2, 1), y: 160 },
+			{ x: new Date(2016, 3, 1),  y: 165 },
+			{ x: new Date(2016, 4, 1),  y: 167 },
+
+		]
+	},
+	{
+		type: "spline",
+		name: "Lean Body Mass",
+		showInLegend: true,
+		xValueFormatString: "MMM YYYY",
+		yValueFormatString: "#,##0.#/High",
+		dataPoints: [
+			{ x: new Date(2016, 0, 1),  y: 123.5 },
+			{ x: new Date(2016, 1, 1), y: 121 },
+			{ x: new Date(2016, 2, 1), y: 123 },
+			{ x: new Date(2016, 3, 1),  y: 125 },
+			{ x: new Date(2016, 4, 1),  y: 122 },
+
+		]
+	},
+           {
+		type: "spline",
+		name: "Bio Age",
+		axisYType: "secondary",
+		showInLegend: true,
+		xValueFormatString: "MMM YYYY",
+		yValueFormatString: "#,##0.#",
+		dataPoints: [
+			{ x: new Date(2016, 0, 1),  y: 31.5 },
+			{ x: new Date(2016, 1, 1), y: 30 },
+			{ x: new Date(2016, 2, 1), y: 29 },
+			{ x: new Date(2016, 3, 1),  y: 29 },
+			{ x: new Date(2016, 4, 1),  y: 28 },
+
+		]
+	},
+                    {
+		type: "spline",
+		name: "Fitness Score",
+		showInLegend: true,
+		xValueFormatString: "MMM YYYY",
+		yValueFormatString: "##.# out of 100",
+		dataPoints: [
+			{ x: new Date(2016, 0, 1),  y: 77.5 },
+			{ x: new Date(2016, 1, 1), y: 76.3 },
+			{ x: new Date(2016, 2, 1), y: 77.2 },
+			{ x: new Date(2016, 3, 1),  y: 79.1 },
+			{ x: new Date(2016, 4, 1),  y: 82.1 },
+
+		]
+	},
+    {
+		type: "spline",
+		name: "Body Fat",
+		axisYType: "secondary",
+		showInLegend: true,
+		xValueFormatString: "MMM YYYY",
+		yValueFormatString: "###&percnt;",
+		dataPoints: [
+			{ x: new Date(2016, 0, 1),  y: 24 },
+			{ x: new Date(2016, 1, 1), y: 25 },
+			{ x: new Date(2016, 2, 1), y: 26 },
+			{ x: new Date(2016, 3, 1),  y: 25 },
+			{ x: new Date(2016, 4, 1),  y: 24 },
+
+		]
+	}
+          ]
+};
+$("#chartContainer").CanvasJSChart(options);
+
+function toggleDataSeries(e) {
+	if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+		e.dataSeries.visible = false;
+	} else {
+		e.dataSeries.visible = true;
+	}
+	e.chart.render();
+}
+
+$('#chartContainer').fadeIn();
+		 
+	 })
+
+	// Load Clients
+	   $.getJSON('js/clients.json', function(data) {
+		   $.each(data.client, function(i, f) {
+			  var clientItem = '<li class="position-relative" data-club="'+ f.club +'" data-coach="'+ f.coach +'" data-plan="'+ f.plan +'" data-week="'+ f.plan_week +'"><div class="m-2 d-flex flex-grow-1 align-items-center"><i class="mug mug-md mr-2" style="background-image: url(//randomuser.me/api/portraits/'+ f.gen +'/'+ f.id +'.jpg)"></i><div class="d-flex flex-column flex-fill"><span data-name>'+ f.first_name +' '+ f.last_name +'</span><small class="text-muted"><span data-type="plan">'+ f.plan +'</span> — Week '+ f.plan_week +'</small></div></div>	<small class="text-muted text-right pr-2 d-none"><span data-coach-name>'+ f.coach +'</span></small> </div>  <button class="p-0 btn btn-link btn-takeover" data-action="view_client_chat"><span class="sr-only">View Detail</span></button></li>'			  
+			   $(clientItem).appendTo("#clients_list");
+			});
+		   
+		   // Search Clients 
+			$('#search_clients').keyup(function() {
+			  $('#clients_list > li').hide();
+			  var txt = $('#search_clients').val();
+			  $('#clients_list > li').each(function() {
+				if ($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1) {
+				  $(this).show();
+				  $('#no_results').hide();
+				}
+			   else if($('#clients_list > li').children(':visible').length == 0) {
+				   // action when all are hidden
+				   $('#no_results').show();
+
+				}
+			  });
+			});
+		   
+		   
+		   // Give client an unread chat 
+		   
+		   $('#clients_list > li:first-child').addClass('unread')
+		   
+		  
+
+		   //  Populate Coach Name & Adjust members vs clients 
+		   $('#clients_list li').each(function(){
+			   var theCoachName = $(this).find('[data-coach-name]');
+			   
+			   if (!$(theCoachName).text().trim().length){
+				   $(this).attr('data-status','member')
+				  $(theCoachName).remove();
+				}
+			   else {
+				   $(theCoachName).before('<strong>Coach<br></strong>');
+				   $(this).attr('data-status','client')
+			   }
+		   });
+	   
+   	  	   // Filter Clients 
+		   $('[data-action="filter_plan"]').click(function(){			   
+			   var thePlan = $(this).text()
+			   if ($(this).is('#all_plans')) {
+				   $('#clients_list li').show().addClass('filtered');
+			   }
+			   else if ($(this).is('#no_plans')) {
+				   $('#clients_list li').hide().removeClass('filtered');
+				   $('[data-plan=""]').show().addClass('filtered');	
+			   }
+			   else {				  
+				   $('#clients_list li').hide().removeClass('filtered');
+				   $('[data-plan="'+thePlan+'"]').show().addClass('filtered');				   
+			   }
+			   $('[data-action="filter_plan"]').removeClass('checked')
+			   $(this).addClass('checked');
+			   $('#selected_plan').text(thePlan);
+		   });
+		    // Filter Weeks 
+		   $('[data-action="filter_week"]').click(function(){
+			   if ($(this).is('#all_weeks')) {
+				   $('#selected_week').text('All Weeks');
+				   $('li.filtered').show();
+			   }
+			   else {
+				   var theWeek = $(this).attr('data-week');
+				   $('#clients_list li').hide();
+				   $('[data-week="'+theWeek+'"].filtered').show();
+				   $('#selected_week').text('Week '+theWeek);
+			   }			  
+			   $('[data-action="filter_week"]').removeClass('checked')
+			   $(this).addClass('checked');			   			   
+		   })
+		   
+		   		   
+		 // Replace empty plan with CTA
+		 $('[data-type="plan"]:empty').parent().html('Not on a plan');
+		   
+		   	
+		   
+		 // Stage the list based on a club, status and coach
+		   $('#clients_list > li').hide();
+		   $('#clients_list [data-coach="1"] [data-coach-name]').text('Jon Reischl (Me)')
+   		   $('#clients_list [data-coach="2"] [data-coach-name]').text('Phyllis Saroka')
+		   $('#clients_list > li[data-club="2515"]').addClass('selected-club');
+		   $('#clients_list > li[data-coach="1"]').addClass('selected-coach');
+		   $('#clients_list > li.selected-club.selected-coach').show();
+		   
+		   
+		 // Club Selector 
+		   
+		   $('#select_club').change(function(){
+			   var theClub = $('#select_club option:selected').val();
+			   $('#clients_list > li').hide().removeClass('selected-club');;
+			   $('#clients_list > li[data-club='+theClub+']').addClass('selected-club');
+			   $('#clients_list > li.selected-club.selected-coach').show();
+			   
+			   
+		   });
+		   
+		   
+		    // Coach Selector 
+		   
+		   $('#select_coach').change(function(){
+			   var thisCoach = $('#select_coach option:selected').val();			   
+			   $('#clients_list > li').hide().removeClass('selected-coach');
+			   $('#clients_list > li[data-coach='+thisCoach+']').addClass('selected-coach');
+			   $('#clients_list > li.selected-club.selected-coach').show();			   
+		   });
+		   
+		   
+		   // Status (client v member) Selector 
+		   
+		   $('#select_member_status').change(function(){
+			   var theStatus = $('#select_member_status option:selected').val();
+			   
+			   if ($(this).val() == 'all') {
+				   $('#clients_list > li.selected-club').show().removeClass('selected-status');
+				   $('#select_coach').parent().hide();
+				   
+			   }
+			   else {
+				   $('#clients_list > li.selected-club').hide().removeClass('selected-status');
+				   $('#clients_list > li.selected-club.selected-coach[data-status='+theStatus+']').show().addClass('selected-status');
+				   $('#select_coach').parent().show();
+			   }
+			   
+		   });
+		   
+		   
+		   	 // View Client
+	 
+			 $('[data-action="view_client"]').click(function(){
+
+	
+				 
+
+				 $('#wall_Clients').attr('data-roll', 'absent');
+				 $('#wall_Chat').attr('data-roll', 'present');
+				 $('#wall_Detail').attr('data-roll', 'enganged');
+				 
+				 $('[data-action="back_to_clients"]').attr( "style", "display: inherit !important;" )				 			
+
+			 });
+		   
+		   
+		   	 // View Client Chat
+	 
+			 $('[data-action="view_client_chat"]').click(function(){
+
+				 var theName = $(this).siblings().find('[data-name]').text();
+				 var theCoach = $(this).siblings().find('[data-coach-name]');
+				 var theCoachText = $(theCoach).text();
+				 var theMug = $(this).siblings().find('.mug').css('background-image');
+				 var thePlan = $(this).siblings().find('[data-type="plan"]');
+				 var thePlanText = $(thePlan).text();
+				 
+				 
+
+				 $('#clients_list li').removeClass('indicate');
+				 $(this).closest('li').addClass('indicate')
+				 $('#wall_Clients').attr('data-roll', 'present');
+				 $('#wall_Chat').attr('data-roll', 'enganged');
+				 
+				 if ($(this).parent().is('[data-coach="1"]')) {
+					 $('#wall_Detail [data-proprietary]').show();
+				 }
+				 else {
+					 $('#wall_Detail [data-proprietary]').hide();
+				 }
+
+				 $('#wall_Detail [data-name]').text(theName);
+				 $('#wall_Chat [data-name]').text(theName);
+				 
+				 // If there isn't a coach, show full Assign Coach button
+				 if ($(theCoach).length === 0) {			 
+					 $('#wall_Detail [data-coach]').text('').siblings('button').text('Assign Coach');
+				 }
+				 else {
+					 $('#wall_Detail [data-coach]').text(theCoachText).siblings('button').html('<i class="icon-pencil-stub"></i> <span class="sr-only">Assign Coach</span>');
+				 }
+				 $('#wall_Detail .mug').css('background-image', theMug);
+				 $('#wall_Chat .mug').css('background-image', theMug);
+				 // If there are plans assigned, include the manage button for each plan
+				 if ($(thePlan).length === 0) {
+					  $('#wall_Detail [data-plans] > li').text('')
+				 }
+				 else {
+					 $('#wall_Detail [data-plans] > li').text(thePlanText).prepend('<button class="icon-x-small btn btn-secondary btn-sm" data-toggle="modal" data-target="#managePlanConf"></button> ');
+				 }
+				 
+				 // Back to Chat
+				 
+				  $('[data-action="back_to_chat"]').click(function(){
+						 $('#wall_Detail').attr('data-roll', 'absent');
+					  	 $('#wall_Chat').attr('data-roll', 'engaged');
+					  	$('#wall_Clients').attr('data-roll', 'present');
+			
+					 })
+
+				 // Back to Client List 
+				 $('[data-action="back_to_clients"]').click(function(){
+					 $(this).attr('style','');
+					 $('[data-roll]').attr('data-roll', 'absent');
+					 $('#wall_Clients').attr('data-roll', 'engaged');
+				 })
+
+
+
+			 });
+
+		   
+	   });
+	 
+
+
+ // ------ Assignment Modal
+	  
+  	  $('#assignment-send').hide();
+	  $('#assignment-result').hide();
+	  
+	  $('[data-action="schedule_assignment"]').click(function(){
+		  $('#assignment-plan').hide();
+		  $('#assignment-send').fadeIn();
+		  
+	  });
+	  
+	  
+	  $('[ data-action="back_to_clients"]').click(function(){
+		  $('#assignment-clients').fadeIn();
+		  $('#assignment-send').hide();
+		  
+	  });
+	 
+	  
+	  
+	  $('[data-action="send_assignemnt"]').click(function(){
+		  $('#planSuccess').toast('show');
+		  
+		 var newPlan = $('#the_plans_list :checked').siblings().find('[data-type="plan"]').text();
+		 var theClient = $('#wall_Detail [data-name]').text();
+		 $('#planSuccess').toast('show');
+		 $('#planSuccess [data-plan-name]').text(newPlan);
+		 $('#planSuccess [data-client-name]').text(theClient);
+
+		  
+		  $('#clients_list > .indicate [data-type="plan"]').text(newPlan);
+		 $('#wall_Detail [data-plans]').append('<li><button class="icon-x-small btn btn-secondary btn-sm" data-toggle="modal" data-target="#managePlanConf"></button> '+newPlan+'</li>');
+	  });
+
+	 
+//---- Assign Coach
+	 
+	 	// Search Coaches 
+			$('#coach_list_search').keyup(function() {
+				$('#no_coach_results').hide();
+			  	$('#the_coaches_list li').hide();
+			  var txt = $('#coach_list_search').val();
+			  $('#the_coaches_list li').each(function() {
+				  
+				if ($(this).find('[data-type="name"]').text().toUpperCase().indexOf(txt.toUpperCase()) != -1) {
+				  $(this).show();
+				}	
+				 else if ($('#the_coaches_list li.d-flex').length === 0){
+					  $('#no_coach_results').show()
+				  }
+				  
+				  
+				  
+			  });
+				
+			});
+	 
+	 
+	 $('[data-action="assign_coach"]').click(function(){
+		 var newCoach = $('#the_coaches_list :checked').siblings().find('[data-type="name"]').text();
+		 var theClient = $('#wall_Detail [data-name]').text();
+		 $('#coachesSuccess').toast('show');
+		 $('#coachesSuccess [data-coach-name]').text(newCoach);
+		 $('#coachesSuccess [data-client-name]').text(theClient);
+//		 $('#clients_list > .indicate').fadeOut();
+		 $('#clients_list > .indicate [data-coach-name]').text(newCoach);
+		 $('#wall_Detail [data-coach]').text(newCoach);
+		 $('#wall_Detail [data-proprietary]').fadeToggle();
+	 })
+	 
+	 
+
+
+	 
+	 	// Load Daily Adherence
+	   $.getJSON('js/adherence.json', function(data) {
+		    $.each(data.days, function(i, f) {
+			  var dayItem = '<div class="item border-bottom mb-2" aria-labelledby="adherence_'+ f.date +'"><ul class="list-unstyled d-flex justify-content-between align-items-start text-center row mb-2"><li class="col-lg-3"><div class="text-left" id="adherence_'+ f.date +'"><small><strong>'+ f.dow +'</strong>&nbsp;<br class="d-none d-lg-block">'+ f.date_formatted +'</small></div></li><li class="col-4 col-lg-3"><a tabindex="0" href="#" class="btn-tile btn-secondary" role="button" data-container="body" data-trigger="focus" data-toggle="popover" data-placement="bottom" data-content="<strong>Workout: </strong>'+ f.workout +'"><div><small><strong class="text-muted">WORKOUT</strong></small></div><div data-status="'+ f.workout_status +'" class=""><i class="icon-ellipses text-muted" aria-hidden="true"><span class="sr-only"></span></i></div></a></li><li class="col-4 col-lg-3"><a  tabindex="0" href="#" class="btn-tile btn-secondary" role="button" data-container="body" data-toggle="popover" data-placement="bottom" data-content="<strong>Goal: </strong>'+ f.nutrition_goal +'"><div><small><strong class="text-muted">NUTRITION</strong></small></div><div data-status="'+ f.nutrition_status +'" class=""><i class="icon-x-small text-danger" aria-hidden="true"><span class="sr-only"></span></i></div></a></li><li class="col-4 col-lg-3"><a  tabindex="0" href="#" class="btn-tile btn-secondary" role="button" data-container="body" data-toggle="popover" data-placement="bottom" data-content="<strong>Mood: </strong>'+ f.mood +'"><div><small><strong class="text-muted">MOOD</strong></small></div><div data-status="'+ f.mood_status +'" class=""><span class="icon-ellipses" aria-hidden="true"><span class="sr-only">Complete</span></i></div></a></li></ul></div>'			  
+			   $(dayItem).prependTo("#adherence-daily");
+			});
+		   
+		 /*  $.each(data.days, function(i, f) {
+			  var dayItem = '<li class="item border-bottom my-2 pb-2 text-left"><div class="mb-2"><strong>'+ f.dow +'</strong> <small>'+ f.date_formatted +'</small></div><div class="row"><div class="col-sm-6"><i class="icon-workouts list-icon-sm text-primary"></i> '+ f.workout +'</div><div class="col-sm-6"><span data-status="'+ f.workout_status +'" class="mx-2"><i class="icon-ellipses text-muted" aria-hidden="true"><span class="sr-only"></span></i></span>	<span data-status="'+ f.mood_status +'" class="mx-2"><span class="icon-ellipses" aria-hidden="true"><span class="sr-only">Complete</span></i></span></div></div><div class="row"><div class="col-sm-6"><i class="icon-apple list-icon-sm text-nutrition"></i> '+ f.nutrition_goal +'</div><div class="col-sm-6"><span data-status="'+ f.nutrition_status +'" class="mx-2"><i class="icon-x-small text-danger" aria-hidden="true"><span class="sr-only"></span></i></span>						 <span data-status="'+ f.mood_status +'" class="mx-2"><span class="icon-ellipses" aria-hidden="true"><span class="sr-only">Complete</span></i></span></div></div></li>																																																											'			  
+			   $(dayItem).appendTo("#adherence-daily-json");
+			});*/
+		   
+		   //----Note in the above, tabindex="0" has been included in the <a> elements as a hack to allow the Popover functionality in Safari
+		   
+		   // Set status
+		   $('[data-status="success"]').find('i').attr('class', '').addClass('text-success icon-check');
+		   $('[data-status="fail"]').find('i').attr('class', '').addClass('icon-x-small text-danger');
+		   $('[data-status="none"]').find('i').attr('class', '').addClass('icon-ellipses text-muted');
+		   $('[data-status="frown"]').find('span').attr('class', '').text('👎');
+		   $('[data-status="smile"]').find('span').attr('class', '').text('👍 ');
+		   
+		   
+		   
+		   	 // Enable Popovers 
+			  $('[data-toggle="popover"]').popover({
+				  html: true,
+				  trigger: 'focus',
+				  template: '<div class="popover popover-dark" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
+			  })
+		   
+		   
+		   
+		   
+	   });
+	 
+	 
+	  	// Load Upcoming Tasks
+	   $.getJSON('js/adherence.json', function(data) {
+		   $.each(data.days, function(i, f) {
+			  var dayItem = '<li class="item border-bottom my-2 pb-2 text-left"><div class="mb-2"><strong>'+ f.dow +'</strong> <small>'+ f.date_formatted +'</small></div><div><i class="icon-workouts list-icon-sm text-primary"></i> '+ f.workout +'</div><div><i class="icon-apple list-icon-sm text-nutrition"></i> '+ f.nutrition_goal +'</div></li>'			  
+			   $(dayItem).appendTo("#next7days");
+			});
+		   
+		   //----Note in the above, tabindex="0" has been included in the <a> elements as a hack to allow the Popover functionality in Safari
+		   
+		   // Set status
+		   $('[data-status="success"]').find('i').attr('class', '').addClass('text-success icon-check');
+		   $('[data-status="fail"]').find('i').attr('class', '').addClass('icon-x-small text-danger');
+		   $('[data-status="none"]').find('i').attr('class', '').addClass('icon-ellipses text-muted');
+		   $('[data-status="frown"]').find('span').attr('class', '').text('👎');
+		   $('[data-status="smile"]').find('span').attr('class', '').text('👍 ');
+		   
+		   
+		   
+		   	 // Enable Popovers 
+			  $('[data-toggle="popover"]').popover({
+				  html: true,
+				  trigger: 'focus',
+				  template: '<div class="popover popover-dark" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
+			  })
+		   
+		   
+		   
+		   
+	   });
+	 
+	 // Date Picker 
+	 $( "#scan-datepicker1" ).datepicker();
+	 $( "#scan-datepicker2" ).datepicker();
+	 
+	 $('#note-datepicker1').datepicker();
+	 
+	 // Fake WYSIWYG
+	 $('#fake_wysiwyg').load("includes/fake_wysiwyg.html")
+		
+	 	 
+ });
+	
+
+</script>
+</body>
+</html>

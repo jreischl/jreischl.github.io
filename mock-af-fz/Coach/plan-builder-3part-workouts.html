@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AF Coaching</title>
+	<script src="../js/main.js?v=i4PrFRLb1UrVVZ1fdvF24e4nlbvo0InfNlDt2aqBKO4"></script>
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/fontawesome.css">	
+	<link rel="stylesheet" href="../css/custom.css">
+	<link rel="stylesheet" href="../css/fonts.css">
+	<link rel="stylesheet" href="css/coaching.css">
+	
+	<!-- Page Specific--> 
+	<style>
+		
+		#posterImage .icon-camera {
+			font-size: 2.5em;
+			line-height: 1.8em;
+		}
+		
+		section {			
+			  -webkit-transition: all .25s ease-in-out;
+			  -moz-transition: all .25s ease-in-out;
+			  -o-transition: all .25s ease-in-out;
+		  transition: all .25s ease-in-out;
+		}
+		
+		section  {
+			max-width: 40rem;
+		}
+		section[data-roll="absent"] {
+			opacity: 0;
+			height: 0;
+			position: absolute;	
+		}
+		section[data-roll="absent"] > .contents {
+			display: none;
+		}
+		section[data-roll="present"] {
+		   position: absolute;
+		   width: 1px;
+		   height: 1px;
+		   margin: -1px;
+		   overflow: hidden;
+		   clip: rect(0, 0, 0, 0); 
+		}		
+		section[data-roll="engaged"] {
+			opacity: 1;
+			left: auto;
+		}
+		
+		
+		#wall_Exercise {
+			position: absolute;
+			bottom: 0;
+			top: 4em;
+			right: 0;
+			left: 0;
+		}
+		
+		@media (min-width: 768px) { 						
+
+					section[data-roll="present"] {
+					   position: static;
+					   width: auto;
+					   height: auto;
+					   margin: inherit;
+					   overflow: inherit;
+					   clip: inherit; 
+					   border: inherit;
+					}
+					section[data-roll="absent"] {
+						opacity: 0;
+						height: 0;
+						position: static;
+						display: none;
+					}
+					#wall_Exercise {
+						left: 100px;
+						box-shadow: 3px 0px 4px rgba(0,0,0,.3);
+						top: 4em;
+						right: auto;
+					}
+			
+					
+			
+		}
+		
+		.plan-day.active {
+			position: relative;
+		}
+		.plan-day:hover, .plan-day:focus {
+			background: #f8f8f8;
+			border-radius: 8px;
+		}
+		.plan-day.active:after {
+			content: "";
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 50px 50px 50px 0;
+			border-color: transparent #f8f8f8 transparent transparent;
+			right: -50px;
+			position: absolute;
+			
+		}
+		
+		.active label.btn {
+			background: #7f51a2;
+			color: #fff;
+		}
+		
+		
+		
+		/* Custom Button States */
+		.btn-takeover:after {
+			content: "";
+			position: absolute;
+			right: 0;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			
+		}
+		
+		[data-action="add_to_workout"] {		
+			z-index: 2;
+		}
+		
+		
+		/* Hide button when Exercises wall is engaged */
+		#wall_Workout[data-roll="present"] [data-action="add_exercise"] {
+			display: none;
+		}
+		
+		#wall_Workout [data-action="add_to_workout"],
+		#wall_Workout [data-action="view_detail"] {
+			display: none;
+			
+		}
+		#wall_Exercise [data-action="drag"],
+		#wall_Exercise [data-action="remove_from_workout"]	{
+			display: none;
+		}
+
+	</style>	
+		
+</head>
+<body class="d-md-flex">
+<header id="header" data-role="header"></header>
+	<nav id="navbar" class="sidebar"></nav>
+
+<main class="container-relative d-md-flex align-items-stretch bg-gray-lightest">
+
+		<section id="wall_Plan" class="flex-fill flex-shrink-1 p-md-5 p-3 bg-white" data-roll="enganged">
+			<div class="contents">
+			<form><h1 class="heading"><strong>New Plan</strong></h1>
+				<div class="row">
+				<div class="col-9">
+				  <div class="form-group">
+					<label for="exampleFormControlInput1">Plan Name</label>
+					<input type="text" class="form-control" id="planName" placeholder="">
+				  </div>
+				</div>
+				<div class="col-3">
+				  <div class="form-group">
+					<label for="weeks">Weeks</label>
+					<select class="form-control" id="weeks">
+					  <option>1</option>
+					  <option>2</option>
+					  <option selected>3</option>
+					  <option>4</option>
+					  <option>5</option>
+					</select>
+				</div>
+				</div>
+			  </div>
+			  
+			  <div class="form-group">
+				<label for="description">Description</label>
+				<textarea class="form-control" id="description" rows="3"></textarea>
+			  </div>
+				<div class="form-group">
+				<h2 class="subheading">Week 1</h2>
+				<ul class="list-unstyled list-items"></ul>
+				<button type="button" class="btn btn-outline-primary btn-block" data-action="add_workout">Add Workout</button>
+				</div>	
+				<div class="form-group">				
+				<h2 class="subheading">Week 2</h2>
+				<ul class="list-unstyled list-items"></ul>	
+				<button type="button" class="btn btn-outline-primary btn-block" data-action="add_workout">Add Workout</button>
+				</div>
+				<div class="form-group">				
+				<h2 class="subheading">Week 3</h2>
+				<ul class="list-unstyled list-items"></ul>	
+				<button type="button" class="btn btn-outline-primary btn-block" data-action="add_workout">Add Workout</button>
+				</div>
+				<button type="button" class="btn btn-lg btn-primary" data-action="save_plan">Save Plan</button>
+			</form>
+			</div>
+		</section>
+		<section class="flex-fill p-md-5 p-3 bg-gray-lightest" data-roll="">
+			<div id="wall_Workout" class="contents">
+			<form>
+			<div class="d-flex justify-content-between"><h2 class="heading"><strong>Week 1, Day 2</strong> <small class="nowrap">0 Exercises, 0 min, 0 cal</small></h2><a class="icon-tab-more-active"></a></div>
+	
+			<div class="row">
+				<div class="col-4">
+					<div class="form-group">
+						<label for="posterImage">Poster</label>
+						<button id="posterImage" class="btn btn-secondary btn-block"><i class="icon-camera"><span class="sr-only">Select Image</span></i></button>
+					</div>
+				</div>
+				<div class="col-8">
+					<div class="form-group">
+						<label for="notes_W1D1">Notes</label>
+						<textarea class="form-control" id="notes_W1D1" rows="3"></textarea>
+					  </div>
+				
+				
+				</div>
+			</div>
+			<div class="" id="workoutParts_W1D1">
+				<div class="form-group workout-part">
+				<label id="warmUp" class="btn-secondary btn-block collapsed btn btn-sm text-left" data-toggle="collapse" data-target="#collapseWarmup" aria-expanded="false" aria-controls="collapseWarmup">
+				 <input type="checkbox"> Warm Up
+				</label>
+				 	
+				<div id="collapseWarmup" class="collapse multi-collapse" aria-labelledby="warmUp" style="">
+				  <ul class="list-unstyled list-items"></ul>
+					<div class=" m-4"><button type="button" class="btn btn-block btn-outline-primary" data-action="add_exercise">Add Exercise</button></div>
+				</div>
+				</div>
+				<div class="form-group workout-part">
+				<label id="conditioning" class="btn-secondary btn-block btn btn-sm text-left" data-toggle="collapse" data-target="#collapseConditioning" aria-expanded="true" aria-controls="collapseConditioning">
+					<input type="checkbox" checked="" autocomplete="off"> Conditioning
+				</label>			
+				<div id="collapseConditioning" class="collapse multi-collapse show" aria-labelledby="conditioning" style="">
+				  	<ul class="list-unstyled list-items"></ul>
+					<div class=" m-4"><button type="button" class="btn btn-block btn-outline-primary" data-action="add_exercise">Add Exercise</button></div>
+				</div>
+				</div>
+				<div class="form-group workout-part">
+				<label id="coolDown" class="btn-secondary btn-block collapsed btn btn-sm text-left" data-toggle="collapse" data-target="#collapseCooldown" aria-expanded="false" aria-controls="collapseCooldown">
+				 <input type="checkbox"> Cool Down
+				</label>
+				<div id="collapseCooldown" class="collapse multi-collapse" aria-labelledby="coolDown" style="">
+				  <ul class="list-unstyled list-items"></ul>
+					<div class=" m-4"><button type="button" class="btn btn-block btn-outline-primary" data-action="add_exercise">Add Exercise</button></div>
+				</div>
+				</div>
+			  
+			  
+			</div>
+				
+				<div class="text-right mt-5">
+					<hr>
+					<button type="button" class="btn btn-secondary" data-action="done_adding_workouts">Done</button>
+					<button type="button" class="btn btn-primary" data-action="next_workout" disabled>Next Workout</button>
+				</div>
+			</form>
+			</div>
+	</section>
+		<section id="wall_Exercise" class="flex-fill p-md-5 p-3 bg-white" data-roll="absent">
+			<div class="contents">
+			<div class="d-flex justify-content-between"><h1 class="heading"><strong>Exercise Library</strong></h1><button type="button" class="close align-self-start" data-action="close_exercises" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button></div>
+			<form class="">
+				<div class="form-group d-flex">
+				<input id="search_exercises" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+				<button class="btn btn-secondary mx-2" type="submit"><span class="sr-only">Search</span><i class="icon-search"></i></button>
+				</div>	
+	   	    </form>
+			
+			<ul class="list-unstyled list-items">
+		<li class="d-flex align-items-center position-relative">
+
+				<i class="thumbnail"></i>
+				<div class="d-flex flex-column flex-fill">
+					<span>Item Name</span>
+				<small>Detail</small>
+					</div>
+				<button class="btn btn-sm btn-primary icon-plus p-2 " data-action="add_to_workout"></button>
+				<button class="icon-drag p-2 ml-2 btn btn-link" data-action="drag"></button>									
+				<button class="icon-point-right p-2 ml-2 btn btn-link btn-takeover" data-action="view_detail"></button>
+				<button class="btn btn-link p-2 ml-2 icon-remove" data-action="remove_from_workout"><span class="sr-only">Remove</span></button>
+		</li>
+				
+				
+				
+		
+		
+	</ul>
+	
+			</div>
+		</section>
+
+</main>
+<aside>	
+</aside>
+<footer id="footer"></footer>
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/coaching.js"></script>        
+
+<script>
+	// mockup stuff
+	
+	var WorkoutDay = '<li><a href="" class="plan-day active d-flex align-items-center"><i class="thumbnail"></i><div class="d-flex flex-column flex-fill"><span>Day 1</span><small>0 Exercises</small></div></a></li>'
+
+	$('#wall_Workout').hide();
+	$('wall_Exercise').hide();
+	
+	// 
+	
+	$('[data-action="close_exercises"]').on('click', function(){
+
+		$( "#wall_Exercise" ).attr('data-roll','absent').css('left', '');
+		$('[data-action="add_exercise"]').prop('disabled', false).css('opacity','1').closest('.form-group').removeClass('active');
+	});
+	
+	
+	// Add Workout to Plan
+	$('[data-action="add_workout"]').click(function(){
+		$('#wall_Plan').attr('data-roll','present');
+		$('#wall_Workout').attr('data-roll','engaged').fadeIn();
+		$('.plan-day').removeClass('active')
+		$(this).prev('ul').append(WorkoutDay);
+		$('[data-action="add_workout"]').prop('disabled', true).css('opacity','.1');
+		$('[data-action="save_plan"]').prop('disabled', true).css('opacity','.1');										
+	});
+	
+	
+	// Done adding Workouts
+	$('[data-action="done_adding_workouts"]').click(function(){
+		$('#wall_Plan').attr('data-roll','engaged');
+		$('#wall_Workout').attr('data-roll','absent').fadeOut();
+		
+		$('[data-action="add_workout"]').prop('disabled', false).css('opacity','1');
+		$('[data-action="save_plan"]').prop('disabled', false).css('opacity','1');										
+	});
+	
+	// Next Workout
+	$('[data-action="next_workout"]').click(function(){
+		$('.plan-day.active').removeClass('active').parent('li').after(WorkoutDay);
+	});		
+	
+	// Show Exercise Library
+	$('[data-action="add_exercise"]').on('click', function(){
+		$('#wall_Workout').attr('data-roll','present');
+		$('#wall_Exercise').attr('data-roll','engaged');
+		$('#wall_Workout .active').removeClass('active');
+		$('[data-action="add_exercise"]').prop('disabled', false).css('opacity','1')
+		$(this).closest('.form-group').addClass('active');
+		$('#search_exercises').focus();
+	});
+	
+	// Add This Exercise to Workout
+	$('[data-action="add_to_workout"]').click(function(){
+		$(this).closest('li').clone().appendTo('#wall_Workout .active ul.list-items');
+		$('[data-action="next_workout"]').prop('disabled', false);
+		$('#wall_Workout').attr('data-roll','engaged');
+		$('#wall_Exercise').attr('data-roll','present');
+	});
+	
+</script>
+</body>
+</html>

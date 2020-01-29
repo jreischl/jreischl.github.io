@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+                <head>
+                <base href="//db.anytimefitness.com">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <title>Initiative Particpiation</title>
+                <meta name="description" content="Anytime Fitness Dashboard" />
+                <meta name="keywords" content="" />
+                <link rel="shortcut icon" atype="image/x-icon" href="/Content/favicon.ico" />
+                <meta http-equiv="cache-control" content="max-age=0" />
+                <meta http-equiv="cache-control" content="no-cache" />
+                <meta http-equiv="expires" content="0" />
+                <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+                <meta http-equiv="pragma" content="no-cache" />
+                <link href="https://anytimefitness.blob.core.windows.net/shared-css/master.css" rel="stylesheet" type="text/css" />
+                <link href="/Scripts/app/styles/common/dashboard.css" rel="stylesheet" type="text/css" />
+                <link href="/Content/Styles/datepicker.css" rel="stylesheet" />
+                <link href="/Content/Scripts/DatePicker/css/smoothness/jquery-ui-1.9.0.custom.css" rel="stylesheet" />
+                <link href="/Content/Scripts/DataTable/css/Data_table.css" rel="stylesheet" />
+
+                <!--scripts old-->
+
+                <script src="/Content/Scripts/jquery-1.8.1.min.js" type="text/javascript"></script>
+                <script src="/Content/Scripts/bootstrap.js" type="text/javascript"></script>
+                <script src="/Content/Scripts/jquery.tablesorter.js" type="text/javascript"></script>
+                <script src="/Content/Scripts/jquery-ui-1.9.0.custom.js" type="text/javascript"></script>
+                <script src="/Content/Scripts/DataTable/js/jquery.dataTables.min.js"></script>
+                <script src="/Content/Scripts/knockout/dist/knockout.js"></script>
+                <script src="/Content/Scripts/knockout-mapping/knockout.mapping.js"></script>
+                <script src="/Content/Scripts/dashboard.js" type="text/javascript"></script>
+                <script src="/Content/Scripts/jquery.validate.min.js"></script>
+                <script src="/Content/Scripts/jquery.debounce-1.0.5.js" type="text/javascript"></script>
+                <script src="/Content/Scripts/bootstrap-tabs.js" type="text/javascript"></script>
+                <script src="/Content/Scripts/bootstrap-tooltip.js" type="text/javascript"></script>
+                <script src="/Content/Scripts/tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+
+                <!-- Test Head snippet -->
+
+                <!-- Google Analytics - Combo Platter -->
+                <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2458066-29', 'auto');
+  ga('create', 'UA-2458066-9', 'auto', 'MacroAccount');
+  ga('send', 'pageview');
+  ga('MacroAccount.send', 'pageview');
+
+</script>
+                <!-- End Google Analytics -->
+
+                <script type='text/javascript' data-cfasync='false'>
+
+                    window.purechatApi = {
+
+                        l: [], t: [], on: function () {
+
+                            this.l.push(arguments);
+
+                        }
+
+                    };
+
+                    (function () {
+
+                        var done = false;
+
+                        var script = document.createElement('script');
+
+                        script.async = true;
+
+                        script.type = 'text/javascript';
+
+                        script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript';
+
+                        document.getElementsByTagName('HEAD').item(0).appendChild(script);
+
+                        script.onreadystatechange = script.onload = function (e) {
+
+                            if (!done &&
+
+                                (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) {
+
+                                var w = new PCWidget({ c: 'c271189a-dfc5-4259-8a0c-01ef613638ee', f: true });
+
+                                done = true;
+
+                            }
+
+                        };
+
+                    })();
+
+                </script>
+                </head>
+
+                <body class=" ">
+<div id="main" class="dashboard af  ">
+<div id="header"> <a href="/" class="brand"></a>
+                  <ul class="nav nav-pills floatright">
+    <li class="dropdown"> <a class="dropdown-toggle " href="#"><i class="sprite-nav-sel-news sprite-nav-top"></i><span class="navtext">news & events</span><b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+        <li id="nav-franchise-notices"><a href="/news/notices">Franchise Notices</a></li>
+        <li id="nav-calendar" class='dropdown-submenu'> <a href="/news/events/Calendar">Calendar</a>
+                          <ul class="dropdown-menu">
+            <li id="nav-manage-events"><a href="/news/events/EventTypes/manage-events">Manage Events</a></li>
+            <li id="nav-promo-codes"><a href="/news/events/PromoCode/promocodes">Promo Codes</a></li>
+          </ul>
+                        </li>
+        <li id="nav-training" class="dropdown-submenu"> <a href="/news/training">Training</a>
+                          <ul class="dropdown-menu">
+            <li id="nav-operations"><a href="/news/training/operations">Operations</a></li>
+            <li id="nav-consumer"><a href="/news/training/consumer">Consumer</a></li>
+            <li id="nav-vitals"><a href="/news/training/vitals">Vitals</a></li>
+            <li id="nav-live-programming"><a href="/news/training/live-programming">AF Training Workshop</a></li>
+            <li id="nav-learning-link"><a href="/news/training/learning-link">Learning Link</a></li>
+          </ul>
+                        </li>
+        <li id="nav-annual-conference" class='dropdown-submenu'> <a href="/news/conference/Static/Home">Conference</a>
+                          <ul class="dropdown-menu">
+            <li id="nav-conf-registration"><a href="/news/conference/conference-reports/ViewConferenceSummaryReport">Conference Reports</a></li>
+            <li id="nav-conf-ribbon-mgmt"><a href="/news/conference/manage-ribbons/EditRibbons">Edit Ribbons</a></li>
+            <li id="nav-conf-conference-management"><a href="/news/conference/ConferenceManagement">Conference Management</a></li>
+          </ul>
+                        </li>
+      </ul>
+                    </li>
+    <li class="dropdown"> <a class="dropdown-toggle selected" href="/club"><i class="sprite-nav-club sprite-nav-top"></i><span class="navtext">club</span><b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+        <li id="nav-reporting"><a href="/club/reports">Reporting</a></li>
+        <li id="nav-club-at-a-glance"><a href="/club/club-at-a-glance-init/">Club At A Glance</a></li>
+        <li id="nav-club-member-onboarding-report"><a href="/club/mop/">Member Onboarding Report</a></li>
+        <li id="nav-feedback-loop"><a href="/club/feedback">Member Feedback</a></li>
+        <li id="nav-staff-management"><a href="/club/staff">Staff Management</a></li>
+        <li id="nav-club-website"><a href="/clubprofile">Club Website</a></li>
+        <li class="dropdown-submenu" id="nav-ipad"> <a href="#">Digital Membership Agreements</a>
+                          <ul class="dropdown-menu">
+            <li id="nav-plan-management"><a href="/config/InitPlansList/Init">Plans</a></li>
+            <li id="nav-agreement-settings"><a href="/config/InitAgreementSettings/Init">Agreement Settings</a></li>
+            <li id="nav-club-settings"><a href="/config/InitClubSettings/Init">Club Settings</a></li>
+          </ul>
+                        </li>
+        <li><a href='/club/workout-templates'  class='affective-link'><i class="affective-icon"><img src="//afdashboard.blob.core.windows.net/en-us/Images/Club/nav-document-landscape.png" style=""></i>Workout Templates</a></li>
+      </ul>
+                    </li>
+    <li class="dropdown"> <a class="dropdown-toggle " href="/resources"><i class="sprite-nav-training sprite-nav-top"></i><span class="navtext">resources</span><b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+        <li id="nav-anytime-academy"><a href="/resources/academy/">Anytime Academy</a></li>
+        <li id="nav-scorecard"><a href="/resources/scorecard">Scorecard</a></li>
+        <li id="nav-live-programming"><a href="/resources/live-programming-resources">AF Training</a></li>
+        <li id="nav-idea-clubconnect"><a href="/resources/idea/club-connect">IDEA ClubConnect</a></li>
+        <li id="nav-technology"> <a href="/resources/technology/">Technology</a> </li>
+        <li class="" id="nav-marketing"> <a href="/resources/marketing/home">Marketing</a> </li>
+        <li id="nav-please-resources"><a href="/resources/please-score/resources">PLEASE Resources</a></li>
+        <li id="nav-wellness-resource-center"><a href="/resources/wellness-resources/center">Wellness Resource Center</a></li>
+        <li id="nav-emotional-intelligence-resource-center"><a href="/resources/ei-resource-center/info">Emotional Intelligence Resource Center</a></li>
+        <li id="nav-vendors"><a href="/resources/vendors/info">Vendors</a></li>
+        <li id="nav-pumpone"><a href="/sso/pumpone">Anytime Workouts</a></li>
+      </ul>
+                    </li>
+    <li class="dropdown"> <a class="dropdown-toggle " href="/community"><i class="sprite-nav-community sprite-nav-top"></i><span class="navtext">community</span><b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+        <li id="nav-forums"><a href="/community/forum">Forums</a></li>
+        <li id="nav-corporate-staff"><a href="/community/corporate/contacts">Corporate Contacts</a></li>
+        <li id="nav-fac"><a href="/community/franchise-advisory-council">Franchise Advisory Council</a></li>
+        <li id="nav-master-dashboard"><a href="//master.anytimefitness.com/" target="_blank">Master Dashboard</a></li>
+        <li id="nav-heart-first"><a href="/community/heartfirst/program" target="_blank">Heart First</a></li>
+      </ul>
+                    </li>
+    <li class="dropdown"> <a class="dropdown-toggle " href="/Profile "> <i class="sprite-nav-top" style="background-image: none;"> <img src="//anytimefitness.blob.core.windows.net/user-photos/d517e8d0-b8e6-4926-93de-8568fdb3d5dd.jpg" style="max-width: 24px; max-height: 24px;" /> </i> <span class="navtext">profile</span><b class="caret"></b> </a>
+                      <ul class="dropdown-menu">
+        <li id="nav-account"><a href="/club/staff/edit/2752">Account</a></li>
+        <li class="divider"></li>
+        <li id="nav-logout"><a href="/login/logout">Logout</a></li>
+      </ul>
+                    </li>
+				  
+    <li id="nav-site-search"><a href="#"><i class="sprite-nav-search sprite-nav-top"></i></a></li>
+  </ul>
+                  <button class="menu-trigger icom-menu"></button>
+                  <script>
+
+    document.querySelector(`#header .menu-trigger`).addEventListener('click', function () {
+
+        document.body.classList.toggle('nav-expanded');
+
+    })
+
+</script> 
+                </div>
+<div class="site-search"> <i class="point"></i>
+                  <form action="/search" method="GET">
+    <input name="query" id="query" placeholder="Search the Dashboard">
+    <button class="btn gray pull-right">search</button>
+  </form>
+                </div>
+<main id="torso">
+<div id="firstlevel"> </div>
+<style>
+
+    .nav2 > span {
+
+        text-transform: none; /* remove after text-transform: capitalize's gone in external css*/
+
+    }
+
+</style>
+<div>
+<div class="document" id="doc31017" style=" position:relative; top:0px; left:0px;">
+	
+	
+<!-- Jon R. is testing stuff with these... (Apr 22, 2019)
+<link rel="stylesheet" href="//anytimefitness.blob.core.windows.net/shared-assets/mocks/af/franchise/Dashboard/css/transitional.css">
+
+<link rel="stylesheet" href="//anytimefitness.blob.core.windows.net/shared-assets/mocks/af/franchise/css/custom.css">
+
+<link rel="stylesheet" href="//anytimefitness.blob.core.windows.net/shared-assets/mocks/af/franchise/css/fonts.css">
+
+-->
+<link rel="stylesheet" href="//127.0.0.1:8887/Dashboard/css/transitional.css">
+
+<link rel="stylesheet" href="//127.0.0.1:8887/css/custom.css">
+	
+<link rel="stylesheet" href="//127.0.0.1:8887/css/fonts.css">
+	
+	
+<!--- CONTENT STARTS HERE-->
+		<link rel="stylesheet" href="https://s3.amazonaws.com/icomoon.io/43188/Dashboard/style.css?7ovw8f">
+		<style>
+			
+			
+			@media (max-width: 767px) {
+				.hero-unit h1 {
+					/* margin-bottom: 0; */
+					font-size: 9vw;
+					padding: 0;
+				}
+				.hero-unit p {
+					margin: 0;
+				}
+	
+			
+			}
+			
+			.field-blue-dark {
+                background-color: #105787;
+				color: #A9D0E1;
+            }
+			
+			.cat-heading {
+				text-transform: uppercase;
+				font-size: 1em;
+				font-weight: 400;
+				letter-spacing: .15em;
+				margin:2em 1.25em .5em;
+				padding: 0;
+
+			}
+			.card {
+				border: 1px solid rgba(0,0,0,.125);
+				border-radius: .25rem;
+			}
+			.card-footer {
+				padding: .75rem 1.25rem;
+				background-color: rgba(0,0,0,.03);
+				background-color: #efeff4;
+				border-top: 1px solid rgba(0,0,0,.125);
+			}
+			
+			.align-items-center {
+			  -ms-flex-align: center !important;
+			  align-items: center !important;
+			}
+			.controls label, .controls input, .controls select {
+				display: inline-block;
+				clear: none;
+				width: auto;
+				float: none;
+				margin: 0;
+				
+			}
+			.controls {
+			}
+			.controls input, .controls select  {
+				text-indent: 1.125rem;
+				width: 100%;
+
+			}
+			.controls label {
+				position: absolute;
+				padding: .25rem;
+			}
+			.features [class*="icom-"] {
+				color: #707070;
+				font-size:1.8em; 
+				margin-right:.25em;
+				width: 1.25em;
+				float: left;
+				text-align: center;
+				
+			}
+			#list-initiatives .item-name {
+				padding-bottom: 1rem
+			}
+			#list-initiatives .item-name > strong {
+				display: inline-block;
+			}
+			#list-initiatives .item-name .d-flex {
+				display: flex;
+				flex-direction: row-reverse;
+				justify-content: flex-end;
+			}
+			#list-initiatives .item-name .status {
+				font-size: medium;
+				margin-top: .5rem;
+			}
+			@media (min-width: 768px) {
+				#list-initiatives .item-name .status {
+					display: inline-block;
+				}
+				#list-initiatives .item-name .status:before {
+					content: "— ";
+				}
+			}
+			#list-initiatives .icom-whats-new {
+				color: #468847;				
+			}
+			#list-initiatives .icom-coming {
+				color: #e48f15;
+			}			
+			#list-initiatives .item-name .icom-whats-new,
+			#list-initiatives .item-name .icom-coming {
+				float:left;
+				margin-right: .25rem;
+			}
+			#list-initiatives ul.list-unstyled li {
+				margin-bottom: 0.5rem;
+			}
+
+			@media (min-width: 768px) {
+				 .d-sm-flex {
+					display: -ms-flexbox !important;
+					display: flex !important;
+				  }
+			}
+		</style>
+		<div class="hero-unit field-blue-dark pad-mobile">
+			<div class="d-sm-flex"><h1 aria-hidden="true" class="hide-mobile"><i class="icom-success-circle display-1 mr-4 pad-mobile" style="padding: .5em"></i> </h1>
+				<span>
+		<h1><span class="text-white text-normal"> Initiative Participation</span></h1>
+			<p><span class=" text-normal lead">Get with the program</span></p>
+					</span></div>
+		</div>
+		<div class="row controls">
+			<div class="col-xs-6 col-sm-5">
+			<div class="form-group">
+			<label for="sort_initiatives"><i class="icom-search"></i></label>
+			<input id="search_initiatives" class="form-control round" placeholder="Find an initiative"></div>
+		</div>
+			<div class="col-xs-6 col-sm-2">
+			<div class="form-group"><label for="sort_initiatives"><i class="icom-filter"></i></label>
+		<select class="form-control" id="filter_initiatives">
+			<option selected>Show All</option>
+			<option value="available">Available</option>			
+			<option value="coming">Coming Soon</option>		
+			<option value="new">New</option>
+			<option value="pilot">Pilot</option>
+			<option value="required">Required</option>
+		</select>
+		</div>
+			</div>
+			<div class="col-xs-12 col-sm-5">
+		<p class="text-center"><small><sub class="text-error text-larger">*</sub> = participation is required, &nbsp; <span class="nowrap"><b class="badge badge-success">$</b> = participation fee</span></small></p></div>
+			
+		</div>
+				
+		<div id="list-initiatives">
+		<ul id="list-queue" class="list-unstyled">
+			<!-- populated by JSON below-->
+		</ul>
+		<h2 class="cat-heading">Time Sensitive</h2>
+		<ul class="list-unstyled" id="timely"></ul>
+		<h2 class="cat-heading" >AF Training</h2>
+		<ul class="list-unstyled" id="aft"></ul>
+		<h2 class="cat-heading">Club Management</h2>
+		<ul class="list-unstyled" id="mgmt"></ul>
+		<h2 class="cat-heading">Promote Your Club</h2>
+		<ul class="list-unstyled" id="promote"></ul>
+</div>		
+		
+		
+		<script>
+			
+			
+			$(function() {
+		
+			//  Load Reports
+			var data = { "initiatives":[            
+
+				{
+					'id' : 'FAC',
+					'name': '<span class="d-flex">FAC nominations  <i class="icom-whats-new" ></i></span>',
+					'status' : 'new',					
+					'status_text': 'Ends April 30, 2019',
+					'focus': 'Owner Support',
+					'blurb': 'Act as a liaison between franchisees and the corporate office',
+					'features': 'Submit nominations by April 30, 2019. <a href="https://db.anytimefitness.com/news/notices/19460-fac19">Read the Notice</a>',
+					'cta_text' : 'Submit Nomination',
+					'cta_link' : 'https://form.jotform.com/90926101177151',
+					'requirements' : '<p><strong>To qualify for a position as an FAC representative, applicants must:</strong></p><ul><li>Have owned and operated their club no less than twelve (12) continuous months prior to election</li>  <li>Own a club located in the region they&#8217;re running</li>  <li>Have attended the last available franchisor conference</li>  <li>Have attended at least one (1) advanced training event (e.g. Vitals, Consumer Training, MCO Training) offered by the franchisor no less than 12 months prior to election</li></ul>',
+					'date' : '20190415',
+					'category' : 'timely',
+				},
+				{
+					'id' : 'ClubOS',
+					'name': 'Club OS Sign-up<i class="text-error">*</i>',
+					'status' : 'available required',					
+					'status_text': 'Ongoing',
+					'focus': 'Simplify Operations',
+					'blurb': 'Club management software',
+					'features': 'All clubs, regardless of when your franchise agreement was signed, are required to transition to or implement Club OS before June 1, 2020. <a href="https://db.anytimefitness.com/news/notices/18810-2019-fdd-updates">Read the Notice</a>',
+					'cta_text' : 'Get Started',
+					'cta_link' : 'https://info.club-os.com/anytime-fitness-club-os',
+					'requirements' : 'No additional requirements',
+					'date' : '20190415',
+					'category' : 'mgmt',
+				},
+				{
+					'id' : 'ClubOS-Enhance',
+					'name': '<span class="d-flex">Club OS Enhancements <i class="icom-coming"></i></span>',
+					'status' : 'coming',					
+					'status_text': 'In Development',
+					'focus': 'Efficient Operations',
+					'blurb': 'Club management software',
+					'features': '<p>Upcoming features: 1) ability to discount PT packages, 2) ability to quickly make changes to existing PT agreements without having to cancel the agreement, and 3) reports populating immediately. <small>Development is prioritized, launch dates to be determined</small></p>',
+					'cta_text' : 'Get ClubOS',
+					'cta_link' : 'https://info.club-os.com/anytime-fitness-club-os',
+					'requirements' : 'No additional requirements',
+					'date' : '20190415',
+					'category' : 'mgmt',
+				},
+				{
+					'id' : 'Online-Signup',
+					'name': '<span class="d-flex">Online Signup <i class="icom-whats-new" ></i></span>',
+					'status' : 'new available',					
+					'status_text': 'Ongoing',
+					'focus': 'Lead Conversions',
+					'blurb': 'Offers prospects the ability to purchase a gym membership on the <span class="nowrap">Anytime Fitness website</span>',
+					'features': '<p><a href="https://academy.anytimefitness.com/booklet/marketing/?aid=a0_2_8930">Learn more about Online Signup</a> in the Academy. Visit <a href="/clubprofile/0/settings#online_signup">Club Website - General Settings</a> to see if you qualify<p><small class="text-error">Not currently available in California, Alberta, or Quebec due to local regulations.</small><div class="froggle"><input autocomplete="off"class="froggle-input"id="toggle-onlinesignup"type="checkbox"> <label class="froggle-label"for="toggle-onlinesignup">Benefits, Results, and Additional Reources</label> <span class="froggle-content"role="froggle"><div class="pad field-gray"><p><strong>Benefits</strong><ul><li>Additional way for prospects to purchase a membership at your club<li>Club memberships can be purchased at anytime, anywhere<li>Purchasing online memberships is a common practice in the fitness industry</ul><p><strong>Results</strong> <small>As of April 1, 2019</small><ul><li>722 online memberships sold<li>14% Paid in Full, 48% 12-month, 39% 24-month<li>19% of online sales are happening at night<li>2% of total memberships are coming from online signups<li>Even with membership prices online, lead volume remains at normal levels</ul><p><strong>Additional Resources</strong><ul><ul><ul><li><a href="https://academy.anytimefitness.com/booklet/marketing/?aid=a0_2_8930">Learn about Online Signup in the Academy</a><li>Notice: <a href="https://db.anytimefitness.com/news/notices/18945">NOW LIVE – Online Signup + In-app Scheduling for Small Group Training</a> <small>February 19, 2019</small><li>Notice: <a href="https://db.anytimefitness.com/news/notices/18449-online-signup">Online Signup Opt-in Opens February 19</a> <small>February 4, 2019</small></ul></ul></ul></div></span></div>',
+					'cta_text' : 'Opt In',
+					'cta_link' : 'http://db.anytimefitness.com/clubprofile/0/settings#online_signup',
+					'requirements' : '<ul><li>ABC Merchant ID – <a href="mailto:merchantservices@abcfinancial.com">Contact ABC Merchant ID services to obtain one</a></li><li>Agreement Setup – <a href="https://db.anytimefitness.com/club/club-at-a-glance-init/">Contact your FBC</a> to setup Digital Membership Agreements</li><li>Staffed 6 days per week, minimum 30 hours – <a href="https://db.anytimefitness.com/clubprofile/0/settings#staffed_hours">Set your Staffed Hours</a></li></ul>',
+					'date' : '20190201',
+					'category' : 'promote',
+				},
+				{
+					'id' : 'AMPED',
+					'name': '<span class="d-flex">AMPE&#8217;d  <i class="icom-whats-new" ></i></span>',
+					'status' : 'new available',
+					'status_text': 'Ongoing',
+					'focus': 'Lead Conversions',
+					'blurb': 'Increases lead conversion from the Anytime Fitness 7-Day Pass website form',
+					'features': '<div class="froggle"><input autocomplete="off"class="froggle-input"id="toggle-amped"type="checkbox"> <label class="froggle-label"for="toggle-amped">Benefits, Pilot Details, and Additional Reources</label> <span class="froggle-content"role="froggle"><div class="pad field-gray"><p><strong>Benefits</strong><ul><li>Frees up time for your staff by automating the 7-Day Pass follow-up process<li>Gives your team more floor time to connect with members and clients</ul><p><strong>Pilot</strong><ul><li>Over 600 clubs in pilot<li>43% average open rate across all emails (Club OS average is 14%)<li>5% average click rate across all emails (Club OS average is 1%)<li>3% average opt-out rate across all emails (Club OS average is 1%)<li>39% average appointment rate<li>85% average appointment show rate<li>15% average member conversion rate<li>14% average appointment rate for leads that did not respond immediately after signing up, but did after nurture emails</ul><p>Additional Resources<ul><li><a href="https://academy.anytimefitness.com/booklet/marketing/?aid=9038">Learn about AMPE&acute;d in the Academy</a><li>Notice:<a href="https://db.anytimefitness.com/news/notices/18950-amped-7dayhttps://academy.anytimefitness.com/booklet/marketing/?aid=9038"> Sign up for AMPE&acute;d 7-Day Lead Nurture </a><small>March 18, 2019</small></ul></div></span></div>',
+					'cta_text' : 'Sign Up',
+					'cta_link' : 'https://form.jotform.com/90275808892166',
+					'requirements' : '<ul><li>Club OS — <a target="_blank" href="https://info.club-os.com/anytime-fitness-club-os">Request a Club OS Demo</a></li><li>Staffed hours – <a href="https://db.anytimefitness.com/clubprofile/0/settings#staffed_hours">Set your Staffed Hours</a></li></ul>',
+					'date' : '2019000',
+					'category' : 'promote',					
+
+				},
+				{
+					'id' : 'In-App-Scheduling',
+					'name': 'In-app Scheduling',
+					'status' : 'new coming pilot available',
+					'status_text': 'Ongoing',
+					'focus' : 'AF Training Growth',
+					'blurb': 'Enable your AF Training clients to schedule Team and SGT sessions via the Anytime app',
+					'features': '<ul class="list-unstyled"><li><p><span class="icom-whats-new"></span> <strong>Book Small Group Training</strong> Allows clients to book Small Group Training sessions with trainers through the Anytime Fitness® App. <small>Now available for AF Training clubs using Club OS</small><div class="froggle"><input autocomplete="off"class="froggle-input"id="toggle-ias1"type="checkbox"> <label class="froggle-label "for="toggle-ias1">Benefits & Additional Resources</label> <span class="froggle-content"role="froggle"><div class="pad field-gray"><p><strong>Benefits</strong><ul><li>Frees up time for your staff<li>Easy for clients to book sessions at their convenience</ul><p><strong>Additional Resources</strong><ul><li><a href="https://academy.anytimefitness.com/booklet/af-training/?aid=a1_3_8699">Learn more in the Academy</a><li>Notice: <a href="https://db.anytimefitness.com/news/notices/18945-live-enhancements">NOW LIVE – Online Signup + In-app Scheduling for Small Group Training</a> <small>February 19, 2019</small><li>Notice: <a href="https://db.anytimefitness.com/news/notices/18801-sgt-scheduling">In-app Scheduling: SGT Coming Soon!</a> <small>February 4, 2019</small></ul></div></span></div><li><hr><p><span class="icom-coming"></span> <strong>Book One-on-One Training</strong> Allows clients to book One-on-One Training sessions with trainers through the Anytime Fitness App. <small>Potential release in Q2, 2019</small><div class="froggle"><input autocomplete="off"class="froggle-input"id="toggle-ias2"type="checkbox"> <label class="froggle-label "for="toggle-ias2">Benefits & Pilot Details</label> <span class="froggle-content"role="froggle"><div class="pad field-gray"><p><strong>Benefits</strong><ul><li>Frees up time for your staff<li>Easy for clients to book sessions at their convenience</ul><p><strong>Pilot</strong><ul><li>Testing in pilot clubs May 2019</ul></div></span></div><li></ul>',					
+					'cta_text' : 'Learn More',
+					'cta_link' : 'https://academy.anytimefitness.com/booklet/af-training/?aid=a1_1_8699',
+					'requirements' : '<ul><li>AF Training — <a href="https://academy.anytimefitness.com/booklet/af-training/">Learn about AF Training in the Academy</a></li><li>Club OS — <a target="_blank" href="https://info.club-os.com/anytime-fitness-club-os">Request a Club OS Demo</a></li></ul>',
+					'date' : '20190101',
+					'category' : 'aft',
+
+				},
+				{
+					'id' : '4',
+					'name': 'Digital Membership Agreements',
+					'status' : 'available',
+					'status_text': 'Ongoing',
+					'focus' : 'Simplify Operations',
+					'blurb': '',
+					'features': '<ul class="list-unstyled"><li><p><i class="icom-coming"></i><span><strong>Flexible Billing</strong> Membership dues can be billed weekly, bi-weekly or monthly using Digital Membership Agreements. Slated for release in Q2, 2019</span></p><div class="alert alert-info small"><small>Your digital membership agreement Terms and Conditions need to be updated from “monthly billing” to “recurring billing” to be correct. <a href="https://form.jotform.com/91005380930146">Request Update</a></small></div><div class="froggle"> <input autocomplete="off" class="froggle-input" id="toggle-flexbill" type="checkbox"> <label class="froggle-label " for="toggle-flexbill">Benefits & Pilot Details</label> <span class="froggle-content" role="froggle"><div class="pad field-gray"><p><strong>Benefits</strong><ul><li>Convenient for members to match their bill date with their pay date.  This helps cut down on delinquencies and fees to the members.</li> <li>One of the most frequently requested features by franchisees</ul><p><strong>Pilot</strong><ul><li>Testing in pilot clubs April -June 2019</ul></div></span></div></li><li><hr><p><i class="icom-coming"></i><span><strong>Extend/Renew/Freeze Memberships</strong> Allows staff to extend, renew, or freeze a membership agreement using Club Hub for the iPad® <small>Slated for release in Q2, 2019 to all clubs using Digital Membership Agreements</small><div class="froggle"><input autocomplete="off"class="froggle-input"id="toggle-erf"type="checkbox"> <label class="froggle-label "for="toggle-erf">Benefits & Pilot Details</label> <span class="froggle-content"role="froggle"><div class="pad field-gray"><p><strong>Benefits</strong><ul><li>Saves time for your staff and members<li>Increases accuracy</ul><p><strong>Pilot</strong><ul><li>Testing in pilot clubs April-May 2019</ul></div></span></div></li></ul>',					
+					'cta_text' : 'Learn More',
+					'cta_link' : 'https://academy.anytimefitness.com/kbarticle/electronic-agreements/',
+					'requirements' : '<ul><li>Approval from ABC – <a href="mailto:merchantservices@abcfinancial.com">Contact ABC</a></li><li>Agreement Setup – <a href="https://db.anytimefitness.com/club/club-at-a-glance-init/">Contact your FBC</a> to setup Digital Membership Agreements</li><li><a href="http://clubhub.anytimefitness.com/ipad/">Download Club Hub iOS</a>',
+					'date' : '20190101',
+					'category' : 'mgmt'
+
+				},
+				{
+					'id' : 'grow',
+					'name': 'GROW Digital Marketing Program <i class="badge badge-success">$</i>',
+					'status' : 'available',
+					'status_text': 'Ongoing',
+					'focus' : 'Increase Awareness + Lead Generation',
+					'blurb': 'Digital marketing experts will review, recommend and place digital advertising for your club based on analytics',					
+					'features': '<a href="https://db.anytimefitness.com/resources/marketing/grow">Learn more about GROW</a>',					
+					'cta_text' : 'Sign Up',
+					'cta_link' : 'https://jira.sebrands.com/plugins/servlet/desk/portal/6/create/162',
+					'requirements' : 'To make the best use of the GROW program you / your team should monitor performance on the GROW portal and follow up with leads as soon as possible.',
+					'date' : '20190101',
+					'category' : 'promote'
+
+				},
+				{
+					'id' : 'maycamp2019',
+					'name': '<span class="d-flex">Campaign: May Free Workouts   <i class="icom-whats-new" ></i></span>',
+					'status' : 'new available',
+					'status_text': 'Runs throughout May 2019',
+					'focus' : 'Lead Generation',
+					'blurb': 'Host community workouts outside the gym each week in May',
+					'features': '<a href="https://db.anytimefitness.com/resources/marketing/campaigns/may-2019">Learn more about the May Campaign</a>',					
+					'cta_text' : 'Opt In',
+					'cta_link' : 'https://form.jotform.com/90836042672155',
+					'requirements' : 'Available to all clubs, all you have to do is <a href="https://form.jotform.com/90836042672155">sign up</a>! .',
+					'date' : '20190101',
+					'category' : 'timely'
+
+				}
+
+
+				   ]}
+
+				var output="";
+
+				for (var i in data.initiatives) {
+				// load the report types
+					output+='<li data-cat="'+data.initiatives[i].category+'" data-status="'+data.initiatives[i].status+'" data-date="'+data.initiatives[i].date+'" class=" bg-white card margin-bot"><div class="pad"><div class="row d-sm-flex align-items-center"><div class="col-sm-9"><h3 class="text-larger item-name"><strong>'+data.initiatives[i].name+'</strong> <div class="status">'+data.initiatives[i].status_text+'</div></h3> <div><p class="lead">'+data.initiatives[i].blurb+'</p><p class="gray"><strong class="">Focus: </strong>'+data.initiatives[i].focus+'</p><div class="features">'+data.initiatives[i].features+'</div></div>	</div><div class="col-sm-3"><div class="margin-vert"><a class="btn btn-large btn-block btn-primary" href="'+data.initiatives[i].cta_link+'">'+data.initiatives[i].cta_text+'</a></div></div></div></div>	 <div class="card-footer  pad"><div class="froggle"><input id="reqs_'+data.initiatives[i].id+'" type="checkbox" class="froggle-input" autocomplete="off"><label for="reqs_'+data.initiatives[i].id+'" class="froggle-label"><p class="margin0"><strong>Requirements</strong></p></label><span role="froggle" class="froggle-content"><div class="margin-bot list-requirements">'+data.initiatives[i].requirements+'</div>		</div></span> </div></li>';
+				}
+
+				output+="";
+				
+				document.getElementById("list-queue").innerHTML=output;
+	
+						// Sort by date (on load)
+						var mylist = $('#list-initiatives');
+								var listitems = mylist.children('li').get();
+								listitems.sort(function(a, b) {
+								   return $(b).attr('data-date').toUpperCase().localeCompare($(a).attr('data-date').toUpperCase());
+								})
+								$.each(listitems, function(idx, itm) { mylist.append(itm); });
+				
+				
+					
+				
+						// Sort into categories
+						$('#list-queue .card').each(function() {
+						  var theCat = $(this).attr('data-cat')
+						  $(this).appendTo('#' + theCat);
+						});
+				
+				
+				
+						// Filter 
+						$('#filter_initiatives').change(function(){
+							var theVal = $('#filter_initiatives :selected').val();
+							$('#list-initiatives .card').hide();
+							$('#list-initiatives .cat-heading').hide();
+							if ($('[value="'+theVal+'"]').is(':selected')) {
+								$('[data-status*="'+theVal+'"]').show().parent().prev().show();				
+							}
+							else {
+								$('#list-initiatives .card').show();
+								$('#list-initiatives .cat-heading').show();
+								
+							}
+							
+						})
+				
+				
+						
+			// Search Initiatives 
+			$('#search_initiatives').keyup(function() {
+			  	$('#list-initiatives .card').hide();
+				$('#list-initiatives .cat-heading').hide();
+			  var txt = $('#search_initiatives').val();
+			  $('#list-initiatives .card').each(function() {
+				if ($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1) {
+				  $(this).show().parent().prev().show();
+				}
+			  });
+			});
+				
+
+					
+					
+							
+});
+			
+			
+		
+		</script>
+		
+<!--- CONTENT ENDS HERE --->
+</div>
+			</div>
+
+
+        </main>
+
+
+
+
+	
+	
+
+<div id="footer">
+
+    <p class="float" style="color: #999999;">
+
+        © <script>var d=new Date(); yr=d.getFullYear();if (yr!=1998)document.write(""+yr);</script> Anytime Fitness, LLC | 111 Weir Drive | Woodbury, MN 55125
+
+
+
+    <link type="text/css" rel="stylesheet" href="//fast.fonts.net/cssapi/497cd0f0-7b80-4572-b992-2abc27b555a9.css"/>
+
+<script>
+		
+$(function () { 
+
+// If the url includes ?view=poc	
+if ( document.location.href.indexOf('view=poc') > -1 ) {
+	
+	// add these stylesheets
+	$("body").append('<link rel="stylesheet" href="//anytimefitness.blob.core.windows.net/shared-assets/mocks/af/franchise/Dashboard/css/transitional.css"><link rel="stylesheet" href="//anytimefitness.blob.core.windows.net/shared-assets/mocks/af/franchise/css/custom.css"><link rel="stylesheet" href="//anytimefitness.blob.core.windows.net/shared-assets/mocks/af/franchise/css/fonts.css">');
+	
+	// and append all the links
+	$('a').each(function(){ 
+            var oldUrl = $(this).attr("href"); // Get current url            
+            $(this).attr("href", oldUrl+'?view=poc'); // Set herf value
+    });
+	
+	// oh and commandeer the Search 
+	$('#nav-site-search > a').attr('href', '//wiki.sebrands.com/dbkbpoc/search');
+	$('.site-search').insertBefore('.quick-links');
+	$('.site-search input').attr('placeholder', 'Search News');
+}
+
+});	
+		
+</script>
+
+
+</body>
+
+<!-- Current culture en-US (cid: 1, lid: 1) -->
+
+</html>
+

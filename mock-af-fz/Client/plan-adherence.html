@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan Adherence</title>
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/fontawesome.css">	
+	<link rel="stylesheet" href="../css/custom.css">
+	<link rel="stylesheet" href="../css/fonts.css">
+	<link rel="stylesheet" href="css/coaching.css">
+	
+		
+</head>
+<body class="bg-white">
+<header>
+
+	<style>
+		main.container-fluid {
+			padding: 0;
+		}
+		.btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .show > .btn-secondary.dropdown-toggle {
+			color: #fff;
+			background-color: #7f51a2;
+			border-color: #7f51a2;
+		}
+		
+	
+		.tabs-grid > a {
+			padding: 1rem 0;
+			background: #000;
+			color: #fff;
+			width: 100%;
+			margin: .05rem;
+			margin-bottom: 0;
+		}
+		.tabs-grid > a.active {
+			background: #fff;
+			color: #000;
+		}
+		input[type=range][value=""]::-webkit-slider-thumb {
+
+		}
+		/* this page only */
+		label.rounded-circle {
+			height: 3.625rem;
+		    max-width: 3.625rem;
+		}
+		label.rounded-circle i {
+			cursor: pointer;
+		}
+		
+		
+		.text-green {
+			color: #657702;
+		}
+		.bg-green-light {
+			background: #D7DD90;
+		}
+		.text-ruby {
+			color: #C10628;
+		}
+		.bg-ruby-light {
+			background: #EDB4BF;
+		}
+		.text-teal {
+			color: #1D7080;
+		}
+		.bg-teal-light {
+			background: #CAE7EB;
+		}
+		
+		
+	</style>
+	
+</header>
+
+<main class="container-fluid">
+	<div class="row no-gutters">
+  <div class="col-lg-10 col-xl-6 center-block">
+    <div class="list-group tabs-grid flex-row text-center" id="list-tab" role="tablist">
+      <a class="" id="trigger-Monday" data-toggle="list" href="#list-Monday" role="tab" aria-controls="list-Monday">Mo</a>
+      <a class="" id="trigger-Tuesday" data-toggle="list" href="#list-Tuesday" role="tab" aria-controls="list-Tuesday">Tu</a>
+      <a class="" id="trigger-Wednesday" data-toggle="list" href="#list-Wednesday" role="tab" aria-controls="list-Wednesday">We</a>
+      <a class="" id="trigger-Thursday" data-toggle="list" href="#list-Thursday" role="tab" aria-controls="list-Thursday">Th</a>
+	  <a class="" id="trigger-Friday" data-toggle="list" href="#list-Friday" role="tab" aria-controls="list-Friday">Fr</a>
+		      <a class="" id="trigger-Saturday" data-toggle="list" href="#list-Saturday" role="tab" aria-controls="list-Saturday">Sa</a>
+		      <a class="" id="trigger-Sunday" data-toggle="list" href="#list-Sunday" role="tab" aria-controls="list-Sunday">Su</a>
+    </div>
+    <div class="tab-content bg-white center-block py-4 rounded-bottom" id="nav-tabContent">
+		
+    
+  </div></div>
+</div>
+</main>
+<footer></footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+
+    <script>
+		
+		
+		
+		$(function() {
+		
+			//  Load Reports
+			var data = { "thisDay":[            
+
+				{
+					'id' : '1',
+					'dotw': 'Monday',					
+				},
+				{
+					'id' : '2',
+					'dotw': 'Tuesday',					
+				},
+				{
+					'id' : '2',
+					'dotw': 'Wednesday',					
+				},
+				{
+					'id' : '2',
+					'dotw': 'Thursday',					
+				},
+				{
+					'id' : '2',
+					'dotw': 'Friday',					
+				},
+				{
+					'id' : '2',
+					'dotw': 'Saturday',					
+				},
+				{
+					'id' : '2',
+					'dotw': 'Sunday',					
+				}
+
+
+
+
+				   ]}
+
+				var output="";
+
+				for (var i in data.thisDay) {
+				// load the report types
+					output+='<div class="tab-pane fade" id="list-'+data.thisDay[i].dotw+'" role="tabpanel" aria-labelledby="trigger-'+data.thisDay[i].dotw+'"><div class="text-center"><h2>'+data.thisDay[i].dotw+'</h2><p class="lead">How&#8217;d you do today?</p><br></div><div class="bg-green-light py-4 m-4 rounded"><h3 class=" text-center text-green  rounded-pill col-8 center-block">Diet</h3><div class="btn-group btn-group-toggle d-flex justify-content-center" data-toggle="buttons"><label class="btn btn-secondary rounded-circle p-0 m-1 m-sm-4"><input type="radio" name="options" id="diet-happy-'+data.thisDay[i].id+'" autocomplete="off"> <i class="icon-smile display-4"></i></label><label class="btn btn-secondary rounded-circle p-0 m-1 m-sm-4"><input type="radio" name="options" id="diet-neutral-'+data.thisDay[i].id+'" autocomplete="off"> <i class="icon-face display-4"></i></label><label class="btn btn-secondary rounded-circle p-0 m-1 m-sm-4"><input type="radio" name="options" id="diet-sad-'+data.thisDay[i].id+'" autocomplete="off"> <i class="icon-frown display-4"></i></label>			</div><br> </div>		  <div class="bg-ruby-light py-4 m-4 rounded"><h3 class=" text-center text-ruby rounded-pill col-8 center-block">Activity</h3><div class="btn-group btn-group-toggle d-flex justify-content-center" data-toggle="buttons"><label class="btn btn-secondary rounded-circle p-0 m-1 m-sm-4"><input type="radio" name="options" id="activity-happy-'+data.thisDay[i].id+'" autocomplete="off"> <i class="icon-smile display-4"></i></label><label class="btn btn-secondary rounded-circle p-0 m-1 m-sm-4"><input type="radio" name="options" id="activity-neutral-'+data.thisDay[i].id+'" autocomplete="off"> <i class="icon-face display-4"></i></label><label class="btn btn-secondary rounded-circle p-0 m-1 m-sm-4"><input type="radio" name="options" id="activity-sad-'+data.thisDay[i].id+'" autocomplete="off"> <i class="icon-frown display-4"></i></label></div><br></div><div class="bg-teal-light py-4 m-4 rounded"><h3 class=" text-center text-teal rounded-pill col-8 center-block">Mindfulness</h3><div class="btn-group btn-group-toggle d-flex justify-content-center" data-toggle="buttons"><label class="btn btn-secondary rounded-circle p-0 m-1 m-sm-4"><input type="radio" name="options" id="mind-happy-'+data.thisDay[i].id+'" autocomplete="off"> <i class="icon-smile display-4"></i></label><label class="btn btn-secondary rounded-circle p-0 m-1 m-sm-4"><input type="radio" name="options" id="mind-neutral'+data.thisDay[i].id+'" autocomplete="off"> <i class="icon-face display-4"></i></label><label class="btn btn-secondary rounded-circle p-0 m-1 m-sm-4"><input type="radio" name="options" id="mind-sad-'+data.thisDay[i].id+'" autocomplete="off"> <i class="icon-frown display-4"></i></label></div></div></div>';
+				}
+
+				output+="";
+		
+				
+				document.getElementById("nav-tabContent").innerHTML=output;
+			
+			
+				$('#trigger-Monday').tab('show');
+				
+			
+		});
+	</script>	
+
+</body>
+</html>

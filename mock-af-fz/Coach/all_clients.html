@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client Management | AF Coaching</title>
+<link rel="stylesheet" href="../css/bootstrap.css">
+<link rel="stylesheet" href="../css/fontawesome.css">
+<link rel="stylesheet" href="../css/custom.css">
+<link rel="stylesheet" href="../css/fonts.css">
+<link rel="stylesheet" href="css/coaching.css">
+
+<!-- Page Specific-->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="css/react-wysiwyg.css">
+<style>
+	
+	@media (min-width: 768px){ /* Hey Jon! Consider moving this to coach.css */
+		main.container-relative {
+			position: relative;
+			padding-top: 4rem;
+			width: calc( 100vw - 4rem);
+			overflow: hidden;
+		}
+}
+	
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    background-color: transparent;
+}
+	#clients_list {
+		overflow: auto;
+	}
+	.container-client-id {
+		min-width: 300px;
+		max-width: 300px;
+	    position: sticky;
+	    left: 0;
+		background: rgba(255,255,255,.85);
+	}
+	#wall_Clients .container-client-id{
+		background: transparent;
+	}
+	
+	[data-coach-name] {
+		
+		width: 100px;
+		display: block;
+	}
+
+	
+	
+/*	.container-stats {
+		max-width: 800px;
+		overflow-x: auto;
+		white-space: nowrap;
+		z-index: 2;
+		position: relative;
+	}*/
+	.border-bottom-dashed {
+		border-bottom: 1px dashed #dee2e6;
+	}
+	
+	/* Hide the stats unless the Client list is engaged */
+	#wall_Clients[data-roll="present"] [data-stats] {
+		display: none!important;
+	}
+	
+	@media (min-width: 768px) {
+		#wall_Detail {
+			width: 60vw;
+		}
+	}
+	
+	
+	#wall_Clients .d-minimal-none,
+	[data-action="switch_to_chat"] {
+		display: none!important;
+	}	
+</style>
+</head>
+<body class="d-md-flex">
+<header id="header" data-role="header"></header>
+<nav id="navbar" class="sidebar"></nav>
+<main class="container-relative d-lg-flex align-items-stretch" id="clients_library">
+  
+	
+    <section id="wall_Clients" class="p-md-5 p-3 bg-white flex-fill" data-roll="engaged" style="overflow-x: hidden; max-height: calc(100vh - 4rem);">
+	</section>
+	
+  <section id="wall_Detail" class="flex-fill p-md-5 p-3 bg-gray-lightest border-left" data-roll="absent" style="overflow-x: hidden; max-height: calc(100vh - 4rem);">
+  
+  </section>
+	
+	<section id="wall_Chat" class="py-md-5 py-3 bg-white border-left width-limited" data-roll="absent" style="overflow: hidden; max-height: calc(100vh - 4rem);">
+    <div class="d-flex align-items-center justify-content-between mb-5 d-lg-none"> <span class="d-flex align-items-center">
+      <button type="button" class="btn btn-link mr-4 p-0 d-block" data-action="back_to_clients"><span class="sr-only">Back</span><span aria-hidden="true"><i class="icon-arrow-left3"></i></span></button>
+      <h1 class="heading m-0"><strong><span class="sr-only">Chat with</span> <span data-name>Firstname Lastname</span></strong></h1>
+      </span>
+      <!-- 
+--- Probably replace this with a back button for mobile ---
+<button type="button" class="btn btn-secondary rounded-pill" data-action="view_client_chat"><span class=""></span> <i class="icon-person-fill" aria-hidden="true"></i> Profile</button>-->
+    </div>
+    <div class="mesgs ">
+      <div class="msg_history">
+        <div class="incoming_msg">
+          <div class="incoming_msg_img"> <i class="mug mug-md mr-2" style="background-image: url(//randomuser.me/api/portraits/women/1.jpg)"></i> </div>
+          <div class="received_msg">
+            <div class="received_withd_msg">
+              <p>This is the first thing the client said to their coach</p>
+              <span class="time_date"> 11:01 AM    |    June 9</span></div>
+          </div>
+        </div>
+        <div class="outgoing_msg">
+          <div class="sent_msg">
+            <p>This is how the coach responded to their client </p>
+            <span class="time_date"> 11:01 AM    |    June 9</span> </div>
+        </div>
+        <div class="incoming_msg">
+          <div class="incoming_msg_img"> <i class="mug mug-md mr-2" style="background-image: url(//randomuser.me/api/portraits/women/1.jpg)"></i> </div>
+          <div class="received_msg">
+            <div class="received_withd_msg">
+              <p>Then the client said this</p>
+              <span class="time_date"> 11:01 AM    |    Yesterday</span></div>
+          </div>
+        </div>
+        <div class="outgoing_msg">
+          <div class="sent_msg">
+            <p>And the coach said this</p>
+            <span class="time_date"> 11:01 AM    |    Today</span> </div>
+        </div>
+        <div class=" mb-4">
+          <div class=" chat-injection">
+            <div class="border py-2 px-1 rounded-pill"> <i class="icon-workouts rounded-circle bg-gray p-2 mr-2"></i> <small>Total Body: Level 1: Foundation: Workout 1</small> </div>
+            <span class="time_date"> 11:01 AM    |    Today</span> </div>
+        </div>
+        <div class="incoming_msg">
+          <div class="incoming_msg_img"> <i class="mug mug-md mr-2" style="background-image: url(//randomuser.me/api/portraits/women/1.jpg)"></i> </div>
+          <div class="received_msg">
+            <div class="received_withd_msg">
+              <p>And the client responded with such verbosity that it wrapped to multiple lines which allowed us to see what that looks like</p>
+              <span class="time_date"> 11:01 AM    |    Today</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="type_msg">
+        <div class="input_msg_write d-flex align-items-center justify-content-between">
+          <button type="button" class="btn btn-sm btn-secondary mr-2" data-toggle="modal" data-target="#attachment_modal"><i class="icon-attachment"></i><span class="sr-only">Attachment</span></button>
+          <label class="sr-only" for="msg-input">Message input</label>
+          <input id="msg-input" type="text" class="write_msg" placeholder="Type a message" />
+          <button class="msg_send_btn" type="button"><i class="icon-send" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </div>
+    <style>
+		
+	
+
+		
+		</style>
+  </section>
+</main>
+<aside>  
+  
+ 
+</aside>
+<footer id="footer"></footer>
+<script src="../js/jquery-3.3.1.min.js"></script> 
+<script src="../js/popper.min.js"></script> 
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script><!-- required for Datepicker--> 
+
+<script src="js/coaching.js"></script> 
+<script src="../js/jquery.ui.touch-punch.min.js"></script> 
+
+<!--Graph --> 
+<script src="js/jquery.canvasjs.min.js"></script> 
+<script>
+
+ $(function () {
+	 
+
+	 
+	 // Load Client Detail 
+	 
+	 $('#wall_Detail').load('includes/client_detail.html');
+	 
+	 $('#wall_Clients').load('includes/clients_list.html');
+	 
+	 
+
+	// Load Coaches
+	   $.getJSON('js/coaches.json', function(data) {
+		   $.each(data.coach, function(i, f) {
+			  var coachItem = '<li class="position-relative"><div class="container-client-id m-2 d-flex  align-items-center"><span><i class="mug mug-md mr-2 position-relative" style="background-image: url(//randomuser.me/api/portraits/'+ f.gen +'/'+ f.id +'.jpg)"></i></span><div class="d-flex flex-column flex-fill "><span class=" nowrap" data-name>'+ f.first_name +' '+ f.last_name +'</span></div></div><div data-stats class="container-stats d-none d-md-flex d-minimal-none nowrap">  <small class="text-muted text-left pr-4 mr-4"><strong>Clients</strong><br> <span data-visits-name>'+ f.clients +'</span></small>	<small class="text-muted text-left pr-4 mr-4"><strong>Adherence</strong><br> <span data-activitya-adherence>Activity 82% —  Nutrition 82%</span></small>	<small class="text-muted text-left pr-4 mr-4"><strong>Gender</strong><br> <span data-coachgen="'+ f.gen +'"></span></small> <small class="text-muted text-left pr-4 mr-4"><strong>Age</strong><br> <span data-visits-name>42</span></small>  		<div class="dropdown" data-action="more"> <button class="btn btn-link p-2 ml-2 icon-tab-more-active position-relative" type="button" id="coach_more_X" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="z-index: 2"> <span class="sr-only">More options</span></button><div class="dropdown-menu" aria-labelledby="coach_more_X" x-placement="bottom-start">   <a class="dropdown-item" href="#">Delete</a>    <a class="dropdown-item" ref="#">Some other action</a>  </div></div>		 </div></div><button class="p-0 btn btn-link btn-takeover" data-action="view_client_list"><span class="sr-only">View Detail</span></button></li>'			  
+			   $(coachItem).appendTo("#coaches_list");
+			});
+		   
+		   // Search Clients 
+			$('#search_clients').keyup(function() {
+			  $('#coaches_list > li').hide();
+			  var txt = $('#search_clients').val();
+			  $('#coaches_list > li').each(function() {
+				if ($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1) {
+				  $(this).show();
+				  $('#no_results').hide();
+				}
+			   else if($('#coaches_list > li').children(':visible').length == 0) {
+				   // action when all are hidden
+				   $('#no_results').show();
+
+				}
+			  });
+			});
+		   
+		   // Refactor gender (men/women is required for mug url structure)
+		   $('[data-coachgen="men"]').text('male');
+		   $('[data-coachgen="women"]').text('female')
+		   
+		   
+		  
+
+		   		   
+		 // Replace empty plan with CTA
+		 $('[data-type="plan"]:empty').parent().html('Not on a plan');
+		   
+		   	
+	
+	
+		
+		   
+
+		   	 // View Client
+	 
+			 $('[data-action="view_client_list"]').click(function(){
+				 var coachName = $(this).parent().find('[data-name]').text();
+
+
+				$('li.indicate').removeClass('indicate');
+				 $(this).closest('li').addClass('indicate');
+
+				 $('#wall_Coaches').attr('data-roll', 'minimal');
+				 $('#wall_Clients').attr('data-roll', 'enganged').find('h1 strong').text(coachName+"'s Clients");
+				 
+
+
+			 });		   
+
+		   // View Client
+	 
+			 $('[data-action="view_client"]').click(function(){
+				 
+				 var theName = $(this).siblings().find('[data-name]').text();
+				 var theCoach = $(this).siblings().find('[data-coach-name]');
+				 var theCoachText = $(theCoach).text();
+				 var theMug = $(this).siblings().find('.mug').css('background-image');
+				 var thePlan = $(this).siblings().find('[data-type="plan"]');
+				 var thePlanText = $(thePlan).text();
+
+				$('li.indicate').removeClass('indicate');
+				 $(this).closest('li').addClass('indicate');
+
+				 $('#wall_Clients').attr('data-roll', 'minimal');
+//				 $('#wall_Chat').attr('data-roll', 'present');
+				 $('#wall_Detail').attr('data-roll', 'enganged');
+				 
+				  if ($(this).parent().is('[data-coach="1"]')) {
+					 $('#wall_Detail [data-proprietary]').show();
+				 }
+				 else {
+					 $('#wall_Detail [data-proprietary]').hide();
+				 }
+
+				 $('#wall_Detail [data-name]').text(theName);
+				 $('#wall_Chat [data-name]').text(theName);
+				 
+				 // If there isn't a coach, show full Assign Coach button
+				 if ($(theCoach).length === 0) {			 
+					 $('#wall_Detail [data-coach]').text('').siblings('button').text('Assign Coach');
+				 }
+				 else {
+					 $('#wall_Detail [data-coach]').text(theCoachText).siblings('button').html('<i class="icon-pencil-stub"></i> <span class="sr-only">Assign Coach</span>');
+				 }
+				 $('#wall_Detail .mug').css('background-image', theMug);
+				 $('#wall_Chat .mug').css('background-image', theMug);
+				 // If there are plans assigned, include the manage button for each plan
+				 if ($(thePlan).length === 0) {
+					  $('#wall_Detail [data-plans] > li').text('')
+				 }
+				 else {
+					 $('#wall_Detail [data-plans] > li').text(thePlanText);
+				 }
+				 
+				 
+//	The reason for this may no longer exist			 $('[data-action="back_to_clients"]').attr( "style", "display: inherit !important;" )
+				 
+				 
+				  $('[data-action="close_client_detail"]').click(function(){
+					  $('[data-roll]').attr('data-roll', 'absent');
+					  $('#wall_Clients').attr('data-roll', 'enaged');
+					  $('.indicate').removeClass('indicate');
+				  });
+				 
+
+			 });
+		   
+		   
+		   	 // View Client Chat
+	 
+			 $('[data-action="view_client_chat"]').click(function(){
+
+				 var theName = $(this).siblings().find('[data-name]').text();
+				 var theCoach = $(this).siblings().find('[data-coach-name]');
+				 var theCoachText = $(theCoach).text();
+				 var theMug = $(this).siblings().find('.mug').css('background-image');
+				 var thePlan = $(this).siblings().find('[data-type="plan"]');
+				 var thePlanText = $(thePlan).text();
+				 
+				 
+
+				 $('#clients_list li').removeClass('indicate');
+				 $(this).closest('li').addClass('indicate')
+				 $('#wall_Clients').attr('data-roll', 'present');
+				 $('#wall_Chat').attr('data-roll', 'enganged');
+				 
+				 if ($(this).parent().is('[data-coach="1"]')) {
+					 $('#wall_Detail [data-proprietary]').show();
+				 }
+				 else {
+					 $('#wall_Detail [data-proprietary]').hide();
+				 }
+
+				 $('#wall_Detail [data-name]').text(theName);
+				 $('#wall_Chat [data-name]').text(theName);
+				 
+				 // If there isn't a coach, show full Assign Coach button
+				 if ($(theCoach).length === 0) {			 
+					 $('#wall_Detail [data-coach]').text('').siblings('button').text('Assign Coach');
+				 }
+				 else {
+					 $('#wall_Detail [data-coach]').text(theCoachText).siblings('button').html('<i class="icon-pencil-stub"></i> <span class="sr-only">Assign Coach</span>');
+				 }
+				 $('#wall_Detail .mug').css('background-image', theMug);
+				 $('#wall_Chat .mug').css('background-image', theMug);
+				 // If there are plans assigned, include the manage button for each plan
+				 if ($(thePlan).length === 0) {
+					  $('#wall_Detail [data-plans] > li').text('')
+				 }
+				 else {
+					 $('#wall_Detail [data-plans] > li').text(thePlanText).prepend('<button class="icon-x-small btn btn-secondary btn-sm" data-toggle="modal" data-target="#managePlanConf"></button> ');
+				 }
+				 
+				 // Back to Chat
+				 
+				  $('[data-action="back_to_chat"]').click(function(){
+						 $('#wall_Detail').attr('data-roll', 'absent');
+					  	 $('#wall_Chat').attr('data-roll', 'engaged');
+					  	$('#wall_Clients').attr('data-roll', 'present');
+			
+					 })
+
+				 // Back to Client List 
+				 $('[data-action="back_to_clients"]').click(function(){
+					 $(this).attr('style','');
+					 $('[data-roll]').attr('data-roll', 'absent');
+					 $('#wall_Clients').attr('data-roll', 'engaged');
+				 })
+
+
+
+			 });
+
+		   
+	   });
+	 
+
+
+ // ------ Assignment Modal
+	  
+  	  $('#assignment-send').hide();
+	  $('#assignment-result').hide();
+	  
+	  $('[data-action="schedule_assignment"]').click(function(){
+		  $('#assignment-plan').hide();
+		  $('#assignment-send').fadeIn();
+		  
+	  });
+	  
+	  
+	  $('[ data-action="back_to_clients"]').click(function(){
+		  $('#assignment-clients').fadeIn();
+		  $('#assignment-send').hide();
+		  
+	  });
+	 
+	  
+	  
+	  $('[data-action="send_assignemnt"]').click(function(){
+		  $('#planSuccess').toast('show');
+		  
+		 var newPlan = $('#the_plans_list :checked').siblings().find('[data-type="plan"]').text();
+		 var theClient = $('#wall_Detail [data-name]').text();
+		 $('#planSuccess').toast('show');
+		 $('#planSuccess [data-plan-name]').text(newPlan);
+		 $('#planSuccess [data-client-name]').text(theClient);
+
+		  
+		  $('#clients_list > .indicate [data-type="plan"]').text(newPlan);
+		 $('#wall_Detail [data-plans]').append('<li><button class="icon-x-small btn btn-secondary btn-sm" data-toggle="modal" data-target="#managePlanConf"></button> '+newPlan+'</li>');
+	  });
+
+
+	 
+	 
+	 $(function () {
+		  $('[data-toggle="tooltip"]').tooltip()
+		})
+		
+	 	 
+ });
+	
+
+</script>
+</body>
+</html>

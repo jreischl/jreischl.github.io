@@ -1,0 +1,68 @@
+{
+    "coach": [	
+				{					
+					  "id": "1",
+					  "first_name": "Irina",
+					  "last_name": "Leonova",
+  					  "gen":"women",					  
+					  "clients" :"92"
+				},
+		{					
+					  "id": "2",
+					  "first_name": "Kelly",
+					  "last_name": "Wood",
+  					  "gen":"women",					  
+					  "clients" :"92"							
+				},
+		{					
+					  "id": "3",
+					  "first_name": "Gordon",
+					  "last_name": "Shanks",
+  					  "gen":"men",					  
+					  "clients" :"92" 								
+				},
+		{					
+					  "id": "4",
+					  "first_name": "Peggy",
+					  "last_name": "Callahan",
+  					  "gen":"women",					  
+					  "clients" :"92" 								
+				},
+		{					
+					  "id": "5",
+					  "first_name": "Chester",
+					  "last_name": "Dolenze",
+  					  "gen":"men",					  
+					  "clients" :"92" 								
+				},
+		{					
+					  "id": "6",
+					  "first_name": "Helen",
+					  "last_name": "Elgin",
+  					  "gen":"women",					  
+					  "clients" :"92" 								
+				},
+		{					
+					  "id": "7",
+					  "first_name": "Cynthia",
+					  "last_name": "Grayland",
+  					  "gen":"women",					  
+					  "clients" :"92" 								
+				},
+		{					
+					  "id": "8",
+					  "first_name": "Ed Pierce",
+					  "last_name": "Billiams",
+  					  "gen":"men",					  
+					  "clients" :"92" 								
+				},
+		{					
+					  "id": "9",
+					  "first_name": "Bill",
+					  "last_name": "Billiams",
+  					  "gen":"men",					  
+					  "clients" :"92" 								
+				}
+				
+		]
+}

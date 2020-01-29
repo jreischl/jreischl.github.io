@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workouts | AF Coaching</title>
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/fontawesome.css">	
+	<link rel="stylesheet" href="../css/custom.css">
+	<link rel="stylesheet" href="../css/fonts.css">
+	<link rel="stylesheet" href="css/coaching.css">
+	
+	<link rel="stylesheet" href="https://s3.amazonaws.com/icomoon.io/43188/Apps/style.css?ojm36u">
+	<!-- Page Specific--> 	
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<style>
+	
+	[data-action="done_adding_existing_workouts"],
+		[data-action="add_existing_to_plan"],
+		#selected_catalog {
+			display: none!important;
+		}
+		
+	
+@media print {
+	@page {size: landscape}
+	body.modal-open .modal-header,
+	body.modal-open .modal-content {
+		border: none;
+	}
+	.modal-body {
+		
+	}
+	body.modal-open .modal {
+		left:-1px;
+	}
+	body.modal-open .modal-title {
+		font-weight: bold;
+	}
+	body.modal-open .table-responsive,
+	body.modal-open tbody {
+		display: unset!important;
+		max-height:none;
+	}
+	body.modal-open th, 
+	body.modal-open td {
+		min-width: inherit!important;
+	}
+	body.modal-open .table td.bg-purple, 
+	body.modal-open .table th.bg-purple {
+		background-color:var(--primary)!important;
+	}
+	body.modal-open .table td.bg-dark,
+	body.modal-open .table th.bg-dark {
+		
+		background-color:var(--dark)!important;
+	
+	}
+	body.modal-open .modal-lg {
+		max-width: unset;
+	}
+	body.modal-open .modal-dialog {
+		margin: 0;
+	}
+	body.modal-open .modal-backdrop.show {
+   		 opacity: 1;
+ 	  	 background: #fff;
+	}
+	body.modal-open .table-fixed-top-left tr th:first-child,
+	body.modal-open .table-fixed-top-left tr:first-child th {
+		position: static;
+	}
+}
+	
+	
+</style>
+</head>
+<body class="d-md-flex">
+<header id="header" data-role="header"></header>
+	<nav id="navbar" class="sidebar"></nav>
+
+<main class="container-relative d-md-flex align-items-stretch bg-gray-lightest" id="workouts_library">
+			<section id="wall_Inventory" class="flex-fill flex-shrink-1 p-md-5 p-3 bg-white width-limited" data-roll="engaged" style="overflow-x: hidden">
+				<div class="alert alert-danger">This mock is obsolete. <a class="btn btn-danger btn-sm" href="workouts.html">Go here instead</a></div>
+
+	<div class="contents">
+				<div class="d-flex align-items-center justify-content-between">
+					<button type="button" class="btn btn-link mr-4 p-0 d-sm-none d-block position-absolute" data-action="done_adding_existing_workouts"><span class="sr-only">Back</span><span aria-hidden="true"><i class="icon-arrow-left3"></i></span></button>
+				  <h1 class="heading"><strong>Workouts</strong></h1> <!--<a class="btn btn-secondary" href="workout-builder.html">New Workout</a>--></div>
+			<ul class="list-unstyled list-items list-ruled">
+				
+				<li class=""><i class="list-icon icon-group-training"></i>
+					<div class="d-flex flex-column flex-fill name p-3"><span>AF Training Workouts</span><small class="text-muted">Week 34 2019</small></div>
+					<button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_AFT" data-collection="system"><span class="sr-only">View Plan</span></button>
+				</li>
+				<li class=""><i class="list-icon icon-earth"></i>
+					<div class="d-flex flex-column flex-fill name p-3"><span>System Workouts</span><small class="text-muted">2341 Workouts</small></div>
+					<button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_AFT" data-collection="system"><span class="sr-only">View Plan</span></button>
+				</li>
+				<!--<li class=""><i class="list-icon icon-membership"></i>
+					<div class="d-flex flex-column flex-fill name p-3"><span>System Workouts</span><small class="text-muted">1234 Workouts</small></div>
+					<button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_collection" data-collection="system"><span class="sr-only">View Plan</span></button>
+				</li>
+				<li class=""><i class="list-icon icon-person-fill"></i>
+					<div class="d-flex flex-column flex-fill name p-3"><span>My Workouts</span><small class="text-muted">2 Workouts</small></div>
+					<button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_collection" data-collection="custom"><span class="sr-only">View Plan</span></button>
+				</li>
+				<li class=""><i class="list-icon icon-star"></i>
+					<div class="d-flex flex-column flex-fill name p-3"><span>Favorites </span><small class="text-muted">0 Workouts</small></div>
+					<button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_collection" data-collection="favorites"><span class="sr-only">View Plan</span></button>
+				</li>-->
+				
+			</ul>
+
+			</div>
+		</section>
+    
+    <section id="wall_AFT" data-roll="absent" class="flex-fill flex-shrink-1 p-md-5 p-3 bg-gray-lightest border-left width-limited overflow-sm-auto">
+		<div class="d-flex justify-content-between">
+				<h1 class="heading"><strong>AF Training Workouts</strong> <small class="text-muted">Week 34 2019</small></h1>
+		<div><button class="btn btn-primary btn-sm" data-action="download_all"><i class="icon-download" aria-hidden="true"></i> <span class="d-none d-sm-inline">Download All</span></button></div>
+			</div>
+	<ul class="list-unstyled list-items list-ruled my-2">
+
+				<li class=""><i class="list-icon icon-build"></i>
+					<div class="d-flex flex-column flex-fill name p-3"><span>Build</span><small class="text-muted">1 CIRC of 10 exercises.</small></div>
+					<button class="p-2 ml-2 btn btn-link btn-takeover" data-toggle="modal" data-target="#buildModal"><span class="sr-only">View Plan</span></button>
+				</li>
+				<li class=""><i class="list-icon icon-base"></i>
+					<div class="d-flex flex-column flex-fill name p-3"><span>Base</span><small class="text-muted">1 CIRC of 10 exercises.</small></div>
+					<button class="p-2 ml-2 btn btn-link btn-takeover" data-toggle="modal" data-target="#buildModal"><span class="sr-only">View Plan</span></button>
+				</li>
+				<li class=""><i class="list-icon icon-burn"></i>
+					<div class="d-flex flex-column flex-fill name p-3"><span>Burn</span><small class="text-muted">1 CIRC of 10 exercises.</small></div>
+					<button class="p-2 ml-2 btn btn-link btn-takeover" data-toggle="modal" data-target="#buildModal"><span class="sr-only">View Plan</span></button>
+				</li>
+			
+				
+			</ul>
+		
+<style>
+		
+	table.table-fixed-top-left {
+	  position: relative;
+	  overflow: hidden;
+	  border-collapse: collapse;
+	  font-size: .8em;
+	}
+
+	/*thead*/
+	.table-fixed-top-left thead {
+	  overflow: visible;
+	}
+	.table-fixed-top-left thead th {
+		background: #2B263B;
+	}
+
+	.table-fixed-top-left thead th, thead td {
+		border-bottom: 0!important;
+	}
+
+	.table-fixed-top-left thead th:nth-child(1) {/*first cell in the header*/
+      border-width: 0;
+ 	  border-top-width: 1px;
+	}
+
+
+	/*tbody*/
+	.table-fixed-top-left tbody {
+	  position: relative;
+	  display: block; /*seperates the tbody from the header*/
+	  overflow: scroll;
+	  max-height: calc(100vh - 16rem)
+	}
+
+	table.table-fixed-top-left td, thead th {
+		min-width: 6rem;
+	}
+	table.table-fixed-top-left td:last-child, thead th:last-child {
+		min-width: 18rem;
+	}
+	.table-fixed-top-left thead th:nth-child(1), tbody th {
+		min-width: 5rem;
+	}
+	.table-fixed-top-left tr {
+/*		display: flex;
+		align-items: stretch;*/
+		
+	}
+	.table-fixed-top-left tbody tr th,
+	.table-fixed-top-left tbody tr td {
+		background: #fff;		
+	}
+	.table-fixed-top-left tbody tr th {  /*the first cell in each tr*/      
+	  position: relative;
+	}
+	.table-fixed-top-left tr th:first-child {
+		box-shadow: 4px 0 8px -1px rgba(0,0,0,.125);
+		border-right: 0;
+		left:0;
+		position: -webkit-sticky;
+		  position: -moz-sticky;
+		  position: -ms-sticky;
+		  position: -o-sticky;
+		position: sticky;
+		z-index: 1;
+	}
+	.table-fixed-top-left tr:first-child th {
+		position: -webkit-sticky;
+		  position: -moz-sticky;
+		  position: -ms-sticky;
+		  position: -o-sticky;
+		position: sticky;
+		top: 0;
+		z-index: 1;
+	}
+	.table-fixed-top-left tr:first-child th:first-child {
+		z-index: 2;
+	}
+	.table-fixed-top-left thead th:first-child	{
+		box-shadow: 4px 0 8px -1px rgba(255,255,255,.125);
+	}
+	tbody tr:nth-child(odd) th,
+	tbody tr:nth-child(odd) td {
+		background: #F2F2F2;
+	}
+	tbody {
+		position: relative
+	}
+		
+</style>		
+	
+	</section>
+
+</main>
+<aside>
+	
+	<div class="modal fade" id="buildModal" tabindex="-1" role="dialog" aria-labelledby="adherenceModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title h5 flex-grow-1" id="adherenceModalLabel">Build <small class="text-muted">Week 34 2019</small></h1>
+		  <button class="btn btn-secondary mx-1 d-print-none" data-action="download"><i class="icon-download" aria-hidden="true"></i> <span class="sr-only">Download</span></button>
+		   <button class="btn btn-secondary mx-1 d-print-none" data-action="print" data-toggle="tooltip" title="hey"><i class="icon-af-print-fill" aria-hidden="true"></i> <span class="sr-only">Print</span></button>
+        <button type="button" class="close d-print-none" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		  <p><small>1 CIRC of 10 exercises. 45s work/15s rest for 3 rounds. SA, SL exercises Perform 5 REPS L,R,L,R.. NOTE: Be sure to briefly explain the concept behind Burn, its benefits, and appropriate intensity levels and rest periods. Encourage clients to pick a challenging weight based on this workouts rep range/work period.</small></p>
+		  <div class="">			  
+		  <table class="table table-sm table-responsive table-striped table-bordered table-fixed-top-left text-center" style="overflow-x: hidden;">
+				<tbody class="">  
+	            <tr class="text-white">
+	              <th scope="col" class="bg-dark">Order</th>
+	              <th scope="col" class="bg-dark">Mvmt Pat</th>
+	              <th scope="col" class="bg-dark">Resistance Training</th>
+	              <th scope="col" class="bg-dark">Sets</th>
+	              <th scope="col" class="bg-dark">W/R</th>
+	              <th scope="col" class="bg-purple">Tier 1</th>
+	              <th scope="col" class="bg-purple">Tier 2</th>
+	              <th scope="col" class="bg-purple">Tier 3</th>
+	              <th scope="col" class="bg-dark">Notes</th>
+                </tr>
+
+	            <tr>
+	              <th scope="row">1A</th>
+	              <td>Knee</td>
+	              <td>Broad Jumps Over Mat</td>
+	              <td>3</td>
+	              <td >45s/15s</td>
+	              <td class="field-purple">Rx</td>
+	              <td class="field-purple">Rx</td>
+	              <td class="field-purple">Puddle Jumper</td>
+	              <td>Land softly to protect knees</td>
+                </tr>
+	            <tr>
+	              <th scope="row">1B</th>
+	              <td>Gen_Con</td>
+	              <td>Bear Crawl</td>
+	              <td>3</td>
+	              <td>45s/15s</td>
+	              <td class="field-purple">Rx</td>
+	              <td class="field-purple">Rx</td>
+	              <td class="field-purple">Lateral Shuffle</td>
+	              <td>Set cones @ 5 yrds, butt down, quick moving</td>
+                </tr>
+	            <tr>
+	              <th scope="row">1C</th>
+	              <td>Gen_Con</td>
+	              <td>RGW Lateral Snap</td>
+	              <td>3</td>
+	              <td>45s/15s</td>
+	              <td class="field-purple">Rx</td>
+	              <td class="field-purple">Rx/RGW Slams</td>
+	              <td class="field-purple">ALT RGW</td>
+	              <td>Explosive snaps, pivot back foot</td>
+                </tr>
+	            <tr>
+	              <th scope="row">1D</th>
+	              <td>AE_Core</td>
+	              <td>SB Rollout</td>
+	              <td>3</td>
+	              <td>45s/15s</td>
+	              <td class="field-purple">ROM!</td>
+	              <td class="field-purple">Rx</td>
+	              <td class="field-purple">Knee POS</td>
+	              <td>LEV dictates ROM</td>
+                </tr>
+	            <tr>
+	              <th scope="row">1E</th>
+	              <td>Hip</td>
+	              <td> DB RDL's</td>
+	              <td>3</td>
+	              <td>45s/15s</td>
+	              <td class="field-purple">Rx</td>
+	              <td class="field-purple">Rx</td>
+	              <td class="field-purple">Hindu Squat</td>
+	              <td>Run weight right down your legs</td>
+                </tr>
+	            <tr>
+	              <th scope="row">1F</th>
+	              <td>AR_Core</td>
+	              <td>L to H Chop</td>
+	              <td>3</td>
+	              <td>45s/15s</td>
+	              <td class="field-purple">Rx</td>
+	              <td class="field-purple">Rx</td>
+	              <td class="field-purple">Lateral Shuffle</td>
+	              <td>Feet shoulder width, 3 movements, no spine rotation</td>
+                </tr>
+	            <tr>
+	              <th scope="row">1G</th>
+	              <td>Hor_Push</td>
+	              <td>MB Push-up</td>
+	              <td>3</td>
+	              <td>45s/15s</td>
+	              <td class="field-purple">Toes</td>
+	              <td class="field-purple">Knees</td>
+	              <td class="field-purple">Knees no ball</td>
+	              <td>Shoulders down. Lead with chest</td>
+                </tr>
+	            <tr>
+	              <th scope="row">1H</th>
+	              <td>Vert_Pull</td>
+	              <td>SUS 90 DEG Pull-up</td>
+	              <td>3</td>
+	              <td>45s/15s</td>
+	              <td class="field-purple">Rx</td>
+	              <td class="field-purple">60 DEG SUS Pull-Up</td>
+	              <td class="field-purple">60 DEG SUS Pull-Up</td>
+	              <td>Vertical Shins, keep hips down</td>
+                </tr>
+	            <tr>
+	              <th scope="row">1I</th>
+	              <td>Gen_Con</td>
+	              <td>Jumping Jacks</td>
+	              <td>3</td>
+	              <td>45s/15s</td>
+	              <td class="field-purple">Rx</td>
+	              <td class="field-purple">Rx</td>
+	              <td class="field-purple">Rx</td>
+	              <td>Fast!</td>
+                </tr>
+	            <tr>
+	              <th scope="row">1J</th>
+	              <td>Knee</td>
+	              <td>Skaters</td>
+	              <td>3</td>
+	              <td>45s/15s</td>
+	              <td class="field-purple">Rx</td>
+	              <td class="field-purple">Rx</td>
+	              <td class="field-purple">Step side to side</td>
+	              <td>No pogo jumps!</td>
+                </tr>
+      </tbody>
+  </table>
+			  <h2 class="subheading p-1 bg-gray rounded mt-4 mb-2">Team Building</h2>
+			  <div class="p-2">
+				  <div class="mr-4">
+				  	<strong>Ball Drop </strong><small class="text-muted">1-2 Sets</small>
+				  </div>
+				  <div class="">
+				  	<p><small>Partner up, do not let the ball hit the ground! Hands underneath to make it easier. Partner up, do not let the ball hit the ground! Hands underneath to make it easier.</small></p>
+				  </div>
+			  			  
+			  </div>		 </div>
+      </div>     
+    </div>
+  </div>
+</div>
+	
+	
+	
+	
+</aside>
+<footer id="footer"></footer>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+
+	<script src="../js/popper.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="js/coaching.js"></script>        
+
+<script src="../js/jquery.ui.touch-punch.min.js"></script>
+
+  <script>
+ $(function () {  
+	  	 
+// Load Library	 
+//$("#workouts_library").load("includes/workouts_library.html");
+	 
+$('[data-action="view_AFT"]').click(function(){
+	$(this).parent().addClass('indicate')
+	$('#wall_Inventory').attr('data-roll','present');
+	$('#wall_AFT').attr('data-roll','engaged');
+})
+	 
+	$('button[data-action="print"]').click(function(){
+		  window.print();     	
+	});
+	 
+	 $('button[data-action="download"]').click(function(){
+		  alert("Downloads the current workout as a PDF");
+	});
+	 
+	 $('button[data-action="download_all"]').click(function(){
+		  alert("Downloads all workouts for this week as a multi-page PDF");
+	});
+ 
+	  	  
+// Set Nav 
+$('#tab-workouts').addClass('active');
+	 
+	 
+});
+		
+
+
+
+
+	  
+
+	  
+ 
+</script>
+	
+	
+	
+	
+	
+</body>
+</html>

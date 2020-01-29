@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Member Registration - Af.Coach.Web</title>
+
+
+
+<!--    <base href="https://demo-coach.anytimefitness.com" /> -->   
+
+        <script src="https://demo-coach.anytimefitness.com/dist/main.js?v=l3xuSeVS01Gu7G3QKvdIAusW5k7hQqYQ-j72ly_0BRo"></script>
+
+        <link rel="stylesheet" href="https://demo-coach.anytimefitness.com/dist/styles.css?v=_YV08RBDN8Gv-Dp-Cniw16xaXmrWgjsspW8m-s-vvTU" />
+
+        <link rel="stylesheet" href="https://demo-coach.anytimefitness.com/css/bootstrap.css?v=AF6Hc1yztbcIp5UobilOQ_X7aLdG-3fg4LcEGi7ULqg" />
+
+        <link rel="stylesheet" href="https://demo-coach.anytimefitness.com/css/fontawesome.css?v=0TlkHP6XTTW6lpx9bWJzqimQt2flnJIsC5WT94FQSr0" />
+
+        <!--<link rel="stylesheet" href="/css/custom.css?v=W5nX8fnup-GWH7jwzFd8THiibqlTANjpGFWDhBb9xFs" />-->
+		<link rel="stylesheet" href="../css/custom.css" />
+
+        <link rel="stylesheet" href="https://demo-coach.anytimefitness.com/css/fonts.css?v=nZm3aZ26Frn62WZnD8gn40S7UYpfXOFFcLoDkGxYrOI" />
+
+        
+
+        
+<style>
+	
+
+	
+
+	
+	</style>
+    
+
+   
+
+</head>
+
+<body class="cover">
+
+    <header>
+
+        
+
+
+
+<nav class="navbar-header navbar-expand-lg navbar-dark fixed-top" style="background-color: #804c9e;">
+
+    <a class="navbar-brand logo" href="#" ><img src="https://www.anytimefitness.com/wp-content/themes/anytimefitness/img/anytime-fitness-logo.png" alt="Anytime Fitness home" title="Anytime Fitness"></a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+        <span class="navbar-toggler-icon"></span>
+
+    </button>   
+
+</nav>
+
+
+
+    </header>
+
+
+
+    <main class="container center-middle">
+
+        
+
+
+
+<div id="registration-app" class="center-block">
+		
+		<form class="form-constrainer js-float-labels needs-validation" novalidate>
+			<h1 class="h3">Use my keyfob</h1>
+			<p>Enter the middle section of characters inscribed on your Anytime Fitness keyfob</p>
+			
+			<div class="form-group margin-top">				
+				<label for="keyfob" class="">Keyfob</label>
+				<input name="keyfob" id="keyfob" type="text" class="form-control" value="" required>
+				<div class="invalid-feedback" role="alert">Dynamically inserted error text</div>
+				
+			</div>						
+			<div class="form-group">
+				<label for="lastname" class="">Last Name</label>
+				<input name="lastname" id="lastname" type="text" class="form-control" value="" required>
+				<div class="invalid-feedback" role="alert">Last name required</div>
+				</div>
+			<button type="submit" class="btn btn-primary btn-lg btn-block margin-top">  Continue</button><div class="form-after-button"></div></form>
+		
+		</div>
+
+
+
+
+
+<script>
+
+     var localizationDictionary = {
+
+  "ConsentBarMessage": "Don't listen to Cookie Monster. Cookies are evil.",
+
+  "ConsentBarAccept": "Accept",
+
+  "CreateAnAccount": "Create an Account",
+
+  "AccountLinkSuccess": "You have successfully created and linked an account!",
+
+  "Keyfob": "Keyfob",
+
+  "Retype": "Retype",
+
+  "CreateAccount": "Create Account",
+
+  "SettingsTitle": "Coach Site Settings",
+
+  "Password": "Password",
+
+  "Translation Version": "1.0.1",
+
+  "SettingsEnvironment": "Environment",
+
+  "NavBarLogin": "Login",
+
+  "Or": "Or",
+
+  "NavBarHome": "Home",
+
+  "Email": "Email",
+
+  "Login": "Login",
+
+  "LastName": "Last Name",
+
+  "Continue": "Continue",
+
+  "NavBarSettings": "Settings",
+
+  "NavBarLogout": "Logout",
+
+  "NavBarExercises": "Exercises",
+
+  "FirstName": "First Name",
+
+  "NavBarRegistration": "Registration",
+
+  "UseMyKeyfob": "Use my keyfob",
+
+  "ConsentBarInfo": "Learn More",
+
+  "KeyfobEntryInstruction": "Enter the middle section of characters inscribed on your Anytime Fitness keyfob"
+
+};
+
+</script>
+
+
+
+
+
+    </main>
+
+    <footer>
+
+        <div class="container-fluid"><small>© Anytime Fitness LLC <script>var d=new Date(); yr=d.getFullYear();document.write(""+yr);</script>. All rights reserved.</small></div>
+
+    </footer>
+
+
+
+
+
+    
+
+    
+
+    
+
+<script src="/dist/registration.js?v=a2HIL-4ahyKjpu7lR1riSjyfbePT40eAsCxAVLMtpT8"></script>
+
+    
+
+	
+<!-- Added to enable floating labels. This doesn't necessarily need to be JQuery, it's just here to dynamically add and remove a class-->	
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+
+<script>
+	
+$(function() {
+
+	
+// Add .populate class when user starts typing in input. Remove class if the value is cleared from the input. 
+	
+	$('.js-float-labels input').keyup(function(){
+		if ($(this).val()) {
+			$(this).parent('.form-group').addClass('populated');	
+		}
+		else {
+			$(this).parent('.form-group').removeClass('populated');
+		}
+		
+	})
+});
+	
+	
+	
+	
+	
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+	
+
+</script>
+</body>
+
+</html>
+

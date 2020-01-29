@@ -1,0 +1,82 @@
+<!--	<nav id="navbar" class="sidebar navbar-expand-sm">-->
+		<ul class="list-unstyled nav-list  sticky-top">
+			<!--<li><a id="tab-home" class="tile position-relative" href="home.html"><i class="icon icon-tab-activity-active"></i> Overview </a></li>-->
+			<!--<li><a id="tab-broadcast" class="tile" href="#"><i class="icon icon-coaching"></i> Broadcast</a></li>-->
+			<li><a id="tab-chat" class="tile position-relative" href="clients.html"><i class="icon icon-people"></i> Clients <span class="badge badge-pill badge-danger position-absolute" style="top: .75rem; right: .5rem">2</span></a></li>
+			<!--<li><a id="tab-aft" class="tile position-relative" href="aft.html"><i class="icon icon-group-training"></i> AF&nbsp;Training <span class="badge badge-pill badge-danger position-absolute" style="top: .75rem; right: .5rem">1</span></a></li>-->
+			<li><a id="tab-library" class="tile position-relative" href="library.html"><i class="icon icon-library"></i> Library <span class="badge badge-pill badge-danger position-absolute" style="top: .75rem; right: .5rem">1</span></a></li>
+			<!--<li><a id="tab-builder" class="tile bg-corporate" href="builder.html"><i class="icon icon-tools"></i> Builder</a></li>-->
+			<li><a id="tab-all_clients" class="tile bg-corporate" href="all_clients.html"><i class="icon icon-icon-search-members"></i> All&nbsp;Clients</a></li>
+			<li><a id="tab-coaches" class="tile bg-corporate" href="coaches.html"><i class="icon icon-contacts"></i> Coaches</a></li>
+			
+			<!--<li><a id="tab-reports" class="tile" href="#"><i class="icon icon-track-progress2"></i> Reports</a></li>			-->
+		</ul>
+	
+<!--	</nav>	-->
+
+<script>
+	
+	
+	// Display admin-only content on URL parameter (and append links)  NOTE: This was getting confusing, so i effectively disabled it for now
+   /* if ( document.location.href.indexOf('admin') > -1 ) {		
+		$('.bg-corporate ').show();
+		
+		 $("a").attr('href', function(i, h) {
+		 return h + (h.indexOf('?') != -1 ? "&admin" : "?admin");
+	   });
+	}
+	else {
+		$('.bg-corporate ').hide();
+	}
+	*/
+	
+if (window.location.href.indexOf("/plan") > -1) {
+	$('#tab-plans').addClass('active');
+}
+if (window.location.href.indexOf("/builder") > -1) {
+	$('#tab-builder').addClass('active');
+}
+if (window.location.href.indexOf("/library") > -1) {
+	$('#tab-library').addClass('active').find('.badge').hide();;
+}
+if (window.location.href.indexOf("/clients") > -1) {
+	$('#tab-chat').addClass('active').find('.badge').hide();
+}
+if (window.location.href.indexOf("/all_clients") > -1) {
+	$('#tab-all_clients').addClass('active').find('.badge').hide();
+}	
+	
+if (window.location.href.indexOf("/aft") > -1) {
+	$('#tab-aft').addClass('active').find('.badge').hide();
+}
+if (window.location.href.indexOf("/home") > -1) {
+	$('#tab-home').addClass('active').find('.badge').hide();
+}
+	if (window.location.href.indexOf("/coaches") > -1) {
+	$('#tab-coaches').addClass('active').find('.badge').hide();
+}
+
+	
+
+
+
+</script>
+
+<style>
+.bg-corporate {
+	background-color: #417D8B;
+}
+a.bg-corporate:hover, 
+a.bg-corporate:focus {
+	background-color: #315e68!important;
+}
+	a.bg-corporate.active {
+		color: #417D8B!important;
+		
+	}
+a.bg-corporate.active:hover, 
+a.bg-corporate.active:focus {
+	background-color: #fff!important;
+}
+
+</style>

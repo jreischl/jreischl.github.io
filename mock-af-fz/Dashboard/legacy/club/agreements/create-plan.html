@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<base href="//db.anytimefitness.com/">
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Create new plan</title>
+<meta name="description" content="Anytime Fitness Dashboard" />
+<meta name="keywords" content="" />
+
+<link rel="shortcut icon" type="image/x-icon" href="http://db.anytimefitness.com/Content/favicon.ico" />
+<!--<link href="http://fast.fonts.net/cssapi/497cd0f0-7b80-4572-b992-2abc27b555a9.css" rel="stylesheet" type="text/css" />
+-->
+<link href="https://anytimefitness.blob.core.windows.net/shared-css/master.css" rel="stylesheet" type="text/css" />
+<link href="/Scripts/app/styles/common/dashboard.css" rel="stylesheet" type="text/css" />
+	<link href="http://db.anytimefitness.com/Content/Styles/datepicker.css" rel="stylesheet" />
+<link href="http://db.anytimefitness.com/Content/Scripts/DatePicker/css/smoothness/jquery-ui-1.9.0.custom.css" rel="stylesheet" />
+<link href="http://db.anytimefitness.com/Content/Scripts/DataTable/css/Data_table.css" rel="stylesheet" />
+<script src="../../Content/Scripts/jquery-1.8.1.min.js" type="text/javascript"></script>
+<script src="../../Content/Scripts/bootstrap.js" type="text/javascript"></script>
+<script src="../../Content/Scripts/bootstrap-datepicker.js" type="text/javascript"></script>
+<script src="../../Content/Scripts/jquery.tablesorter.js" type="text/javascript"></script>
+<script src="../../Content/Scripts/jquery-ui-1.9.0.custom.js" type="text/javascript"></script>
+<script src="../../Content/Scripts/DataTable/js/jquery.dataTables.js" type="text/javascript"></script>
+<script src="../../Content/Scripts/knockout-latest.js" type="text/javascript"></script>
+<script src="../../Content/Scripts/knockout.mapping.js" type="text/javascript"></script>
+<script src="../../Content/Scripts/dashboard.js" type="text/javascript"></script>
+<script src="../../Content/Scripts/jquery.validate.min.js"></script>
+<script src="../../Content/Scripts/jquery.debounce-1.0.5.js" type="text/javascript"></script>
+<script src="../../Content/Scripts/bootstrap-tabs.js" type="text/javascript"></script>
+<script src="../../Content/Scripts/bootstrap-tooltip.js" type="text/javascript"></script>
+
+<!-- page specific-->
+
+<link href="http://anytimefitness.blob.core.windows.net/shared-js/jquery-ui-slider-pips/jquery-ui-slider-pips.css" rel="stylesheet" type="text/css" />
+<script src="http://anytimefitness.blob.core.windows.net/shared-js/jquery-ui-slider-pips/jquery-ui-slider-pips.min.js" type="text/javascript"></script>
+<script src="http://anytimefitness.blob.core.windows.net/shared-js/bootstrapSwitch.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="main" class="dashboard"><div id="header"></div><div id="firstlevel">
+    <h1 style="" class=" title normal float">club settings </h1>
+    <div class="nav2"></div>
+  </div>
+  <div class="row flexContainer">
+      <div class="col-sm-8 col-md-9 headerSection">
+      <form id="Plansform" class=" member-plans constrained" autocomplete="off" onkeydown="return event.key != 'Enter';">
+        <div class="segmentwhite slicktoggle">
+          <fieldset class="toggle-container">
+            <legend>Create a plan</legend>
+            <div class="row">
+              <div class="col-sm-9 margin-bot">
+                <label class="margin-right">Plan name
+                  <input id="_plan_name" data-type="plan-name" type="text" placeholder="name this plan...">
+                </label>
+              </div>
+              <div class="col-sm-3">
+                <label class="margin0">Select color <a href="#" data-toggle="tooltip" data-placement="right" data-original-title="Color coding your plans makes them easier to identify"><img alt="tip" src="http://anytimefitness.blob.core.windows.net/shared-images/16x16/icon-info-blue-small.png" style="margin-top:-3px;"/></a></label>
+                <div class="dropdown"> <a href="#" data-toggle="dropdown" class="dropdown-toggle text-normal" data-original-title="">
+                  <div class="plan-color"><i class="block-gray"></i></div>
+                  </a>
+                  <ul role="menu" class="dropdown-menu picker-swatch">
+                    <li><a  data-original-title=""><i class="block-blue"></i></a></li>
+                    <li><a  data-original-title=""><i class="block-purple"></i></a></li>
+                    <li><a ><i class="block-pink"></i></a></li>
+                    <li><a  data-original-title=""><i class="block-orange"></i></a></li>
+                    <li><a  data-original-title=""><i class="block-gray"></i></a></li>
+                    <li><a  data-original-title=""><i class="block-dark"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+              <div class="">
+                <div class="margin-right">
+                 <div> Features <small>(one per line)</small> </div>
+					  <div class="form-group">
+						  <label class="sr-only" for="feature1">Feature 1</label>
+	                      <input class="form-control" type="text" data-bind="value: feature1, disable: $root.isReadonly() || isCorporate" data-type="feature1" id="feature1">
+					  </div>
+					  <div class="form-group">
+	                      <label class="sr-only" for="feature2">Feature 2</label>
+	                      <input class="form-control" type="text" data-bind="value: feature2, disable: $root.isReadonly() || isCorporate" data-type="feature2" id="feature2">
+					  </div>
+					  <div class="form-group">
+    	                  <label class="sr-only" for="feature3">Feature 3</label>
+	                      <input class="form-control" type="text" data-bind="value: feature3, disable: $root.isReadonly() || isCorporate" data-type="feature3" id="feature3">
+					  </div>
+					  <div class="form-group">
+	                      <label class="sr-only" for="feature4">Feature 4</label>
+	                      <input class="form-control" type="text" data-bind="value: feature4, disable: $root.isReadonly() || isCorporate" data-type="feature4" id="feature4">
+					  </div>
+                </div>
+              </div>
+          </fieldset>
+              
+          
+              <hr>  
+            <fieldset>
+            <div class="profit-centers">
+              <p style="font-size:20px"><strong>Contracts</strong></p>
+              <div class="d-sm-flex align-items-center">
+              <div class="margin-right">
+                <label class="margin0"> Membership Type</label>
+              </div>
+              <div class="">
+                <select id="planType">
+                  <option value="term">Term</option>
+                  <option value="recurring">Open-ended</option>
+                  <option id="_PIF" value="PIF">Paid in full</option>
+                </select>
+              </div>
+            </div>
+              <div class="item clear">
+                <div class="pull-left margin-vert" style="font-size:1.1em">Membership Dues (Collected Monthly)
+<br>
+                </div>
+                <div class="clear ">
+                  <div class="well well-small">
+                    <div class="row margin-bot">
+                      <div class="col-sm-6"> <p><strong>Primary member </strong></p>
+                        <div class="row margin-bot">
+                          <div class="col-sm-7">
+							  <label>Default <small>(min. $29.00)</small></label>
+                          </div>
+                          <div class="col-sm-5">
+                              <input id="_primary_default" type="text">
+						  </div>
+					  </div>
+						  
+					<div class="row">
+                          <div class="col-sm-7">
+                            <label>Club Minimum Dues </label>
+                          </div>
+                          <div class="col-sm-5">
+                              <input type="text">
+						  </div>
+					  </div>
+                      </div>
+                      <div class="col-sm-6">  <p><strong>Additional member </strong></p>
+                        <div class="row  margin-bot">
+                          <div class="col-sm-7">
+							  <label>Default <small>(min. $29.00)</small></label>
+                          </div>
+                          <div class="col-sm-5">
+                              <input id="" type="text">
+						  </div>
+					  </div>
+						  
+					<div class="row">
+                          <div class="col-sm-7">
+                            <label>Club Minimum Dues </label>
+                          </div>
+                          <div class="col-sm-5">
+                              <input type="text" >
+						  </div>
+					  </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="item clear">
+                <div class="pull-left margin-right">
+                  <label class="margin-right margin-top"></label>
+                  <div class="switch switch-small" data-on-label="ON" data-off-label="OFF" data-on="success" data-off="">
+                    <input type="checkbox">
+                  </div>
+                </div>
+                <div class="pull-left margin-vert" style="font-size:1.1em">Tanning Dues (Collected Monthly) <br>
+                </div>
+                <div class="clear hide">
+                  <div class="well well-small">
+                    <div class="row margin-bot">
+                      <div class="col-sm-6"> <p><strong>Primary member </strong></p>
+                        <div class="row margin-bot">
+                          <div class="col-sm-7">
+							  <label>Default</label>
+                          </div>
+                          <div class="col-sm-5">
+                              <input id="_tanning_default" type="text">
+						  </div>
+					  </div>
+						  
+					<div class="row">
+                          <div class="col-sm-7">
+                            <label>Club Minimum Dues </label>
+                          </div>
+                          <div class="col-sm-5">
+                              <input type="text">
+						  </div>
+					  </div>
+                      </div>
+                      <div class="col-sm-6">  <p><strong>Additional member </strong></p>
+                        <div class="row  margin-bot">
+                          <div class="col-sm-7">
+							  <label>Default</label>
+                          </div>
+                          <div class="col-sm-5">
+                              <input id="" type="text">
+						  </div>
+					  </div>
+						  
+					<div class="row">
+                          <div class="col-sm-7">
+                            <label>Club Minimum Dues </label>
+                          </div>
+                          <div class="col-sm-5">
+                              <input type="text" >
+						  </div>
+					  </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset>
+            <hr>
+            <p style="font-size:20px"><strong>Down payment amounts and fees</strong></p>
+            <div id="reqDownPymt" class="d-sm-flex align-items-center">
+                <label style="margin:0 1rem 0 0">Default Installments</label><select style="width: auto">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+                <label style="margin:0 1rem">Minimum Installments</label><select style="width: auto">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>				
+
+            </div>
+            <div class="item">
+              <div class="d-sm-flex align-items-center">
+                <div id="enrollment_switch" class="switch switch-small margin-right" data-on-label="ON" data-off-label="OFF" data-on="success" data-off="">
+                  <input id="enrollment" type="checkbox">
+                </div>
+              
+              <div style="font-size:1.1em" class="margin-vert">Enrollment <br>
+              </div>
+				  </div>
+                <div class="well well-small hide" id="enrollment_fee">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <label class="margin-right">Default Fee
+                        <input type="text" />
+                      </label>
+                    </div>
+                    <div class="col-sm-3">
+                      <label class="margin-right">Minimum Fee
+                        <input type="text" />
+                      </label>
+                    </div>
+                    
+                  </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class=" d-sm-flex align-items-center">
+                <div id="security_switch" class="switch switch-small margin-right" data-on-label="ON" data-off-label="OFF" data-on="success" data-off="">
+                  <input type="checkbox">
+                </div>
+              
+              <div style="font-size:1.1em" class=" margin-vert">Security Activation <br>
+              </div>
+			</div>
+                <div id="security_key_fee" class="well well-small hide">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <label class="margin-right">Default Fee
+                        <input type="text" />
+                      </label>
+                    </div>
+                    <div class="col-sm-3">
+                      <label class="margin-right">Minimum Fee
+                        <input type="text" />
+                      </label>
+                    </div>                    
+                </div>
+              </div>
+            </div>
+            <div class="clear d-sm-flex align-items-center flex-wrap margin-top">
+                <label style="margin:0 1rem 0 0">Include club enhancement fee by default?</label>
+
+                <div class="switch switch-small" data-on-label="YES" data-off-label="NO" data-on="success" data-off="">
+                  <input id="enhancement" type="checkbox" checked>
+                </div>
+            </div>
+            <div id="priceSched" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">Payment schedule</h3>
+              </div>
+              <div class="modal-body">
+                <table class="table green">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>May 1, 2014</td>
+                      <td>$79.89</td>
+                    </tr>
+                    <tr>
+                      <td>June 1, 2014</td>
+                      <td>$39.99</td>
+                    </tr>
+                    <tr>
+                      <td>July 1, 2014</td>
+                      <td>$39.99</td>
+                    </tr>
+                    <tr>
+                      <td>August 1, 2014</td>
+                      <td>$39.99</td>
+                    </tr>
+                    <tr>
+                      <td>September 1, 2014</td>
+                      <td>$39.99</td>
+                    </tr>
+                    <tr>
+                      <td>October 1, 2014</td>
+                      <td>$39.99</td>
+                    </tr>
+                    <tr>
+                      <td>December 1, 2014</td>
+                      <td>$39.99</td>
+                    </tr>
+                    <tr>
+                      <td>January 1, 2015</td>
+                      <td>$39.99</td>
+                    </tr>
+                    <tr>
+                      <td>February 1, 2015</td>
+                      <td>$39.99</td>
+                    </tr>
+                    <tr>
+                      <td>March 1, 2015</td>
+                      <td>$39.99</td>
+                    </tr>
+                    <tr>
+                      <td>April 1, 2015</td>
+                      <td>$39.99</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="modal-footer">
+                <button class="btn gray" data-dismiss="modal" aria-hidden="true">Close</button>
+              </div>
+            </div>
+            <div class="clear clearfix">
+              <hr class="margin-top">
+            </div>
+            </fieldset>
+          <fieldset class="plan-length">
+            <p style="font-size:20px"><strong>Payment schedule</strong></p>
+
+            <style>
+
+/* 2 */
+#slider-range {
+	background:#eee;
+	cursor:default;
+	height:40px;	
+	margin:2rem 2%;
+
+}
+#slider-range .ui-slider-range,
+#slider-range .ui-slider-handle {
+	background:#9acb3b;
+	border:none;
+	height:30px
+}
+#slider-range .ui-slider-handle {
+	cursor:ew-resize;
+}
+#slider-range .ui-slider-range {
+	color: #ffffff;
+    font-size: 1em;
+    font-weight: 500;
+    padding-top: 10px;
+    text-align: center;
+    text-transform: uppercase;
+}
+				
+
+#slider-range .ui-slider-range:before {
+	padding-top: 8px;
+}
+#slider-range .ui-slider-handle {
+	background:#cce59d;
+	box-shadow:0 0 2px;
+	height:40px;
+	margin-left: -2px;
+	width:6px;
+	top:auto;
+
+}
+
+#slider-range label {
+    position: absolute;
+    width: 20px;
+    margin-left: -10px;
+    text-align: center;
+    margin-top: 35px;
+}
+
+
+.contract-length input {
+	box-shadow: 0 0 6px inset rgba(0,0,0,.25);
+	border: none;
+	border-radius:4px;
+	font-size: 26px;
+	padding: 1rem;
+    text-align: center;
+    max-width: 100%;
+	height: auto;
+	box-sizing: border-box;
+}
+.contract-length label {
+	clear:none;
+	display:block;
+	margin:0;
+	width:auto;
+}
+
+.ui-slider-pips .ui-slider-pip {
+	top:41px;
+	font-size:.5em;
+}
+
+#slider-range .tooltip-inner {
+	white-space:nowrap;
+}
+
+.price-preview {
+	background:#fff;
+	border:1px solid #999;
+}
+.price-preview p {
+	padding:4px;
+	border-bottom:1px solid #ddd;
+	margin:0 8px;
+}
+.price-preview .fees span {
+	float:right;	
+}
+.price-preview .name {
+	font-weight:600;
+	margin-bottom:10px;
+}
+.price-preview #price_preview_top {
+	color:#fff;
+	line-height:normal;
+	padding:16px;
+	text-align:center;
+}
+.price-preview .price {
+	font-size:48px;
+	margin:5px 0;
+}
+.total-contract {
+	border-radius:20px; letter-spacing: 1px; line-height:inherit;
+	font-size:13px; text-transform: uppercase; text-align: center; position: relative; margin: 0px auto -30px; background: #ddd; width: 380px;
+	margin-top: 2rem;
+}
+#total_contract_length {
+	border:none;
+	background:none;
+	cursor:default;
+	font-size:13px;
+	font-weight: inherit;
+	height:auto;
+	letter-spacing:normal;
+	text-align:right;
+	margin-bottom:1px;
+	padding: 0 2px;
+	width:14px;
+}
+
+#price_preview_top.block-gray {
+    color: #666666;
+}
+				
+
+@media (max-width: 767px) {
+					#slider-range .ui-slider-range  {
+						font-size: 3vw;
+					}
+					.total-contract {
+						width: 90%;
+					}
+					#slider-range {
+
+					}
+				}				
+</style>
+            <div class="">
+              <div class="">
+                <div class="row contract-length">
+                  <div id="_totalLength" class="col-sm-4">
+                    <label for="spinner">Contract Length <small>(max. 60)</small></label>
+					  <input id="months_paid" name="months_paid" value="12" autocomplete="off" >
+                    
+                  </div>
+                  <div id="_maxFree" class="col-sm-4">
+                    <label for="spinner">Default Free Months  <small>(max 6)</small></label>
+					  <input id="free_months" name="free_months" autocomplete="off" >
+                    
+                  </div>
+                  <div id="_defaultFree" class="col-sm-4">
+                    <label for="spinner">Max Free Months <small>(max 6)</small></label>
+					  <input id="free_months_max" name="value">
+                    
+                  </div>
+                </div>
+				  
+				  
+				  <div class="slider-content">
+              <div class="total-contract">total length of membership: <strong> <span id="total_contract_length"></span> months</strong></div><hr style="margin-left:40px;margin-right:40px;">
+                <div id="slider-range"></div>
+					  <p class="text-center"><small>Drag the green bar to the left or right to determine when which months are free.</small></p>
+              </div>
+				 					  <hr class="dotted">
+
+				  
+                <div class="row margin-vert">
+					<div class="col-sm-4">
+                  <div id="frequency" class="d-sm-flex ">
+
+                      <label class="margin-right">Frequency</label>
+                      <select>
+                        <option value="monthly">Monthly</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="biweekly">Bi-weekly</option>
+                      </select>
+
+                  </div>
+					</div>
+					<div class="col-sm-8">
+					<div id="commencement" class="d-sm-flex">
+
+                                        <label class="margin-right ">
+                                            Default First Payment
+                                            <a href="javascript:void(0)" data-toggle="tooltip" data-placement="top" title="" data-original-title="Set the default due date for the first installment. This can be overridden at time of sale.">
+                                                <img alt="tip" src="https://anytimefitness.blob.core.windows.net/shared-images/16x16/icon-info-blue-small.png" style="margin-top: -3px;">
+                                            </a>
+                                        </label>
+
+                                        <select style="width: auto">
+											<option data-frequency="all" value="">Next Day</option>
+											<option data-frequency="monthly" value="">1st Month</option>
+											<option data-frequency="monthly" value="">2nd Month</option>
+											<option data-frequency="monthly" value="">3rd Month</option>
+											<option data-frequency="weekly" value="">1st Recurring Payment</option>
+											
+										</select>
+                                </div>
+					</div>
+				  </div>
+					<div class="row">
+						<div class="col-sm-4">
+                  <div id="_autoRenew">
+					<div class="d-sm-flex align-items-center">
+                      <label class="margin-right">Auto Renew Default</label>
+
+
+                      <div class="switch switch-small" data-on-label="YES" data-off-label="NO" data-on="success" data-off="">
+                        <input id="autoRenew" type="checkbox" checked="checked">
+                      </div>
+						</div>
+							</div>
+							
+							
+							<div id="_autoRenewCustomizable">
+                                    <div class="d-sm-flex align-items-center">
+                                        <label class="margin-right" for="autoRenewCustomization">
+                                            Auto renew <span class="nowrap">customization<a href="javascript:void(0)" data-toggle="tooltip" data-placement="top" title="" data-original-title="If set to yes, automatic renewal can be turned on or off on Club Hub iPad during the Customize Agreement step of the membership onboarding process. If set to no, the &quot;auto renewal default&quot; setting will be enforced on the plan.">
+                                            <img alt="tip" src="https://anytimefitness.blob.core.windows.net/shared-images/16x16/icon-info-blue-small.png" style="margin-top: -3px;"></span>
+                                        </a>
+                                    </label>
+
+                                    <div class="switch switch-small" data-on-label="YES" data-off-label="NO" data-on="success" data-off="">
+									<input id="autoRenewCustomization" type="checkbox" checked="checked">
+								  </div>
+                            </div>                                </div>
+							
+						</div>
+							<div class="col-sm-8">
+						<p class="text-muted"><small>Not all states allow auto-renewal. Before enabling this feature, verify your state allows auto-renewal. You are responsible for abiding by all state and local legal requirements. Auto-renew is not currently supported for online purchases in California</small></p>
+                  </div>
+				  </div>
+                  
+                </div>
+              </div>
+                            
+              <div class="text-center">
+              <a href="#priceSched" data-toggle="modal" class="btn btn-mini blue">View Sample Payment Schedule</a>
+</div>
+          </fieldset>
+          
+        </div>
+        <div class="well">
+          <div class="action text-right"> <a class="btn gray pull-left " href="plans.html">cancel</a> <a class="btn orange " data-action="save">save plan</a> 
+          
+          
+                      
+
+          
+          </div>
+          <div class="action2 hide text-right"><strong class="text-green-dark">Saved!</strong> Would you like to copy this plan to other clubs? <a class="btn gray margin-left" href="plans.html">no thanks</a> <a class="btn purple " href="#_copy">yes!</a> </div>
+          <div class="menu-clubs margin-top hide" id="select-clubs-menu">
+            <input type="text" data-bind="value: ClubToFind, valueUpdate: 'afterkeydown'" placeholder="Filter by city or club #" class="search-query roundest">
+            <div data-bind="visible: IsCorporate() === false" class="select-all" style="display: none;"> select all
+              <button data-bind="click: SelectAll, css: { active: SelectedAll }" id="btnAll" class="btn btn-check active" type="button"></button>
+            </div>
+            <div class="menu-clubs-list">
+              <div class="active">
+                <table class="table clear ">
+                  <thead>
+                    <!-- ko foreach: ClubsSelected --> 
+                    
+                    <!-- /ko -->
+                  </thead>
+                </table>
+              </div>
+              <div class="inactive">
+                <table class="table clear">
+                  <tbody>
+                    <!-- ko foreach: Clubs -->
+                    <tr>
+                      <td style="width:36px" data-bind="text: Number">2585</td>
+                      <td style="width:550px"><span data-bind="text: Name">Aberdeen, WA</span> (<span data-bind="text: Street1">2700 Simpson Ave</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">982</td>
+                      <td><span data-bind="text: Name">Brigham City, UT</span> (<span data-bind="text: Street1">35 Skyline Drive</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">1980</td>
+                      <td><span data-bind="text: Name">Patterson, CA</span> (<span data-bind="text: Street1">1075 Sperry Avenue</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">2157</td>
+                      <td><span data-bind="text: Name">Spring Creek, NV</span> (<span data-bind="text: Street1">278 Spring Creek Parkway</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">2378</td>
+                      <td><span data-bind="text: Name">Zephyr Cove, NV</span> (<span data-bind="text: Street1">212 Elks Point Rd.</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">735</td>
+                      <td><span data-bind="text: Name">Windsor, CA</span> (<span data-bind="text: Street1">6422 Old Redwood Highway</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">311</td>
+                      <td><span data-bind="text: Name">Ammon, ID</span> (<span data-bind="text: Street1">1615 S. Midway Ave</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">2417</td>
+                      <td><span data-bind="text: Name">Morgan Hill, CA</span> (<span data-bind="text: Street1">795 Cochrane Road</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">2687</td>
+                      <td><span data-bind="text: Name">Redlands, CA</span> (<span data-bind="text: Street1">500 N. Orange St</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">2705</td>
+                      <td><span data-bind="text: Name">Tucson, AZ (8868 Tanque Verde Rd)</span> (<span data-bind="text: Street1">8868 Tanque Verde Rd</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">337</td>
+                      <td><span data-bind="text: Name">McCalla, AL</span> (<span data-bind="text: Street1">4955 McAdory School Road</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">119</td>
+                      <td><span data-bind="text: Name">Newington, CT</span> (<span data-bind="text: Street1">3310 Berlin Turnpike</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">222</td>
+                      <td><span data-bind="text: Name">Hamburg, NY</span> (<span data-bind="text: Street1">1 Buffalo St</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">2754</td>
+                      <td><span data-bind="text: Name">Winnipeg, MB (Lorimer Blvd)</span> (<span data-bind="text: Street1">980 Lorimer Blvd</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">1836</td>
+                      <td><span data-bind="text: Name">Stevensville, MI</span> (<span data-bind="text: Street1">5643 Cleveland Avenue</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">2515</td>
+                      <td><span data-bind="text: Name">Pittsburgh, PA</span> (<span data-bind="text: Street1">251 Mt. Nebo Pointe Drive</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">1816</td>
+                      <td><span data-bind="text: Name">Muncie, IN</span> (<span data-bind="text: Street1">3600 South Chandler Drive</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">2107</td>
+                      <td><span data-bind="text: Name">Woodbridge, VA</span> (<span data-bind="text: Street1">12751 Marblestone Drive</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">2699</td>
+                      <td><span data-bind="text: Name">Trussville, AL</span> (<span data-bind="text: Street1">322 Main Street</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">919</td>
+                      <td><span data-bind="text: Name">Stephens City, VA</span> (<span data-bind="text: Street1">640 Warrior Drive</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">934</td>
+                      <td><span data-bind="text: Name">Blythewood, SC</span> (<span data-bind="text: Street1">715 University Village Drive</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">1960</td>
+                      <td><span data-bind="text: Name">Kensington, MD</span> (<span data-bind="text: Street1">4265 Howard Avenue</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">1349</td>
+                      <td><span data-bind="text: Name">Jackson, MS</span> (<span data-bind="text: Street1">4924 I-55 North</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">2098</td>
+                      <td><span data-bind="text: Name">New Castle, PA</span> (<span data-bind="text: Street1">3443 Wilmington Road</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">1936</td>
+                      <td><span data-bind="text: Name">Lebanon, OH</span> (<span data-bind="text: Street1">1525 Genntown Drive</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">1843</td>
+                      <td><span data-bind="text: Name">Titusville, FL</span> (<span data-bind="text: Street1">722 Cheney Hwy</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">330</td>
+                      <td><span data-bind="text: Name">Granger, IN</span> (<span data-bind="text: Street1">1202 East University Drive</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">24</td>
+                      <td><span data-bind="text: Name">Martinez, GA (Fury's Ferry Rd)</span> (<span data-bind="text: Street1">341 Fury's Ferry Road</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">464</td>
+                      <td><span data-bind="text: Name">Chelsea, AL</span> (<span data-bind="text: Street1">16054 Highway 280</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <tr>
+                      <td data-bind="text: Number">629</td>
+                      <td><span data-bind="text: Name">Fort Mill, SC</span> (<span data-bind="text: Street1">855 Gold Hill Road</span>)</td>
+                      <td><button data-bind="click: $parent.SelectItem" class="btn btn-check select-item" type="button"></button></td>
+                    </tr>
+                    <!-- /ko -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="clear text-right margin-top"><a class="btn gray pull-left " href="plans.html">cancel</a><a class="btn green" id="distrubute-clubs" href="plans-shared.html" >distribute to club(s)</a></div>
+          </div>
+        </div>
+        <input type="hidden" id="ClubID" name="ClubID" value="116"/>
+      </form>
+    </div>
+    <div id="sticky-anchor" class="col-sm-4 col-md-3">
+      <div id="sticky" class="nav-right"> 
+        <!-- single club selection-->
+        <div id="select-club" data-clubSelectedID="116"><a class="btn purple btn-full select-club" href="#" title="select a club to display" data-placement="left"> select a club <span class="caret"></span></a>
+          <div class="selected-club round" id="clubSelected"></div>
+        </div>
+        <div id="select-club-menu" class="menu-clubs hide" >
+          <input id="search" type="text" class="search-query roundest" placeholder="Filter by city or club #" style="padding-left: 20px;">
+          <div class="menu-clubs-list">
+            <table class="table clear" id="tableCLubs" >
+              <tbody>
+                <tr data-club="2673 | Abingdon, VA" data-clubID="116">
+                  <td>2673</td>
+                  <td>Abingdon, VA</td>
+                </tr>
+                <tr data-club="2585 | Aberdeen, WA" data-clubID="1">
+                  <td>2585</td>
+                  <td>Aberdeen, WA</td>
+                </tr>
+                <tr data-club="650 | Acton, MA" data-clubID="1287">
+                  <td>650</td>
+                  <td>Acton, MA</td>
+                </tr>
+                <tr data-club="2463 | Acworth, GA (1727 Mars Hill Road)" data-clubID="417">
+                  <td>2463</td>
+                  <td>Acworth, GA (1727 Mars Hill Road)</td>
+                </tr>
+                <tr data-club="549 | Acworth, GA (2483 Cedarcrest Rd)" data-clubID="414">
+                  <td>549</td>
+                  <td>Acworth, GA (2483 Cedarcrest Rd)</td>
+                </tr>
+                <tr data-club="1886 | Abilene, TX (4762 S 14th St)" data-clubID="490">
+                  <td>1886</td>
+                  <td>Abilene, TX (4762 S 14th St)</td>
+                </tr>
+                <tr data-club="2376 | Aberdeen, SD" data-clubID="879">
+                  <td>2376</td>
+                  <td>Aberdeen, SD</td>
+                </tr>
+                <tr data-club="2009 | Abilene, TX (1117 E. N 10th Street)" data-clubID="488">
+                  <td>2009</td>
+                  <td>Abilene, TX (1117 E. N 10th Street)</td>
+                </tr>
+                <tr data-club="2289 | Abilene, TX" data-clubID="494">
+                  <td>2289</td>
+                  <td>Abilene, TX</td>
+                </tr>
+                <tr data-club="1552 | Adel, GA" data-clubID="394">
+                  <td>1552</td>
+                  <td>Adel, GA</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <hr>
+        <strong>Plan Preview</strong>
+        <div class="price-preview">
+          <div id="price_preview_top" class="block-gray">
+            <div class="name"><span>Plan name</span></div>
+            <div><small>starting at</small></div>
+            <div class="price">$29</div>
+            <div>per month</div>
+          </div>
+          <div id="feature1"><span></span></div>
+          <div id="feature2"><span></span></div>
+          <div id="feature3"><span></span></div>
+          <div id="enrollment_fee" class="fees" style="display:none"><p><strong>Enrollment Free</strong><span>$100</span></p></div>
+          <div id="processing_fee" class="fees" style="display:none"><p><strong>Processing Free</strong><span>$100</span></p></div>
+          <div id="security_key_fee" class="fees" style="display:none"><p><strong>Security Key Free</strong><span>$100</span></p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+// enable site search
+ jQuery(document).ready(function () {
+            $('#nav-site-search').click(function () {
+                $(".site-search").slideToggle();
+            });
+        });
+	// set club
+    $('#clubSelected').html('2673 | Abingdon, VA');
+    
+    $('.right-menu').click(function () {
+        if ($('#select-club').attr('data-clubSelectedID') != "") {
+        } else {
+            alert("Please select a club!");
+            return false;
+
+        }
+    });
+
+    // select single club	
+    $('#select-club').click(function () {
+        $('#select-club-menu').slideToggle();
+    });
+    $('#select-club-menu tr').click(function () {
+        $('#clubSelected').html($(this).attr('data-club'));
+        $('#select-club').attr('data-clubSelectedID', $(this).attr("data-clubID"));
+        $('#select-club-menu').slideToggle();        
+
+    });
+        
+    $(function () {
+
+        $(window).scroll(sticky_relocate);
+        sticky_relocate();
+
+    });
+
+    function sticky_relocate() {
+        var window_top = $(window).scrollTop();
+        var div_top = $('#sticky-anchor').offset().top;
+        if (window_top > div_top) {
+            $('#sticky').addClass('stick');
+        } else {
+            $('#sticky').removeClass('stick');
+        }
+    }
+	 
+// ------------- page specific -----------------
+
+
+		// selects plan color
+		$('.picker-swatch a i').click(function() {
+			$('.plan-color').empty();				
+			$(this).clone().appendTo('.plan-color');
+			$('#price_preview_top').attr("class", $(this).attr("class"));
+		});	
+
+
+// enables spinners
+
+$(function() {
+$( "._spinnerLength60" ).spinner({
+		disabled: false,
+		max: 60,
+		min: 0
+	});
+});
+$(function() {
+$( "._spinnerFirst" ).spinner({
+		disabled: false,
+		max: 3,
+		min: 0
+	});
+});
+$(function() {
+$( "._spinnerFree" ).spinner({
+	disabled: false,
+	max: 6,
+	min: 0
+	});
+});
+$(function() {
+$( "._spinnerLength12" ).spinner({
+	disabled: false,
+	max: 12,
+	min: 0
+	});
+});
+$(function() {
+$( "._spinnerLength36" ).spinner({
+	disabled: false,
+	max: 36,
+	min: 1
+	});
+});
+$(function() {
+$( "._spinnerAdjust" ).spinner({
+	disabled: false,
+	 step: 0.01,
+	numberFormat: "n"
+	});
+});
+		
+
+
+// toggles Payment Schedule fields based on selections
+
+$(function () {
+  $("#planType").change(function() {
+    var val = $(this).val();
+    if(val === "recurring") {
+        $("#_totalLength").hide();
+        $("#_renewalTerms").hide();
+		$("#_autoRenew").hide();
+    }
+    else {
+        $("#_totalLength").show();
+        $("#_renewalTerms").show();
+		$("#_autoRenew").show();
+    }
+  });
+});			
+
+
+$(function () {
+  $("#pymtType").change(function() {
+    var val = $(this).val();
+    if(val === "PIF") {
+        $("#frequency").hide();
+        $("#commencement").hide();
+		$("#reqDownPymt").hide();
+		$("#pricingMinimums").show();
+    }
+    else {
+        $("#frequency").show();
+        $("#commencement").show();
+		$("#reqDownPymt").show();
+		$("#pricingMinimums").hide();
+    }
+  });
+});	
+
+
+		
+	
+// toggles fields based on switches
+	
+	
+	$('.switch input').change(function() {
+		$(this).parent().parent().parent().next().next().slideToggle();
+	});
+	$('input#autoRenew').change(function() {
+		$('#_renewalTerms').slideToggle();
+	});
+		
+	
+	$('#enrollment_switch input').change(function() {
+			$('#enrollment_fee').slideToggle();
+	});
+	$('#security_switch input').change(function() {
+			$('#security_key_fee').slideToggle();
+	});
+	
+	
+	$("#_renewalTerms select").change(function(){ 
+    if($("#_renewalTerms option:selected").attr('value') === 'customTerm'){ 
+        $("#_customTerm").show();
+    }
+	
+    else{
+		$("#_customTerm").hide();
+    }
+});
+
+// toggles plan sharing to other clubs UI
+
+	$(document.body).on('click','.menu-clubs thead tr',function() {	
+		$(this).appendTo('.menu-clubs tbody');
+	});	 	
+	$(document.body).on('click','.menu-clubs tbody tr',function() {	
+		$(this).appendTo('.menu-clubs thead');
+		$('#distrubute-clubs').fadeIn();
+	});	 		
+
+$('[href="#_copy"]').click(function() {	
+	$('#select-clubs-menu	').slideDown();
+	$('.action2').fadeOut();
+});
+$('[data-action="save"]').click(function() {	
+	$('.action').hide();
+	$('.action2').fadeIn();
+});
+$('[href="#_cancel"]').click(function() {	
+	$('#select-clubs-menu').slideUp();
+	$('.action').fadeIn();
+});	
+
+
+// sets mockup form values		
+		
+$("select#planType").attr('value','term');
+$("select#pymtType").attr('value','installment');
+$('.switch input').attr('checked', false);
+$('input#autoRenew').attr('checked', true);
+$("#_renewalTerms option:selected").attr('value','monthly');
+$('input#enhancement').attr('checked', true);
+
+
+$('#pricingMinimums').popover('hide')
+
+
+ 
+// new spinners
+$(function() {
+//   var spinner = $("#total_contract_length").spinner();
+	var spinner = $("#months_paid").spinner({ max: 60 });
+//    var spinner = $("#free_days").spinner();
+    var spinner = $("#free_months").spinner({ max: 6, min: 0 });
+    var spinner = $("#free_months_max").spinner({ max: 6, min: 0 });
+});
+
+
+// slider
+
+// slider extension
+(function ($) {
+    if ($.ui.slider)
+    {
+        // add minimum range length option
+        $.extend($.ui.slider.prototype.options, {
+            minRangeSize: 0,
+            maxRangeSize: 100,
+            autoShift: false,
+            lowMax: 100,
+            topMin: 0
+        });
+
+        $.extend($.ui.slider.prototype, {
+            _slide: function (event, index, newVal) {
+                var otherVal,
+                newValues,
+                allowed,
+                factor;
+
+                if (this.options.values && this.options.values.length)
+                {
+                    otherVal = this.values(index ? 0 : 1);
+                    factor = index === 0 ? 1 : -1;
+
+                    if (this.options.values.length === 2 && this.options.range === true)
+                    {
+                        // lower bound max
+                        if (index === 0 && newVal > this.options.lowMax)
+                        {
+                            newVal = this.options.lowMax;
+                        }
+                        // upper bound min
+                        if (index === 1 && newVal < this.options.topMin)
+                        {
+                            newVal = this.options.topMin;
+                        }
+                        // minimum range requirements
+                        if ((otherVal - newVal) * factor < this.options.minRangeSize)
+                        {
+                            newVal = otherVal - this.options.minRangeSize * factor;
+                        }
+                        // maximum range requirements
+                        if ((otherVal - newVal) * factor > this.options.maxRangeSize)
+                        {
+                            if (this.options.autoShift === true)
+                            {
+                                otherVal = newVal + this.options.maxRangeSize * factor;
+                            }
+                            else
+                            {
+                                newVal = otherVal - this.options.maxRangeSize * factor;
+                            }
+                        }
+                    }
+
+                    if (newVal !== this.values(index))
+                    {
+                        newValues = this.values();
+                        newValues[index] = newVal;
+                        newValues[index ? 0 : 1] = otherVal;
+                        // A slide can be canceled by returning false from the slide callback
+                        allowed = this._trigger("slide", event, {
+                            handle: this.handles[index],
+                            value: newVal,
+                            values: newValues
+                        });
+                        // otherVal = this.values(index ? 0 : 1);
+                        if (allowed !== false)
+                        {
+                            this.values(index, newVal, true);
+                            this.values((index + 1) % 2, otherVal, true);
+                        }
+                    }
+                } else
+                {
+                    if (newVal !== this.value())
+                    {
+                        // A slide can be canceled by returning false from the slide callback
+                        allowed = this._trigger("slide", event, {
+                            handle: this.handles[index],
+                            value: newVal
+                        });
+                        if (allowed !== false)
+                        {
+                            this.value(newVal);
+                        }
+                    }
+                }
+            }
+        });
+    }
+})(jQuery);
+// end slider extensions
+	
+	
+	
+ 
+$(function() {	
+		var val1=parseInt($("#months_paid").val());
+        var val2=parseInt($("#free_months").val());
+    $("#slider-range").slider({ 
+	    range: true,
+        min: 0,
+        max: val1 + val2,
+		minRangeSize: val1,
+		maxRangeSize: val1,
+		values: [0,val1],
+		autoShift: true,
+		slide: function(event, ui) {			
+			var s = $(this);
+			var max = s.slider("option", "max");
+				},		
+			}),					
+		$("#slider-range").slider("pips" , { 
+			rest: "label",
+		});
+		$( "#months_paid" ).change(function() {
+			$( "#slider-range" ).slider("values",1,$(this).val());
+		});
+	
+		
+		$(".ui-slider-handle").first().append('<div class="tooltip top in" style="top: -31px; left: -40px; display: block;"><div class="tooltip-arrow"></div><div class="tooltip-inner">First payment</div></div>');
+
+			$(".ui-slider-handle").last().append('<div class="tooltip top in" style="top: -31px; left: -40px; display: block;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Final payment</div></div>');
+
+		
+		//math 
+$('.slider-content').hide();		
+$("#_primary_default").change(function() {
+	var due=parseInt($(this).val());
+	$(".price").text(("$" + due));
+}),
+$(".profit-centers .checkbox").change(function() {
+	var due=parseInt($("#_primary_default").val());
+	var tax=2.06;
+	$(".price").text(("$" + (due + tax)));
+}),
+		
+$(".ui-spinner-button").on("click", function() {
+		var val1=parseInt($("#months_paid").attr('aria-valuenow'));
+        var val2=parseInt($("#free_months").attr('aria-valuenow'));
+		var paidTerm = (val1)
+	$("#total_contract_length").text((val1 + val2));
+	$('.ui-slider-range').empty().append('Member pays for '+paidTerm+' months');
+	$( "#slider-range" ).slider('option', {
+		max: val1 + val2,
+		minRangeSize: val1,
+		maxRangeSize: val1,
+		values: [0,val1],
+		});
+		$( "#slider-range" ).slider("pips" , {
+			rest: "label",
+		});									
+});
+$('#_maxFree .ui-spinner-button').on("click", function() {
+	$('.slider-content').fadeIn();
+});
+
+		slider.slider("option", "slide").call(slider, null, { values: slider.slider("values") });
+		
+    $("#months_paid").val($("#slider-range").slider("values", 1) - $(
+        "#slider-range").slider("values", 0));
+});
+
+
+// plan preview
+$( "[data-type='plan-name']" ).on("change", function() {
+	$(".price-preview .name span").replaceWith("<span>" + $(this).val() + "<span>");
+});
+$("[data-type='feature1']").change(function() {
+	$("#feature1 span").replaceWith("<span><p>" + $(this).val() + "</p><span>");
+});
+$("[data-type='feature2']").change(function() {
+	$("#feature2 span").replaceWith("<span><p>" + $(this).val() + "</p><span>");
+});
+$("[data-type='feature3']").change(function() {
+	$("#feature3 span").replaceWith("<span><p>" + $(this).val() + "</p><span>");
+});
+
+		
+
+</script>
+</body>
+</html>

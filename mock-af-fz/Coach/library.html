@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AF Coaching</title>
+<script src="../js/main.js?v=i4PrFRLb1UrVVZ1fdvF24e4nlbvo0InfNlDt2aqBKO4"></script>
+<link rel="stylesheet" href="../css/bootstrap.css">
+<link rel="stylesheet" href="../css/fontawesome.css">
+<link rel="stylesheet" href="../css/custom.css">
+<link rel="stylesheet" href="../css/fonts.css">
+<link rel="stylesheet" href="css/coaching.css">
+<style>
+[data-action="cancel_add_task"], #Workouts-Library [data-action="add_existing_to_plan"], #Workouts-Library .badge {
+    display: none;
+}
+.d-admin-only {
+    display: none;
+}
+
+@media (max-width: 767px) {
+[data-roll="minimal"] .list-minimal-inline {
+    display: flex;
+    overflow: auto;
+}
+[data-roll="minimal"] .list-minimal-inline .list-icon {
+    padding: .5rem;
+    width: auto;
+}
+[data-roll="minimal"] .d-minimal-sm-none {
+    display: none!important;
+}
+}
+
+@media (min-width: 768px) {
+.height-limited-sm {
+    max-height: calc(100vh - 4rem);
+    overflow: auto;
+}
+}
+</style>
+</head>
+<body class="d-md-flex">
+<header id="header" data-role="header"></header>
+<nav id="navbar" class="sidebar"></nav>
+<main class="container-relative d-md-flex align-items-stretch  bg-gray-lightest" id="page-library">
+  <section id="wall_Inventory" class="flex-shrink-1 p-md-5 px-3 pt-3 bg-white" data-roll="enganged" style="overflow-x: hidden; z-index: 3">
+    <div class="contents" style="max-width: 600px">
+      <div class="d-flex align-items-center justify-content-between">
+        <h1 class="h4 h-xs-6"><strong>LIBRARY</strong></h1>
+      </div>
+      <p class="lead d-minimal-none">Download or preview AFT workouts, browse pre-made plan templates, workouts, and exercise libraries</p>
+      <ul class="list-unstyled list-items list-ruled list-minimal-inline mb-0">
+        <li> <i class="list-icon icon-group-training mx-1"></i>
+          <div class="d-minimal-sm-none d-flex flex-column flex-fill name p-3"><span>AF Training</span><small class="text-muted d-minimal-none ">52 Weeks</small></div>
+          <span class="badge badge-success badge-pill d-minimal-none">New</span>
+          <button class="btn-takeover" data-action="wall_AFT_builder" data-collection="system"><span class="sr-only">View AFT</span></button>
+        </li>
+        <li> <i class="list-icon icon-plan mx-1"></i>
+          <div class="d-minimal-sm-none d-flex flex-column flex-fill name p-3"><span>Plan Templates</span><small class="text-muted d-minimal-none ">123 Plans</small></div>
+          <button class="btn-takeover" data-action="wall_plan_builder" data-collection="system"><span class="sr-only">View Plan Templates</span></button>
+        </li>
+        <li> <i class="list-icon icon- icon-dumbell-FB-fill mx-1"></i>
+          <div class="d-minimal-sm-none d-flex flex-column flex-fill name p-3"><span>Workouts</span><small class="text-muted d-minimal-none ">3210 Workouts</small></div>
+          <button class="btn-takeover" data-action="wall_Workouts" data-collection="custom"><span class="sr-only">View Workouts</span></button>
+        </li>
+        <li> <i class="list-icon icon- icon-af-groupex-fill mx-1"></i>
+          <div class="d-minimal-sm-none d-flex flex-column flex-fill name p-3"><span>Exercises</span><small class="text-muted d-minimal-none ">1234 Exercises</small></div>
+          <button class="btn-takeover" data-action="wall_Exercises" data-collection="custom"><span class="sr-only">View Workouts</span></button>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section id="wall_AFT_builder" data-roll="absent" class="flex-fill flex-shrink-1 p-md-5 p-3 bg-gray-lightest border-left width-limited overflow-sm-auto wall-scroll">
+    <div class="d-flex align-items-start mb-4"> 
+      <!--<button type="button" class="btn btn-link mr-4 p-0 d-block d-lg-none" data-action="back_to_1"><span class="sr-only">Back</span><span aria-hidden="true"><i class="icon-arrow-left3"></i></span></button>-->
+      <h1 class="heading flex-fill"><strong>AF Training</strong></h1>
+		<button type="button" class="btn btn-corporate btn-sm" data-toggle="modal" data-target="#AFT_week_modal"><small class="icon-plus"></small> Add Training</button>
+    </div>
+    <div id="AFT_weeks">
+		  <article class="mb-4">
+        
+		<div class="d-flex align-items-center bg-gray-dark text-white rounded mb-2 flex-wrap position-relative">
+			<a class="btn-takeover text-white" href="#month_04_2020" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="month_04_2020" style="height: auto"><i class="indicator-collapse"></i> </a>
+						
+          <h2 class="subheading m-1 p-1 pl-3">Dynamic Warm Up — April 2020 </h2>
+			<div class="flex-fill">
+          <button data-visibility="corporate" class="btn btn-link p-0 mr-2 position-relative" style="z-index: 1"><i class="icon-cog"></i></button>
+			</div>
+
+            <div data-visibility="corporate" class="custom-control custom-switch mr-2">
+              <input type="checkbox" class="custom-control-input" id="switchWU4" checked="">
+              <label class="custom-control-label" for="switchWU4" data-toggle="tooltip" data-placement="top" title="" data-original-title="This week is visible to users"><small>Published</small></label>
+            </div>
+
+        </div>
+			  			<div id="month_04_2020" class="collapse show">
+
+        <ul class="list-unstyled list-items list-ruled my-2">
+          <li class="">
+            <div class="d-flex flex-column flex-fill name p-3"><span>Group Warm Up</span></div>
+            
+            <button class="ml-2 btn btn-secondary btn-sm" data-toggle="modal" data-target="#buildModal" style="z-index:1"><i class="icon-table"></i><span class=""> Preview</span></button>
+            <a href="workout-builder.html?edit" class="btn btn-corporate btn-sm ml-2" style="z-index:1"><small class="icon-pencil-stub"></small> <span class="sr-only">Edit</span></a>
+			  <button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_AFT_detail"><span class="sr-only">View Workout</span></button>
+          </li>
+          <li class="border-0">
+            <div class="d-flex flex-column flex-fill name p-3"><span>PT Warm Up</span></div>
+            
+            <button class="ml-2 btn btn-secondary btn-sm" data-toggle="modal" data-target="#buildModal" style="z-index:1"><i class="icon-table"></i><span class=""> Preview</span></button>
+            <a href="workout-builder.html?edit" class="btn btn-corporate btn-sm ml-2" style="z-index:1"><small class="icon-pencil-stub"></small> <span class="sr-only">Edit</span></a>
+			  <button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_AFT_detail"><span class="sr-only">View Workout</span></button>
+          </li>
+          
+          
+        </ul>
+			  <div class="text-center"> <a class="btn btn-sm btn-primary rounded-pill" href="?admin" data-action="download_all"><i class="icon-download" aria-hidden="true"></i> <small class="d-none d-sm-inline">Download Warm Ups</small></a> </div>
+			  </div>
+			  </article>
+		  
+		  
+		  
+		  <article class="mb-4">
+		  
+        <div class="d-flex align-items-center bg-gray rounded mb-2 flex-wrap position-relative"><a class="btn-takeover" href="#week_18" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="week_18" style="height: auto">
+			<i class="indicator-collapse"></i> </a>
+          <h2 class="subheading m-1 p-1 pl-3">Workouts — Week 18 2020 </h2>
+			<div class="flex-fill">
+          <button data-visibility="corporate" class="btn btn-link p-0 mr-2 position-relative" style="z-index: 1"><i class="icon-cog"></i></button>
+			</div>
+
+            <div data-visibility="corporate" class="custom-control custom-switch mr-2">
+              <input type="checkbox" class="custom-control-input" id="customSwitch1" checked>
+              <label class="custom-control-label" for="customSwitch1" data-toggle="tooltip" data-placement="top" title="This week is visible to users"><small>Published</small></label>
+            </div>
+
+        </div>
+			  <div id="week_18" class="collapse show">
+        <div class="p-2"> <small>	April 27, 2020	— May 3, 2020</small>
+          <p class="text-muted">This is the description for the week's worth of training. It is initially entered in the New Week modal.</p>
+        </div>			  
+        <span data-insert="aft_menu_week"></span>
+        <div class="text-center"> <a class="btn btn-sm btn-primary rounded-pill" href="?admin" data-action="download_all"><i class="icon-download" aria-hidden="true"></i> <small class="d-none d-sm-inline">Download Workouts</small></a> </div>
+				  </div>
+			  </article>
+		<article class="mb-4">
+		  
+		  <div class="d-flex align-items-center bg-dark text-white rounded mb-2 flex-wrap position-relative"><a class="btn-takeover text-white" href="#month_05_2020" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="month_05_2020" style="height: auto">
+			  <i class="indicator-collapse"></i> </a>
+			
+          <h2 class="subheading m-1 p-1 pl-3">Dynamic Warm Up — May 2020 </h2>
+			<div class="flex-fill">
+          <button data-visibility="corporate" class="btn btn-link p-0 mr-2 position-relative" style="z-index: 1"><i class="icon-cog"></i></button>
+			</div>
+
+            <div data-visibility="corporate" class="custom-control custom-switch mr-2">
+              <input type="checkbox" class="custom-control-input" id="switchWU5">
+              <label class="custom-control-label" for="switchWU5" data-toggle="tooltip" data-placement="top" title="" data-original-title="This month will not be visible to users until published"><small>Published</small></label>
+            </div>
+
+        </div>
+			<div id="month_05_2020" class="collapse ">
+        <ul class="list-unstyled list-items list-ruled my-2">
+          
+          
+          <li class="">
+            <div class="d-flex flex-column flex-fill name p-3"><span>Group Warm Up — May</span></div>
+            
+            <button class="ml-2 btn btn-secondary btn-sm" data-toggle="modal" data-target="#buildModal" style="z-index:1"><i class="icon-table"></i><span class=""> Preview</span></button>
+			  <a href="workout-builder.html?edit" class="btn btn-corporate btn-sm ml-2" style="z-index:1"><small class="icon-pencil-stub"></small> <span class="sr-only">Edit</span></a>
+            <button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_AFT_detail"><span class="sr-only">View Workout</span></button>
+          </li>
+          <li class="border-0">
+            <div class="d-flex flex-column flex-fill name p-3"><span>PT Warm Up — May</span></div>
+            
+            <button class="ml-2 btn btn-secondary btn-sm" data-toggle="modal" data-target="#buildModal" style="z-index:1"><i class="icon-table"></i><span class=""> Preview</span></button>
+			  <a href="workout-builder.html?edit" class="btn btn-corporate btn-sm ml-2" style="z-index:1"><small class="icon-pencil-stub"></small> <span class="sr-only">Edit</span></a>
+            <button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_AFT_detail"><span class="sr-only">View Workout</span></button>
+          </li>
+        </ul>
+			
+			<div class="text-center"> <a class="btn btn-sm btn-primary rounded-pill" href="?admin" data-action="download_all"><i class="icon-download" aria-hidden="true"></i> <small class="d-none d-sm-inline">Download Warm Ups</small></a> </div>
+			</div>
+		  </article>
+		<article class="mb-4">
+        <div class="d-flex align-items-center bg-gray rounded mb-2 flex-wrap position-relative"><a class="btn-takeover" href="#week_19" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="week_19" style="height: auto">
+			<i class="indicator-collapse"></i></a>
+			
+          <h2 class="subheading m-1 p-1 pl-3">Workouts — Week 19 2020 </h2>
+			<div class="flex-fill">
+          <button data-visibility="corporate" class="btn btn-link p-0 mr-2 position-relative" style="z-index: 1"><i class="icon-cog"></i></button>
+			</div>
+
+            <div data-visibility="corporate" class="custom-control custom-switch mr-2">
+              <input type="checkbox" class="custom-control-input" id="switchW192020" checked="">
+              <label class="custom-control-label" for="switchW192020" data-toggle="tooltip" data-placement="top" title="" data-original-title="This week is visible to users"><small>Published</small></label>
+            </div>
+
+        </div>
+			<div id="week_19" class="collapse ">
+		   <div class="p-2"> <small>		May 4, 2020	— May 10, 2020</small>
+          <p class="text-muted">This is the description for the week's worth of training. It is initially entered in the New Week modal.</p>
+        </div>
+        <span data-insert="aft_menu_week"></span>  <div class="text-center"> <a class="btn btn-sm btn-primary rounded-pill" href="?admin" data-action="download_all"><i class="icon-download" aria-hidden="true"></i> <small class="d-none d-sm-inline">Download Workouts</small></a> </div>
+			</div>
+		</article>
+    </div>
+  </section>
+  <section id="wall_plan_builder" data-roll="absent" class="flex-fill flex-shrink-1 p-md-5 p-3 bg-gray-lightest border-left width-limited overflow-sm-auto wall-scroll">
+    <div class="d-flex justify-content-between align-items-start mb-4"> 
+      <!--      <button type="button" class="btn btn-link mr-4 p-0 d-block d-lg-none" data-action="back_to_workouts"><span class="sr-only">Back</span><span aria-hidden="true"><i class="icon-arrow-left3"></i></span></button>-->
+      <div class="d-flex align-items-center">
+        <h1 class="heading mb-0"><strong>Plan Templates</strong></h1>
+        <button class="btn btn-link"><i class="icon-search"></i> </button>
+        <button class="btn btn-link"><i class="icon-filter"></i> </button>
+        <!--<button class="btn btn-primary rounded-pill pl-4 pr-3 my-2 float-right" data-toggle="tooltip" title="Send a personalized message to multiple clients at once"> Broadcast <i class="icon-coaching"></i></button>--> 
+      </div>
+      <a class="btn btn-primary rounded-pill btn-sm" href="plan-builder.html">New Template <small class="icon-plus"></small></a> </div>
+    <div class="contents">
+      <ul class="list-unstyled list-items list-ruled">
+        <li data-collection="system" style="">
+          <div class="d-flex flex-column flex-fill name p-3"><span class="plan-name">Increase Muscle Mass </span><small class="text-muted">Focus on both large and small muscle groups (like biceps) with exercises that isolate the muscle. Few reps, higher weight.</small></div>
+          <button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_plan"><span class="sr-only">View Plan</span></button>
+        </li>
+        <li data-collection="system" style="">
+          <div class="d-flex flex-column flex-fill name p-3"><span class="plan-name">Tone muscle and lose weight</span><small class="text-muted"> Do higher reps and lower weight in circuit training forms. Less complex exercises often with more basic equipment.</small></div>
+          <button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_plan"><span class="sr-only">View Plan</span></button>
+        </li>
+        <li data-collection="system" style="">
+          <div class="d-flex flex-column flex-fill name p-3"><span class="plan-name">Learn exercises and try new gym equipment </span><small class="text-muted">Maximize your gym membership with workouts designed to touch everything the gym has to offer.</small></div>
+          <button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_plan"><span class="sr-only">View Plan</span></button>
+        </li>
+        <li data-collection="system">
+          <div class="d-flex flex-column flex-fill name p-3"><span class="plan-name">Practice powerlifting </span><small class="text-muted">Practice and master the specialized training format of power weight lifting.</small></div>
+          <button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_plan"><span class="sr-only">View Plan</span></button>
+        </li>
+        <li data-collection="system">
+          <div class="d-flex flex-column flex-fill name p-3"><span class="plan-name">Practice Olympic Weightlifting </span><small class="text-muted">Practice and master the specialized training format of olympic weight lifting.</small></div>
+          <button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_plan"><span class="sr-only">View Plan</span></button>
+        </li>
+        <li data-collection="system">
+          <div class="d-flex flex-column flex-fill name p-3"><span class="plan-name">Incomplete Plan <span class="badge badge-warning">Draft</span></span><small class="text-muted">You got distracted by something shiny while creating this plan and it was autosaved </small></div>
+          <button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_plan"><span class="sr-only">View Plan</span></button>
+        </li>
+        <!--<li>
+					<div class="d-flex flex-column flex-fill name p-3 no-clients" data-clients="0"><span class="plan-name">New Plan</span><small class="text-muted">0 Clients</small></div>
+					<button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_plan"><span class="sr-only">View Plan</span></button>
+				</li>-->
+        
+      </ul>
+    </div>
+  </section>
+  <section id="wall_Plan_Detail" class="flex-fill flex-shrink-1 bg-white border-left overflow-sm-auto p-md-5 p-3 width-limited-wide height-limited-sm" data-roll="absent" style=" z-index: 1"> </section>
+  <section id="wall_Workouts" class="flex-fill flex-shrink-1 p-md-5 p-3 bg-grey-lightest border-left overflow-sm-auto width-limited height-limited-sm" data-roll="absent" style="overflow-x: hidden;  z-index: 2"> </section>
+  <section id="wall_Overview" class="flex-fill width-limited-wide bg-white border-left overflow-sm-auto p-md-5 p-3 height-limited-sm" data-roll="absent" style=" z-index: 1"> </section>
+</main>
+<aside> 
+  
+  <!-- AFT Table Modal-->
+  <div class="modal fade" id="buildModal" tabindex="-1" role="dialog" aria-labelledby="buildModalLabel" aria-hidden="true"> </div>
+  
+  <!-- Clients Modal -->
+  <div class="modal fade" id="clientsModal" tabindex="-1" role="dialog" aria-labelledby="clientsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div id="assignment-clients" class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title heading  mt-2 mb-0" id="clientsModalLabel"><strong>Select Clients</strong></h2>
+          <!-- <div class="d-flex justify-content-between">
+			  			<div class="flex-fill mr-2"><input id="" class="form-control form-control-sm " type="search" placeholder="Find a client" aria-label="Filter"></div>
+						<div class="dropdown mr-2">
+						  <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="selected_plan" data-toggle="dropdown" aria-expanded="false">
+							All
+						  </button>
+						  <div class="dropdown-menu" aria-labelledby="selected_plan">							  
+							  <button id="all_plans" class="dropdown-item checked" type="button" data-action="filter_plan">All Plans</button>
+							  <button id="no_plans" class="dropdown-item" type="button" data-action="filter_plan">No Plan</button>
+							  <div class="dropdown-divider"></div>
+							  <button class="dropdown-item " type="button" data-action="filter_plan">Fat Loss Level 1</button>
+							 <button class="dropdown-item" type="button" data-action="filter_plan">Plan B</button>
+							 <button class="dropdown-item" type="button" data-action="filter_plan">Plan 9 From Outer Space</button>
+						  </div>
+						</div>
+						<div class="dropdown mr-2">
+						  <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="selected_week" data-toggle="dropdown" aria-expanded="false">
+							All Weeks
+						  </button>
+						  <div class="dropdown-menu" aria-labelledby="selected_week">
+							 <button id="all_weeks" class="dropdown-item checked" type="button" data-action="filter_week" data-week="all">All Weeks</button>
+							  <div class="dropdown-divider"></div>
+							 <button class="dropdown-item" type="button" data-action="filter_week" data-week="1">Week 1</button>
+							 <button class="dropdown-item" type="button" data-action="filter_week" data-week="2">Week 2</button>
+							 <button class="dropdown-item" type="button" data-action="filter_week" data-week="3">Week 3</button>
+						  </div>
+						</div>
+
+			
+			
+			</div>-->
+          <div>
+            <button class="btn btn-link"><i class="icon-search"></i> </button>
+            <button class="btn btn-link"><i class="icon-filter"></i> </button>
+          </div>
+        </div>
+        <div class="modal-body" style="max-height: 80vh; overflow: auto">
+          <p>Select clients to assign to this plan.</p>
+          <ul id="list_all_clients" class="list-unstyled list-ruled">
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-action="schedule_assignment">Next</button>
+        </div>
+      </div>
+      <div id="assignment-send" class="modal-content">
+        <div class="modal-header d-flex">
+          <button type="button" class="btn btn-link mr-2 d-block" data-action="back_to_clients"><span class="sr-only">Back</span><span aria-hidden="true"><i class="icon-arrow-left3"></i></span></button>
+          <h2 class="modal-title heading mt-2 flex-grow-1 border-left pl-4" id=""><strong>Send Assignment</strong></h2>
+        </div>
+        <div class="modal-body">
+          <div>
+            <div class="form-group">
+              <label for="assignment-datepicker">Start Date</label>
+              <input type="text" id="assignment-datepicker" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="assignment-message">Additional Message</label>
+              <textarea id="assignment-message" class="form-control"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-action="send_assignemnt">Send</button>
+        </div>
+      </div>
+      <div id="assignment-result" class="modal-content">
+        <div class="modal-body">
+          <div class=" alert alert-success" role="alert">
+            <h5 class="alert-heading">Success!</h5>
+            <p>Your clients have been successfully assigned to this plan.</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="AFT_week_modal" tabindex="-1" role="dialog" aria-labelledby="AFT_week_modal_Label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header d-flex">
+          <h2 class="modal-title heading mt-2 mb-0 flex-grow-1" id="AFT_week_modal_Label"><strong>Add Training</strong></h2>
+        </div>
+        <div class="modal-body">
+			            <div class="mb-2">
+              <label for="aft_type" class=" mb-0 ">Training Type </label>
+              <select id="aft_type" class="form-control">
+                <option>Dynamic Warm Ups (Monthly)</option>
+                <option>Workouts (Weekly)</option>
+              </select>
+            </div>
+
+          <div class="row mb-2">
+			  <div class="col-6">
+              <label for="aft_year" class=" mb-0 ">Year </label>
+              <select id="aft_year" class="form-control">
+                <option>2019</option>
+                <option>2020</option>
+              </select>
+            </div>
+            <div class="col-6">
+              <label for="aft_week" class=" mb-0">Week </label>
+              <select id="aft_week" class="form-control">
+                <option>20</option>
+                <option>21</option>
+				<option>22</option>
+				  <option>23</option>
+				  <option>24</option>
+				  <option>25</option>
+				  <option>26</option>
+				  <option>27</option>
+				  <option>28</option>
+				  <option>29</option>
+				  <option>30</option>
+              </select>
+            </div>
+          </div>
+          <label for="AFT_desc">Description</label>
+          <textarea id="AFT_desc" class="form-control"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" data-action="add_AFT_week">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</aside>
+<footer id="footer"></footer>
+<script src="../js/jquery-3.3.1.min.js"></script> 
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script><!-- required for Datepicker--> 
+
+<script src="../js/popper.min.js"></script> 
+<script src="../js/bootstrap.min.js"></script> 
+<script src="js/coaching.js"></script> 
+<script>
+	
+
+	
+		 // Automatically populates the mock based on URL parameter
+    /*if ( document.location.href.indexOf('?AFT') > -1 ) {
+		
+		$('#wall_AFT_builder').attr('data-roll','enaged');
+		$('#wall_Inventory').attr('data-roll','present');
+		$('#AFT_weeks').prepend('<div class="mb-4"><div class="mb-4"> <div class="d-flex align-items-center bg-gray rounded mb-2 flex-wrap"><h2 class="subheading m-1 p-1">Week 1 2020 </h2> <div class="flex-fill"><div class="custom-control custom-switch ">  <input type="checkbox" class="custom-control-input" id="customSwitch0" >  <label class="custom-control-label" for="customSwitch0" data-toggle="tooltip" data-placement="right" title="This week is not visible to other users until published"><small >Published</small></label></div></div>		  		   <a class="mx-1 " href="?admin" data-action="download_all"><i class="icon-download" aria-hidden="true"></i> <span class="d-none d-sm-inline">Download All</span></a>      </div>				 <ul class="list-unstyled list-items list-ruled my-2"><li class="border-0"><i class="list-icon icon-build"></i><div class="d-flex flex-column flex-fill name p-3"><span>Build</span><small class="text-muted">1 CIRC of 10 exercises.</small></div> 			<button class="ml-2 btn btn-secondary btn-sm" data-toggle="modal" data-target="#buildModal" style="z-index:1"><i class="icon-eye"></i><span data-name class="sr-only">Workout Name</span></button>			<a class="btn btn-secondary btn-sm ml-2" href="workout-builder.html?populated"><span class=""><i class="icon-af-pencil-fill"></i> Edit</span></a></li></ul></div>')
+								
+	}
+	*/
+	
+	
+	// Load Walls
+	
+	$('#wall_Workouts').load('includes/workouts_inventory.html');
+	 $('#wall_Overview').load('includes/workout_overview.html');	
+	$('#wall_Plan_Detail').load('includes/plan_detail.html');
+	
+		$('[data-action="wall_AFT_builder"]').click(function(){			
+			$(this).closest('li').addClass('indicate').siblings('li').removeClass('indicate');
+			$('section').attr('data-roll', 'absent');
+			$('#wall_Inventory').attr('data-roll', 'minimal');
+			$('#wall_AFT_builder').attr('data-roll', 'engaged');
+		});
+	
+		$('[data-action="wall_plan_builder"]').click(function(){
+			$(this).closest('li').addClass('indicate').siblings('li').removeClass('indicate');
+			$('section').attr('data-roll', 'absent');			
+			$('#wall_Inventory').attr('data-roll', 'minimal');
+			$('#wall_plan_builder').attr('data-roll', 'engaged');
+		});
+	$('[data-action="wall_Workouts"]').click(function(){
+			$(this).closest('li').addClass('indicate').siblings('li').removeClass('indicate');		
+			$('section').attr('data-roll', 'absent');			
+			$('#wall_Inventory').attr('data-roll', 'minimal');
+			$('#wall_Workouts').attr('data-roll', 'engaged');
+		});
+		
+		
+		
+	 $('[data-insert="aft_menu_week"]').each(function() {
+	 	 $(this).load("includes/aft_menu_week.html");
+	 })
+	
+
+		
+		
+			// Load Exercises
+	   $.getJSON('js/exercises-trunc.json', function(data) {
+       $.each(data.exercise, function(i, f) {
+          var tblRow = '<li class="item-exercise p-2">		<div class="d-flex align-items-center position-relative"><i class="thumbnail" style="background-image:url('+ f.poster +')"></i>		<div class="embed-responsive embed-responsive-16by9 mb-4"><video controls="" muted src="'+ f.video +'"></video></div>		<div class="d-flex flex-column flex-fill name"><span>'+ f.name +'</span><small>' + f.details +'</small></div>					<button type="button" data-toggle="popover" data-content="<p>'+ f.desc +'</p> <div><a href=&quot;#&quot; data-action=&quot;play_video&quot; style=&quot;z-index: 1&quot;><i class=&quot;icon-play&quot;></i> <span class=&quot;&quot;>Show Video</span></a></div>" data-html="true" data-placement="bottom" class="btn btn-link px-2" data-original-title="" title=""><i class="icon-info2"></i><span class="sr-only">More information</span></button>				</div>						<div id="collapse-settings'+ f.id +'" class="collapse border bg-white p-2 rounded  mt-2">																																																																				<div class=""><small class="text-muted">Progression</small>	</div><div class="d-flex align-items-center justify-content-between"><div class="item-top d-flex align-items-center justify-content-between position-relative flex-fill">				<i class="thumbnail d-none d-sm-block" style="background-image:url(//demo-coach.anytimefitness.com/api/media/exercise/1866/image?imageType=1&amp;size=320)"></i>		<div class="d-flex flex-column flex-fill name"><span>90-0 Knee Extension</span><small>Bodyweight, Knee, Push</small></div>		<button type="button" data-toggle="popover" data-content="<p>1 - Sit on the edge of a table with your knees bent at 90 degrees and your feet off the floor. 2 - Straighten your involved leg, raising it up straight in front to make a 90 degree angle at the hip. Slowly return to the start position with involved knee bent.</p> <div><a href=&quot;#&quot; data-action=&quot;play_video&quot; style=&quot;z-index: 1&quot;><i class=&quot;icon-play&quot;></i> <span class=&quot;&quot;>Show Video</span></a></div>" data-html="true" data-placement="bottom" class="btn btn-link px-2" data-original-title="" title=""><i class="icon-info2"></i><span class="sr-only">More information</span></button>																									</div></div>				<div class="mt-2 mb-2 border-top-dashed"><small class="text-muted">Regression</small></div><div class="d-flex align-items-center justify-content-between"><div class="item-top d-flex align-items-center justify-content-between position-relative flex-fill">				<i class="thumbnail d-none d-sm-block" style="background-image:url(//demo-coach.anytimefitness.com/api/media/exercise/1731/image?imageType=1&amp;size=320)"></i>		<div class="d-flex flex-column flex-fill name"><span>90-45 Knee Extension</span><small>Bodyweight, Knee, Hip</small></div>		<button type="button" data-toggle="popover" data-content="<p>1 - Sit on the edge of a table with your knees bent at 90 degrees and your feet off the floor. 2 - Straighten your involved leg up to a 45 degree angle at the hip and place your uninvolved foot under this ankle. 3 - Use the uninvolved foot to raise the involved leg up to a fully extended position. • Slowly return both legs to the start position. </p> <div><a href=&quot;#&quot; data-action=&quot;play_video&quot; style=&quot;z-index: 1&quot;><i class=&quot;icon-play&quot;></i> <span class=&quot;&quot;>Show Video</span></a></div>" data-html="true" data-placement="bottom" class="btn btn-link px-2" data-original-title="" title=""><i class="icon-info2"></i><span class="sr-only">More information</span></button>																									</div></div>															</div>	<a data-toggle="collapse" href="#collapse-settings'+ f.id +'" role="button" aria-expanded="false" aria-controls="collapse-settings'+ f.id +'" class="btn btn-block btn-secondary mt-2 btn-sm p-0 collapsed" data-action="toggle-settings" style="z-index:1; height:auto; line-height: .5rem"><i class="indicator-collapse collapse-up"></i><small class="sr-only">Progress/Regression</small></a>	</li>'			  
+           $(tblRow).appendTo("#wall_Overview #list_exercises");
+     });
+		   
+		   // Insert sets 
+		   		   
+		   $("#wall_Overview #list_exercises > li:nth-child(3)").after("<li class='item-set'>Set 2</li>");
+		   $("#wall_Overview #list_exercises > li:nth-child(7)").after("<li class='item-set'>Set 3</li>");
+		   $("#wall_Overview #list_exercises > li:nth-child(1)").before("<li class='item-set'>Set 1</li>");
+		   
+		   
+		   // Edit exercise (toggle Save UI)
+		   
+		   $('.intensities .form-control').change(function(){
+			   $('#save-bar').slideDown();
+		   });
+		   
+		   $('#save-bar [type="submit"]').click(function(){
+			   $('#success-bar').fadeIn();
+			   $('#save-bar').fadeOut();
+		   });
+		   
+		   
+		   
+	   
+	   
+	   });
+	  
+// View Plans 
+	
+	$('[data-action="view_plan"]').click(function(){
+		
+		$(this).closest('li').addClass('indicate').siblings('li').removeClass('indicate');
+		
+		$('section').attr('data-roll', 'absent');
+		$('#wall_Inventory').attr('data-roll','minimal');
+		$('#wall_plan_builder').attr('data-roll', 'present');
+		$('#wall_Plan_Detail').attr('data-roll', 'engaged');
+		
+	})
+	
+	
+
+// Load AFT Table Modal 		
+	$('#buildModal').load('includes/aft_modal.html');
+	
+	
+// Create AFT Week 
+	
+	$('[data-action="add_AFT_week"]').click(function(){
+		
+		var finalweek = $('#AFT_weeks article:last-child')
+		
+		$(finalweek).after('<article class="mb-4"><div class="d-flex align-items-center bg-gray rounded mb-2 flex-wrap position-relative"><a class="btn-takeover" href="#week_20" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="week_20" style="height: auto"> <i class="indicator-collapse"></i></a><h2 class="subheading m-1 p-1 pl-3">Workouts —&nbsp;Week 20 2020</h2><div class="flex-fill"> <button data-visibility="corporate" class="btn btn-link p-0 mr-2 position-relative" style="z-index: 1"><i class="icon-cog"></i></button></div><div data-visibility="corporate" class="custom-control custom-switch mr-2"> <input disabled type="checkbox" class="custom-control-input" id="switchW202020"> <label class="custom-control-label" for="switchW202020" data-toggle="tooltip" data-placement="top" title="" data-original-title="This week cannot be published until workouts have been created"><small>Published</small></label></div></div><div id="week_20" class="collapse show" style=""><div class="p-2"> <small>May 11, 2020 — May 17, 2020</small><p class="text-muted">This is the description you entered for the new week you just created.</p></div> <span data-insert="aft_menu_week"><ul class="list-unstyled list-items list-ruled my-2"><li class=""><i class="list-icon icon-build"></i><div class="d-flex flex-column flex-fill name p-3"><span>Build</span><small class="text-muted">0 exercises.</small></div> <a class="ml-2 btn btn-corporate btn-sm" href="workout-builder.html"><span class="">Create Workout</span></a></li><li class=""><i class="list-icon icon-base"></i><div class="d-flex flex-column flex-fill name p-3"><span>Base</span><small class="text-muted">0 exercises.</small></div> <a class="ml-2 btn btn-corporate btn-sm" href="workout-builder.html"><span class="">Create Workout</span></a></li><li class=""><i class="list-icon icon-burn"></i><div class="d-flex flex-column flex-fill name p-3"><span>Burn</span><small class="text-muted">0 exercises.</small></div> <a class="ml-2 btn btn-corporate btn-sm" href="workout-builder.html"><span class="">Create Workout</span></a></li><li class="border-bottom-dashed"><i class="list-icon icon-one-on-one"></i><div class="d-flex flex-column flex-fill name p-3"><span>1-on-1 — A</span><small class="text-muted">0 exercises.</small></div> <a class="ml-2 btn btn-corporate btn-sm" href="workout-builder.html"><span class="">Create Workout</span></a></li><li class="border-bottom-dashed"><i class="list-icon icon-one-on-one"></i><div class="d-flex flex-column flex-fill name p-3"><span>1-on-1 — B</span><small class="text-muted">0 exercises.</small></div> <a class="ml-2 btn btn-corporate btn-sm" href="workout-builder.html"><span class="">Create Workout</span></a></li><li class="border-0"><i class="list-icon icon-one-on-one"></i><div class="d-flex flex-column flex-fill name p-3"><span>1-on-1 — C</span><small class="text-muted">0 exercises.</small></div> <a class="ml-2 btn btn-corporate btn-sm" href="workout-builder.html"><span class="">Create Workout</span></a></li></ul> </span></div> </article>');
+		
+		$('#AFT_weeks [data-toggle="tooltip"]').last().tooltip('show')
+		
+		$('#wall_Overview').attr('data-roll','absent');
+	})
+
+// Enable tooltips 
+	$('[data-toggle="tooltip"]').tooltip();
+	
+
+	
+	
+	  // ------ Assignment Modal
+	  
+  	  $('#assignment-send').hide();
+	  $('#assignment-result').hide();
+	  
+	  $('[data-action="schedule_assignment"]').click(function(){
+		  $('#assignment-clients').hide();
+		  $('#assignment-send').fadeIn();
+		  
+	  });
+	  
+	  
+	  $('[ data-action="back_to_clients"]').click(function(){
+		  $('#assignment-clients').fadeIn();
+		  $('#assignment-send').hide();
+		  
+	  });
+	  
+	  
+	  $('[data-action="send_assignemnt"]').click(function(){
+		  $('#assignment-send').hide();
+		  $('#assignment-result').fadeIn();
+	  });
+	  
+	  
+	  
+	// Load Clients
+	   $.getJSON('js/clients.json', function(data) {
+		   $.each(data.client, function(i, f) {
+			  var clientItem = '<li class="custom-control custom-checkbox" data-plan="'+ f.plan +'" data-week="'+ f.plan_week +'"><input type="checkbox" class="custom-control-input" id="'+ f.mug +'"><label for="'+ f.mug +'" class="custom-control-label m-2 d-flex flex-grow-1 align-items-center"><i class="mug mug-md populated mr-2" style="background-image: url(//randomuser.me/api/portraits/'+ f.gen +'/'+ f.mug +'.jpg)"></i><div class="d-flex flex-column flex-fill"><span class="workout-name">'+ f.first_name +' '+ f.last_name +'</span><small class="text-muted"><span data-type="plan">'+ f.plan +'</span> — Week '+ f.plan_week +'</small></div></label></li>'			  
+			   $(clientItem).appendTo("#list_all_clients");
+			});
+		   
+		   // Search Clients 
+			$('#search_clients').keyup(function() {
+			  $('#list_all_clients > li').hide();
+			  var txt = $('#search_clients').val();
+			  $('#list_all_clients > li').each(function() {
+				if ($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1) {
+				  $(this).show();
+				  $('#no_results').hide();
+				}
+			   else if($('#list_all_clients > li').children(':visible').length == 0) {
+				   // action when all are hidden
+				   $('#no_results').show();
+
+				}
+			  });
+			});
+	   
+   	  	   // Filter Clients 
+		   $('[data-action="filter_plan"]').click(function(){			   
+			   var thePlan = $(this).text()
+			   if ($(this).is('#all_plans')) {
+				   $('#list_all_clients li').show().addClass('filtered');
+			   }
+			   else if ($(this).is('#no_plans')) {
+				   $('#list_all_clients li').hide().removeClass('filtered');
+				   $('[data-plan=""]').show().addClass('filtered');	
+			   }
+			   else {				  
+				   $('#list_all_clients li').hide().removeClass('filtered');
+				   $('[data-plan="'+thePlan+'"]').show().addClass('filtered');				   
+			   }
+			   $('[data-action="filter_plan"]').removeClass('checked')
+			   $(this).addClass('checked');
+			   $('#selected_plan').text(thePlan);
+		   });
+		    // Filter Weeks 
+		   $('[data-action="filter_week"]').click(function(){
+			   if ($(this).is('#all_weeks')) {
+				   $('#selected_week').text('All Weeks');
+				   $('li.filtered').show();
+			   }
+			   else {
+				   var theWeek = $(this).attr('data-week');
+				   $('#list_all_clients li').hide();
+				   $('[data-week="'+theWeek+'"].filtered').show();
+				   $('#selected_week').text('Week '+theWeek);
+			   }			  
+			   $('[data-action="filter_week"]').removeClass('checked')
+			   $(this).addClass('checked');			   			   
+		   });
+		   
+		    // Replace empty plan with CTA
+		 $('[data-type="plan"]:empty').parent().html('<span class="text-danger">None Assigned</span>');
+		   
+		   		   	
+		   
+	   });
+ 
+$('[data-action="back_to_1"]').click(function(){
+	$('section').attr('data-roll', 'absent');
+	$('section:first-child').attr('data-roll', 'engaged');
+})
+	
+	
+	
+   	
+	   
+	   // Show Exercise Detail 
+	   		$(document.body).on('click', '[data-action="view_detail"]' ,function(){
+
+//				   $('#wall_Overview').addClass('view-exercise');
+//				   $(this).closest('li').show().addClass('detail');
+				   $(this).closest('li').find('.details').slideToggle();
+				   $([document.documentElement, document.body]).animate({
+						scrollTop: $(this).closest('li').offset().top-80
+					}, 500);
+				   var theVid = $(this).parent().children().children('video');
+				   var vidSrc = $(this).parent().children().children('video').attr('src');
+				   var thePoster = $(this).siblings('.populated').css('background-image');
+
+				   if (vidSrc == "") {
+					  $(theVid).hide();
+					  $(theVid).parent().css('background', thePoster+'no-repeat center center')
+				   }
+				   else {
+						$('video').get(0).play();
+				   }
+			   });	
+	
+
+
+	
+// Date Picker 
+	  $( "#assignment-datepicker" ).datepicker();
+	
+	  
+	</script>
+</body>
+</html>

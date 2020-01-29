@@ -1,0 +1,1818 @@
+<meta charset="utf-8">
+<!--<link rel="stylesheet" href="../coach/plugins/chartist/chartist.min.css">-->
+ <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+
+
+<style>
+	.floating-header {
+		position: sticky!important;
+		top: -3rem;
+		background: var(--gray-lightest); z-index: 100000
+	}
+	.modal-body {
+		max-height: 70vh;
+		overflow: auto;
+	}
+	
+	#wall_Detail {
+	    min-width: 45vw;
+	}
+		
+	
+	
+	/* Use this selector to override the line style on a given series */
+.ct-series-a .ct-line {
+  /* Set the colour of this series line */
+  stroke: var(--primary);
+
+
+}
+
+/* This selector overrides the points style on line charts. Points on line charts are actually just very short strokes. This allows you to customize even the point size in CSS */
+.ct-series-a .ct-point {
+  /* Colour of your points */
+  stroke: var(--primary);
+}
+	
+	
+	
+</style>
+<div class="d-flex align-items-start position-relative ml-2 width-limited">
+<!--     <button data-action="close_client_detail" class="btn btn-link"><i class="icon-x"></i></button>-->
+
+	<div id="" class="d-flex align-items-center flex-fill mb-2"><div class="d-flex flex-column flex-fill "><h1 class="heading m-0 nowrap"><strong><span data-name="">Charles</span>'s Profile</strong></h1></div> <button type="button" class="btn btn-secondary rounded-pill mr-3" data-action="switch_to_chat"><span class=""></span> <i class="icon-bubbles" aria-hidden="true"></i> Chat</button></div>
+	    </div>
+
+	<div>
+		
+	<small>
+		
+		
+		<div class="bg-gray-light p-2 width-limited mb-4">
+	
+			<div class="d-flex flex-wrap mb-2">
+		
+		
+		
+		<div class="mr-4 my-2">
+		<strong>Local Time</strong> <br>
+		<span class="text-muted"><span id="datetime"></span> CST</span>
+			<script>
+var dt = new Date();
+document.getElementById("datetime").innerHTML = dt.toLocaleTimeString();
+</script>
+	</div>
+			
+			
+		
+	
+		
+		
+	<div class="mr-4 my-2">
+		<strong>Plan</strong> <br>
+		<p class="mb-2"><span data-type="plan" class="text-muted">Increase Muscle Mass</span> — Week 4 <span class="text-danger nowrap">—&nbsp;Ends in 5 days</span></p>
+	</div>
+				<div class="mr-4 my-2">
+		<strong>Nutrition Challenge</strong> <br>
+		<p class="mb-2"><span data-type="plan" class="text-muted">Stick to your meal plan</span></p>
+	</div>
+		
+		</div>
+		</div>	</small>
+		
+	</div>
+
+	
+		
+		
+      <div id="manage_coach" class="p-2">
+       
+		  
+		  
+        <h3 class="h6"><strong>Coach</strong></h3>
+        <p>
+          <button class=" btn btn-secondary btn-sm" data-toggle="modal" data-target="#coachesModal"><i class="icon-pencil-stub"></i> <span class="sr-only">Assign Coach</span></button>
+          <span data-coach>Coach Name</span></p>
+		  
+		  
+			  </div>
+    <div data-proprietary> </div>
+    <div class=" width-limited">
+		<style>
+			.nav-tabs .nav-link.active {
+				background: var(--gray-lightest);
+				border-bottom-color:var(--gray-lightest);
+				font-weight: 600;
+			}
+			
+			.tab-v {
+
+			}
+			.tab-v i {
+				margin-bottom: .5rem;
+				display: block;
+				text-align: center;
+				
+			}
+			.tab-v .nav-text {
+				display: block;
+				opacity: .65;
+				letter-spacing: .05rem;
+				font-size: .8rem;
+			}
+			.tab-v .nav-link {
+				background: #4f4265;
+				border:0;
+				border-radius: 0.25rem;				
+				text-transform: uppercase;
+				margin:.125rem;
+				line-height: 1.365rem;				
+			}
+			.nav-link.active .nav-text {
+				font-weight: bold;
+				color: var(--primary-color-active);
+				font-size: 1.125rem;
+				opacity: 1
+				
+			}
+			.tab-v a {
+				color: #fff;
+			}
+			.btn-purple-dark {
+				background: #4f4265;
+				color: #fff;
+			}
+			.tab-v .nav-link:not(.active):hover, .tab-v .nav-link:not(.active):focus, 
+			.btn-purple-dark:hover, .btn-purple-dark:focus {
+				background: var(--primary-color-active);
+				color: #fff;
+			}
+			
+			
+			.tab-pane {
+				overflow-x: hidden; max-height: calc(100vh - 10rem);
+			}
+			
+			.label-tab {
+				display: block;				
+				font-size: .8rem;
+			}
+			.label-tab strong {
+				opacity: .65;
+				letter-spacing: .05rem;
+			}
+
+		
+		</style>
+      <ul id="client_tabs" class="nav nav-tabs rounded  tab-v text-white border-0" >
+		  
+		  <li class="nav-item flex-fill text-center"> <a class="nav-link active" data-toggle="tab" href="#tab_overview"><i class="icon-binoculars"></i> <span class="d-none d-sm-inline-block nav-text ">Overview</span></a> </li>
+		  <li class="nav-item flex-fill text-center"> <a class="nav-link" data-toggle="tab" href="#tab_notes"><i class="icon-pencil-stub"></i> <span class="d-none d-sm-inline-block nav-text">Notes</span></a> </li>
+        <li class="nav-item flex-fill text-center"> <a class="nav-link " data-toggle="tab" href="#tab_activity"><i class="icon-activity"></i> <span class="d-none d-sm-inline-block nav-text">Activity</span></a> </li>
+		  <li class="nav-item flex-fill text-center"> <a class="nav-link " data-toggle="tab" href="#tab_plan"><i class="icon-plan"></i> <span class="d-none d-sm-inline-block nav-text">Plan</span></a> </li>
+        
+        <li class="nav-item flex-fill text-center"> <a class="nav-link " data-toggle="tab" href="#tab_stats"><i class="icon-af-consult-fill"></i> <span class="d-none d-sm-inline-block nav-text">Stats</span></a> </li>
+		  <li class="nav-item flex-fill text-center"> <a class="nav-link" data-toggle="tab" href="#tab_bio"><i class="icon-person-fill"></i> <span class="d-none d-sm-inline-block nav-text">Bio</span></a> </li>
+      </ul>
+      <div class="tab-content">
+		          <div class="tab-pane fade show py-5 active" id="tab_overview" role="tabpanel">
+					 
+					  
+
+					  
+					  <div class="d-flex mb-4 position-relative">
+						  <span class="bg-secondary p-1 mr-4 tab-v rounded"><i class="icon-pencil-stub"></i>
+							  <span class="nav-text sr-only">NOTES</span></span>
+					  <div data-note="" class="flex-fill"><a class="btn-takeover" data-trigger="tab" href="#tab_notes"></a>
+						  <div class="label-tab mb-2 d-flex justify-content-between"><strong>LATEST NOTE</strong> <span class="text-primary">All Notes <i class="icon-arrow-right"></i></span></div>
+						  <p class="mb-0"><strong>Oct 1 2019 — Video Check-in</strong></p>
+						  <p>Struggling with joint pain. Looking for some alternative movement patterns. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut…</p>
+					  </div>
+					</div>	 
+					  <div class="d-flex mb-4 position-relative">
+						  <span class="bg-secondary	p-1 mr-4 tab-v rounded"><i class="icon-activity"></i><span class="nav-text sr-only">ACTIVITY</span></span>
+					  <div class="flex-fill"><a class="btn-takeover" data-trigger="tab" href="#tab_activity"></a>
+						  <div class="label-tab mb-2 d-flex justify-content-between"><strong>RECENT ACTIVITY</strong> <span class="text-primary">All Activity <i class="icon-arrow-right"></i></span></div>
+						  <ul id="last2days" class="list-unstyled">
+							<li class="item border-bottom my-2 pb-2 text-left">
+								<div class="mb-2"><strong>Saturday Aug 30, 2019</strong></div>
+							  <div><i class="icon-workouts list-icon-sm text-primary"></i> Total Strength: Program 3: Workout 1 <i class="text-success icon-check" aria-hidden="true"><span class="sr-only"></span></i></div>
+							  <div><i class="icon-apple list-icon-sm text-nutrition"></i> Avoid sugary drinks <i class="text-success icon-check" aria-hidden="true"><span class="sr-only"></span></i></div>
+								<div><i class="icon-quotes-left list-icon-sm text-muted"></i> <em>Challenging</em></div>
+							</li>
+							<li class="item border-bottom my-2 pb-2 text-left">
+							  <div class="mb-2"><strong>Sunday Aug 31, 2019</strong></div>
+							  <div><i class="icon-workouts list-icon-sm text-primary"></i> MMA Conditioning: Workout 1 <i class="icon-check text-success" aria-hidden="true"><span class="sr-only"></span></i></div>
+							  <div><i class="icon-apple list-icon-sm text-nutrition"></i> Cut out carbs <i class="icon-x-small text-danger" aria-hidden="true"><span class="sr-only"></span></i></div>
+								<div><i class="icon-quotes-left list-icon-sm text-muted"></i> <em>Disappointed</em></div>
+							</li>
+
+
+
+
+
+						  </ul>
+					  </div>
+					</div>
+					   <div class="d-flex mb-4 position-relative">
+						  <span class="bg-secondary p-1  mr-4 tab-v rounded" ><i class="icon-plan"></i>
+							  <span class="nav-text sr-only">PLAN</span></span>
+						   <div class="flex-fill"><a class="btn-takeover" data-trigger="tab" href="#tab_plan"></a>
+							   <div class="label-tab mb-2 d-flex justify-content-between"><strong>NEXT IN PLAN</strong><span class="text-primary">Manage Plan <i class="icon-arrow-right"></i></span></div>
+
+						  	<div class="d-flex mb-3"><div class=" mr-2 text-center bg-gray p-1 rounded"><small><strong class="">DAY</strong></small><div class="h2">14</div> </div>		<div class="flex-fill"><small class="text-muted">Sep 05, 2019</small><div class="task position-relative border-bottom-dashed pb-2 mb-2 d-flex align-items-center"><div class="flex-fill"><i class="icon-workouts list-icon-sm text-primary"></i> 10 of the Sweatiest</div><div class="d-flex align-items-center justify-content-end flex-row-reverse"><div class="dropdown" data-action="more"> <div class="dropdown-menu" aria-labelledby="menu-plan-1" x-placement="bottom-start"><a class="dropdown-item" href="#duplicate_task">Duplicate Task</a>  <a class="dropdown-item" href="#delete_task">Delete Task</a>  </div></div></div></div><div class="task position-relative d-flex align-items-center"><div class="flex-fill"><i class="icon-apple list-icon-sm text-nutrition"></i> Try yogurt</div><div class="d-flex align-items-center justify-content-end flex-row-reverse"><div class="dropdown" data-action="more"> <div class="dropdown-menu" aria-labelledby="menu-plan-1" x-placement="bottom-start"><a class="dropdown-item" href="#duplicate_task">Duplicate Task</a>  <a class="dropdown-item" href="#delete_task">Delete Task</a>  </div></div></div></div></div></div>
+						</div>	
+					  </div>
+					  
+					  
+					   <div class="d-flex mb-4 position-relative">
+						  <span class="bg-secondary p-1 mr-4 tab-v rounded"><i class="icon-af-consult-fill"></i>
+							  <span class="nav-text sr-only">STATS</span></span><a class="btn-takeover" data-trigger="tab" href="#tab_stats"></a>
+						   
+						   <div class="flex-fill"><div class="label-tab mb-2 d-flex justify-content-between"><strong>FOCUS STAT</strong> <span class="text-primary">All Stats <i class="icon-arrow-right"></i></span></div>
+					  		<p><strong>Weight</strong></p>
+                           
+                               <div class="d-flex justify-content-start flex-wrap">
+							 
+							
+								   <div id="ct-chart1" class="ct-chart ct-double-octave"></div>
+
+								   
+                           </div>    
+						</div>	
+					  </div>
+					  
+					   <div class="d-flex mb-4 position-relative">
+						  <span class="bg-secondary p-1 mr-4 tab-v rounded"><i class="icon-person-fill"></i>
+							  <span class="nav-text sr-only">BIO</span></span>
+						   <div class="flex-fill">
+							   <div class="label-tab mb-2 d-flex justify-content-between"><strong>BIO</strong> <span class="text-primary">View Full Bio <i class="icon-arrow-right"></i></span></div>
+						   <a class="btn-takeover" data-trigger="tab" href="#tab_bio"></a>
+						   <ul class="list-unstyled d-flex">
+						   <li><p><strong>Home Club</strong> <br>
+Inver Grove Heights, MN</p></li>
+						   <li class="mx-4"><strong>Last Visit</strong> <br>
+Dec 1, 2019</li>
+				   </ul></div>
+					  </div>
+					  
+		  </div>
+        <div class="tab-pane fade p-4" id="tab_activity" role="tabpanel">
+			
+			<h3 class="h5 h-xs-6 sr-only"><strong>Activity</strong></h3>
+			
+          <div class="">
+			  <figure>
+				  <figcaption class="my-4 d-flex form-inline">
+					  
+					  <h3 class="subheading mr-2 mb-0"><strong>Adherence: </strong></h3> <select class="form-control"><option>Last 7 Days</option><option>Length of Plan</option><option>All Time</option></select></figcaption>
+              <div class="row align-items-center">
+                <div class="col-6 col-sm-3 text-md-right"> Workouts Completed<br>
+                  <small class="text-muted">4 of 5</small> </div>
+                <div class="col-6 col-sm-3">
+                  <div id="progress-workouts" class="progress-circle" data-percentage="80"> <span class="progress-left"> <span class="progress-bar"></span> </span> <span class="progress-right"> <span class="progress-bar"></span> </span>
+                    <div class="progress-value">
+                      <div> 80% </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6 col-sm-3 text-md-right"> Nutrition Adherence<br>
+                  <small class="text-muted">3 of 7</small> </div>
+                <div class="col-6 col-sm-3">
+                  <div id="progress-nutrition" class="progress-circle" data-percentage="40"> <span class="progress-left"> <span class="progress-bar"></span> </span> <span class="progress-right"> <span class="progress-bar"></span> </span>
+                    <div class="progress-value">
+                      <div> 43% </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+			  
+				  </figure>              
+</div>
+			<hr>
+			
+
+               
+          
+			
+            <div class="">
+              <ul id="last7days" class="list-unstyled">
+                <li class="item border-bottom my-2 pb-2 text-left">
+					<div class="mb-2"><strong>Saturday Aug 30, 2019</strong></div>
+                  <div><i class="icon-workouts list-icon-sm text-primary"></i> Total Strength: Program 3: Workout 1 <i class="text-success icon-check" aria-hidden="true"><span class="sr-only"></span></i></div>
+                  <div><i class="icon-apple list-icon-sm text-nutrition"></i> Avoid sugary drinks <i class="text-success icon-check" aria-hidden="true"><span class="sr-only"></span></i></div>
+					<div><i class="icon-quotes-left list-icon-sm text-muted"></i> <em>Challenging</em></div>
+                </li>
+                <li class="item border-bottom my-2 pb-2 text-left">
+                  <div class="mb-2"><strong>Sunday Aug 31, 2019</strong></div>
+                  <div><i class="icon-workouts list-icon-sm text-primary"></i> MMA Conditioning: Workout 1 <i class="icon-x-small text-danger" aria-hidden="true"><span class="sr-only"></span></i></div>
+                  <div><i class="icon-apple list-icon-sm text-nutrition"></i> Cut out carbs <i class="icon-x-small text-danger" aria-hidden="true"><span class="sr-only"></span></i></div>
+					<div><i class="icon-quotes-left list-icon-sm text-muted"></i> <em>Disappointed</em></div>
+                </li>
+                <li class="item border-bottom my-2 pb-2 text-left">
+                  <div class="mb-2"><strong>Monday Sep 01, 2019</strong></div>
+                  <div><i class="icon-workouts list-icon-sm text-primary"></i> Total Strength: Program 3: Workout 2 <i class="text-success icon-check" aria-hidden="true"><span class="sr-only"></span></i></div>
+                  <div><i class="icon-apple list-icon-sm text-nutrition"></i> Eat less garbage <i class="icon-x-small text-danger" aria-hidden="true"><span class="sr-only"></span></i></div>
+					<div><i class="icon-quotes-left list-icon-sm text-muted"></i> <em>Sore</em></div>
+                </li>
+                <li class="item border-bottom my-2 pb-2 text-left">
+                  <div class="mb-2"><strong>Tuesday Sep 02, 2019</strong></div>
+                  <div><i class="icon-workouts list-icon-sm text-primary"></i> 10 of the Fastest <i class="text-success icon-check" aria-hidden="true"><span class="sr-only"></span></i></div>
+                  <div><i class="icon-apple list-icon-sm text-nutrition"></i> Only drink Bud Light Platinum <i class="text-success icon-check" aria-hidden="true"><span class="sr-only"></span></i></div>
+					<div><i class="icon-quotes-left list-icon-sm text-muted"></i> <em>Great</em></div>
+                </li>
+                <li class="item border-bottom my-2 pb-2 text-left">
+                  <div class="mb-2"><strong>Wednesday Sep 03, 2019</strong></div>
+                  <div><i class="icon-workouts list-icon-sm text-primary"></i> 10 of the Most Complicated <i class="text-success icon-check" aria-hidden="true"><span class="sr-only"></span></i></div>
+                  <div><i class="icon-apple list-icon-sm text-nutrition"></i> Limit yourself to only one pie <i class="text-success icon-check" aria-hidden="true"><span class="sr-only"></span></i></div>
+					<div><i class="icon-quotes-left list-icon-sm text-muted"></i> <em>%?$#!</em></div>
+                </li>
+                <li class="item border-bottom my-2 pb-2 text-left">
+                  <div class="mb-2"><strong>Thursday Sep 04, 2019</strong></div>
+                  <div><i class="icon-workouts list-icon-sm text-primary"></i> 10 of the Loudest <i class="icon-x-small text-danger" aria-hidden="true"><span class="sr-only"></span></i></div>
+                  <div><i class="icon-apple list-icon-sm text-nutrition"></i> Avoid rooms that contain cheese <i class="text-success icon-check" aria-hidden="true"><span class="sr-only"></span></i></div>
+					<div><i class="icon-quotes-left list-icon-sm text-muted"></i> <em>Oops</em></div>
+                </li>
+                <li class="item border-bottom my-2 pb-2 text-left">
+                  <div class="mb-2"><strong>Friday Sep 05, 2019</strong></div>
+                  <div><i class="icon-workouts list-icon-sm text-primary"></i> 10 of the Sweatiest <i class="text-success icon-check" aria-hidden="true"><span class="sr-only"></span></i></div>
+                  <div><i class="icon-apple list-icon-sm text-nutrition"></i> Try yogurt <i class="text-success icon-check" aria-hidden="true"><span class="sr-only"></span></i></div>
+					<div><i class="icon-quotes-left list-icon-sm text-muted"></i> <em>Proud</em></div>
+                </li>
+              </ul>
+				<button type="button" class="btn btn-sm btn-block btn-secondary" data-toggle="modal" data-target="#adherenceModal">See More</button>
+            </div>
+		
+        </div>
+		  <div class="tab-pane fade p-4" id="tab_plan" role="tabpanel">
+			   <h3 class="h5 h-xs-6 sr-only"><strong>Plan</strong></h3>
+			  			  <h4 class="subheading mt-4"><strong>Currently Assigned Plan</strong></h4>
+          <div class="d-sm-flex align-items-start">
+
+            <ul class="list-unstyled mb-0 flex-fill" data-plans>
+              <li>A Plan for all Seasons — Week 2 <small class="text-muted">Edited</small></li>
+            </ul>
+			  <button type="button" class="btn btn-secondary btn-sm rounded-pill" data-toggle="modal" data-target="#planAssignmentModal">Add Plan <small class="icon-plus"></small></button>
+            
+          </div>
+			  <hr class="my-5">
+			  <div class="d-flex justify-content-between align-items-center mb-5"><h3 class="subheading rounded d-block text-dark"><strong>Current & Upcoming Tasks</strong></h3> <button type="button" class="btn btn-primary btn-sm rounded-pill" data-toggle="modal" data-target="#taskAssignmentModal">Assign Task <small class="icon-plus"></small></button></div>
+			<div class="px-2">
+			<div class="">
+              <ul class="list-unstyled">                
+                <li class="item border-bottom my-2 pb-2 text-leftm d-flex">
+					<div class=" mr-2 text-center bg-gray p-1 px-2 rounded"><i class="icon-pushpin"></i><small><strong class="sr-only">PIN</strong></small><div class="h2 mb-0"></div> </div>
+                  <div class="flex-fill d-flex align-items-start task">
+					<div class="flex-fill">
+                    <span>Complete a Body Scan <br>
+                    <small class="text-muted">Show until complete</small></span></div><div class="d-flex align-items-center justify-content-end flex-row-reverse"><span class="icon-drag p-2 ml-2 btn btn-link ui-sortable-handle" data-action="drag"></span><div class="dropdown" data-action="more"> <button class="btn btn-link p-2 icon-tab-more-active" type="button" id="menu-plan-1" data-toggle="dropdown" aria-expanded="false"> <span class="sr-only">Controls</span></button><div class="dropdown-menu" aria-labelledby="menu-plan-1" x-placement="bottom-start"><a class="dropdown-item" href="#duplicate_task">Duplicate Task</a>  <a class="dropdown-item" data-action="edit_workout" data-toggle="modal" data-target="#taskEditModal" href="#taskEditModal">Edit Task</a><a class="dropdown-item" href="#delete_task">Delete Task</a>  </div></div></div>
+					 </div>
+                </li>
+              </ul>
+             
+            </div>
+          <div id="adherence-upcoming" class="collapse show ">
+            <ul id="next7days" class="list-unstyled">
+            </ul>
+			  </div>
+          </div>
+		  
+		  
+		  </div>
+        <div id="tab_notes" class="tab-pane fade p-4"  role="tabpanel">
+			
+			 <h3 class="h5 h-xs-6 sr-only"><strong>Notes</strong></h3>
+			
+       <!--   <div class="d-flex align-items-end my-5">
+            <div class="form-group m-0">
+              <label class="mb-1" for="scan-datepicker1"><strong>Previous Notes</strong></label>
+              <select class="form-control">
+                <option>10/1/2019 â€”Â Video Check-in</option>
+                <option>9/8/2019 â€“Â Initial Interview</option>
+                <option>8/8/2019 â€“Â Pre-Interview</option>
+              </select>
+            </div>
+            <button type="button" class="btn btn-secondary mx-2">Edit</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#view_note">View</button>
+          </div>-->
+			
+			<div id="new_note">
+          <div class="mt-4">
+            <h3 class="h6 sr-only"><strong>New Note</strong></h3>
+			   <p class="text-muted">Notes are not visible to your clients. </p>
+            <div class="form-group">
+              <label for="note_title" class="sr-only">Title</label>
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="form-group-miminal input-group-text ">
+                    <label class="m-0 text-primary" for="note-datepicker1"><i class="icon-schedule"></i><span class="sr-only">Note Date</span></label>
+                    <input type="text" id="note-datepicker1" class="text-right" value="10/8/2019" style="max-width: 5.5rem">
+                  </div>
+                </div>
+                <input id="note_title" type="text" class="form-control" placeholder="Check-in Notes">
+              </div>
+            </div>
+            	<style>
+					.max-width-x {
+						max-width: 5rem;
+					}
+				</style>
+            
+           	 <div id="fake_wysiwyg" class="d-none"></div> <!-- hide the WYSIWYG for v1 -->
+
+			  <small>Starter Template</small>
+ <div class="btn-group mb-2" role="group" aria-label="Basic example">
+  <button type="button" class="btn btn-secondary btn-sm" data-template>Consultation</button>
+  <button type="button" class="btn btn-secondary btn-sm" data-template>Video Check-in</button>
+</div>
+			  <label class="sr-only" for="session_note"></label>
+			  <textarea id="session_note" class="form-control" placeholder="Notes..." style="height: 40vh"></textarea>
+			 
+			  
+			  
+			  
+          <h4><a class="subheading p-1 bg-gray rounded my-4 d-block text-dark collapsed" href="#performance-measurements" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="adherence-graphs"><i class="indicator-collapse"></i> Fit Check</a></h4>
+            <div id="performance-measurements" class="collapse">
+              <p class="text-muted">Log today's count for each exercise. Compare to previous sessions in the Stats tab</p>
+              <ol>
+                <li class="form-group">
+                  <label>Squats</label>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <input class="form-control form-control-lg mr-2 max-width-x text-right" type="number" placeholder="0">
+                    <label class="sr-only">Notes</label>
+                    <textarea class="form-control  form-control-sm" type="text" placeholder="notes..."></textarea>
+                  </div>
+                </li>
+                <li class="form-group">
+                  <label>Skaters</label>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <input class="form-control form-control-lg mr-2 max-width-x text-right" type="number" placeholder="0">
+                    <label class="sr-only">Notes</label>
+                    <textarea class="form-control  form-control-sm" type="text" placeholder="notes..."></textarea>
+                  </div>
+                </li>
+                <li class="form-group">
+                  <label>Push-ups</label>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <input class="form-control form-control-lg mr-2 max-width-x text-right" type="number" placeholder="0">
+                    <label class="sr-only">Notes</label>
+                    <textarea class="form-control  form-control-sm" type="text" placeholder="notes..."></textarea>
+                  </div>
+                </li>
+                <li class="form-group">
+                  <label>Bridges</label>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <input class="form-control form-control-lg mr-2 max-width-x text-right" type="number" placeholder="0">
+                    <label class="sr-only">Notes</label>
+                    <textarea class="form-control  form-control-sm" type="text" placeholder="notes..."></textarea>
+                  </div>
+                </li>
+                <li class="form-group">
+                  <label>Mountain Climbers</label>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <input class="form-control form-control-lg mr-2 max-width-x text-right" type="number" placeholder="0">
+                    <label class="sr-only">Notes</label>
+                    <textarea class="form-control  form-control-sm" type="text" placeholder="notes..."></textarea>
+                  </div>
+                </li>
+                <li class="form-group">
+                  <label>Alternating Reverse Lunges</label>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <input class="form-control form-control-lg mr-2 max-width-x text-right" type="number" placeholder="0">
+                    <label class="sr-only">Notes</label>
+                    <textarea class="form-control  form-control-sm" type="text" placeholder="notes..."></textarea>
+                  </div>
+                </li>
+              </ol>
+            </div>
+				<div class=" text-center">
+
+              <button data-action="close_note" type="button" class="btn btn-primary m-2">Done</button>
+            </div></div>
+				<hr>
+			</div>
+			<div id="old_notes" class="mt-5">
+				
+				<div class="d-flex align-items-center mb-4"><h3 class="h6 mb-0"><strong>Previous Notes </strong></h3><div class="flex-fill"><button class="btn btn-link"><i class="icon-search"></i> </button>
+		  <button class="btn btn-link"><i class="icon-filter"></i> </button></div>
+<button type="button" class="btn btn-primary btn-sm rounded-pill" data-action="new_note" style="display: none">New Note <small class="icon-plus"></small></button>
+					
+					
+			  </div>
+			<ul class="list-unstyled list-items list-ruled">
+				<li class="d-flex align-items-center">
+					
+						<div data-note class="flex-fill">Oct 1 2019 &#8212; Video Check-in</div>
+						<button class="btn btn-link btn-takeover" data-target="#view_note" data-toggle="modal"><span class="sr-only">View Note</span></button>
+						<button class="btn btn-link " data-action="edit_note" style="z-index: 1"><i class="icon-pencil-stub"></i><span class="sr-only">Edit Note</span></button>										
+				
+				</li>
+				<li class="d-flex align-items-center">
+					
+						<div data-note class="flex-fill">Sep 1 2019 &#8212; Video Check-in</div>
+						<button class="btn btn-link btn-takeover" data-target="#view_note" data-toggle="modal"><span class="sr-only">View Note</span></button>
+						<button class="btn btn-link " data-action="edit_note" style="z-index: 1"><i class="icon-pencil-stub"></i><span class="sr-only">Edit Note</span></button>										
+				
+				</li>
+				<li class="d-flex align-items-center">
+					
+						<div data-note class="flex-fill">Aug 9 2019 &#8212; Initial Interviewn</div>
+						<button class="btn btn-link btn-takeover" data-target="#view_note" data-toggle="modal"><span class="sr-only">View Note</span></button>
+						<button class="btn btn-link " data-action="edit_note" style="z-index: 1"><i class="icon-pencil-stub"></i><span class="sr-only">Edit Note</span></button>										
+				
+				</li>
+				<li class="d-flex align-items-center">
+					
+						<div data-note class="flex-fill">Aug 8 2019 &#8212; Pre-Interview</div>
+						<button class="btn btn-link btn-takeover" data-target="#view_note" data-toggle="modal"><span class="sr-only">View Note</span></button>
+						<button class="btn btn-link " data-action="edit_note" style="z-index: 1"><i class="icon-pencil-stub"></i><span class="sr-only">Edit Note</span></button>										
+				
+				</li>
+				
+				</ul>
+			
+			
+			</div>
+
+			
+		</div>
+      	   <div class="tab-pane fade p-4" id="tab_stats" role="tabpanel">
+			   
+			 <h3 class="h5 h-xs-6 sr-only"><strong>Stats</strong></h3>
+          <!-- FitCheck & Evolt stuff ----- hide it for now
+
+			<div id="chartContainer" style="height: 370px; width: 100%; margin: 2rem 0; display: none"></div>
+          <small class="text-muted">Select two dates to compare results.</small>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col" class="text-right"> <select class="form-control">
+                    <option>Bio Scans</option>
+                    <option>Fit Check</option>
+                  </select>
+                </th>
+                <th scope="col"> <div class="form-group-miminal">
+                    <label class="m-0 text-primary" for="scan-datepicker1"><span class="sr-only">First Date</span></label>
+                    <select class="form-control">
+                      <option>10/8/2019</option>
+                      <option>9/8/2019</option>
+                      <option>8/8/2019</option>
+                    </select>
+                  </div>
+                </th>
+                <th scope="col"> <div class="form-group-miminal">
+                    <label class="m-0 text-primary" for="scan-datepicker1"><span class="sr-only">Second  Date</span></label>
+                    <select class="form-control">
+                      <option>10/8/2019</option>
+                      <option>9/8/2019</option>
+                      <option>8/8/2019</option>
+                    </select>
+                  </div>
+                </th>
+                <th scope="col" class="text-center">+/-</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Weight</th>
+                <td>162</td>
+                <td>163</td>
+                <td class="text-center"><span class="text-muted">-1</span></td>
+              </tr>
+              <tr>
+                <th>Lean Body Mass</th>
+                <td>123.2/High</td>
+                <td>122.1/High</td>
+                <td class="text-center"><span class="text-muted">+1.1</span></td>
+              </tr>
+              <tr>
+                <th>Body Fat %</th>
+                <td>24%/High</td>
+                <td>25%/High</td>
+                <td class="text-center"><span class="text-muted">-1</span></td>
+              </tr>
+              <tr>
+                <th>Bio Age</th>
+                <td>28 years</td>
+                <td>28 years</td>
+                <td class="text-center"><span class="text-muted">=</span></td>
+              </tr>
+              <tr>
+                <th>Fitness Score</th>
+                <td>77/100</td>
+                <td>76/100</td>
+                <td class="text-center"><span class="text-muted">+1</span></td>
+              </tr>
+            </tbody>
+          </table>-->
+		<div class="mt-4">
+			<h3 class="h6 mb-4"><strong>Weight Log</strong> <small class="text-muted">&#8212; Updated Jan 1, 2020</small></h3>
+			<div class="d-flex justify-content-start flex-wrap">
+							  
+				 <div id="ct-chart2" class="ct-chart ct-double-octave"></div>
+				
+							
+                           </div><button class="btn btn-link p-0 mb-4" type="button" data-toggle="collapse" data-target="#weight_log" aria-expanded="false" aria-controls="weight_log"><small>View Full Log</small></button>
+					
+			<div id="weight_log" class="bg-gray-light p-2 rounded collapse">
+				<ul class="list-ruled list-unstyled">
+				<li>Oct 1, 2019 &#8212; 152lbs</li>
+					<li>Sep 21, 2019 &#8212; 153lbs</li>
+					<li>Sep 11, 2019 &#8212; 154lbs</li>
+					<li>Sep 1, 2019 &#8212; 156lbs</li>
+					<li>Aug 21, 2019 &#8212; 157lbs</li>
+				
+				</ul>
+			
+			
+			</div>
+			<div class="d-flex align-items-center">
+			   <div class="form-group mr-2">
+				   <label>Current Weight 
+					<input type="text" class="form-control" placeholder="150lbs">					  
+				   </label>
+			   </div>
+				
+			<button class="btn btn-secondary">Update</button>
+
+			</div>
+					
+			<hr>
+			   <h3 class="h6 mb-4"><strong>Biometrics</strong></h3>				
+			   <div class="d-flex flex-wrap">
+				 <div class="form-group mr-2">
+				   <label>Height
+					<input type="text" class="form-control" disabled value="5ft 5in">					  
+				   </label>
+			   </div>
+			    
+			    <div class="form-group mr-2">
+				   <label>Age
+					<input type="text" class="form-control" disabled value="35">					  
+				   </label>
+			   </div>
+			  
+			   </div>
+			</div>
+        </div>
+		  
+		   <div class="tab-pane fade p-4" id="tab_bio" role="tabpanel">
+			   
+			    <h3 class="h5 h-xs-6 sr-only"><strong>Bio</strong></h3>
+			   
+			   <div class="my-4 align-items-stretch row">
+				   <div class="col-sm-6 mb-4"><i class="mug mug-fill" style="background-image:url(http://randomuser.me/api/portraits/men/13.jpg)"></i></div>
+				   <div class="col-sm-6">
+				   <p class="h5"><strong data-name>Charles Atlas</strong></p>
+					   <hr>
+				   <div class="">
+				   <div class="mr-4">
+
+					   <ul class="list-unstyled">
+						   <li><p><strong>Home Club</strong> <br>
+Inver Grove Heights, MN</p></li>
+						   <li><strong>Member Since</strong> <br>
+Jan 1, 2019</li>
+				   </ul>
+				   
+				   </div>
+				   <div class="">
+
+					   <ul class="list-unstyled">
+
+						   <li><p><strong>Last Visit</strong> <br>
+Nov 11, 2019</p></li>
+						   <li><strong>Visits this Month</strong> <br>
+4</li>
+				   </ul>
+				   
+				   </div>
+					   
+					   </div>
+					   </div>
+				   </div>
+				   
+			   
+			   <div class="form-group mr-2">
+				   <label><strong>Birthdate</strong>
+					<input type="text" class="form-control" disabled value="June 10, 1985">					  
+				   </label>
+			   </div>
+			   
+
+			   <hr>
+			   <h3 class="h6"><strong>Contact</strong></h3>
+			   <div class="d-flex flex-wrap justify-content-between py-2">
+			   <div class="form-group mr-2">
+				   <label>City
+					<input type="text" class="form-control" disabled value="Minneapolis">					  
+				   </label>
+			   </div>
+				<div class="form-group mr-2">
+				   <label>State
+					<input type="text" class="form-control" disabled value="MN">					  
+				   </label>
+			   </div>
+			
+				<div class="form-group mr-2">
+				   <label>Phone
+					<input type="text" class="form-control" disabled value="612-555-5555">					  
+				   </label>
+			   </div>
+				   <div class="form-group mr-2 flex-fill">
+				   <label class="d-block">Email
+					<input type="email" class="form-control" disabled value="uniquething@domain.com">					  
+				   </label>
+			   </div>
+			   </div>
+		  </div>
+      </div>
+    </div>
+
+
+  <span id="client_detail_modals">
+	  
+ <div id="toasts" class="position-absolute" style=" left:0; right: 0; bottom: 0;">
+    <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center">
+      <div id="coachesSuccess" class="toast toast-success hide" role="alert" aria-live="assertive" aria-atomic="true" data-delay="1500" style=" z-index: 60">
+        <div class="toast-header"> <i class="icon-circle-check mr-2"></i> <strong class="mr-auto">Success</strong>
+          <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+        </div>
+        <div class="toast-body"> <span data-coach-name></span> has been assigned as <span data-client-name></span> coach. </div>
+      </div>
+      <div id="planSuccess" class="toast toast-success hide" role="alert" aria-live="assertive" aria-atomic="true" data-delay="1500" style=" z-index: 60">
+        <div class="toast-header"> <i class="icon-circle-check mr-2"></i> <strong class="mr-auto">Success</strong>
+          <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+        </div>
+        <div class="toast-body"> The task has been added. </div>
+      </div>
+    </div>
+  </div>
+	  
+  <!-- Manage Coaches Modal-->
+  
+  <div class="modal fade" id="coachesModal" tabindex="-1" role="dialog" aria-labelledby="coachesModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div id="assignment-clients" class="modal-content">
+        <div class="modal-header d-block">
+          <h1 class="modal-title h5" id="coachesModalLabel"><strong>Assign Coach</strong></h1>
+          <div class="input-group mt-2">
+            <div class="input-group-prepend"> <span class="input-group-text"><i class="icon-search"></i></span> </div>
+            <input id="coach_list_search" type="text" class="form-control" placeholder="Search by name" aria-label="Search by name" aria-describedby="basic-addon1">
+          </div>
+        </div>
+        <div class="modal-body p-0" id="list_coaches">
+          <ul id="the_coaches_list" class="list-group list-group-flush">
+            <li class="list-group-item ">
+              <label class=" d-flex align-items-center  custom-radio">
+              <i class="mug mug-md mr-2" style="background-image: url(//anytimefitness.blob.core.windows.net/user-photos/d517e8d0-b8e6-4926-93de-8568fdb3d5dd.jpg)"></i>
+              <div class="d-flex flex-column flex-fill name px-2"><span data-type="name">Jon Reischl (Me)</span><small class="text-muted">6 clients</small></div>
+              <input type="radio" name="coaches" value="option1">
+              <i class="indicator"></i>
+              </label>
+            </li>
+            <li class="list-group-item ">
+              <label class=" d-flex align-items-center custom-radio">
+              <i class="mug mug-md mr-2" style="background-image: url(//randomuser.me/api/portraits/women/60.jpg)"></i>
+              <div class="d-flex flex-column flex-fill name px-2"><span data-type="name">Phyllis Saroka</span><small class="text-muted">4 clients</small></div>
+              <input type="radio" name="coaches" value="option1">
+              <i class="indicator"></i>
+              </label>
+            </li>
+          </ul>
+          <p id="no_coach_results" class="p-4" style="display: none;">No matching coaches.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" data-action="assign_coach">Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Assign Plan-->
+  
+  <div class="modal fade" id="planAssignmentModal" tabindex="-1" role="dialog" aria-labelledby="planAssignmentModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div id="assignment-plan" class="modal-content">
+        <div class="modal-header d-block">
+			<div class="d-flex justify-content-between align-items-start">
+          <h2 class="modal-title heading  mt-2 " id="planAssignmentModalLabel"><strong>Select Plan</strong></h2>
+			
+				</div>
+			<!-- Possible remove if Plans concept is changing
+          <div class="d-flex justify-content-between">
+            <select class="form-control mr-sm-2">
+              <option>My Plans</option>
+            </select>
+            <div class="input-group">
+              <div class="input-group-prepend"> <span class="input-group-text"><i class="icon-search"></i></span> </div>
+              <input id="plan_list_search" type="text" class="form-control" placeholder="Search by plan name" aria-label="Search by name" aria-describedby="basic-addon1">
+            </div>
+          </div>-->
+        </div>
+        <div class="modal-body p-0" id="list_plans">
+          <ul id="the_plans_list" class="list-group list-group-flush">
+            <li class="list-group-item ">
+              <label class=" d-flex align-items-center  custom-radio">
+              <div class="d-flex flex-column flex-fill name px-2"><span data-type="plan">Increase Muscle Mass</span><small class="text-muted">Focus on both large and small muscle groups (like biceps) with exercises that isolate the muscle. Few reps, higher weight.</small></div>
+              <input type="radio" name="plans" value="option1">
+              <i class="indicator"></i>
+              </label>
+            </li>
+            <li class="list-group-item ">
+              <label class=" d-flex align-items-center custom-radio">
+              <div class="d-flex flex-column flex-fill name px-2"><span data-type="plan">Tone muscle and lose weight</span><small class="text-muted">Do higher reps and lower weight in circuit training forms. Less complex exercises often with more basic equipment.
+</small></div>
+              <input type="radio" name="plans" value="option2">
+              <i class="indicator"></i>
+              </label>
+            </li>
+            <li class="list-group-item ">
+              <label class=" d-flex align-items-center custom-radio">
+              <div class="d-flex flex-column flex-fill name px-2"><span data-type="plan">Learn exercises and try new gym equipment
+</span><small class="text-muted">Maximize your gym membership with workouts designed to touch everything the gym has to offer. 
+</small></div>
+              <input type="radio" name="plans" value="option3">
+              <i class="indicator"></i>
+              </label>
+            </li>
+			  <li class="list-group-item ">
+              <label class=" d-flex align-items-center custom-radio">
+              <div class="d-flex flex-column flex-fill name px-2"><span data-type="plan">Practice powerlifting</span><small class="text-muted">Practice and master the specialized training format of power weight lifting.</small></div>
+              <input type="radio" name="plans" value="option4">
+              <i class="indicator"></i>
+              </label>
+            </li>
+			   <li class="list-group-item ">
+              <label class=" d-flex align-items-center custom-radio">
+              <div class="d-flex flex-column flex-fill name px-2"><span data-type="plan">Practice Olympic Weightlifting
+</span><small class="text-muted">Practice and master the specialized training format of olympic weight lifting.</small></div>
+              <input type="radio" name="plans" value="option5">
+              <i class="indicator"></i>
+              </label>
+            </li>
+			  <li class="list-group-item ">
+              <label class=" d-flex align-items-center  custom-radio">
+              <div class="d-flex flex-column flex-fill name px-2"><span data-type="plan">Increase Muscle Mass</span><small class="text-muted">Focus on both large and small muscle groups (like biceps) with exercises that isolate the muscle. Few reps, higher weight.</small></div>
+              <input type="radio" name="plans" value="option6">
+              <i class="indicator"></i>
+              </label>
+            </li>
+            <li class="list-group-item ">
+              <label class=" d-flex align-items-center custom-radio">
+              <div class="d-flex flex-column flex-fill name px-2"><span data-type="plan">Tone muscle and lose weight</span><small class="text-muted">Do higher reps and lower weight in circuit training forms. Less complex exercises often with more basic equipment.
+</small></div>
+              <input type="radio" name="plans" value="option7">
+              <i class="indicator"></i>
+              </label>
+            </li>
+            <li class="list-group-item ">
+              <label class=" d-flex align-items-center custom-radio">
+              <div class="d-flex flex-column flex-fill name px-2"><span data-type="plan">Learn exercises and try new gym equipment
+</span><small class="text-muted">Maximize your gym membership with workouts designed to touch everything the gym has to offer. 
+</small></div>
+              <input type="radio" name="plans" value="option8">
+              <i class="indicator"></i>
+              </label>
+            </li>
+			  <li class="list-group-item ">
+              <label class=" d-flex align-items-center custom-radio">
+              <div class="d-flex flex-column flex-fill name px-2"><span data-type="plan">Practice powerlifting</span><small class="text-muted">Practice and master the specialized training format of power weight lifting.</small></div>
+              <input type="radio" name="plans" value="option9">
+              <i class="indicator"></i>
+              </label>
+            </li>
+			  
+          </ul>
+          <p id="no_plan_results" class="p-4" style="display: none;">No matching plans.</p>
+        </div>
+        <div class="modal-footer">
+			<div class="flex-fill">
+			
+			
+			<button type="button" class="btn btn-link " data-dismiss="modal" data-toggle="modal" data-target="#taskAssignmentModal">Create New Plan <small class="icon-plus"></small></button>
+			
+			</div>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-action="schedule_assignment">Next</button>
+        </div>
+      </div>
+      <div id="assignment-send" class="modal-content">
+        <div class="modal-header d-flex">
+          <button type="button" class="btn btn-link mr-2 d-block" data-action="back_to_plans"><span class="sr-only">Back</span><span aria-hidden="true"><i class="icon-arrow-left3"></i></span></button>
+          <h2 class="modal-title heading mt-2 flex-grow-1 border-left pl-4" id=""><strong>Assign Plan</strong></h2>
+        </div>
+        <div class="modal-body">
+          <div>
+            <div class="form-group">
+              <label for="assignment-datepicker">Start Date</label>
+              <input type="text" id="assignment-datepicker" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="assignment-message">Additional Message</label>
+              <textarea id="assignment-message" class="form-control"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">			
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" data-action="send_assignemnt">Assign</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Assign Task-->
+  
+  <div class="modal fade" id="taskAssignmentModal" tabindex="-1" role="dialog" aria-labelledby="taskAssignmentModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header d-flex">
+          <h2 class="modal-title heading mb-0" id="taskAssignmentModalLabel"><strong>Assign Task</strong></h2>
+          <div class="d-flex justify-content-between">
+
+              <label for="task_select" class="sr-only">Task Type</label>
+              <select id="task_select" class="form-control">
+                <option value="modal_task_workout">Workout</option>
+				  <option value="modal_task_activity">Nutrition Task</option>
+				  <option value="modal_task_activity">Activity Task</option>
+				  <option value="modal_task_activity">Schedule Body Scan</option>
+                <option value="modal_task_activity">Schedule Assessment</option>                
+              </select>
+           
+          </div>
+		  </div>
+		  <div class="modal-body" id="modal_task_workout">	
+			  <button class="btn btn-link"><i class="icon-search"></i> </button>
+			  <button class="btn btn-link"><i class="icon-filter"></i> </button>
+		  	<ul class="list-unstyled"></ul>		  
+		  </div>
+		  
+		  <div class="modal-body" id="modal_task_workout_detail" style="display:none">	
+		  </div>
+		  
+		  <div class="modal-body" id="modal_task_activity" style="display:none">
+           <div class="form-group">
+            <label for="task-name">Task</label>
+            <input id="task-name" class="form-control" placeholder="e.g. Take a walk around the block">
+          </div>
+			<div class="form-group">
+            <label for="task-message">Additional Message</label>
+            <textarea id="task-message" class="form-control"></textarea>
+          </div>
+		  
+		  <div class="custom-control custom-checkbox">
+			  <input type="checkbox" class="custom-control-input" id="customCheck1">
+			  <label class="custom-control-label" for="customCheck1">Pin until complete</label>
+			</div>
+		  
+        </div>
+		  
+        <div class="modal-footer"> 
+			
+
+              <label for="assign_when" class="sr-only">When to Assign</label>
+              <select id="assign_when" class="form-control">
+                  <option>Day of Plan</option>
+				  <option>Date</option>
+              </select>
+           
+			
+              <label for="task-datepicker" class="sr-only">Start Date</label>
+              <input type="text" id="task-datepicker" class="form-control" placeholder="Start Date">
+          <button type="button" class="btn btn-secondary nowrap" data-dismiss="modal">Never mind</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" data-action="assign_task">Assign</button>
+        </div>
+      </div>
+    </div>
+  </div>
+	  
+	    <!-- Edit Task-->
+  
+  <div class="modal fade" id="workoutEditModal" tabindex="-1" role="dialog" aria-labelledby="workoutEditModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header d-flex">
+          <h2 class="modal-title heading mb-0" id="workoutEditModalLabel"><strong>Edit Workout</strong></h2>
+       
+		  </div>
+		  		
+		  
+        <div class="modal-footer"> 
+			
+
+            
+           
+			
+            
+          <button type="button" class="btn btn-secondary nowrap" data-dismiss="modal">Never mind</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" data-action="assign_task">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Manage Plan Modal-->
+  <div class="modal fade" id="managePlanConf" tabindex="-1" role="dialog" aria-labelledby="managePlanConfLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title h5" id="managePlanConfLabel">Are you sure you want to unassign this plan?</h1>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+        </div>
+        <div class="modal-body"> Something about the consequences of unassigning this plan. </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Never mind</button>
+          <button type="button" class="btn btn-primary">Proceed!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+	
+<!--	deleteAdhocTask -->
+    <div class="modal fade" id="deleteAdhocTask" tabindex="-1" role="dialog" aria-labelledby="deleteAdhocTaskLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title h5" id="deleteAdhocTaskLabel">Are you sure you want to delete this task?</h1>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+        </div>
+        <div class="modal-body"> Something about the consequences of deleting this task. </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Never mind</button>
+          <button type="button" class="btn btn-primary">Proceed!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Notes Modal-->
+  <div class="modal fade" id="view_note" tabindex="-1" role="dialog" aria-labelledby="view_note_label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title h5" id="view_note_label">10/1/2019 — Video Check-in — Charles Atlas</h1>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+        </div>
+        <div class="modal-body">
+          <p>Here's all the notes I wrote. Also, if I completed a Fit Check, the results are listed here in plain text, that data will also be represented on a graph in the Stats tab.</p>
+			<p><strong>Fit Check</strong></p>
+			<ol>
+				<li>Squats: 50 — soreness in back</li>
+				<li>Skaters: 30</li>
+				<li>Push-ups: 27</li>
+				<li>Bridges: 30</li>
+				<li>Mountain Climberse: 30</li>
+				<li>Alternating Reverse Lunges: 30</li>
+			
+			</ol>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Edit</button>
+          <button type="button" class="btn btn-primary"  data-dismiss="modal">Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Adherence Modal-->
+  <div class="modal fade" id="adherenceModal" tabindex="-1" role="dialog" aria-labelledby="adherenceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title h5" id="adherenceModalLabel">Daily Adherence</h1>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+        </div>
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table table-striped table-sm nowrap" style="font-size: small">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">DATE</th>
+                  <th scope="col">WORKOUT</th>
+                  <th scope="col">NUTRITION</th>
+                  <th scope="col">MOOD</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="">Sep 01, 2019</td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> <span>10 of the Toughest</span></td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> Eat less garbage </td>
+                  <td>ðŸ‘  Happy</td>
+                </tr>
+                <tr>
+                  <td>Aug 31, 2019</td>
+                  <td><i class="icon-x-small text-danger mr-1" aria-hidden="true" aria-label="success"></i> 10 of the Fastest</td>
+                  <td><i class="icon-ellipses text-muted mr-1" aria-hidden="true" aria-label="no response"></i> Only drink Bud Light Platinum </td>
+                  <td>ðŸ‘  Happy</td>
+                </tr>
+                <tr>
+                  <td>Aug 30, 2019</td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> 10 of the Most Complicated</td>
+                  <td><i class="icon-x-small text-danger mr-1" aria-hidden="true" aria-label="fail"></i> Limit yourself to only one pie </td>
+                  <td>ðŸ‘Ž  Disappointed</td>
+                </tr>
+                <tr>
+                  <td>Aug 29, 2019</td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> 10 of the Loudest</td>
+                  <td><i class="icon-x-small text-danger mr-1" aria-hidden="true" aria-label="fail"></i> Avoid rooms that contain cheese </td>
+                  <td>No Reponse</td>
+                </tr>
+                <tr>
+                  <td class="">Sep 01, 2019</td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> <span>10 of the Toughest</span></td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> Eat less garbage </td>
+                  <td>ðŸ‘  Happy</td>
+                </tr>
+                <tr>
+                  <td>Aug 31, 2019</td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> 10 of the Fastest</td>
+                  <td><i class="icon-ellipses text-muted mr-1" aria-hidden="true" aria-label="no response"></i> Only drink Bud Light Platinum </td>
+                  <td>ðŸ‘  Happy</td>
+                </tr>
+                <tr>
+                  <td>Aug 30, 2019</td>
+                  <td><i class="icon-x-small text-danger mr-1" aria-hidden="true" aria-label="success"></i> 10 of the Most Complicated</td>
+                  <td><i class="icon-x-small text-danger mr-1" aria-hidden="true" aria-label="fail"></i> Limit yourself to only one pie </td>
+                  <td>ðŸ‘Ž  Disappointed</td>
+                </tr>
+                <tr>
+                  <td>Aug 29, 2019</td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> 10 of the Loudest</td>
+                  <td><i class="icon-x-small text-danger mr-1" aria-hidden="true" aria-label="fail"></i> Avoid rooms that contain cheese </td>
+                  <td>No Reponse</td>
+                </tr>
+                <tr>
+                  <td class="">Sep 01, 2019</td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> <span>10 of the Toughest</span></td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> Eat less garbage </td>
+                  <td>ðŸ‘  Happy</td>
+                </tr>
+                <tr>
+                  <td>Aug 31, 2019</td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> 10 of the Fastest</td>
+                  <td><i class="icon-ellipses text-muted mr-1" aria-hidden="true" aria-label="no response"></i> Only drink Bud Light Platinum </td>
+                  <td>ðŸ‘  Happy</td>
+                </tr>
+                <tr>
+                  <td>Aug 30, 2019</td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> 10 of the Most Complicated</td>
+                  <td><i class="icon-x-small text-danger mr-1" aria-hidden="true" aria-label="fail"></i> Limit yourself to only one pie </td>
+                  <td>ðŸ‘Ž  Disappointed</td>
+                </tr>
+                <tr>
+                  <td>Aug 29, 2019</td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> 10 of the Loudest</td>
+                  <td><i class="icon-x-small text-danger mr-1" aria-hidden="true" aria-label="fail"></i> Avoid rooms that contain cheese </td>
+                  <td>No Reponse</td>
+                </tr>
+                <tr>
+                  <td class="">Sep 01, 2019</td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> <span>10 of the Toughest</span></td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> Eat less garbage </td>
+                  <td>ðŸ‘  Happy</td>
+                </tr>
+                <tr>
+                  <td>Aug 31, 2019</td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> 10 of the Fastest</td>
+                  <td><i class="icon-ellipses text-muted mr-1" aria-hidden="true" aria-label="no response"></i> Only drink Bud Light Platinum </td>
+                  <td>ðŸ‘  Happy</td>
+                </tr>
+                <tr>
+                  <td>Aug 30, 2019</td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> 10 of the Most Complicated</td>
+                  <td><i class="icon-x-small text-danger mr-1" aria-hidden="true" aria-label="fail"></i> Limit yourself to only one pie </td>
+                  <td>ðŸ‘Ž  Disappointed</td>
+                </tr>
+                <tr>
+                  <td>Aug 29, 2019</td>
+                  <td><i class="text-success icon-check mr-1" aria-hidden="true" aria-label="success"></i> 10 of the Loudest</td>
+                  <td><i class="icon-x-small text-danger mr-1" aria-hidden="true" aria-label="fail"></i> Avoid rooms that contain cheese </td>
+                  <td>No Reponse</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <hr>
+          <nav aria-label="...">
+            <ul class="pagination  pagination-sm">
+              <li class="page-item disabled"> <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a> </li>
+              <li class="page-item active"  aria-current="page"><a class="page-link" href="#">1 <span class="sr-only">(current)</span></a></li>
+              <li class="page-item "> <a class="page-link" href="#">2</a> </li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"> <a class="page-link" href="#">Next</a> </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</span>
+<script>
+	
+	// Move Modals 
+	
+	$('#client_detail_modals').appendTo('aside');
+	
+		 
+	 // Fire Graph
+	/*
+	 $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+		 
+
+
+var options = {
+	exportEnabled: true,
+	animationEnabled: true,
+	 backgroundColor: "#F8F8F8",
+
+	title:{
+		text: ""
+	},
+	subtitles: [{
+		text: "",
+		fontFamily: "tahoma",
+	}],
+	axisX: {
+		title: ""
+	},
+	axisY: {
+		title: "",
+		titleFontColor: "#4F81BC",
+		lineColor: "#4F81BC",
+		labelFontColor: "#4F81BC",
+		tickColor: "#4F81BC",
+		includeZero: false
+	},
+	axisY2: {
+		title: "Bio Age",
+		titleFontColor: "#C0504E",
+		lineColor: "#C0504E",
+		labelFontColor: "#C0504E",
+		tickColor: "#C0504E",
+		includeZero: false
+	},
+	toolTip: {
+		shared: true
+	},
+	legend: {
+		cursor: "pointer",
+		itemclick: toggleDataSeries
+	},
+	data: [{
+		type: "spline",
+		name: "Weight",
+		showInLegend: true,
+		xValueFormatString: "MMM YYYY",
+		yValueFormatString: "#,##0 lbs",
+		dataPoints: [
+			{ x: new Date(2016, 0, 1),  y: 162 },
+			{ x: new Date(2016, 1, 1), y: 163 },
+			{ x: new Date(2016, 2, 1), y: 160 },
+			{ x: new Date(2016, 3, 1),  y: 165 },
+			{ x: new Date(2016, 4, 1),  y: 167 },
+
+		]
+	},
+	{
+		type: "spline",
+		name: "Lean Body Mass",
+		showInLegend: true,
+		xValueFormatString: "MMM YYYY",
+		yValueFormatString: "#,##0.#/High",
+		dataPoints: [
+			{ x: new Date(2016, 0, 1),  y: 123.5 },
+			{ x: new Date(2016, 1, 1), y: 121 },
+			{ x: new Date(2016, 2, 1), y: 123 },
+			{ x: new Date(2016, 3, 1),  y: 125 },
+			{ x: new Date(2016, 4, 1),  y: 122 },
+
+		]
+	},
+           {
+		type: "spline",
+		name: "Bio Age",
+		axisYType: "secondary",
+		showInLegend: true,
+		xValueFormatString: "MMM YYYY",
+		yValueFormatString: "#,##0.#",
+		dataPoints: [
+			{ x: new Date(2016, 0, 1),  y: 31.5 },
+			{ x: new Date(2016, 1, 1), y: 30 },
+			{ x: new Date(2016, 2, 1), y: 29 },
+			{ x: new Date(2016, 3, 1),  y: 29 },
+			{ x: new Date(2016, 4, 1),  y: 28 },
+
+		]
+	},
+                    {
+		type: "spline",
+		name: "Fitness Score",
+		showInLegend: true,
+		xValueFormatString: "MMM YYYY",
+		yValueFormatString: "##.# out of 100",
+		dataPoints: [
+			{ x: new Date(2016, 0, 1),  y: 77.5 },
+			{ x: new Date(2016, 1, 1), y: 76.3 },
+			{ x: new Date(2016, 2, 1), y: 77.2 },
+			{ x: new Date(2016, 3, 1),  y: 79.1 },
+			{ x: new Date(2016, 4, 1),  y: 82.1 },
+
+		]
+	},
+    {
+		type: "spline",
+		name: "Body Fat",
+		axisYType: "secondary",
+		showInLegend: true,
+		xValueFormatString: "MMM YYYY",
+		yValueFormatString: "###&percnt;",
+		dataPoints: [
+			{ x: new Date(2016, 0, 1),  y: 24 },
+			{ x: new Date(2016, 1, 1), y: 25 },
+			{ x: new Date(2016, 2, 1), y: 26 },
+			{ x: new Date(2016, 3, 1),  y: 25 },
+			{ x: new Date(2016, 4, 1),  y: 24 },
+
+		]
+	}
+          ]
+};
+$("#chartContainer").CanvasJSChart(options);
+
+function toggleDataSeries(e) {
+	if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+		e.dataSeries.visible = false;
+	} else {
+		e.dataSeries.visible = true;
+	}
+	e.chart.render();
+}
+
+$('#chartContainer').fadeIn();
+		 
+	 })
+	 */
+	
+	
+	// Fake WYSIWYG
+	 $('#fake_wysiwyg').load("includes/fake_wysiwyg.html");
+	
+	
+	// Load Modal Workout Detail0
+	 $('#modal_task_workout_detail').load("includes/workout_assign_modal.html");
+
+	
+	
+	// Assign Coach
+	 $('[data-action="assign_coach"]').click(function(){
+		 var newCoach = $('#the_coaches_list :checked').siblings().find('[data-type="name"]').text();
+		 var theClient = $('#wall_Detail [data-name]').text();
+		 $('#coachesSuccess').toast('show');
+		 $('#coachesSuccess [data-coach-name]').text(newCoach);
+		 $('#coachesSuccess [data-client-name]').text(theClient);
+//		 $('#clients_list > .indicate').fadeOut();
+		 $('#clients_list > .indicate [data-coach-name]').text(newCoach);
+		 $('#wall_Detail [data-coach]').text(newCoach);
+		 $('#wall_Detail [data-proprietary]').fadeToggle();
+	 })
+	 
+	 
+ // ------ Plan Assignment Modal
+	  
+  	  $('#assignment-send').hide();
+	  $('#assignment-result').hide();
+	  
+	  $('[data-action="schedule_assignment"]').click(function(){
+		  $('#assignment-plan').hide();
+		  $('#assignment-send').fadeIn();
+		  
+	  });
+	  
+	  
+	  $('[ data-action="back_to_plans"]').click(function(){
+		  $('#assignment-plan').fadeIn();
+		  $('#assignment-send').hide();
+		  
+	  });
+	 
+	  
+	  
+	  $('[data-action="assign_task"]').click(function(){
+		  $('#planSuccess').toast('show');		  		 		
+	  });
+
+
+	 
+	 	// Load Daily Adherence
+	   $.getJSON('js/adherence.json', function(data) {
+		    $.each(data.days, function(i, f) {
+			  var dayItem = '<div class="item border-bottom mb-2" aria-labelledby="adherence_'+ f.date +'"><ul class="list-unstyled d-flex justify-content-between align-items-start text-center row mb-2"><li class="col-lg-3"><div class="text-left" id="adherence_'+ f.date +'"><small><strong>'+ f.dow +'</strong>&nbsp;<br class="d-none d-lg-block">'+ f.date_formatted +'</small></div></li><li class="col-4 col-lg-3"><a tabindex="0" href="#" class="btn-tile btn-secondary" role="button" data-container="body" data-trigger="focus" data-toggle="popover" data-placement="bottom" data-content="<strong>Workout: </strong>'+ f.workout +'"><div><small><strong class="text-muted">WORKOUT</strong></small></div><div data-status="'+ f.workout_status +'" class=""><i class="icon-ellipses text-muted" aria-hidden="true"><span class="sr-only"></span></i></div></a></li><li class="col-4 col-lg-3"><a  tabindex="0" href="#" class="btn-tile btn-secondary" role="button" data-container="body" data-toggle="popover" data-placement="bottom" data-content="<strong>Goal: </strong>'+ f.nutrition_goal +'"><div><small><strong class="text-muted">NUTRITION</strong></small></div><div data-status="'+ f.nutrition_status +'" class=""><i class="icon-x-small text-danger" aria-hidden="true"><span class="sr-only"></span></i></div></a></li><li class="col-4 col-lg-3"><a  tabindex="0" href="#" class="btn-tile btn-secondary" role="button" data-container="body" data-toggle="popover" data-placement="bottom" data-content="<strong>Mood: </strong>'+ f.mood +'"><div><small><strong class="text-muted">MOOD</strong></small></div><div data-status="'+ f.mood_status +'" class=""><span class="icon-ellipses" aria-hidden="true"><span class="sr-only">Complete</span></i></div></a></li></ul></div>'			  
+			   $(dayItem).prependTo("#adherence-daily");
+			});
+		   
+
+		   
+		   // Set status
+		   $('[data-status="success"]').find('i').attr('class', '').addClass('text-success icon-check');
+		   $('[data-status="fail"]').find('i').attr('class', '').addClass('icon-x-small text-danger');
+		   $('[data-status="none"]').find('i').attr('class', '').addClass('icon-ellipses text-muted');
+		   $('[data-status="frown"]').find('span').attr('class', '').text('ðŸ‘Ž');
+		   $('[data-status="smile"]').find('span').attr('class', '').text('ðŸ‘ ');
+		   
+		   
+		   
+		   	 // Enable Popovers 
+			  $('[data-toggle="popover"]').popover({
+				  html: true,
+				  trigger: 'focus',
+				  template: '<div class="popover popover-dark" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
+			  })
+		   
+		   
+		   
+		   
+	   });
+	 
+	 
+	  	// Load Upcoming Tasks
+	   $.getJSON('js/adherence.json', function(data) {
+		   $.each(data.days, function(i, f) {
+			  var dayItem = '<li class="item border-bottom my-2 pb-2 text-left"><div class="d-flex"><div class=" mr-2 text-center bg-gray p-1 rounded"><small><strong class="">DAY</strong></small><div class="h2">'+ f.day +'</div> </div>		<div class="flex-fill"><small class="text-muted">'+ f.date_formatted +'</small><div class="task position-relative border-bottom-dashed pb-2 mb-2 d-flex align-items-center"><div class="flex-fill"><i class="icon-workouts list-icon-sm text-primary"></i> '+ f.workout +'</div><a class="btn btn-takeover" data-action="edit_workout" data-toggle="modal" data-target="#workoutEditModal" href="#workoutEditModal"><span class="sr-only">Edit Task</span></a></div><div class="task position-relative d-flex align-items-center"><div class="flex-fill"><i class="icon-apple list-icon-sm text-nutrition"></i> '+ f.nutrition_goal +'</div></div></div></div></li>'			  
+			   $(dayItem).appendTo("#next7days");
+			});
+		   
+		   //----Note in the above, tabindex="0" has been included in the <a> elements as a hack to allow the Popover functionality in Safari
+		   
+		   // Add controls to each task 
+		   $('#next7days .task').each(function(){
+			   $(this).append('<div class="d-flex align-items-center justify-content-end flex-row-reverse"><span class="icon-drag p-2 ml-2 btn btn-link ui-sortable-handle" data-action="drag"></span><div class="dropdown" data-action="more"> <button class="btn btn-link p-2 icon-tab-more-active" type="button" id="menu-plan-1" data-toggle="dropdown" aria-expanded="false"> <span class="sr-only">Controls</span></button><div class="dropdown-menu" aria-labelledby="menu-plan-1" x-placement="bottom-start"><a class="dropdown-item" href="#duplicate_task">Duplicate Task</a>  <a class="dropdown-item" href="#delete_task">Delete Task</a>  </div></div></div>')
+		   })
+		   
+		   
+		   // Set status
+		   $('[data-status="success"]').find('i').attr('class', '').addClass('text-success icon-check');
+		   $('[data-status="fail"]').find('i').attr('class', '').addClass('icon-x-small text-danger');
+		   $('[data-status="none"]').find('i').attr('class', '').addClass('icon-ellipses text-muted');
+		   $('[data-status="frown"]').find('span').attr('class', '').text('ðŸ‘Ž');
+		   $('[data-status="smile"]').find('span').attr('class', '').text('ðŸ‘ ');
+		   
+		   
+		   
+		   	 // Enable Popovers 
+			  $('[data-toggle="popover"]').popover({
+				  html: true,
+				  trigger: 'focus',
+				  template: '<div class="popover popover-dark" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
+			  })
+		   
+		   
+		   	// Load Modal Workout Detail (for Edit Task)
+
+	$('[data-action="edit_workout"]').click(function(){
+			$('#modal_task_workout_detail').insertAfter('#workoutEditModal .modal-header').show();
+		});	
+	
+
+		   
+		   
+		   
+	   });
+	
+	//---- Assign Coach
+	 
+	 // Search Coaches 
+	 $('#coach_list_search').keyup(function() {
+				$('#no_coach_results').hide();
+			  	$('#the_coaches_list li').hide();
+			  var txt = $('#coach_list_search').val();
+			  $('#the_coaches_list li').each(function() {
+				  
+				if ($(this).find('[data-type="name"]').text().toUpperCase().indexOf(txt.toUpperCase()) != -1) {
+				  $(this).show();
+				}	
+				 else if ($('#the_coaches_list li.d-flex').length === 0){
+					  $('#no_coach_results').show()
+				  }
+				  
+				  
+				  
+			  });
+				
+			});
+	 
+	 
+	 $('[data-action="assign_coach"]').click(function(){
+		 var newCoach = $('#the_coaches_list :checked').siblings().find('[data-type="name"]').text();
+		 var theClient = $('#wall_Detail [data-name]').text();
+		 $('#coachesSuccess').toast('show');
+		 $('#coachesSuccess [data-coach-name]').text(newCoach);
+		 $('#coachesSuccess [data-client-name]').text(theClient);
+//		 $('#clients_list > .indicate').fadeOut();
+		 $('#clients_list > .indicate [data-coach-name]').text(newCoach);
+		 $('#wall_Detail [data-coach]').text(newCoach);
+		 $('#wall_Detail [data-proprietary]').fadeToggle();
+	 })
+	 
+	 
+	 // Date Picker 
+	 $( "#scan-datepicker1" ).datepicker();
+	 $( "#scan-datepicker2" ).datepicker();
+	 
+	 $('#note-datepicker1').datepicker();
+	 $('#task-datepicker').datepicker();
+	
+	$('#assignment-datepicker').datepicker();
+	
+	// Load Workouts into Modal 
+		
+	  $.getJSON('js/workouts.json', function(data) {
+    
+       $.each(data.workout, function(i, f) {
+          var workoutItem = '<li><div class="m-2 plan-day d-flex flex-grow-1 align-items-center position-relative"><button class="btn btn-sm btn-primary icon-plus p-2 mr-4" data-action="select_modal_workout" style="z-index:1"><span class="sr-only">Add to Plan</span></button><button class="btn btn-sm btn-secondary icon-x p-2 mr-4" data-action="unselect_modal_workout" style="z-index:1; display:none"><span class="sr-only">Remove</span></button><i class="thumbnail populated" style="background-image: url(https://pumpone.com/static_images/320/'+ f.poster +'.jpg)"></i><div class="d-flex flex-column flex-fill"><span class="workout-name">'+ f.name +' </span><small>'+ f.exercises +' Exercises, '+ f.duration +', '+ f.energy +'</small></div><button  class="icon-point-right p-2 ml-2 btn btn-link btn-takeover" data-action="view_modal_workout_detail"></button></div></li>'			  
+           $(workoutItem).appendTo("#modal_task_workout > ul");
+		   	   
+		   
+		   // Remove broken image path
+		   $( "#Workouts-Library i[style*='/.jpg']" ).css( "background-image", "" ).removeClass('populated');
+
+
+		   
+		   
+		   // Search Workouts 
+			$('#search_workouts').keyup(function() {
+			  $('#Workouts-Library [data-collection]').hide();
+			  var txt = $('#search_workouts').val();
+			  $('#Workouts-Library [data-collection]').each(function() {
+				if ($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1) {
+				  $(this).show();
+				}
+			  });
+			});
+
+		   
+     });
+		  
+		  // Select Modal Workout 
+		  
+		  $('[data-action="select_modal_workout"]').click(function(){
+			  $(this).hide().next().show();
+			  $(this).closest('ul').children('li').hide();
+			  $(this).closest('li').show();
+		  })
+		  $('[data-action="view_modal_workout_detail"]').click(function(){
+			  $('#modal_task_workout').hide();
+			  $('#modal_task_workout_detail').fadeIn();
+		  	})
+	
+		  
+		
+		// Show Workout Detail		  
+
+		$('[data-action="view_workout_detail"]').click(function(){
+			
+			var theCollect = $(this).parent().parent('li');
+			var theWorkout = $(this).prev().children('.workout-name').html();
+			var theWOPoster = $(this).siblings('.populated').css('background-image');
+			
+			if ($(theCollect).attr('data-collection') == 'custom' ){
+				$('[data-action="edit_workout"]').show();
+			}
+			else {
+				$('[data-action="edit_workout"]').show();
+			}						
+
+
+			$('#workout_name').html(theWorkout);
+			$('.indicate').removeClass('indicate');
+
+			$('[data-roll]').attr('data-roll','absent');
+
+			$(this).closest('li').addClass('indicate');
+			$(this).closest('section').attr('data-roll','present').siblings('#wall_Overview').attr('data-roll','engaged');
+			$('.poster').addClass('populated').css('background-image', theWOPoster);
+			$('button[data-action="back_to_workouts"]').removeClass('d-sm-none');
+			
+			
+			// Draft/Publish UI
+			if ($(theCollect).attr('data-status') == 'draft' ){
+				$('[data-action="publish"]').show();
+				$('[data-action="unpublish"]').hide();
+				$('#wall_Overview #workout_name .badge').removeClass('badge-success').addClass('badge-warning')
+			}
+			else {
+				$('[data-action="unpublish"]').show();
+				$('[data-action="publish"]').hide();
+				$('#wall_Overview #workout_name .badge').addClass('badge-success').removeClass('badge-warning')
+			}
+			
+			
+			$('[data-action="publish"]').click(function(){
+				$(this).hide().siblings('[data-action="unpublish"]').show();
+				$('#wall_Overview #workout_name .badge').addClass('badge-success').removeClass('badge-warning').text('published');
+				$('#Workouts-Library .indicate').attr('data-status', 'published');
+			});
+			$('[data-action="unpublish"]').click(function(){
+				$(this).hide().siblings('[data-action="publish"]').show();
+				$('#wall_Overview #workout_name .badge').removeClass('badge-success').addClass('badge-warning').text('draft');
+				$('#Workouts-Library .indicate').attr('data-status', 'draft').find('.badge').text('draft');
+			})
+
+			
+			 // Show Exercise Detail 
+			   $('[data-action="view_detail"]').click(function(){		   		   
+//				   $('#wall_Overview').addClass('view-exercise');
+//				   $(this).closest('li').show().addClass('detail');
+				   $(this).closest('li').find('.details').slideToggle();
+				   $([document.documentElement, document.body]).animate({
+						scrollTop: $(this).closest('li').offset().top-80
+					}, 500);
+				   var theVid = $(this).parent().children().children('video');
+				   var vidSrc = $(this).parent().children().children('video').attr('src');
+				   var thePoster = $(this).siblings('.populated').css('background-image');
+
+				   if (vidSrc == "") {
+					  $(theVid).hide();
+					  $(theVid).parent().css('background', thePoster+'no-repeat center center')
+				   }
+				   else {
+						$('video').get(0).play();
+				   }
+			   });
+			
+
+		});
+		  
+		  
+		  // Close Exercises 
+		  $('[data-action="close_exercises"]').click(function(){
+			$('#wall_Overview').attr('data-roll','absent'); 
+			   $('#wall_Collection').attr('data-roll','engaged');
+		  })
+		  
+		  // Close Workout Detail
+		  $('[data-action="back_to_workouts"]').click(function(){
+			 $('[data-roll]').attr('data-roll','absent');
+			  $('#wall_Inventory').attr('data-roll','engaged');
+			  $(this).addClass('d-sm-none');
+			  $('#Workouts-Library .indicate').removeClass('indicate')
+		  });
+		  	
+		
+		// Show AFT Detail		  
+
+		$('[data-action="view_AFT_detail"]').click(function(){
+			
+			var theCollect = $(this).parent().parent('li');
+			var theWorkout = $(this).prev().children('span').text();
+			var theWOPoster = $(this).siblings('.populated').css('background-image');
+			
+			if ($(theCollect).attr('data-collection') == 'custom' ){
+				$('[data-action="edit_workout"]').show();
+			}
+			else {
+				$('[data-action="edit_workout"]').show();
+			}
+			$('#workout_name').text(theWorkout);
+			$('.indicate').removeClass('indicate');
+//			$('#wall_Overview').attr('data-roll','absent');
+			$('#wall_Inventory').attr('data-roll','absent');
+			$(this).closest('li').addClass('indicate');
+			$(this).closest('section').attr('data-roll','present').siblings('#wall_Overview').attr('data-roll','engaged');
+			$('.poster').hide();
+			$('button[data-action="back_to_workouts"]').removeClass('d-lg-none');
+			
+
+			
+			 // Show Exercise Detail 
+			   $('[data-action="view_detail"]').click(function(){		   		   
+//				   $('#wall_Overview').addClass('view-exercise');
+//				   $(this).closest('li').show().addClass('detail');
+				   $(this).closest('li').find('.details').slideToggle();
+				   $([document.documentElement, document.body]).animate({
+						scrollTop: $(this).closest('li').offset().top-80
+					}, 500);
+				   var theVid = $(this).parent().children().children('video');
+				   var vidSrc = $(this).parent().children().children('video').attr('src');
+				   var thePoster = $(this).siblings('.populated').css('background-image');
+
+				   if (vidSrc == "") {
+					  $(theVid).hide();
+					  $(theVid).parent().css('background', thePoster+'no-repeat center center')
+				   }
+				   else {
+						$('video').get(0).play();
+				   }
+			   });
+			
+
+		});	   
+		  
+		  
+	// Close Exercise Detail
+	  $('[data-action="back_to_library"]').click(function(){
+ 		   $('[data-action="back_to_library"]').hide();
+		  $('#wall_Overview .item-exercise ').show();
+		  $('.item-exercise.detail').removeClass('detail');
+		   $('#wall_Overview').removeClass('view-exercise');
+		  $(this).addClass('d-sm-none');
+	  });
+	  
+	   
+	   
+   });
+	
+	
+	$('#task_select').change(function(){
+		var theTaskType = $(this).val();
+		$('#taskAssignmentModal .modal-body').hide();
+		$('#'+theTaskType).show();
+	});
+	
+	
+	
+	$('[data-action="new_note"]').click(function(){
+		$(this).hide();
+		$('#new_note').fadeIn();
+	})
+	
+	$('[data-action="close_note"]').click(function(){
+		$('[data-action="new_note"]').fadeIn();
+		$('#new_note').hide();
+	})
+	
+
+
+// Using data-trigger instead of data-toggle to fire tabs from within panes 
+	
+	$( '[data-trigger="tab"]' ).click( function( e ) {
+    var href = $( this ).attr( 'href' );
+    e.preventDefault();
+    $( '[data-toggle="tab"][href="' + href + '"]' ).trigger( 'click' );
+		$([document.documentElement, document.body]).animate({
+        scrollTop: $('#wall_Detail').offset().top -100
+    }, 200);
+} );
+	
+
+	// Note Templates
+$('[data-template]').click(function(){
+	$('#session_note').val('Question 1:\n\n\Question 2:')
+});
+	
+</script>
+<!--<script src="../coach/plugins/chartist/chartist.min.js"></script>-->
+<script src="https://anytimefitness.blob.core.windows.net/shared-assets/mocks/af/franchise/Coach/plugins/chartist/chartist.min.js"></script>
+<script>
+// initiate chart
+	
+/* Add a basic data series with six labels and values */
+var data = {
+  labels: ['Nov 1', 'Nov 15', 'Dec 3', 'Dec 14', 'Dec 21', 'Jan 1'],
+  series: [
+    {
+      data: [162, 157, 156, 154, 153, 152]
+    }
+  ]
+};
+
+var tabOptions = {
+  width: 600,
+  height: 150
+};
+	
+/* Set some base options (settings will override the default settings in Chartist.js *see default settings*). We are adding a basic label interpolation function for the xAxis labels. */
+var options = {
+  axisX: {
+    labelInterpolationFnc: function(value) {
+      return ' ' + value;
+    }
+  }
+};
+
+/* Now we can specify multiple responsive settings that will override the base settings based on order and if the media queries match. In this example we are changing the visibility of dots and lines as well as use different label interpolations for space reasons. */
+var responsiveOptions = [
+  ['screen and (min-width: 641px) and (max-width: 1024px)', {
+    showPoint: false,
+    axisX: {
+      labelInterpolationFnc: function(value) {
+        return 'Week ' + value;
+      }
+    }
+  }],
+  ['screen and (max-width: 640px)', {
+    showLine: false,
+    axisX: {
+      labelInterpolationFnc: function(value) {
+        return 'W' + value;
+      }
+    }
+  }]
+];
+
+/* Initialize the chart with the above settings */
+new Chartist.Line('#ct-chart1', data, options, responsiveOptions);
+new Chartist.Line('#ct-chart2', data, tabOptions, options, responsiveOptions);
+
+</script>

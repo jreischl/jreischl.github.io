@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AF Coaching</title>
+<script src="../js/main.js?v=i4PrFRLb1UrVVZ1fdvF24e4nlbvo0InfNlDt2aqBKO4"></script>
+<link rel="stylesheet" href="../css/bootstrap.css">
+<link rel="stylesheet" href="../css/fontawesome.css">
+<link rel="stylesheet" href="../css/custom.css">
+<link rel="stylesheet" href="../css/fonts.css">
+<link rel="stylesheet" href="css/coaching.css">
+	<style>
+	
+		#Workouts-Library [data-action="add_existing_to_plan"],
+				#Workouts-Library .badge {
+			display: none;
+		}
+		
+		.d-admin-only {
+			display:none;
+		}
+
+	
+	
+	</style>
+</head>
+<body class="d-sm-flex">
+<header id="header" data-role="header"></header>
+<nav id="navbar" class="sidebar"></nav>
+<main class="container-relative d-lg-flex align-items-stretch  bg-gray-lightest" id="clients_library">
+  <section id="wall_Inventory" class="flex-fill flex-shrink-1 p-md-5 p-3 bg-white width-limited" data-roll="enganged" style="overflow-x: hidden">
+    <div class="contents">
+      <div class="d-flex align-items-center justify-content-between">
+        <h1 class="h3"><strong>BUILDER</strong></h1>
+		  <p class="lead">Take a deep dive into AFT workouts, browse pre-made plan templates, and preview our extensive library of workouts</p>
+      </div>
+      <ul class="list-unstyled list-items list-ruled">
+        <li> <i class="list-icon icon-group-training"></i>
+          <div class="d-flex flex-column flex-fill name p-3"><span>AF Training</span><small class="text-muted">52 Weeks</small></div>
+          <button class="p-2 ml-2 btn btn-link btn-takeover" data-action="wall_AFT_builder" data-collection="system"><span class="sr-only">View AFT</span></button>
+        </li>
+        <li> <i class="list-icon icon-plan"></i>
+          <div class="d-flex flex-column flex-fill name p-3"><span>Plan Templates</span><small class="text-muted">123 Plans</small></div>
+          <button class="p-2 ml-2 btn btn-link btn-takeover" data-action="wall_plan_builder" data-collection="system"><span class="sr-only">View Plan Templates</span></button>
+        </li>
+        <li> <i class="list-icon icon- icon-dumbell-FB-fill"></i>
+          <div class="d-flex flex-column flex-fill name p-3"><span>Workouts</span><small class="text-muted">3210 Workouts</small></div>
+          <button class="p-2 ml-2 btn btn-link btn-takeover" data-action="wall_Workouts" data-collection="custom"><span class="sr-only">View Workouts</span></button>
+        </li>
+		  <li> <i class="list-icon icon- icon-af-groupex-fill"></i>
+          <div class="d-flex flex-column flex-fill name p-3"><span>Exercises</span><small class="text-muted">1234 Exercises</small></div>
+          <button class="p-2 ml-2 btn btn-link btn-takeover" data-action="wall_Exercises" data-collection="custom"><span class="sr-only">View Workouts</span></button>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section id="wall_AFT_builder" data-roll="absent" class="flex-fill flex-shrink-1 p-md-5 p-3 bg-gray-lightest border-left width-limited overflow-sm-auto wall-scroll">
+    <div class="d-flex align-items-start mb-4">
+      <button type="button" class="btn btn-link mr-4 p-0 d-block d-lg-none" data-action="back_to_workouts"><span class="sr-only">Back</span><span aria-hidden="true"><i class="icon-arrow-left3"></i></span></button>
+      <h1 class="heading flex-fill"><strong>AF Training</strong></h1>
+      <a class="btn btn-primary rounded-pill btn-sm" href="workout-builder.html">New Workout <small class="icon-plus"></small></a> </div>
+    <div id="AFT_weeks">
+	  <div class="mb-4">
+      <div class="d-flex align-items-center bg-gray rounded mb-2">
+        <h2 class="subheading m-1 p-1 flex-fill">Week 34 2019 <span class="badge badge-warning">draft</span></h2> 
+		   <a class="mx-1" href="?admin" data-action="download_all"><i class="icon-download" aria-hidden="true"></i> <span class="d-none d-sm-inline">Download All</span></a>
+		  <div class="d-flex">
+          <button class="btn btn-success btn-sm  m-1 nowrap" type="button" data-action="publish" data-toggle="tooltip" data-placement="bottom" title="Workouts will not be visible to other users until they are published" style=""><span class="d-none d-sm-inline-block">Publish</span></button>
+          <button class="btn btn-warning btn-sm  m-1 nowrap" type="button" data-action="unpublish" style="display: none;"><i class="icon-no"></i> <span class="d-none d-sm-inline-block">Unpublish</span></button>
+        </div>
+		  
+		 
+        
+      </div>
+      <span data-insert="aft_menu_week"></span> </div>
+    <div>
+      <div class="d-flex justify-content-between p-1 bg-gray rounded mb-2">
+        <h2 class="subheading m-1">Week 32 2019 </h2><a class="mx-1" href="?admin" data-action="download_all"><i class="icon-download" aria-hidden="true"></i> <span class="d-none d-sm-inline">Download All</span></a>
+      </div>
+      <span data-insert="aft_menu_week"></span> </div></div>
+  </section>
+  <section id="wall_plan_builder" data-roll="absent" class="flex-fill flex-shrink-1 p-md-5 p-3 bg-gray-lightest border-left width-limited overflow-sm-auto wall-scroll">
+    <div class="d-flex justify-content-between align-items-start mb-4">
+      <button type="button" class="btn btn-link mr-4 p-0 d-block d-lg-none" data-action="back_to_workouts"><span class="sr-only">Back</span><span aria-hidden="true"><i class="icon-arrow-left3"></i></span></button>
+      <div class="d-flex align-items-center"><h1 class="heading mb-0"><strong>Plan Templates</strong></h1>
+      
+      
+		  <button class="btn btn-link"><i class="icon-search"></i> </button>
+		  <button class="btn btn-link"><i class="icon-filter"></i> </button>
+		<!--<button class="btn btn-primary rounded-pill pl-4 pr-3 my-2 float-right" data-toggle="tooltip" title="Send a personalized message to multiple clients at once"> Broadcast <i class="icon-coaching"></i></button>-->
+		</div>
+      <a class="btn btn-primary rounded-pill btn-sm" href="workout-builder.html">New Template <small class="icon-plus"></small></a> </div>
+    <div class="contents">
+      
+      <ul class="list-unstyled list-items list-ruled">
+        <li data-collection="system" style="">
+          <div class="d-flex flex-column flex-fill name p-3"><span class="plan-name">Fat Loss Level 1</span><small class="text-muted">12 Workouts</small></div>
+          <button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_plan"><span class="sr-only">View Plan</span></button>
+        </li>
+        <li data-collection="system" style="">
+          <div class="d-flex flex-column flex-fill name p-3"><span class="plan-name">Another Plan</span><small class="text-muted">12 Workouts</small></div>
+          <button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_plan"><span class="sr-only">View Plan</span></button>
+        </li>
+        <li data-collection="system" style="">
+          <div class="d-flex flex-column flex-fill name p-3"><span class="plan-name">Plans All The Way Down</span><small class="text-muted">12 Workouts</small></div>
+          <button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_plan"><span class="sr-only">View Plan</span></button>
+        </li>
+        <li data-collection="custom" style="display: none;">
+          <div class="d-flex flex-column flex-fill name p-3"><span class="plan-name">The Plan I Made</span><small class="text-muted">12 Workouts</small></div>
+          <button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_plan"><span class="sr-only">View Plan</span></button>
+        </li>
+        <li data-collection="custom" style="display: none;">
+          <div class="d-flex flex-column flex-fill name p-3"><span class="plan-name">The Plan I Didn't Finish <span class="text-danger">—&nbsp;Draft</span></span><small class="text-muted">12 Workouts</small></div>
+          <button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_plan"><span class="sr-only">View Plan</span></button>
+        </li>
+        <!--<li>
+					<div class="d-flex flex-column flex-fill name p-3 no-clients" data-clients="0"><span class="plan-name">New Plan</span><small class="text-muted">0 Clients</small></div>
+					<button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_plan"><span class="sr-only">View Plan</span></button>
+				</li>-->
+        
+      </ul>
+    </div>
+  </section>
+	<section id="wall_Plan_Detail" class="flex-fill flex-shrink-1 bg-white border-left overflow-sm-auto p-md-5 p-3 width-limited" data-roll="absent" style="max-height: calc(100vh - 4rem); z-index: 1">
+
+</section>
+  <section id="wall_Workouts" class="flex-fill flex-shrink-1 p-md-5 p-3 bg-grey-lightest border-left overflow-sm-auto" data-roll="absent" style="overflow-x: hidden; max-height: calc(100vh - 4rem); z-index: 2">
+    
+  </section>
+	<section id="wall_Overview" class="flex-fill flex-shrink-1 bg-white border-left overflow-sm-auto p-md-5 p-3 width-limited" data-roll="absent" style="max-height: calc(100vh - 4rem); z-index: 1">
+
+</section>
+</main>
+	<aside>
+	<div class="modal fade" id="buildModal" tabindex="-1" role="dialog" aria-labelledby="buildModalLabel" aria-hidden="true">
+		</div>
+	
+	</aside>
+<footer id="footer"></footer>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	
+	<script src="../js/popper.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+<script src="js/coaching.js"></script> 
+<script>
+	
+
+	
+		 // Automatically populates the mock based on URL parameter
+    if ( document.location.href.indexOf('?AFT') > -1 ) {
+		
+		$('#wall_AFT_builder').attr('data-roll','enaged');
+		$('#wall_Inventory').attr('data-roll','present');
+		$('#AFT_weeks').prepend('<div class="mb-4"><div class="d-flex justify-content-between bg-gray rounded mb-2"><h2 class="subheading m-1 p-1">Week 1 2020 <span class="badge badge-warning">draft</span></h2><div class="d-flex"> <button class="btn btn-success btn-sm m-1 nowrap" type="button" data-action="publish" data-toggle="tooltip" data-placement="bottom" title="Workouts will not be visible to other users until they are published" style=""><span class="d-none d-sm-inline-block">Publish</span></button> <button class="btn btn-warning btn-sm m-1 nowrap" type="button" data-action="unpublish" style="display: none;"><i class="icon-no"></i> <span class="d-none d-sm-inline-block">Unpublish</span></button></div></div> <ul class="list-unstyled list-items list-ruled my-2"><li class="border-0"><i class="list-icon icon-build"></i><div class="d-flex flex-column flex-fill name p-3"><span>Build</span><small class="text-muted">1 CIRC of 10 exercises.</small></div> 			<button class="ml-2 btn btn-secondary btn-sm" data-toggle="modal" data-target="#buildModal" style="z-index:1"><i class="icon-eye"></i><span class="sr-only">View AFT Table</span></button>			<button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_AFT_detail"><span class="sr-only">View Plan</span></button></li></ul></div>')
+								
+	}
+	
+	
+	
+	// Load Walls
+	
+	$('#wall_Workouts').load('includes/workouts_inventory.html');
+	 $('#wall_Overview').load('includes/workout_overview.html');	
+	$('#wall_Plan_Detail').load('includes/plan_detail.html');
+	
+		$('[data-action="wall_AFT_builder"]').click(function(){
+			$('section').attr('data-roll', 'absent');
+			$('#wall_Inventory').attr('data-roll', 'present');
+			$('#wall_AFT_builder').attr('data-roll', 'engaged');
+		});
+	
+		$('[data-action="wall_plan_builder"]').click(function(){
+			$('section').attr('data-roll', 'absent');			
+			$('#wall_Inventory').attr('data-roll', 'present');
+			$('#wall_plan_builder').attr('data-roll', 'engaged');
+		});
+	$('[data-action="wall_Workouts"]').click(function(){
+			$('section').attr('data-roll', 'absent');			
+			$('#wall_Inventory').attr('data-roll', 'present');
+			$('#wall_Workouts').attr('data-roll', 'engaged').find('h1').after('<a class="btn btn-primary rounded-pill btn-sm" href="workout-builder.html">New Workout <small class="icon-plus"></small></a>');
+		});
+		
+		
+		
+	 $('[data-insert="aft_menu_week"]').each(function() {
+	 	 $(this).load("includes/aft_menu_week.html");
+	 })
+	
+	$('[data-action="view_workout_detail"]').click(function(){
+		$('section').attr('data-roll', 'absent');
+		$('#wall_Workouts').attr('data-roll', 'present');
+		$('#wall_Overview').attr('data-roll', 'engaged');
+	})
+		
+		
+			// Load Exercises
+	   $.getJSON('js/exercises-trunc.json', function(data) {
+       $.each(data.exercise, function(i, f) {
+          var tblRow = '<li class="item-exercise p-2">		<div class="d-flex align-items-center position-relative"><i class="thumbnail" style="background-image:url('+ f.poster +')"></i>		<div class="embed-responsive embed-responsive-16by9 mb-4"><video controls="" muted src="'+ f.video +'"></video></div>		<div class="d-flex flex-column flex-fill name"><span>'+ f.name +'</span><small>' + f.details +'</small></div>		<button class="p-2 ml-2 btn btn-link  btn-takeover" data-action="view_detail"><span class="sr-only">View Exercise Details</span></button>	<button class="p-2 ml-2 btn btn-link" data-action="play_video" style="z-index: 1"><i class="icon-play"></i><span class="sr-only">Play Video</span></button></div>		<div class="details"><pre class="description mt-4"> '+ f.desc +' </pre>		<div class="intensities center-block"><p class="subheading">Target Intensities</p><div class="form-group form-row"><div class="col-2"><input aria-label="Number of Reps or Seconds" type="number" class="form-control text-right" value="10"></div><div class="col-4"><select aria-label="Reps or seconds" class="form-control"><option>Reps</option><option>Seconds</option></select></div><div class="col-6"><input aria-label="Per Unit" type="text" value="Per Set" class="form-control"></div></div><div class="form-group form-row"><div class="col-2"><input aria-label="Number of Sets" type="number" class="form-control text-right" value="3"></div><div class="col-4"><select aria-label="Set Type" class="form-control"><option>Sets</option><option>Supersets</option><option>Triple sets</option><option>Quad sets</option><option>Circuits</option><option>Pyramids</option><option>Intervals</option><option>Tabata</option></select></div><div class="col-6"><input aria-label="Per Exercise" type="text" value="Per Exercise" class="form-control"></div></div><div class="form-group form-row"><div class="col-2"><input aria-label="Number of Seconds" type="number" class="form-control text-right" value="60"></div><div class="col-4"><input aria-label="Seconds" type="text" class="form-control" value="Seconds"></div><div class="col-6"><input aria-label="Per Unit" type="text" placeholder="Rest Between Set" class="form-control"></div></div><textarea class="form-control" placeholder="Additional intensities."></textarea></div></div>		</li>'			  
+           $(tblRow).appendTo("#wall_Overview #list_exercises");
+     });
+		   
+		   // Insert sets 
+		   		   
+		   $("#wall_Overview #list_exercises > li:nth-child(3)").after("<li class='item-set'>Set 2</li>");
+		   $("#wall_Overview #list_exercises > li:nth-child(7)").after("<li class='item-set'>Set 3</li>");
+		   $("#wall_Overview #list_exercises > li:nth-child(1)").before("<li class='item-set'>Set 1</li>");
+		   
+		   
+		   // Edit exercise (toggle Save UI)
+		   
+		   $('.intensities .form-control').change(function(){
+			   $('#save-bar').slideDown();
+		   });
+		   
+		   $('#save-bar [type="submit"]').click(function(){
+			   $('#success-bar').fadeIn();
+			   $('#save-bar').fadeOut();
+		   });
+		   
+		   
+		   
+	   
+	   
+	   });
+	  
+// View Plans 
+	
+	$('[data-action="view_plan"]').click(function(){
+		$('section').attr('data-roll', 'absent');
+		$('#wall_plan_builder').attr('data-roll', 'present');
+		$('#wall_Plan_Detail').attr('data-roll', 'engaged');
+		
+	})
+	
+	
+
+		
+				$('#buildModal').load('includes/aft_modal.html');
+
+	
+
+	  
+	</script>
+</body>
+</html>

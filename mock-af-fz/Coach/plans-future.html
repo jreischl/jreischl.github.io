@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plans | AF Coaching</title>
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/fontawesome.css">	
+	<link rel="stylesheet" href="../css/custom.css">
+	<link rel="stylesheet" href="../css/fonts.css">
+	<link rel="stylesheet" href="css/coaching.css">
+	
+	<!-- Page Specific--> 	
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+	<style>
+		
+		#plan-details.view-exercise .subheading,
+		#plan-details.view-exercise p,
+		#plan-details.view-exercise .plan-day {
+			display: none!important;
+			
+		}
+		
+		
+		.switch label:before,
+		.switch label:after {
+			margin: .5em 1.6em;
+		}
+		
+		#list_all_clients .custom-control-label::before,
+		#list_all_clients .custom-control-label::after {
+			top:auto;
+		}
+		
+	</style>	
+		
+</head>
+<body class="d-md-flex">
+<header id="header" data-role="header"></header>
+	<nav id="navbar" class="sidebar"></nav>
+
+<main class="container-relative d-md-flex align-items-stretch bg-gray-lightest">
+
+		<section id="wall_Inventory" class="flex-fill flex-shrink-1 p-md-5 p-3 bg-white width-limited" data-roll="enganged" style="overflow-x: hidden">
+			<div class="contents">
+				<div class="d-flex align-items-center justify-content-between"><h1 class="heading"><strong>Plans</strong></h1> <a class="btn btn-secondary" href="plan-builder.html">New Plan</a></div>
+			<ul class="list-unstyled list-items list-ruled">
+				<li>
+					<div class="d-flex flex-column flex-fill name p-3"><span>21 Day Transformation</span><small class="text-muted">3 Clients</small></div>
+					<button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_plan"><span class="sr-only">View Plan</span></button>
+				</li>
+				<li>
+					<div class="d-flex flex-column flex-fill name p-3"><span>Get Started Plan</span><small class="text-muted">12 Clients</small></div>
+					<button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_plan"><span class="sr-only">View Plan</span></button>
+				</li>
+				<li>
+					<div class="d-flex flex-column flex-fill name p-3"><span>A Plan for All Seasons</span><small class="text-muted">12 Clients</small></div>
+					<button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_plan"><span class="sr-only">View Plan</span></button>
+				</li>
+				<!--<li>
+					<div class="d-flex flex-column flex-fill name p-3 no-clients" data-clients="0"><span>New Plan</span><small class="text-muted">0 Clients</small></div>
+					<button class="p-2 ml-2 btn btn-link btn-takeover" data-action="view_plan"><span class="sr-only">View Plan</span></button>
+				</li>-->
+				
+			</ul>
+			</div>
+		</section>
+		<section id="wall_Overview" class="flex-fill flex-shrink-1 bg-gray-lightest border-left overflow-sm-auto" data-roll="absent">
+			
+			<div class="d-flex align-items-center justify-content-between m-md-5 m-3"><button type="button" class="btn btn-link mr-2 d-block d-sm-none" data-action="back_to_plans"><span class="sr-only">Back</span><span aria-hidden="true"><i class="icon-arrow-left3"></i></span></button><h2 class="heading"><strong>21 Day Transformation</strong></h2></div>
+
+			
+			<ul class="nav nav-tabs justify-content-center" id="planView" role="tablist">
+			  <li class="nav-item">
+				<a class="nav-link active" id="clients-tab" data-toggle="tab" href="#active-clients" role="tab" aria-controls="active-clients" aria-selected="true"><h3 class="h6">Active Clients</h3></a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" id="details-tab" data-toggle="tab" href="#plan-details" role="tab" aria-controls="plan-details" aria-selected="false"><h3 class="h6">Plan Details</h3></a>
+			  </li>
+			</ul>
+
+			<div class="tab-content h-100 bg-white">
+				<!-- Active Clients -->
+			  <div class="tab-pane active" id="active-clients" role="tabpanel" aria-labelledby="clients-tab">
+				  <div class=" bg-white p-3">
+					  <div class="width-limited-wide center-block">
+					  <div class="d-flex justify-contents-between  align-items-center">
+				
+					  <input id="" class="form-control my-1 mr-sm-2" type="search" placeholder="Filter clients by name" aria-label="Filter">				
+						  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+							<option selected="">Filter by Week</option>
+							<option value="1">Week One</option>
+							<option value="2">Week Two</option>
+							<option value="3">Week Three</option>
+						  </select>
+					  <button class="btn btn-primary" data-toggle="modal" data-target="#clientsModal">Add Clients</button>
+						  <hr>
+						  </div>
+					  <ul class="list-unstyled list-ruled ">
+						  <li class="d-flex flex-sm-row flex-column justify-content-between py-4">
+							  <div class="p-2"><i class="mug center-block " style="background-image:url(//anytimefitness.blob.core.windows.net/shared-assets/mugs/spenser-davidson.jpg)"></i></div>
+							  <div class="p-2 flex-grow-1">
+							  	  <div class="d-flex justify-content-center justify-content-sm-between"><h4 class="mb-4">Spenser Davidson</h4><div class="dropleft" data-action="more"> <button class="btn btn-secondary p-2 ml-2 icon-tab-more-active" type="button" id="menu-exercise-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="sr-only">More options</span></button><div class="dropdown-menu" aria-labelledby="menu-exercise-1"><a class="dropdown-item" href="#">Remove From Plan</a>    <a class="dropdown-item" href="#">Pause Plan</a>    <a class="dropdown-item" ref="#">View Profile</a>  </div></div></div>
+								  <div class="d-flex flex-column flex-sm-row flex-wrap justify-content-sm-center justify-content-between">
+									  
+									  <div class="mr-sm-5">							
+										  <table class="table table-sm table-borderless text-center">
+											  <caption class="sr-only">Plan Adherence</caption>
+											  <tr>
+												  <th scope="col" class="pt-0">Mon</th>
+												  <th scope="col" class="pt-0">Tue</th>
+												  <th scope="col" class="pt-0">Wed</th>
+												  <th scope="col" class="pt-0">Thu</th>
+												  <th scope="col" class="pt-0">Fri</th>
+											  </tr>
+											  <tr>
+												  <td><i class="icon-x text-danger"><span class="sr-only">Incomplete</span></i></td>
+												  <td><i class="icon-check text-success"><span class="sr-only">Complete</span></i></td>
+												  <td><i class="icon-ellipses text-muted"><span class="sr-only">Complete</span></i></td>
+												  <td></td>
+												  <td></td>
+											  </tr>
+											  </table>
+									  </div>
+									  <div class="flex-grow-1 center-block"><p><strong>Today's Challenge:</strong><br>15 Minute Gut Buster</p></div>
+									  <div class="center-block">
+									   	<div class="form-check switch switch-below mb-3">
+										  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+										  <label class="form-check-label" for="defaultCheck1">
+											Auto Message <a href="#" data-toggle="tooltip" data-placement="top" title="" class="icon-info-reverse" data-action="add_part" data-original-title="Auto message will be sent shortly after completion of each challenge or at 10 PM if not completed."></a>
+										  </label>
+										</div>
+									  </div>
+								  </div>
+							  </div>							
+						  </li>
+						  <li class="d-flex flex-sm-row flex-column justify-content-between py-4">
+							  <div class="p-2"><i class="mug center-block " style="background-image:url(//anytimefitness.blob.core.windows.net/shared-assets/mugs/kristen-pechacek.jpg)"></i></div>
+							  <div class="p-2 flex-grow-1">
+							  	  <div class="d-flex justify-content-center justify-content-sm-between"><h4 class="mb-4">Ann Magnusen</h4><div class="dropleft" data-action="more"> <button class="btn btn-secondary p-2 ml-2 icon-tab-more-active" type="button" id="menu-exercise-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="sr-only">More options</span></button><div class="dropdown-menu" aria-labelledby="menu-exercise-1"><a class="dropdown-item" href="#">Remove From Plan</a>    <a class="dropdown-item" href="#">Pause Plan</a>    <a class="dropdown-item" ref="#">View Profile</a>  </div></div></div>
+								  <div class="d-flex flex-column flex-sm-row flex-wrap justify-content-sm-center justify-content-between">
+									  
+									  <div class="mr-sm-5">							
+										  <table class="table table-sm table-borderless text-center">
+											  <caption class="sr-only">Plan Adherence</caption>
+											  <tr>
+												  <th scope="col" class="pt-0">Mon</th>
+												  <th scope="col" class="pt-0">Tue</th>
+												  <th scope="col" class="pt-0">Wed</th>
+												  <th scope="col" class="pt-0">Thu</th>
+												  <th scope="col" class="pt-0">Fri</th>
+											  </tr>
+											  <tr>
+												  <td><i class="icon-check text-success"><span class="sr-only">Complete</span></i></td>
+												  <td><i class="icon-check text-success"><span class="sr-only">Complete</span></i></td>
+												  <td><i class="icon-ellipses text-muted"><span class="sr-only"></span></i></td>
+												  <td></td>
+												  <td></td>
+											  </tr>
+											  </table>
+									  </div>
+									  <div class="flex-grow-1 center-block"><p><strong>Today's Challenge:</strong><br>Rest Day</p></div>
+									  <div class="center-block">
+									   	<div class="form-check switch switch-below mb-3">
+										  <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+										  <label class="form-check-label" for="defaultCheck2">
+											Auto Message <a href="#" data-toggle="tooltip" data-placement="top" title="" class="icon-info-reverse" data-action="add_part" data-original-title="Auto message will be sent shortly after completion of each challenge or at 10 PM if not completed."></a>
+										  </label>
+										</div>
+									  </div>
+								  </div>
+							  </div>							
+						  </li>
+						  <li class="d-flex flex-sm-row flex-column justify-content-between py-4">
+							  <div class="p-2"><i class="mug center-block " style="background-image:url(//anytimefitness.blob.core.windows.net/shared-assets/mugs/meghan-delaney.jpg)"></i></div>
+							  <div class="p-2 flex-grow-1">
+							  	  <div class="d-flex justify-content-center justify-content-sm-between"><h4 class="mb-4">Jillian Scovington-Davis</h4><div class="dropleft" data-action="more"> <button class="btn btn-secondary p-2 ml-2 icon-tab-more-active" type="button" id="menu-exercise-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="sr-only">More options</span></button><div class="dropdown-menu" aria-labelledby="menu-exercise-3"><a class="dropdown-item" href="#">Remove From Plan</a>    <a class="dropdown-item" href="#">Pause Plan</a>    <a class="dropdown-item" ref="#">View Profile</a>  </div></div></div>
+								  <div class="d-flex flex-column flex-sm-row flex-wrap justify-content-sm-center justify-content-between">
+									  
+									  <div class="mr-sm-5">							
+										  <table class="table table-sm table-borderless text-center">
+											  <caption class="sr-only">Plan Adherence</caption>
+											  <tr>
+												  <th scope="col" class="pt-0">Mon</th>
+												  <th scope="col" class="pt-0">Tue</th>
+												  <th scope="col" class="pt-0">Wed</th>
+												  <th scope="col" class="pt-0">Thu</th>
+												  <th scope="col" class="pt-0">Fri</th>
+											  </tr>
+											  <tr>
+												  <td><i class="icon-check text-success"><span class="sr-only">Complete</span></i></td>
+												  <td><i class="icon-check text-success"><span class="sr-only">Complete</span></i></td>
+												  <td><i class="icon-check text-success"><span class="sr-only">Complete</span></i></td>
+												  <td></td>
+												  <td></td>
+											  </tr>
+											  </table>
+									  </div>
+									  <div class="flex-grow-1 center-block"><p><strong>Today's Challenge:</strong><br>Workout</p></div>
+									  <div class="center-block">
+									   	<div class="form-check switch switch-below mb-3">
+										  <input class="form-check-input" type="checkbox" value="" id="defaultCheck3" checked>
+										  <label class="form-check-label" for="defaultCheck3">
+											Auto Message <a href="#" data-toggle="tooltip" data-placement="top" title="" class="icon-info-reverse" data-action="add_part" data-original-title="Auto message will be sent shortly after completion of each challenge or at 10 PM if not completed."></a>
+										  </label>
+										</div>
+									  </div>
+								  </div>
+							  </div>							
+						  </li>
+					  </ul>
+				  
+</div>
+				  </div>
+			  </div>
+				<!-- PLan Details-->
+			  <div class="tab-pane" id="plan-details" role="tabpanel" aria-labelledby="details-tab">
+				<div class="bg-white p-3">
+		
+				  <div class="width-limited-wide center-block">
+					  <div class="text-right">
+					  <button class="btn btn-primary">Edit Plan</button>
+						  <hr>
+						  </div>
+					<div class="">
+						<p>The 21-Day Transformation provides a PERSONALIZED plan, daily motivation and friendly guidance to help you finish with GUARANTEED RESULTS. Whether you just want to get back into a routine or are taking it to the next level, this program will help you define YOUR transformation.</p>
+			  		</div>
+					<div class="">
+		
+				<h4 class="subheading">Week 1</h4>
+				<ul class="list-unstyled  list-ruled">
+					<li class="py-2 item-workout"><a class="plan-day d-flex flex-grow-1 align-items-center" data-toggle="collapse" href="#day1" role="button" aria-expanded="false" aria-controls="day1"><i class="thumbnail " style=""></i><div class="d-flex flex-column flex-fill"><span>Day <span data-day="1">1</span><small> — Workout</small></span><small>10 Exercises, 40 min, 1200 cal</small></div></a>
+						<div id="day1" class="collapse mt-4 ml-4 contents-workout">
+						<span class="notes-workout text-muted">Here's some notes</span>
+						<ul class="list-unstyled list-ruled-sub">							
+							<li class="item-exercise indicate p-2"> <i class="thumbnail" style="background-image:url(//demo-coach.anytimefitness.com/api/media/exercise/1237/image?imageType=1&amp;size=320)"></i><div class="d-flex flex-column"><div class="embed-responsive embed-responsive-16by9 mb-4"><video controls="" muted="" src="//video.pumpone.com/pumpVideos/ShSt-DB_90_Degree_Lateral_Raise_M.mov"></video></div><pre class="description m-4"> 1 - Stand upright holding the dumbbells out in front with your elbows bent at 90 degrees. 2 - Raise your arms up and outward to the sides to shoulder height, keeping your elbows bent throughout. </pre>
+								
+								<div class="intensities center-block"><div class="">TARGET INTENSITIES</div><div class="form-group form-row"><div class="col-sm-2"><input aria-label="Number of Reps or Seconds" type="number" class="form-control text-right" value="10"></div><div class="col-sm-4"><select aria-label="Reps or seconds" class="form-control"><option>Reps</option><option>Seconds</option></select></div><div class="col-sm-6"><input aria-label="Per Unit" type="text" value="Per Set" class="form-control"></div></div>				<div class="form-group form-row"><div class="col-sm-2"><input aria-label="Number of Sets" type="number" class="form-control text-right" value="3"></div><div class="col-sm-4"><select aria-label="Set Type" class="form-control"><option>Sets</option><option>Supersets</option><option>Triple sets</option><option>Quad sets</option><option>Circuits</option><option>Pyramids</option><option>Intervals</option><option>Tabata</option></select></div><div class="col-sm-6"><input aria-label="Per Exercise" type="text" value="Per Exercise" class="form-control"></div></div><div class="form-group form-row"><div class="col-sm-2"><input aria-label="Number of Seconds" type="number" class="form-control text-right" value="60"></div><div class="col-sm-4"><input aria-label="Seconds" type="text" class="form-control" value="Seconds"></div><div class="col-sm-6"><input aria-label="Per Unit" type="text" placeholder="Rest Between Set" class="form-control"></div></div><textarea class="form-control" placeholder="Additional intensities."></textarea></div>
+								</div>
+								
+									
+								
+								<div class="d-flex flex-column flex-fill name"><span>90-Degree Lateral Raise</span><small>Dumbbells, Shoulders, Pull</small></div><button class="icon-point-right p-2 ml-2 btn btn-link btn-takeover" data-action="view_detail"><span class="sr-only">View Exercise</span></button><button type="button" class="close" data-action="back_to_library"><span class="sr-only">Close</span><span aria-hidden="true"><i class="icon-arrow-left3"></i></span></button></li>
+						</ul>
+						</div>
+						
+					</li>
+					<li class="py-2 item-workout"><a class="plan-day d-flex flex-grow-1 align-items-center" data-toggle="collapse" href="#day2" role="button" aria-expanded="false" aria-controls="day2"><i class="thumbnail populated" style="background-image: url(https://pumpone.com/static_images/320/15_Minute_Gut_Buster.jpg)"></i><div class="d-flex flex-column flex-fill"><span>Day <span data-day="2">2</span><small> — 15 Minute Gut Buster</small></span><small>2 Exercises, 15 min, 150 cal</small></div></a>
+						<div id="day2" class="collapse mt-4 ml-4 contents-workout">
+						<ul class="list-unstyled list-ruled-sub">							
+						</ul>
+						</div>
+						
+					</li>
+					<li class="py-2 item-workout"><a class="plan-day rest-day d-flex flex-grow-1 align-items-center" data-toggle="" role="button" aria-expanded="false" aria-controls="day3"><i class="thumbnail"></i><div class="d-flex flex-column flex-fill"><span>Day <span data-day="3">3</span><small> — Rest Day</small></span><small>Get up and stretch every 30 min</small></div></a>
+						
+						
+					</li>
+				</ul>
+						<h4 class="subheading">Week 2</h4>
+				<ul class="list-unstyled  list-ruled">
+					<li class="py-2 item-workout"><a class="plan-day d-flex flex-grow-1 align-items-center" data-toggle="collapse" href="#day2-1" role="button" aria-expanded="false" aria-controls="day2-1"><i class="thumbnail " style=""></i><div class="d-flex flex-column flex-fill"><span>Day <span data-day="1">3</span><small> — Workout</small></span><small>0 Exercises, 0 min, 0 cal</small></div></a>
+						<div id="day2-1" class="collapse mt-4 ml-4 contents-workout">
+						<ul class="mt-4 list-unstyled list-ruled-sub">							
+						</ul>
+						</div>
+					</li>
+					<li class="py-2 item-workout"><a class="plan-day d-flex flex-grow-1 align-items-center" data-toggle="collapse" href="#day2-2" role="button" aria-expanded="false" aria-controls="day2-2"><i class="thumbnail " style=""></i><div class="d-flex flex-column flex-fill"><span>Day <span data-day="2">4</span><small> — Workout</small></span><small>0 Exercises, 0 min, 0 cal</small></div></a>
+						<div id="day2-2" class="collapse mt-4 ml-4 contents-workout">
+						<ul class="list-unstyled list-ruled-sub">							
+						</ul>
+						</div>
+						
+					</li>
+				</ul>
+						
+						
+				
+					</div>
+				  </div>
+
+</div>
+				
+				
+			 </div>		
+			</div>
+
+			<script>
+			  $(function () {
+				$('#planView li:last-child a').tab('show')
+			  })
+			</script>
+			
+			
+			
+			
+
+		</section>
+		
+		
+	
+	
+
+</main>
+<aside>	
+</aside>
+<footer id="footer"></footer>
+	
+	
+	
+	
+			<!-- Clients Modal -->
+<div class="modal fade" id="clientsModal" tabindex="-1" role="dialog" aria-labelledby="clientsModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div id="assignment-clients" class="modal-content">
+      <div class="modal-header ">
+        <h2 class="modal-title heading  mt-2 " id="clientsModalLabel"><strong>Select Clients</strong></h5>
+		  <div class="d-flex justify-contents-between  align-items-center"><input id="" class="form-control" type="search" placeholder="Find a client" aria-label="Filter"></div>		  		
+      </div>
+      <div class="modal-body">
+		  <p>Select clients to assign to this plan.</p>
+       <ul id="list_all_clients" class="list-unstyled list-ruled">
+		   <li><div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="customCheck1"><label class="custom-control-label d-flex align-items-center" for="customCheck1"><i class="mug mug-small my-2 mr-2" style="background-image:url(//anytimefitness.blob.core.windows.net/shared-assets/mugs/laura-langhout.jpg)"></i> Jennifer Sharpp</label></div></li>
+		   <li><div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="customCheck2"><label class="custom-control-label d-flex align-items-center" for="customCheck2"><i class="mug mug-small my-2 mr-2" style="background-image:url(//randomuser.me/api/portraits/men/56.jpg)"></i> Karl Reynolds</label></div></li>
+		   <li><div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="customCheck3"><label class="custom-control-label d-flex align-items-center" for="customCheck3"><i class="mug mug-small my-2 mr-2" style="background-image:url(//randomuser.me/api/portraits/women/20.jpg)"></i> Isabella Fowler</label></div></li>
+		   <li><div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="customCheck4"><label class="custom-control-label d-flex align-items-center" for="customCheck4"><i class="mug mug-small my-2 mr-2" style="background-image:url(//randomuser.me/api/portraits/women/5.jpg)"></i> Mattie Bell</label></div></li>
+		   <li><div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="customCheck5"><label class="custom-control-label d-flex align-items-center" for="customCheck5"><i class="mug mug-small my-2 mr-2" style="background-image:url(//randomuser.me/api/portraits/women/80.jpg)"></i> Brittany Castillo</label></div></li>
+		   <li><div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="customCheck6"><label class="custom-control-label d-flex align-items-center" for="customCheck6"><i class="mug mug-small my-2 mr-2" style="background-image:url(//randomuser.me/api/portraits/women/2.jpg)"></i> Vanessa Childles</label></div></li>
+		   <li><div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="customCheck7"><label class="custom-control-label d-flex align-items-center" for="customCheck7"><i class="mug mug-small my-2 mr-2" style="background-image:url(//randomuser.me/api/portraits/women/14.jpg)"></i> Jeannie Ingram</label></div></li>
+		  
+	   </ul>
+		 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-action="schedule_assignment">Next</button>
+      </div>
+	  </div>
+	<div id="assignment-send" class="modal-content">
+      <div class="modal-header d-flex"><button type="button" class="btn btn-link mr-2 d-block" data-action="back_to_clients"><span class="sr-only">Back</span><span aria-hidden="true"><i class="icon-arrow-left3"></i></span></button>
+        <h2 class="modal-title heading mt-2 flex-grow-1 border-left pl-4" id=""><strong>Send Assignment</strong></h2>       
+		
+      </div>
+      <div class="modal-body">
+		   <div>
+			  <div class="form-group">
+			  	<label for="assignment-datepicker">Start Date</label>
+  			    <input type="text" id="assignment-datepicker" class="form-control">
+			  </div>
+			  <div class="form-group">
+				<label for="assignment-message">Additional Message</label>
+			  	<textarea id="assignment-message" class="form-control"></textarea>
+			  </div>
+		  </div>
+		</div>	  
+		<div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-action="send_assignemnt">Send</button>
+      </div>
+    </div>
+	  <div id="assignment-result" class="modal-content">
+     
+      <div class="modal-body">
+		  <div class=" alert alert-success" role="alert">
+		   <h5 class="alert-heading">Success!</h5>
+			  <p>Your clients have been successfully assigned to this plan.</p>
+		  </div>
+		</div>	  
+		<div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+			
+	
+	
+	
+	<script src="../js/jquery-3.3.1.min.js"></script>
+
+	<script src="../js/popper.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="js/coaching.js"></script>        
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script src="../js/jquery.ui.touch-punch.min.js"></script>
+
+  <script>
+
+// Date Picker 
+	  $( "#assignment-datepicker" ).datepicker();
+	
+$('[data-action="view_plan"]').click(function(){
+	
+	if ($(this).prev().hasClass('no-clients')) {
+		$('#active-clients').html('<div class="p-4 text-center"><br><br><button class="btn btn-primary center-block" data-toggle="modal" data-target="#clientsModal">Add Clients</button></div>')
+		}
+	
+	
+	$('.indicate').removeClass('indicate');
+	$('#wall_Overview').attr('data-roll','absent');
+	$(this).closest('li').addClass('indicate');
+	$(this).closest('section').attr('data-roll','present').next('section').attr('data-roll','engaged');
+	$('#planView a[href="#active-clients"]').tab('show') // Select tab by name
+
+})
+	
+	  
+// Enable Tooltips 
+	  
+	  $('[data-toggle="tooltip"]').tooltip();
+
+// Enable Tabs
+	  
+	  $('[role="tablist"] a').on('click', function (e) {
+		  e.preventDefault()
+		  $(this).tab('show')
+		})
+
+	  
+// Populate the Mock
+	  
+	
+	  
+	  // Clone exercises
+	  
+	  var $exerciseList = $('#plan-details .item-workout > div > ul'); 
+		var $eachExercise = $exerciseList.children("li.item-exercise"); 
+		for (var i=2; i-->0;){ // n times (from n-1 to 0)
+			$exerciseList.append($eachExercise.clone()); // append a clone of the col(s)
+		}
+	 
+	  
+	  
+	    // Show Exercise Detail 
+	   $('[data-action="view_detail"]').click(function(){		   		   
+		   
+		   $('#plan-details .item-exercise ').hide();
+		   $('#plan-details').addClass('view-exercise');
+		   $(this).closest('li').show().addClass('detail');
+		   
+		   var theVid = $(this).parent().children().children('video');
+		   var vidSrc = $(this).parent().children().children('video').attr('src');
+		   var thePoster = $(this).parent().children('.thumbnail').css('background-image');
+		   
+		   if (vidSrc == "") {
+			  $(theVid).hide();
+			  $(theVid).parent().css('background', thePoster+'no-repeat center center')
+		   }
+		   else {
+		   		$('video').get(0).play();
+		   }
+	   });
+	  
+	  // Close Exercise Detail
+	  $('[data-action="back_to_library"]').click(function(){
+		  $('#plan-details .item-exercise ').show();
+		  $('.item-exercise.detail').removeClass('detail');
+		   $('#plan-details').removeClass('view-exercise');
+	  })
+	  
+	  
+	  // Back to Plans List (Mobile only)
+	  
+	  $('[ data-action="back_to_plans"]').click(function(){
+		  $('#wall_Overview').attr('data-roll','absent');
+		  $('#wall_Inventory').attr('data-roll','engaged');
+		  $('.indicate').removeClass('indicate');
+	  })
+	  
+	  
+	  
+
+	  // ------ Assignment Modal
+	  
+  	  $('#assignment-send').hide();
+	  $('#assignment-result').hide();
+	  
+	  $('[data-action="schedule_assignment"]').click(function(){
+		  $('#assignment-clients').hide();
+		  $('#assignment-send').fadeIn();
+		  
+	  });
+	  
+	  
+	  $('[ data-action="back_to_clients"]').click(function(){
+		  $('#assignment-clients').fadeIn();
+		  $('#assignment-send').hide();
+		  
+	  });
+	  
+	  
+	  $('[data-action="send_assignemnt"]').click(function(){
+		  $('#assignment-send').hide();
+		  $('#assignment-result').fadeIn();
+	  })
+	
+	  
+  $(function () {  
+	  
+   // Set Nav 
+	  $('#tab-plans').addClass('active');
+  });
+</script>
+	
+	
+
+				
+</body>
+</html>

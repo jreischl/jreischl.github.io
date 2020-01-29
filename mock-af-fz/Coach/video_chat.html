@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Chat | AF Coaching</title>
+
+
+<!--        <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="/css/site.css" />-->
+	
+	
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/fontawesome.css">	
+	<link rel="stylesheet" href="../css/custom.css">
+	<link rel="stylesheet" href="../css/fonts.css">
+	<link rel="stylesheet" href="css/coaching.css">
+
+    <link href="/css/video.css" rel="stylesheet" />
+
+<style>
+	#remote-media video {
+		background-color: #333;
+
+		    height: 100vh;
+		    width: 70vw;
+	}
+	#controls {
+		background: black;
+		color: rgba(255,255,255,.85);
+		width: 30vw;
+
+	}
+	#preview  {
+		
+			
+	}
+	#preview #local-media {
+		background: url("img/local-video.png") center center / cover;	
+		width: 100%;
+		height: 20vw;
+		
+	}
+	#local-media video {
+		background-color:#000;
+		width: 100%;
+		height: 20vw;
+		
+	}
+	
+	
+	#header .top {
+		background: #362B45;
+	}
+	
+	#log pre {
+		color: #757575;
+		font-size: .8rem;
+		white-space: pre-wrap;
+		word-wrap: break-word;
+	}
+	.instructions {
+		font-size: .9rem;
+	}
+</style>
+
+</head>
+<body class="d-md-flex">
+
+
+<main class="container-relative d-md-flex align-items-stretch bg-gray-lightest p-0">
+	
+
+    <div class="container-fluid m-0 p-0 body-content d-flex justify-content-between">
+
+<!--<a class="btn btn-lg btn-success" href="/">Back</a>-->
+    <div id="remote-media" class="flex-fill">
+				
+		<video controls autoplay>
+		<source src="img/remote-video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+		
+		</video>
+
+		</div>
+    <div id="controls" class="p-4">
+        <div id="preview">
+            <p class="instructions">To begin video chat, click Start Meeting. Your client will be prompted to join the call.</p>
+            <div id="local-media">
+			<video controls autoplay>
+		<source src="img/remote-video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+		
+		</video>
+			
+			</div>
+            <button id="button-preview" class="btn btn-dark btn-sm float-right">Preview My Camera</button>
+        </div>
+
+        <div id="room-controls" class="p-4 mt-4">
+            <p class="instructions">Meeting Name:</p>
+			
+            <div class="form-group"><input id="room-name" class="form-control" type="text" placeholder="Weekly Check in with Chuck" /></div>
+            <button id="button-join" class="btn btn-primary btn-block">Start Meeting</button>
+            <button id="button-leave" class="btn btn-secondary btn-block d-none">End Meeting</button>
+        </div>
+
+        <div id="log" class="p-4">
+			<p class="">Activity Log</p>
+<pre>
+&#8250; Jon entered the room
+&#8250; Jon added track: audop
+&#8250; Jon added track: video
+</pre>
+		
+		
+		
+		</div>
+    </div>
+
+
+
+    </div>
+
+	</main>
+	
+	
+  
+	
+        <script src="/lib/jquery/dist/jquery.js"></script>
+        <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0"></script>
+
+
+
+
+    <script src="//media.twiliocdn.com/sdk/js/common/v0.1/twilio-common.min.js"></script>
+    <script src="//media.twiliocdn.com/sdk/js/video/releases/1.14.0/twilio-video.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/video.js"></script>
+
+</body>
+</html>

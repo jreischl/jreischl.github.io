@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create a Plan | AF Coaching</title>
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/fontawesome.css">	
+	<link rel="stylesheet" href="../css/custom.css">
+	<link rel="stylesheet" href="../css/fonts.css">
+	<link rel="stylesheet" href="css/coaching.css">
+	
+	<!-- Page Specific--> 
+	
+	
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+	<style>
+		
+		
+		[href="workout-builder.html"] {
+			display: none;
+		}
+		    
+
+	</style>	
+		
+</head>
+<body class="d-md-flex">
+<header id="header" data-role="header"></header>
+	<nav id="navbar" class="sidebar"></nav>
+<main class="container-relative d-md-flex align-items-stretch bg-gray-lightest">
+
+		<section id="wall_Plan" class="flex-fill flex-shrink-1 p-md-5 p-3 bg-white width-limited" data-roll="enganged" style="overflow-x: hidden">
+			<div class="contents">
+			<form><h1 class="heading"><strong>New Plan</strong></h1>
+				<div class="row">
+				<div class="col-9">
+				  <div class="form-group">
+					<label for="planName">Plan Name</label>
+					<input type="text" class="form-control" id="planName" placeholder="">
+				  </div>
+				</div>
+				<div class="col-3">
+				  <div class="form-group">
+					<label for="weeks">Weeks</label>
+					<select class="form-control" id="weeks">
+					  <option>1</option>
+					  <option>2</option>
+					  <option selected>3</option>
+					  <option>4</option>
+					  <option>5</option>
+					</select>
+				</div>
+				</div>
+			  </div>
+			  
+			  <div class="form-group">
+				<label for="description">Description</label>
+				<textarea class="form-control" id="description" rows="3"></textarea>
+			  </div>
+				<div class="form-group">
+				<h2 class="subheading">Week 1</h2>
+				<ul class="list-unstyled list-items"></ul>
+				
+					
+					<div class="dropdown">
+					  <button class="btn btn-outline-primary btn-outline-dotted btn-block dropdown-toggle" type="button" id="addTaskW1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Add Task
+					  </button>
+					  <div class="dropdown-menu" aria-labelledby="addTaskW1" x-placement="bottom-start" style="width: 100%">
+						<a class="dropdown-item border-bottom text-center" href="#" data-action="add_workout">New Workout</a>
+						<a class="dropdown-item border-bottom text-center" href="#" data-action="select_workout">Existing Workout</a>
+						<a class="dropdown-item text-center" href="#" data-action="rest_day">Rest Day</a>
+
+					  </div>
+					</div>
+					
+				</div>	
+				<div class="form-group">				
+				<h2 class="subheading">Week 2</h2>
+				<ul class="list-unstyled list-items"></ul>	
+				<div class="dropdown">
+					  <button class="btn btn-outline-primary btn-outline-dotted btn-block dropdown-toggle" type="button" id="addTaskW2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Add Task
+					  </button>
+					  <div class="dropdown-menu" aria-labelledby="addTaskW2" x-placement="bottom-start" style="width: 100%">
+						<a class="dropdown-item border-bottom text-center" href="#" data-action="add_workout">New Workout</a>
+						<a class="dropdown-item border-bottom text-center" href="#" data-action="select_workout">Existing Workout</a>
+						<a class="dropdown-item text-center" href="#" data-action="rest_day">Rest Day</a>
+
+					  </div>
+					</div>
+				</div>
+				<div class="form-group">				
+				<h2 class="subheading">Week 3</h2>
+				<ul class="list-unstyled list-items"></ul>	
+				<div class="dropdown">
+					  <button class="btn btn-outline-primary btn-outline-dotted btn-block dropdown-toggle" type="button" id="addTaskW3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Add Task
+					  </button>
+					  <div class="dropdown-menu" aria-labelledby="addTaskW3" x-placement="bottom-start" style="width: 100%">
+						<a class="dropdown-item border-bottom text-center" href="#" data-action="add_workout">New Workout</a>
+						<a class="dropdown-item border-bottom text-center" href="#" data-action="select_workout">Existing Workout</a>
+						<a class="dropdown-item text-center" href="#" data-action="rest_day">Rest Day</a>
+
+					  </div>
+					</div>
+				</div>
+				<a href="plans.html" class="btn btn-primary float-right" data-action="save_plan">Done</a> 
+				<span id="plan-autosave" class="text-success" style="display: none;"><i class="icon-spinner"></i> Autosaving...</span>
+			</form>
+			</div>
+		</section>
+		<section id="wall_Workout" class="flex-fill p-md-5 p-3 bg-gray-lightest border-left width-limited" data-roll="">
+			<div  class="contents">
+			<form>
+			
+			<fieldset class="active">
+			<div class="d-flex justify-content-between">
+			  <h2 class="heading"><select><option>Week 1</option><option>Week 2</option><option>Week 3</option></select><strong>Day 1</strong> <small class="nowrap">10 Exercises, 45 min, 100 cal</small></h2><div class="dropdown" data-action="more"> <button class="btn btn-link p-2 ml-2 icon-tab-more-active" type="button" id="menu-exercise-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="sr-only">More options</span></button><div class="dropdown-menu" aria-labelledby="menu-exercise-1"><a class="dropdown-item" href="#" data-action="save-to-workouts">Save to Workouts Library</a>    <a class="dropdown-item" href="#">Duplicate</a>    <a class="dropdown-item" ref="#">Delete</a>  </div></div></div>
+	
+			<div class="row">
+				<div class="col-4">
+					<div class="form-group upload-unit">
+						<label for="posterImage">Poster</label>
+						<label id="posterImage" class="btn btn-secondary btn-block img-upload-preview"><i class="icon-camera"><span class="sr-only">Select Image</span></i>
+						<input class="sr-only img-upload" id="upload-poster" type="file"></label>
+					</div>
+				</div>
+				<div class="col-8">
+					<div class="form-group">
+						<label for="notes_W1D1">Notes</label>
+						<textarea class="form-control" id="notes_W1D1" rows="3"></textarea>
+					  </div>
+				
+				
+				</div>
+			</div>
+				
+				
+				<div class="card card-minimal bg-light active" id="workoutParts_W1D1">
+				  <div class="card-header"><label class="sr-only">Part 1</label><input type="text" placeholder="Workout"> <button type="button" data-toggle="tooltip" data-placement="top" title="Add workout part (i.e. Warm Up)" class="btn btn-sm btn-secondary icon-plus p-2 ml-4 float-right" data-action="add_part"></button></div>
+				  <div class="card-body">
+					<div class="form-group workout-part">
+						<div aria-labelledby="part1">
+							<button type="button" class="sr-instruction btn btn-link" data-action="add_exercise">Add exercises from the Exercise Library</button>
+						  <ul class="list-unstyled list-items"></ul>
+							<div class=""><button type="button" class="btn btn-block btn-outline-primary d-block d-md-none " data-action="add_exercise">Add Exercise</button></div>
+						</div>
+						</div>
+				  </div>
+				</div>
+				
+		</fieldset>	
+				
+				<div class="text-right mt-5">
+					<hr>
+					<button type="button" class="btn btn-secondary m-1" data-action="done_adding_workouts">Back to Plan</button>
+					<button type="button" class="btn btn-primary m-1" data-action="next_workout" disabled>Add Next Workout</button>
+				</div>
+			</form>
+			</div>
+	</section>
+		<section id="wall_Exercise" class="flex-fill p-md-5 p-3 bg-white width-limited" data-roll="absent">
+			<div id="Exercise-Library" class="contents">
+			<div class="section-header"><div class="d-flex justify-content-between"><h1 class="heading"><strong>Exercise Library</strong></h1><button type="button" class="close align-self-start d-block d-sm-none" data-action="close_exercises" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button></div>
+			
+			<form class="my-4">								
+				<div class="form-group d-flex">
+				<input id="search_exercises" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+				<button class="btn btn-secondary mx-2" type="submit"><span class="sr-only">Search</span><i class="icon-search"></i></button>
+				</div>
+				<div class="form-group">
+					<div id="filter_workouts" class="">						  
+						<label for="all_equipment" class="small mr-2"><input id="all_equipment" type="checkbox" checked="" data-toggle="collapse" data-target="#filters_equipment" aria-expanded="false" role="button"> All Equipment</label>
+						<div id="filters_equipment" class="collapse"><span class="d-flex flex-wrap"><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Cones"><label class="form-check-label small" for="Cones">Cones</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Stick"><label class="form-check-label small" for="Stick">Stick</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Theraball"><label class="form-check-label small" for="Theraball">Theraball</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Strap"><label class="form-check-label small" for="Strap">Strap</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Towel"><label class="form-check-label small" for="Towel">Towel</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Sandbag"><label class="form-check-label small" for="Sandbag">Sandbag</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="BattleRope"><label class="form-check-label small" for="BattleRope">Battle Rope</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="PowerWheel"><label class="form-check-label small" for="PowerWheel">Power Wheel</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Sliders"><label class="form-check-label small" for="Sliders">Sliders</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="FoamRoller"><label class="form-check-label small" for="FoamRoller">Foam Roller</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="SwissBall"><label class="form-check-label small" for="SwissBall">Swiss Ball</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="BOSU"><label class="form-check-label small" for="BOSU">BOSU</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="MedBall"><label class="form-check-label small" for="MedBall">Med Ball</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Dumbbells"><label class="form-check-label small" for="Dumbbells">Dumbbells</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Kettlebells"><label class="form-check-label small" for="Kettlebells">Kettlebells</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Cables"><label class="form-check-label small" for="Cables">Cables</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="TubingBands"><label class="form-check-label small" for="TubingBands">Tubing/Bands</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Plate"><label class="form-check-label small" for="Plate">Plate</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="DynaDisc"><label class="form-check-label small" for="DynaDisc">Dyna Disc</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Machine"><label class="form-check-label small" for="Machine">Machine</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Bodyweight"><label class="form-check-label small" for="Bodyweight">Bodyweight</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="LegWeights"><label class="form-check-label small" for="LegWeights">Leg Weights</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Barbell"><label class="form-check-label small" for="Barbell">Barbell</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Suspension"><label class="form-check-label small" for="Suspension">Suspension</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Airex"><label class="form-check-label small" for="Airex">Airex</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="WobbleBoard"><label class="form-check-label small" for="WobbleBoard">Wobble Board</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Ring"><label class="form-check-label small" for="Ring">Ring</label></div></span><hr></div>
+						<label for="all_bodyparts" class="small"><input id="all_bodyparts" type="checkbox" checked="" data-toggle="collapse" data-target="#filters_bodyparts" aria-expanded="false" role="button"> All Body Parts</label>
+						<div id="filters_bodyparts" class="collapse"><span class="d-flex flex-wrap"><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Hip"><label class="form-check-label small" for="Hip">Hip</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Cervical"><label class="form-check-label small" for="Cervical">Cervical</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Ankle"><label class="form-check-label small" for="Ankle">Ankle</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Wrist"><label class="form-check-label small" for="Wrist">Wrist</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Lumbar"><label class="form-check-label small" for="Lumbar">Lumbar</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Thoracic"><label class="form-check-label small" for="Thoracic">Thoracic</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Knee"><label class="form-check-label small" for="Knee">Knee</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Forearms"><label class="form-check-label small" for="Forearms">Forearms</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Chest"><label class="form-check-label small" for="Chest">Chest</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Back"><label class="form-check-label small" for="Back">Back</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="FullBody"><label class="form-check-label small" for="FullBody">Full Body</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Legs"><label class="form-check-label small" for="Legs">Legs</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Biceps"><label class="form-check-label small" for="Biceps">Biceps</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Abs"><label class="form-check-label small" for="Abs">Abs</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Neck"><label class="form-check-label small" for="Neck">Neck</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Triceps"><label class="form-check-label small" for="Triceps">Triceps</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="Shoulders"><label class="form-check-label small" for="Shoulders">Shoulders</label></div><div class="form-check my-2 mr-4"><input class="form-check-input" type="checkbox" value="" id="LowerBack"><label class="form-check-label small" for="LowerBack">Lower Back</label></div></span><hr></div>
+
+						</div>
+						
+				</div>
+	   	    </form>
+			</div>
+			<ul class="list-unstyled list-items">
+			<!-- Render JSON -->		
+			</ul>
+	
+			</div>			
+		</section>
+	
+	
+
+</main>
+<aside>	
+</aside>
+<footer id="footer"></footer>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	
+	<!--For Drag & Drop, must occur before bootstrap.js for BS Tooltip styling-->
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<script src="../js/popper.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="js/coaching.js"></script>        
+
+<script src="../js/jquery.ui.touch-punch.min.js"></script>
+
+  <script>
+	
+// Stage the Page (for mockup purposes)	
+	$('#wall_Workout').hide();
+	$('#wall_Exercise').hide();
+	  	  
+	
+// Select Existing Workout
+		$('[data-action="select_workout"]').click(function(){
+			$(this).closest('.dropdown').prev('ul').append(WorkoutDay);
+			$('#wall_Plan').attr('data-roll','absent');
+			$('#wall_Workout').attr('data-roll','absent');									
+			$('#wall_Exercise').hide();			
+			
+			$.get('includes/workouts_library.html', function(data){ // Loads content into the 'data' variable.
+				$('#wall_Exercise').after(data); // Injects 'data' after the #mydiv element.
+				$('#wall_Inventory h1.heading strong').text('Select A Existing Workout')
+		  });
+
+		});
+	  
+// Rest Day 
+		$('[data-action="rest_day"]').click(function(){
+			$(this).closest('.dropdown').prev('ul').append('<li><div class="plan-day rest-day d-flex flex-grow-1 align-items-center"><i class="thumbnail"></i><div class="d-flex flex-column flex-fill"><label class="nowrap mr-2">Day <span data-day="1">1</span><span class="workout-name"><small> — Rest Day</small></span></label></div></div><textarea class="form-control" placeholder="Special instructions..."></textarea></li>');
+		});
+	
+//  Load Exercises
+    $(function() {
+		
+		
+	
+//   var exercises = [];
+
+   $.getJSON('js/exercises.json', function(data) {
+       $.each(data.exercise, function(i, f) {
+          var tblRow = '<li class="item-exercise">		<div class="intensities center-block"><p class="subheading">Target Intensities</p><div class="form-group form-row"><div class="col-sm-2"><input aria-label="Number of Reps or Seconds" type="number" class="form-control text-right" value="10"></div><div class="col-sm-4"><select aria-label="Reps or seconds" class="form-control"><option>Reps</option><option>Seconds</option></select></div><div class="col-sm-6"><input aria-label="Per Unit" type="text" value="Per Set" class="form-control"></div></div>				<div class="form-group form-row"><div class="col-sm-2"><input aria-label="Number of Sets" type="number" class="form-control text-right" value="3"></div><div class="col-sm-4"><select aria-label="Set Type" class="form-control"><option>Sets</option><option>Supersets</option><option>Triple sets</option><option>Quad sets</option><option>Circuits</option><option>Pyramids</option><option>Intervals</option><option>Tabata</option></select></div><div class="col-sm-6"><input aria-label="Per Exercise" type="text" value="Per Exercise" class="form-control"></div></div><div class="form-group form-row"><div class="col-sm-2"><input aria-label="Number of Seconds" type="number" class="form-control text-right" value="60"></div><div class="col-sm-4"><input aria-label="Seconds" type="text" class="form-control" value="Seconds"></div><div class="col-sm-6"><input aria-label="Per Unit" type="text" placeholder="Rest Between Set" class="form-control"></div></div><textarea class="form-control" placeholder="Additional intensities."></textarea></div>			<pre class="description mt-4"> '+ f.desc +' </pre><button class="btn btn-sm btn-primary icon-plus p-2 mr-4" data-action="add_to_workout"><span class="sr-only">Add to Workout</span></button> <i class="thumbnail" style="background-image:url('+ f.poster +')"></i><div class="embed-responsive embed-responsive-16by9 mb-4"><video controls="" muted src="'+ f.video +'"></video></div><div class="d-flex flex-column flex-fill name"><span>'+ f.name +'</span><small>' + f.details +'</small></div><span class="icon-drag p-2 ml-2 btn btn-link" data-action="drag"></span><button class="icon-point-right p-2 ml-2 btn btn-link btn-takeover" data-action="view_detail"><span class="sr-only">View Exercise</span></button><div class="dropdown" data-action="more"> <button class="btn btn-link p-2 ml-2 icon-tab-more-active" type="button" id="menu-exercise-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="sr-only">More options</span></button><div class="dropdown-menu" aria-labelledby="menu-exercise-1"><a class="dropdown-item" href="#">View</a>    <a class="dropdown-item" href="#">Duplicate</a>    <a class="dropdown-item" ref="#">Remove</a>  </div></div><button type="button" class="close" data-action="back_to_library"><span class="sr-only">Close</span><span aria-hidden="true"><i class="icon-arrow-left3"></i></span></button></li>'			  
+           $(tblRow).appendTo("#wall_Exercise .list-items");
+     });
+	   
+	   
+	   
+				// Add This Exercise to Workout
+				$('[data-action="add_to_workout"]').click(function(){
+					$(this).closest('li').clone().removeClass('detail').appendTo('#wall_Workout .card.active ul.list-items');
+					$('[data-action="next_workout"]').prop('disabled', false);
+					$('#wall_Workout').attr('data-roll','engaged');
+					$('#wall_Exercise').attr('data-roll','present');
+					$('.sr-instruction').addClass('sr-only');
+					
+					
+					// Enable Drag and Drop
+					$( '#wall_Workout .list-items' ).sortable({
+						handle: ".icon-drag",
+						connectWith: ".list-items",
+						placeholder: "ui-state-highlight"
+					});	
+																		
+			
+																	
+		});
+
+	   
+	   	
+	   
+	   // Show Exercise Detail 
+	   $('[data-action="view_detail"]').click(function(){		   		   
+		   
+		   $('#Exercise-Library li').hide();
+		   $('.section-header').hide();
+		   $(this).closest('li').show().addClass('detail');
+		   
+		   var theVid = $(this).parent().children().children('video');
+		   var vidSrc = $(this).parent().children().children('video').attr('src');
+		   var thePoster = $(this).parent().children('.thumbnail').css('background-image');
+		   
+		   if (vidSrc == "") {
+			  $(theVid).hide();
+			  $(theVid).parent().css('background', thePoster+'no-repeat center center')
+		   }
+		   else {
+		   		$('video').get(0).play();
+		   }
+	   });
+	   
+	   // Close Exercise Detail and Return to Library 
+		$('[data-action="back_to_library"]').on('click', function(){
+			   $('#Exercise-Library li').show();
+			   $('.section-header').show();
+			   $(this).closest('li').show().removeClass('detail');
+		});
+	   
+	   
+
+   });
+
+});
+
+	// Add a Workout (stub)
+	
+	var WorkoutDay = '<li><a href="#thisPlan" class="plan-day active d-flex flex-grow-1 align-items-center" data-action="view_workout"><i class="thumbnail"></i><div class="d-flex flex-column flex-fill"><span>Day <span data-day="1">1</span><span class="workout-name"></span></span><small>10 Exercises, 45 min, 100 cal</small></div></a></li>'
+	
+	
+	var WorkoutBlank = '<fieldset class="active"><div class="d-flex justify-content-between"><h2 class="heading"><div class="form-inline"><select class="mb-1 mr-2 custom-select custom-select-sm"><option>Week 1</option><option>Week 2</option><option>Week 3</option></select><strong class="mr-2">Day 2</strong> <small class="nowrap ">10 Exercises, 45 min, 100 cal</small></div></h2><div class="dropdown" data-action="more"> <button class="btn btn-link p-2 ml-2 icon-tab-more-active" type="button" id="menu-exercise-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="sr-only">More options</span></button><div class="dropdown-menu" aria-labelledby="menu-exercise-1"><a class="dropdown-item" href="#" data-action="save-to-workouts">Save to Workouts Library</a>    <a class="dropdown-item" href="#">Duplicate</a>    <a class="dropdown-item" ref="#">Delete</a>  </div></div></div>	<div class="form-group"><label for="name">Workout Name</label><input type="text" class="form-control">			</div>	<div class="row"><div class="col-4"><div class="form-group upload-unit"><label id="posterImage" class="d-block file-upload-unit">Poster<span class="btn btn-secondary btn-block img-upload-preview mt-2""><i class="icon-camera"><span class="sr-only">Select Image</span></i></span><input class="sr-only img-upload" id="upload-poster" type="file"></label></div></div><div class="col-8"><div class="form-group"><label for="notes_W1D1">Notes</label><textarea class="form-control" id="notes_W1D1" rows="3"></textarea></div></div></div><div class="card card-minimal bg-light active" id="workoutParts_W1D1"><div class="card-header"><label></label><input type="text" placeholder="Warm Up"><button type="button" data-toggle="tooltip" data-placement="top" title="Add workout part (i.e. Warm Up)" class="btn btn-sm btn-secondary icon-plus p-2 ml-4 float-right" data-action="add_part"></button></div><div class="card-body"><div class="form-group workout-part"><div aria-labelledby="part1"><button type="button" class="sr-instruction btn btn-link" data-action="add_exercise">Add exercises from the Exercise Library</button><ul class="list-unstyled list-items"></ul><div class=""><button type="button" class="btn btn-block btn-outline-primary d-block d-md-none " data-action="add_exercise">Add Exercise</button></div></div></div></div></div></fieldset>'
+	
+		
+	
+	
+			
+	// Add Workout to Plan
+	$('[data-action="add_workout"]').click(function(){
+		$('#wall_Plan').attr('data-roll','absent');
+		$('#wall_Workout').attr('data-roll','engaged').fadeIn();
+		$('#wall_Exercise').show().attr('data-roll','present');
+		$('.plan-day').removeClass('active');
+		$(this).closest('.dropdown').prev('ul').append(WorkoutDay);
+		// Number the Days
+		$("[data-day='1']").each(function(index) {
+			$(this).html(index + 1);
+		  });
+		$('fieldset.active').hide().removeClass('active').after(WorkoutBlank);
+		$('[data-action="add_workout"]').prop('disabled', true).css('opacity','.1');
+		$('[data-action="save_plan"]').prop('disabled', true).css('opacity','.1');
+		 $('[data-toggle="tooltip"]').tooltip();
+		
+		
+			// Show Exercise Library
+			$('[data-action="add_exercise"]').on('click', function(){
+				$('#wall_Workout').attr('data-roll','present');
+				$('#wall_Exercise').attr('data-roll','engaged');
+				$(this).closest('.form-group').addClass('active');
+				$('#search_exercises').focus();
+			});
+		
+		
+		
+			// View Workout
+			$('[data-action="view_workout"]').click(function(){
+				$(this).addClass('active');
+				$('#wall_Workout').attr('data-roll','engaged').fadeIn();
+				$('#wall_Plan').attr('data-roll','present');
+			})
+		
+		
+		// Add Workout Part 
+		var addWorkoutPart = $('[data-action="add_part"]').click(function(){	
+			var newCard = '<div class="card card-minimal bg-light"><div class="card-header"><label class="sr-only">Part 1</label><input type="text" placeholder="Cool Down"></div><div class="card-body"><div class="form-group workout-part"><div aria-labelledby="part1"><ul class="list-unstyled list-items ui-sortable"><li style="opacity:0; margin:0; height:4px">placeholder</li></ul><div class=""><button type="button" class="btn btn-block btn-outline-primary d-block d-md-none " data-action="add_exercise">Add Exercise</button></div></div></div></div></div>'
+
+			var thisCard = $(this).closest('.card');
+			$(newCard).insertAfter(thisCard);
+			
+					// Enable Drag and Drop
+					$( '#wall_Workout .list-items' ).sortable({
+						handle: ".icon-drag",
+						connectWith: ".list-items",
+						placeholder: "ui-state-highlight"
+					});	
+						
+
+		});
+		
+		
+			// Add Next Workout to Plan
+			$('[data-action="next_workout"]').click(function(){
+				$(this).parent().prev('fieldset.active').hide().removeClass('active').after(WorkoutBlank);
+				$('.plan-day').removeClass('active');
+				$(this).prev('ul').append(WorkoutDay);
+				$('[data-action="add_workout"]').prop('disabled', true).css('opacity','.1');
+				$('[data-action="save_plan"]').prop('disabled', true).css('opacity','.1');			
+			});
+		
+		
+		
+			// Upload Poster/Update Preview	
+	
+		$(".img-upload").click(function(){
+
+			var imghole = $(this).attr('id')
+
+			function readURL(input) {
+				if (input.files && input.files[0]) {
+					var reader = new FileReader();
+
+					reader.onload = function (e) {
+						$('.upload-unit .img-upload-preview').css('background-image', 'url(' + e.target.result + ')').addClass('populated');
+						$('.plan-day.active .thumbnail').css('background-image', 'url(' + e.target.result + ')').addClass('populated');
+					}
+
+					reader.readAsDataURL(input.files[0]);
+				}
+			}
+
+			$(this).change(function(){
+				readURL(this);
+
+			});
+		});
+
+
+		
+		
+	});
+	  
+	  
+	  			
+								
+	  
+	
+	
+	
+	
+	
+	// Done adding Workouts
+	$('[data-action="done_adding_workouts"]').click(function(){
+		$('#wall_Plan').attr('data-roll','engaged');
+		$("#plan-autosave").show().delay(400).fadeOut();
+		$('#wall_Workout').attr('data-roll','absent');
+		$('#wall_Exercise').attr('data-roll','absent');
+		$('[data-action="add_workout"]').prop('disabled', false).css('opacity','1');
+		$('[data-action="save_plan"]').prop('disabled', false).css('opacity','1');	
+		$('.plan-day.active').removeClass('active');
+				
+		// count the days
+		$("#wall_Plan ul > li [data-day]").each(function(i) {
+			$(this).text(++i);
+		});
+	});
+	  
+
+	  
+	  
+	  
+	
+	// Next Workout
+	$('[data-action="next_workout"]').click(function(){
+		$('.plan-day.active').removeClass('active').parent('li').after(WorkoutDay);
+	});		
+	
+
+	
+
+	// Close Exercise Library
+	
+	$('[data-action="close_exercises"]').on('click', function(){
+		$( "#wall_Exercise" ).attr('data-roll','absent').css('left', '');
+//		$('[data-action="add_exercise"]').prop('disabled', false).css('opacity','1').closest('.form-group').removeClass('active');
+		$('.sr-instruction').removeClass('sr-only');
+	});
+	
+	
+// Autosave UI
+	  
+	  $('.form-control').change(function(){
+		  $("#plan-autosave").show().delay(400).fadeOut();
+		  
+	  })
+	  
+	  
+
+	  
+	  $(function () {
+		  // Enable Tooltips 
+		  $('[data-toggle="tooltip"]').tooltip();
+		  
+		  // Set Nav 
+		  $('#tab-plans').addClass('active');
+		})
+	
+</script>
+	
+	
+	
+	
+	
+</body>
+</html>

@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<base href="//db.anytimefitness.com"
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>plan - 6-Month Plan</title>
+<meta name="description" content="Anytime Fitness Dashboard" />
+<meta name="keywords" content="" />
+<link rel="shortcut icon" atype="image/x-icon" href="/Content/favicon.ico" />
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
+<link href="https://anytimefitness.blob.core.windows.net/shared-css/master.css" rel="stylesheet" type="text/css" />
+<link href="/Scripts/app/styles/common/dashboard.css" rel="stylesheet" type="text/css" />
+<link href="/Content/Styles/datepicker.css" rel="stylesheet" />
+<link href="/Content/Scripts/DatePicker/css/smoothness/jquery-ui-1.9.0.custom.css" rel="stylesheet" />
+<link href="/Content/Scripts/DataTable/css/Data_table.css" rel="stylesheet" />
+<script src="/Scripts/app/final.min.js?v=91.0.0.0" type="text/javascript"></script>
+
+<!-- Test Head snippet -->
+
+<!-- Google Analytics - Combo Platter -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2458066-29', 'auto');
+  ga('create', 'UA-2458066-9', 'auto', 'MacroAccount');
+  ga('send', 'pageview');
+  ga('MacroAccount.send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+<script type='text/javascript' data-cfasync='false'>
+
+                    window.purechatApi = {
+
+                        l: [], t: [], on: function () {
+
+                            this.l.push(arguments);
+
+                        }
+
+                    };
+
+                    (function () {
+
+                        var done = false;
+
+                        var script = document.createElement('script');
+
+                        script.async = true;
+
+                        script.type = 'text/javascript';
+
+                        script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript';
+
+                        document.getElementsByTagName('HEAD').item(0).appendChild(script);
+
+                        script.onreadystatechange = script.onload = function (e) {
+
+                            if (!done &&
+
+                                (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) {
+
+                                var w = new PCWidget({ c: 'c271189a-dfc5-4259-8a0c-01ef613638ee', f: true });
+
+                                done = true;
+
+                            }
+
+                        };
+
+                    })();
+
+                </script>
+	
+	<style>
+	
+	.highlight {
+		/* background: #e6f2ce!important;*/
+	}
+	</style>
+</head>
+
+<body class=" ">
+<div id="main" class="dashboard af  ">
+  <div class="modal dialog fade" role="dialog" aria-hidden="true">
+    <div class="modal-header dialog" style="background-color: #9e69c8">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <div class="modal-title dialog" style="font-weight: bold; color: white"></div>
+    </div>
+    <div class="modal-body dialog">
+      <div class="modal-text dialog"></div>
+    </div>
+    <div class="modal-footer dialog">
+      <div class="first-button-panel" style="display: inline"> </div>
+      <div class="second-button-panel" style="display: inline"> </div>
+    </div>
+  </div>
+  <div id="header"> <a href="/" class="brand"></a>
+    <style type="text/css">
+
+    .affective-link {
+
+        padding-left: 12px !important;
+
+    }
+
+
+
+    .affective-icon {
+
+        max-width: 24px;
+
+        max-height: 24px;
+
+        margin-right: 8px;
+
+    }
+
+
+
+    .nav #nav-scorecard > a {
+
+        background-image: url(//afdashboard.blob.core.windows.net/en-us/Images/Club/nav-scorecard.png);
+
+    }
+
+
+
+    .nav #nav-idea-clubconnect > a {
+
+        background-image: url(//anytimefitness.blob.core.windows.net/shared-images/24x24/nav-idea-clubconnect.png);
+
+    }
+
+</style>
+    <ul class="nav nav-pills floatright">
+      <li class="dropdown"> <a class="dropdown-toggle " href="/news"><i class="sprite-nav-news sprite-nav-top"></i><span class="navtext">news & events</span><b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li id="nav-franchise-notices"><a href="/news/notices">Franchise Notices</a></li>
+          <li id="nav-calendar" class='dropdown-submenu'> <a href="/news/events/Calendar">Calendar</a>
+            <ul class="dropdown-menu">
+              <li id="nav-manage-events"><a href="/news/events/EventTypes/manage-events">Manage Events</a></li>
+              <li id="nav-promo-codes"><a href="/news/events/PromoCode/promocodes">Promo Codes</a></li>
+            </ul>
+          </li>
+          <li id="nav-training" class="dropdown-submenu"> <a href="/news/training">Training</a>
+            <ul class="dropdown-menu">
+              <li id="nav-operations"><a href="/news/training/operations">Operations</a></li>
+              <li id="nav-consumer"><a href="/news/training/consumer">Consumer</a></li>
+              <li id="nav-vitals"><a href="/news/training/vitals">Vitals</a></li>
+              <li id="nav-live-programming"><a href="/news/training/live-programming">AF Training Workshop</a></li>
+              <li id="nav-learning-link"><a href="/news/training/learning-link">Learning Link</a></li>
+            </ul>
+          </li>
+          <li id="nav-new-operations"> <a href="/news/new-ops/home">New Operations</a> </li>
+          <li id="nav-annual-conference" class='dropdown-submenu'> <a href="/news/conference/Static/Home">Conference</a>
+            <ul class="dropdown-menu">
+              <li id="nav-conf-registration"><a href="/news/conference/conference-reports/ViewConferenceSummaryReport">Conference Reports</a></li>
+              <li id="nav-conf-ribbon-mgmt"><a href="/news/conference/manage-ribbons/EditRibbons">Edit Ribbons</a></li>
+              <li id="nav-conf-conference-management"><a href="/news/conference/ConferenceManagement">Conference Management</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="dropdown"> <a class="dropdown-toggle " href="/club"><i class="sprite-nav-club sprite-nav-top"></i><span class="navtext">club</span><b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li id="nav-reporting"><a href="/club/reports">Reporting</a></li>
+          <li id="nav-club-at-a-glance"><a href="/club/club-at-a-glance-init/">Club At A Glance</a></li>
+          <li id="nav-club-member-onboarding-report"><a href="/club/mop/">Member Onboarding Report</a></li>
+          <li id="nav-feedback-loop"><a href="/club/feedback">Member Feedback</a></li>
+          <li id="nav-staff-management"><a href="/club/staff">Staff Management</a></li>
+          <li id="nav-club-website"><a href="/clubprofile">Club Website</a></li>
+          <li class="dropdown-submenu" id="nav-ipad"> <a href="#">Digital Membership Agreements</a>
+            <ul class="dropdown-menu">
+              <li id="nav-plan-management"><a href="/config/InitPlansList/Init">Plans</a></li>
+              <li id="nav-agreement-settings"><a href="/config/InitAgreementSettings/Init">Agreement Settings</a></li>
+              <li id="nav-club-settings"><a href="/config/InitClubSettings/Init">Club Settings</a></li>
+            </ul>
+          </li>
+          <li><a href='/club/workout-templates'  class='affective-link'><i class="affective-icon"><img src="//afdashboard.blob.core.windows.net/en-us/Images/Club/nav-document-landscape.png" style=""></i>Workout Templates</a></li>
+        </ul>
+      </li>
+      <li class="dropdown"> <a class="dropdown-toggle " href="/resources"><i class="sprite-nav-training sprite-nav-top"></i><span class="navtext">resources</span><b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li id="nav-anytime-academy"><a href="/resources/academy/">Anytime Academy</a></li>
+          <li id="nav-scorecard"><a href="/resources/scorecard">Scorecard</a></li>
+          <li id="nav-live-programming"><a href="/resources/live-programming-resources">AF Training</a></li>
+          <li id="nav-idea-clubconnect"><a href="/resources/idea/club-connect">IDEA ClubConnect</a></li>
+          <li id="nav-technology"> <a href="/resources/technology/">Technology</a> </li>
+          <li class="" id="nav-marketing"> <a href="/resources/marketing/home">Marketing</a> </li>
+          <li id="nav-please-resources"><a href="/resources/please-score/resources">PLEASE Resources</a></li>
+          <li id="nav-wellness-resource-center"><a href="/resources/wellness-resources/center">Wellness Resource Center</a></li>
+          <li id="nav-emotional-intelligence-resource-center"><a href="/resources/ei-resource-center/info">Emotional Intelligence Resource Center</a></li>
+          <li id="nav-vendors"><a href="/resources/vendors/info">Vendors</a></li>
+          <li id="nav-pumpone"><a href="/sso/pumpone">Anytime Workouts</a></li>
+        </ul>
+      </li>
+      <li class="dropdown"> <a class="dropdown-toggle " href="/community"><i class="sprite-nav-community sprite-nav-top"></i><span class="navtext">community</span><b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li id="nav-forums"><a href="/community/forum">Forums</a></li>
+          <li id="nav-corporate-staff"><a href="/community/corporate/contacts">Corporate Contacts</a></li>
+          <li id="nav-fac"><a href="/community/franchise-advisory-council">Franchise Advisory Council</a></li>
+          <li id="nav-master-dashboard"><a href="//master.anytimefitness.com/" target="_blank">Master Dashboard</a></li>
+          <li id="nav-heart-first"><a href="/community/heartfirst/program" target="_blank">Heart First</a></li>
+        </ul>
+      </li>
+      <li class="dropdown"> <a class="dropdown-toggle " href="/Profile "> <i class="sprite-nav-top" style="background-image: none;"> <img src="//anytimefitness.blob.core.windows.net/user-photos/d517e8d0-b8e6-4926-93de-8568fdb3d5dd.jpg" style="max-width: 24px; max-height: 24px;" /> </i> <span class="navtext">profile</span><b class="caret"></b> </a>
+        <ul class="dropdown-menu">
+          <li id="nav-account"><a href="/club/staff/edit/2752">Account</a></li>
+          <li class="divider"></li>
+          <li id="nav-logout"><a href="/login/logout">Logout</a></li>
+        </ul>
+      </li>
+      <li id="nav-site-search"><a href="#"><i class="sprite-nav-search sprite-nav-top"></i></a></li>
+    </ul>
+    <button class="menu-trigger icom-menu"></button>
+    <script>
+
+    document.querySelector(`#header .menu-trigger`).addEventListener('click', function () {
+
+        document.body.classList.toggle('nav-expanded');
+
+    })
+
+</script> 
+  </div>
+  <div class="site-search"> <i class="point"></i>
+    <form action="/search" method="GET">
+      <input name="query" id="query" placeholder="Search the Dashboard">
+      <button class="btn gray pull-right">search</button>
+    </form>
+  </div>
+  <main id="torso">
+    <div id="firstlevel"> </div>
+    <style>
+
+  .plan-length label.on-off-switch {
+
+      padding: 0px 0;
+
+  }
+
+
+
+  .this-blurs-the-plan-page {
+
+      background-color: black;
+
+      opacity: .5;
+
+      width: 731px;
+
+      position: absolute;
+
+      z-index: 10000;
+
+  }
+
+
+
+  .plan-length label.on-off-switch-slimmer {
+
+      padding: 4px 0;
+
+  }
+
+</style>
+    <h1 class="title normal float">club settings <span class="small"><a id="helpReportingLink" href="javascript:void(0)" class="help-link" data-original-title=""><img src="https://anytimefitness.blob.core.windows.net/shared-images/16x16/icon-info-link.png"> help</a></span></h1>
+    <div class="clearfix"></div>
+    <div id="helpReporting" class="section-help margin-bot round hide" style="width: 100%;"> <a class="close btn-close" href="javascript:void(0)" data-original-title="">×</a>
+      <div class="pad">
+        <p>Hundreds of digital agreements are created and amended with Club Hub iOS each day. They'll save your team time and effort, and provide increased data security and improved customer experience. Use the resources below to learn more about how to get started.</p>
+        <ul>
+          <li><a href="https://academy.anytimefitness.com/booklet/operations/?aid=7328" target="_blank">Get Started with Digital Membership Agreements</a></li>
+          <li><a href="https://wiki.sebrands.com/afskb/dashboard/dashboard-club/digital-membership-agreements/dma-edit-and-create-plans" target="_blank">Edit and Create Plans</a></li>
+          <li><a href="http://vimeo.com/anytimefitness/review/114280338/b5f910c555" target="_blank">Set up a 12-Month EFT Plan</a></li>
+          <li><a href="http://vimeo.com/anytimefitness/review/114280339/c51567aa07" target="_blank">Set up a 12-Month PIF Plan</a></li>
+          <li><a href="https://wiki.sebrands.com/afskb/club-hub-ios-home/club-hub-prospects-tab/convert-prospects-to-members" target="_blank">Execute a Digital Membership Agreement</a></li>
+        </ul>
+        
+        <!--<a href="http://tech-anytimefitness.helpdocsonline.com/#home" target="_blank">For more information about plan setup, please click here.</a>--> 
+        
+      </div>
+      <div class="align-right pad"><a href="javascript:void(0)" class=" btn gray btn-close" data-original-title="">close</a></div>
+    </div>
+    <div class="row flexContainer">
+      <div class="span12 headerSection">
+        <form id="Plansform" class=" member-plans constrained" method="post" enctype="multipart/form-data">
+          <div id="alert-error"></div>
+          <div class="segmentwhite slicktoggle" style="display: none;" data-bind="visible: true">
+            <div data-bind="style: blurPlanStyle" style="display: none;" class="this-blurs-the-plan-page"></div>
+            <div data-bind="visible: hasErrors" id="errorpane">
+              <div class="alert alert-error" data-bind="html: errorText"></div>
+            </div>
+            <fieldset class="toggle-container margin-bot">
+              <legend data-bind="text: pageTitle">plan</legend>
+              <div class="row" data-bind="visible: isCorporateUser">
+                <div class="col-sm-6 margin-bot">
+					
+					 <label for="isCorporate" class="on-off-switch-label"><div class="on-off-switch">
+						<div class="on-off-inner">
+							<input id="isCorporate" data-bind="checked: isCorporate, disable: isReadonly()" type="checkbox">
+							<div class="on-off-state-label yes">ON</div>
+							<div class="on-off-spacer">&nbsp;</div>
+							<div class="on-off-state-label no">OFF</div>
+						</div>
+						</div> <span>Corporate-Defined Plan</span>
+					 </label>
+					
+				
+                </div>
+				  <div class="col-sm-6 ">
+					
+					 <label for="isCampaign" class="on-off-switch-label"><div class="on-off-switch">
+						<div class="on-off-inner">
+							<input id="isCampaign" type="checkbox">
+							<div class="on-off-state-label yes">ON</div>
+							<div class="on-off-spacer">&nbsp;</div>
+							<div class="on-off-state-label no">OFF</div>
+						</div>
+						</div> <span>Campaign Plan</span>
+					 </label>
+					
+				
+                </div>
+              </div>
+				<div id="isCampaignContent" class="field-green pad round margin-bot" style="display: none;">
+				<div class="row">
+					<div class="col-sm-6">
+				
+				<div  class="margin-bot"><label for="selectCampaign"><strong>Select Campaign</strong></label>
+				<select id="selectCampaign">
+					<option>January Campaign</option>
+					<option>March Campaign</option>
+					<option>Some other Campaign</option>					
+					</select>
+					</div>
+				
+				</div>
+					<div class="col-sm-6">
+						<label><strong>Active Dates: </strong></label>
+Jan 1, 2020 — Jan 16, 2020
+					</div>
+						</div><p><small class="text-green-dark"><strong>Note: </strong>We've made changes to this plan for the duration of the campaign, the changed fields have been highlighted below. <a href="#campaignChanges" data-toggle="modal">See what's changed.</a> </small></p>
+					<p><small class="text-green-dark">When the campaign is over, the previous settings will automatically be restored.</small></p>
+					
+										
+				</div>
+              <div class="row">
+                <div class="span9 margin-bot">
+					
+                  <label class="margin-right" data-bind="highlight: $root.shouldHighlight('plan-name')">Plan name </label> 
+                    <input id="planName" type="text" placeholder="name this plan..." data-bind="value: name, disable: $root.isReadonly() || isCorporate">
+
+                </div>
+                <div class="span2">
+                  <label class="margin0">Select color <a href="javascript:void(0)" data-toggle="tooltip" data-placement="right" title="Color coding your plans makes them easier to identify"><img alt="tip" src="https://anytimefitness.blob.core.windows.net/shared-images/16x16/icon-info-blue-small.png" style="margin-top:-3px;" /></a></label>
+                  <div class="dropdown"> <a href="javascript:void(0)" data-toggle="dropdown" class="dropdown-toggle text-normal" data-original-title="" data-bind="disable: $root.isReadonly()">
+                    <div class="plan-color"><i data-bind="css: 'block-' + color.selectedColor()"></i></div>
+                    </a>
+                    <ul role="menu" class="dropdown-menu picker-swatch" data-bind="click: color.setSelectedColor">
+                      
+                      <!-- ko foreach: color.availableColors -->
+                      
+                      <li> <a data-original-title=""><i data-bind="css: 'block-' + $data"></i></a> </li>
+                      
+                      <!-- /ko -->
+                      
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <hr class="dotted">
+              <div class="row margin-bot">
+                <div class="span11">
+                  <div class="margin-right">
+                    <label> Features <small>(one per line)</small> </label>
+                    <p>
+                      <input type="text" data-bind="value: feature1, disable: $root.isReadonly() || isCorporate">
+                    </p>
+                    <p>
+                      <input type="text" data-bind="value: feature2, disable: $root.isReadonly() || isCorporate">
+                    </p>
+                    <p>
+                      <input type="text" data-bind="value: feature3, disable: $root.isReadonly() || isCorporate">
+                    </p>
+                    <p>
+                      <input type="text" data-bind="value: feature4, disable: $root.isReadonly() || isCorporate">
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="plan-length" data-bind="with: paymentSchedule">
+              <p style="font-size:20px"><strong>Payment schedule</strong></p>
+              <div class="row">
+                <div class="span">
+                  <label>Membership Type</label>
+                </div>
+                <div class="span margin-right">
+                  <select id="planType" data-bind="options: membershipOptions, optionsText: 'Description', value: membershipTerm, disable: $root.isReadonly() || $parent.isCorporate">
+                  </select>
+                </div>
+              </div>
+              <div class="well well-small">
+                <div class="row">
+                  <div class="span5">
+                    <div id="_totalLength" class="row" data-bind="visible: !isOpenEnded()">
+                      <div class="span3">
+                        <label data-bind="highlight: $root.shouldHighlight('total-length-default')" for="length" class="label-spinner"> Total Length <small>(up to 60 mos.)</small> </label>
+                      </div>
+                      <div class="span1">
+                        <input class="spinner" id="length" data-bind="spinner: totalLength, spinnerOptions: {disabled: $parent.isReadonly() || $parent.isCorporate(), max: maxTotalLength, min: minTotalLength}" maxlength="2" />
+                      </div>
+                    </div>
+                    <div id="_freeMonthsNote" class="row" data-bind="visible: showMaxFreeMonthsLabel()">
+                      <div class="span4"> <small class="text-purple-dark"> <span data-bind="text: maxFreeMonthsNote" /> </small> </div>
+                    </div>
+                    <div id="_maxFree" class="row">
+                      <div class="span3">
+                        <label data-bind="highlight: $root.shouldHighlight('max-free-default')" class="label-spinner" for="maxFree"> Max. Free Months (up to 6 mos.) </label>
+                      </div>
+                      <div class="span1">
+                        <input class="spinner" id="maxFree" data-bind="spinner: maxFreeMonths, spinnerOptions: {max: maxMaxFreeMonths, min: minMaxFreeMonths}, disable: $parent.isCorporate()" maxlength="2" />
+                      </div>
+                    </div>
+                    <div id="_freeMonthsNote" class="row" data-bind="visible: showDefaultFreeMonthsLabel()">
+                      <div class="span4"> <small class="text-purple-dark"> <span data-bind="text: defaultFreeMonthsNote" /> </small> </div>
+                    </div>
+                    <div id="_defaultFree" class="row">
+                      <div class="span3">
+                        <label data-bind="highlight: $root.shouldHighlight('default-free')" class="label-spinner" for="defaultFree"> Default Free Months (up to 6 mos.) </label>
+                      </div>
+                      <div class="span1">
+                        <input class="spinner" id="defaultFree" data-bind="spinner: defaultFreeMonths, spinnerOptions: {max: maxDefaultFreeMonths, min: minDefaultFreeMonths}, disable: $parent.isCorporate()" maxlength="2" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="span5">
+                    <div id="frequency" class="row" data-bind="if: !isPaidInFull()">
+                      <div class="span2">
+                        <label>Frequency</label>
+                      </div>
+                      <div class="span3">
+                        <select data-bind="options: frequencyOptions, optionsText: 'Description', value: frequency, disable: $parent.isCorporate() || !$parent.isFlexibleBillingEnabled">
+                        </select>
+                      </div>
+                    </div>
+                    <div id="commencement" class="row" data-bind="visible: !isPaidInFull()">
+                      <div class="span2">
+                        <label> First Payment <a href="javascript:void(0)" data-toggle="tooltip" data-placement="top" title="Set the default due date for the first installment. This can be overridden at time of sale."> <img alt="tip" src="https://anytimefitness.blob.core.windows.net/shared-images/16x16/icon-info-blue-small.png" style="margin-top: -3px;" /> </a> </label>
+                      </div>
+                      <div class="span3">
+                        <select data-bind="options: selectedFirstPaymentOptions, optionsText: 'Description', value: firstPayment, disable: $root.isReadonly() || $parent.isCorporate">
+                        </select>
+                      </div>
+                    </div>
+                    <div id="_autoRenew" class="row" data-bind="visible: !isPaidInFull() && !isOpenEnded()">
+                      <div class="span2">
+                        <label class="margin-right pad0 margin0">Auto renew default</label>
+                      </div>
+                      <div class="span3" data-bind="visible: !isOpenEnded()">
+                        <label class="on-off-switch">
+                        <div class="on-off-inner">
+                          <input type="checkbox" data-bind="checked: autoRenew, disable: $root.isReadonly() || $parent.isCorporate" />
+                          <div class="on-off-state-label yes">YES</div>
+                          <div class="on-off-spacer">&nbsp;</div>
+                          <div class="on-off-state-label no">NO</div>
+                        </div>
+                        </label>
+                      </div>
+                      <div class="span5">
+                        <p class="margin-vert"> <small class="text-red-dark"> Not all states allow auto-renewal. Before enabling this feature, verify your state allows auto-renewal. You are responsible for abiding by all state and local legal requirements. </small> </p>
+                      </div>
+                    </div>
+                    <div id="_autoRenewCustomizable" class="row" data-bind="visible: !isPaidInFull() && !isOpenEnded()">
+                      <div class="span2">
+                        <label class="margin-right"> Auto renew customization <a href="javascript:void(0)" data-toggle="tooltip" data-placement="top" title='If set to yes, automatic renewal can be turned on or off on Club Hub iPad during the Customize Agreement step of the membership onboarding process. If set to no, the "auto renewal default" setting will be enforced on the plan.'> <img alt="tip" src="https://anytimefitness.blob.core.windows.net/shared-images/16x16/icon-info-blue-small.png" style="margin-top: -3px;" /> </a> </label>
+                      </div>
+                      <div class="span3" data-bind="visible: !isOpenEnded()">
+                        <label class="on-off-switch">
+                        <div class="on-off-inner">
+                          <input type="checkbox" data-bind="checked: autoRenewCustomizable, disable: $root.isReadonly() || $parent.isCorporate" />
+                          <div class="on-off-state-label yes">YES</div>
+                          <div class="on-off-spacer">&nbsp;</div>
+                          <div class="on-off-state-label no">NO</div>
+                        </div>
+                        </label>
+                      </div>
+                    </div>
+                    <div id="_renewalTerms" class="row " data-bind="visible: displayRenewalTerms">
+                      <div class="span2">
+                        <label>Renewal Terms</label>
+                      </div>
+                      <div class="span2">
+                        <select data-bind="options: renewalTermOptions, optionsText: 'Description', value: renewalTerms, disable: $root.isReadonly() || $parent.isCorporate">
+                        </select>
+                      </div>
+                      <div data-bind="visible: isCustomAutoRenew">
+                        <div id="_customTerm" class="span1">
+                          <input class="spinner" id="renewalTerms" name="value" data-bind="spinner: customRenewalLength, spinnerOptions: {disabled: $parent.isReadonly() || $parent.isCorporate, max: maxCustomRenewalLength, min: minCustomRenewalLength}" placeholder="12" maxlength="2" />
+                        </div>
+                      </div>
+                      <div class="span5" data-bind="visible: !allowMonthlyRenewal() && !allowTermRenewal()">
+                        <p class="text-justify"> <small class="text-purple-dark"> Your club does not allow auto-renewals due to a setting in the Online Business System of ABC. Contact ABC if you have questions about the auto-renew settings for your club. </small> </p>
+                      </div>
+                      <div class="span5" data-bind="visible: allowMonthlyRenewal() && !allowTermRenewal() && renewalTerms().Id !== 1">
+                        <p class="text-justify"> <small class="text-purple-dark"> Your club only allows monthly auto-renewals due to a setting in the Online Business System of ABC. Contact ABC if you have questions about the auto-renew settings for your club. </small> </p>
+                      </div>
+                      <div class="span5" data-bind="visible: !allowMonthlyRenewal() && allowTermRenewal() && renewalTerms().Id !== 2">
+                        <p class="text-justify"> <small class="text-purple-dark"> Your club only allows term auto-renewals due to a setting in the Online Business System of ABC. Contact ABC if you have questions about the auto-renew settings for your club. </small> </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+				  
+				  <label for="includeCEF" class="on-off-switch-label"><div class="on-off-switch">
+						<div class="on-off-inner">
+							<input id="includeCEF"  data-bind="checked: includeEnhancementFee, disable: $root.isReadonly()" type="checkbox">
+							<div class="on-off-state-label yes">ON</div>
+							<div class="on-off-spacer">&nbsp;</div>
+							<div class="on-off-state-label no">OFF</div>
+						</div>
+						</div> <small class="pull-left margin-right">Include club enhancement fee by default?</small>
+					 </label>
+				
+				
+				<label for="customCEF" class="on-off-switch-label"><div class="on-off-switch">
+						<div class="on-off-inner">
+							<input id="customCEF" data-bind="checked: includeEnhancementFeeCustomizable, disable: $root.isReadonly()" type="checkbox">
+							<div class="on-off-state-label yes">ON</div>
+							<div class="on-off-spacer">&nbsp;</div>
+							<div class="on-off-state-label no">OFF</div>
+						</div>
+						</div> <small class="pull-left margin-right">Club enhancement fee customization <a href="javascript:void(0)" data-toggle="tooltip" data-placement="top" title='If set to yes, the club enhancement fee can be turned on or off on Club Hub iPad during the Customize Agreement step of the membership onboarding process. If set to no, the "Include club enhancement fee by default?" setting will be enforced on the plan.'> <i class="icom-info"></i></a> </small>
+					 </label>
+				  
+				
+            
+            </fieldset>
+            <fieldset data-bind="with: downPaymentAndFees">
+              <hr>
+              <p style="font-size:20px"><strong>Down payment amounts and fees</strong></p>
+              <div class="row">
+                <div class="pull-left margin-right" data-bind="visible: !$parent.isPaidInFull()">
+                  <div class="span margin-bot">
+                    <label style="padding:8px 0">Default Installments</label>
+                  </div>
+                  <div class="span">
+                    <select id="defaultInstallments" data-bind="options: $parent.installmentOptions, optionsText: 'Description', value: requiredNumOfInstallmentsToCover, disable: $root.isReadonly() || $parent.isCorporate">
+                    </select>
+                  </div>
+                </div>
+                <div class="pull-left" data-bind="visible: !$parent.isPaidInFull()">
+                  <div class="span margin-bot">
+                    <label style="padding:8px 0">Minimum Installments</label>
+                  </div>
+                  <div class="span">
+                    <select data-bind="options: $parent.installmentOptions, optionsText: 'Description', value: minimumNumOfInstallmentsToCover, disable: $root.isReadonly() || $parent.isCorporate">
+                    </select>
+                  </div>
+                </div>
+                <div class="alert clear" data-bind="visible: $root.shouldWarnAboutContractLength"> <img src="//anytimefitness.blob.core.windows.net/shared-images/16x16/icon-alert-yellow.png"> Your Plan settings for Free Months, Installments Down and First Payment cause the payments to extend beyond the contract end date. Please change your settings, otherwise your contract end dates will automatically be extended during the on-boarding process. </div>
+              </div>
+              <div id="" class="item clear">
+				  
+				  
+				   <label for="enrollment" class="on-off-switch-label"><div class="on-off-switch">
+						<div class="on-off-inner">
+							<input id="enrollment" data-bind="checked: hasEnrollmentFee, disable: $root.isReadonly()" type="checkbox">
+							<div class="on-off-state-label yes">ON</div>
+							<div class="on-off-spacer">&nbsp;</div>
+							<div class="on-off-state-label no">OFF</div>
+						</div>
+						</div> <span>Enrollment</span>
+					 </label>
+			
+                
+                
+                <!-- ko if: hasEnrollmentFee -->
+                
+                <div class="clear" data-bind="template: {name: 'fee-template', data: enrollmentFee }"></div>
+                
+                <!-- /ko --> 
+                
+              </div>
+              <div id="" class="item clear">
+                
+				  <label for="securityFee" class="on-off-switch-label"><div class="on-off-switch">
+						<div class="on-off-inner">
+							<input id="securityFee"  data-bind="checked: hasSecurityFee, disable: $root.isReadonly()" type="checkbox">
+							<div class="on-off-state-label yes">ON</div>
+							<div class="on-off-spacer">&nbsp;</div>
+							<div class="on-off-state-label no">OFF</div>
+						</div>
+						</div> <span>Security Activation</span>
+					 </label>
+				  
+				  
+				
+                
+                <!-- ko if: hasSecurityFee -->
+                
+                <div class="clear" data-bind="template: {name: 'fee-template', data: securityFee }"></div>
+                
+                <!-- /ko --> 
+                
+              </div>
+              <div class="clear clearfix">
+                <hr class="margin-top">
+              </div>
+            </fieldset>
+            <fieldset>
+              <div class="profit-centers">
+                <p style="font-size:20px"><strong>Contracts</strong></p>
+                <div class="item plan-length clear">
+					
+					
+					
+					
+					
+                  <div class="pull-left margin-vert" style="font-size:1.1em"> Membership Dues <span data-bind="text: duesCollectedLabel"/><br>
+                  </div>
+                  <div class="clear " data-bind="template: { name : 'contract-template', data: mainContract}"></div>
+                </div>
+                <div class="item plan-length clear">
+					
+					
+					  <label for="tanningDues" class="on-off-switch-label"><div class="on-off-switch">
+						<div class="on-off-inner">
+							<input id="tanningDues"  data-bind="checked: hasTanning, disable: $root.isReadonly() || isCorporate" type="checkbox">
+							<div class="on-off-state-label yes">ON</div>
+							<div class="on-off-spacer">&nbsp;</div>
+							<div class="on-off-state-label no">OFF</div>
+						</div>
+						</div> <span>Tanning Dues <span data-bind="text: duesCollectedLabel" /></span>
+					 </label>
+				  
+					
+					
+			
+                  
+                  <!-- ko if: hasTanning -->
+                  
+                  <div class="clear " data-bind="template: { name : 'contract-template', data: tanningContract, if: !isCorporate() }"></div>
+                  
+                  <!-- /ko --> 
+                  
+                </div>
+              </div>
+            </fieldset>
+            <div class="clear pull-right"> <a href="#priceSched" data-bind="click: $root.getPaymentSchedule, visible: !$root.isPaidInFull()" data-toggle="modal" class="btn btn-small blue">view payment schedule</a> </div>
+            <div class="clearfix"></div>
+            <div id="priceSched" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">Payment schedule</h3>
+                <div class="margin-top">Selections made on the Club Hub iOS Customize Agreement screen are not reflected here.</div>
+              </div>
+              <div class="modal-body">
+                <table class="table green">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    
+                    <!-- ko foreach: $root.payments -->
+                    
+                    <tr>
+                      <td data-bind="text: Date"></td>
+                      <td data-bind="text: Amount"></td>
+                    </tr>
+                    
+                    <!-- /ko -->
+                    
+                  </tbody>
+                </table>
+              </div>
+              <div class="modal-footer">
+                <button class="btn gray" data-dismiss="modal" aria-hidden="true">Close</button>
+              </div>
+            </div>
+            <div class="document" id="doc3660" style=" position:relative; top:0px; left:0px;">
+              <div class="segment" id="seg5083" style="font-size: 10px; ">
+                <p>By using iPad Agreements, I indicate that I have closely reviewed the above agreement terms, taxes, fees and all other agreement settings.  I acknowledge that I am solely responsible for all provisions of my membership agreement and the membership sold thereunder, including compliance with all applicable state laws and regulations. By utilizing iPad Agreements, I certify that the settings I have confirmed meet with my approval. </p>
+                <p><strong>Also, I also certify that I have consulted with, or had the opportunity to consult with, my own legal advisor prior to use of the membership agreement. I have not relied on ABC Financial Services, Inc., Anytime Fitness, LLC, their affiliates, or any of their respective officers, employees or representatives, to provide legal advice applicable to any portion of my membership agreement, the membership sold thereunder, or the operation of my Anytime Fitness Club.  I understand that utilizing membership agreements that are not in compliance with any applicable laws ore regulations governing health club membership agreements or fitness centers could subject the Club to civil or other penalties, and I acknowledge that any misuse or violation of any such law is at Club’s sole risk.</strong></p>
+              </div>
+            </div>
+          </div>
+          <div class="well" data-bind="visible: !$root.isReadonly()" style="display: none;">
+            <div class="action text-right" data-bind="visible: !showSaved() && !showCopyToClubSelector()"> <a class="btn gray pull-left" data-bind="click: redirectToPlansList">cancel</a> <img data-bind="visible: isSaving" style="height: 28px" src="/Content/images/icon-spinner.gif" />
+              <button class="btn orange" data-bind="click: savePlan, visible: !isSaving() && !showSaved() && !showSaveError()">save plan</button>
+              <button class="btn red" disabled data-bind="visible: showSaveError">error saving</button>
+            </div>
+            <div class="action2 text-right" data-bind="visible: showSaved() && !showCopyToClubSelector()"> <strong class="text-green-dark">Saved!</strong> Would you like to copy this plan to other clubs? <a class="btn gray margin-left" data-bind="click: redirectToPlansList">no thanks</a> <a class="btn purple" data-bind="click: openCopyToClubSelector" href="#_copy">yes!</a> </div>
+            <div class="menu-clubs margin-top" data-bind="visible: showCopyToClubSelector()" id="select-clubs-menu">
+              <input id="inputSearch" type="text" data-bind="value: clubs.filterText, valueUpdate: 'input'" placeholder="Filter by city or club #" class="search-query roundest">
+              <div class="select-all" style="display: none;"> select all
+                <button id="btnAll" class="btn btn-check active" type="button"></button>
+              </div>
+              <div class="menu-clubs-list">
+                <div class="active">
+                  <table class="table clear ">
+                    <thead>
+                      
+                      <!-- ko foreach: clubs.selectedClubList -->
+                      
+                      <tr>
+                        <td style="width: 36px"><span class="club-selector-club-af-number" data-bind="text: number"></span> <br/>
+                          <span data-bind="text: billingNumber"></span></td>
+                        <td style="width: 550px"><span class="club-selector-club-name" data-bind="text: name"></span> <br/>
+                          (<span data-bind="text: address"></span>) </td>
+                        <td><button data-bind="click: toggle" class="btn btn-check select-item active" type="button"></button></td>
+                      </tr>
+                      
+                      <!-- /ko -->
+                      
+                    </thead>
+                  </table>
+                </div>
+                <div class="inactive">
+                  <table class="table clear">
+                    <tbody>
+                      
+                      <!-- ko foreach: clubs.unselectedClubList -->
+                      
+                      <tr>
+                        <td style="width: 36px"><span class="club-selector-club-af-number" data-bind="text: number"></span> <br/>
+                          <span data-bind="text: billingNumber"></span></td>
+                        <td style="width: 550px"><span class="club-selector-club-name" data-bind="text: name"></span> <br/>
+                          (<span data-bind="text: address"></span>) </td>
+                        <td><button data-bind="click: toggle" class="btn btn-check select-item" type="button"></button></td>
+                      </tr>
+                      
+                      <!-- /ko -->
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="clear text-right margin-top"> <a class="btn gray pull-left" data-bind="click: redirectToPlansList" href="/config/PlansList/3645">cancel</a> <a class="btn green" id="distrubute-clubs" data-bind="click: saveToMultipleClubs, visible: !isSaving() && !showSaved()">distribute to club(s)</a> <img data-bind="visible: isSaving" style="height: 28px" src="/Content/images/icon-spinner.gif" />
+                <div class="action2 pad field-green" data-bind="visible: showSaved" style="height: 38px; text-align: right;"> <span class="save-success">Saved</span> </div>
+              </div>
+            </div>
+          </div>
+          <input type="hidden" id="ClubID" name="ClubID" value="116" />
+        </form>
+      </div>
+      <div id="sticky-anchor" class="span4">
+        <div id="sticky" class="nav-right"> 
+          
+          <!-- single club selection-->
+          
+          <single-club-selector params="params: { settings: singleClubSelectorSettings, snippets: snippets }"></single-club-selector>
+          <hr>
+          <div class="menu-links round segment-nopadding margin-vert">
+            <ul>
+              <li class="liRightMenu" data-action="amenities"><a class="right-menu link-back" data-action="amenities" href="/config/PlansList/3645">Plans</a></li>
+              <li class="liRightMenu " data-action="homepage"><a class="right-menu link-back" data-action="homepage" href="/config/3645">Agreement Settings</a></li>
+              <li class="liRightMenu" data-action="homepage"><a class="right-menu" data-action="homepage" href="/config/3645/ClubSettings" data-original-title="">Club Settings</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="footer">
+    <p class="float" style="color: #999999;"> © <script>var d=new Date(); yr=d.getFullYear();if (yr!=1998)document.write(""+yr);</script> Anytime Fitness, LLC | 111 Weir Drive | Woodbury, MN 55125
+      <style type="text/css">
+#nav-multiple-club-operator {
+    display: none;
+}
+</style>
+    </p>
+  </div>
+</div>
+
+<!-- Campaign Changes Modal -->
+<div id="campaignChanges" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="campaignChangesLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="campaignChangesLabel">Changes to Plan</h3>	  
+  </div>
+  <div class="modal-body">
+    <p>We've made changes to this plan for the duration of the campaign. When the campaign is over, the previous settings will automatically be restored.</p>
+	  <table class="table table-striped green">
+		  <thead>
+		  <tr><th></th><th>Previous</th><th>During Campaign</th></tr>
+			  </thead>
+		  <tbody>
+		  <tr>
+			  <th>Plan name</th><td>6-Month Plan</td><td>6-Month Plan – Jan Campaign</td>
+		  </tr>
+		  <tr>
+			  <th>Total Length</th><td>6 Months</td><td>7 Months</td>
+		  </tr>
+		  <tr>
+			  <th>Default Installments</th><td>0</td><td>1</td>
+		  </tr>
+			  </tbody>
+	  </table>
+  </div>
+</div>	
+	
+<!-- Error Modal 
+
+JON HIS THIS FOR MOCKUP PURPOSES
+
+<div id="error-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-body">
+    <p></p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn gray" data-dismiss="modal" aria-hidden="true">close</button>
+  </div>
+</div>
+-->
+<link type="text/css" rel="stylesheet" href="//fast.fonts.net/cssapi/497cd0f0-7b80-4572-b992-2abc27b555a9.css"/>
+
+<!--stuff --> 
+
+<script type="text/javascript">
+
+
+
+    require(['require',
+
+        'jquery', 'knockout',
+
+        'modules/common/CustomKnockoutBinders',
+
+        'modules/plans/PlanViewModel',
+
+        'modules/clubSelect/club-select',
+
+        'modules/common/utils',
+
+        'jquery-ui',
+
+        'bootstrap',
+
+        'modules/common/startup',
+
+        'modules/common/binders/spinnerBinder'
+
+
+
+
+
+    ], function(require) {
+
+
+
+        var snippets = {
+
+            editPlanTitle: 'Edit a plan',
+
+            createPlanTitle: 'Create a plan',
+
+            nameRequiredError:
+
+                '\u003cstrong\u003eName:\u003c/strong\u003e Your plan must have a name.',
+
+            nameLengthError:
+
+                '\u003cstrong\u003eName:\u003c/strong\u003e Max length for the field must not exceed 50 characters.',
+
+            contractTemplate: {
+
+                primaryMember: 'Primary member',
+
+                primaryMemberDefaultText: 'Default',
+
+                primaryMemberDefaultValue: 'min. ',
+
+
+
+                primaryMemberErrorDuesHeading: 'Primary Member:',
+
+                primaryMemberErrorDuesText: 'default dues must be ${fee} or above.',
+
+                primaryMemberClubMinDuesLessThanDefaultErrorText: 'club minimum dues must not be greater than default dues.',
+
+                primaryMemberClubMinDefaultDues: 'Club Minimum Dues',
+
+                totalCost: 'Total Cost',
+
+                additionalMember: 'Additional member',
+
+                additionalMemberDefaultText: 'Default',
+
+                additionalMemberDefaultValue: 'min. ',
+
+                additionalMemberErrorDuesHeading: 'Additional Member:',
+
+                additionalMemberErrorDuesText: 'default dues must be ${fee} or above.',
+
+                primaryMemberClubMinDuesErrorText: 'club minimum dues must be ${fee} or above.',
+
+                additionalMemberClubMinDuesErrorText: 'club minimum dues must be ${fee} or above.',
+
+                additionalMemberClubMinDuesLessThanDefaultErrorText: 'club minimum dues must not be greater than default dues.',
+
+                additionalMemberClubMinDefaultDues: 'Club Minimum Dues',
+
+                onlyNumberError: 'must only contain numbers',
+
+                errorFormat: '\u003cstrong\u003e{0(error heading)}\u003c/strong\u003e {1(error text)}'
+
+            },
+
+
+
+            singleClubSelectorSelectClubHelp: 'select a club to display',
+
+            singleClubSelectorText: 'select a club',
+
+            singleClubSelectorFilterPlaceholder: 'Filter by city or club #',
+
+            noClubsBillingMessage: '*If a club is not showing up in this list, please verify that it has a billing number first.',
+
+            singleClubSelectorGetClubsServerError: 'Sorry, error getting clubs. Please try again later.',
+
+            singleClubSelectorGetClubsError: 'Sorry, error getting clubs. Please try again later.',
+
+
+
+            trainingClubUsageWarning: '\u003cstrong\u003eYou have selected a TRAINING CLUB. \u003c/strong\u003e Any changes you make will not affect your Home Club',
+
+            trainingClubUsageClubNumber: 3997,
+
+            firstPaymentOptions: {
+
+                monthlyNextDay: 'Next Day',
+
+                monthlyFirstMonth: '1st month',
+
+                monthlySecondMonth: '2nd month',
+
+                monthlyThirdMonth: '3rd month',
+
+                recurringPaymentNextDay: 'Next Day',
+
+                recurringPaymentFirstRecurring: '1st Recurring Payment'
+
+            },
+
+            frequencyOptions: {
+
+                monthly: 'Monthly',
+
+                biweekly: 'Biweekly',
+
+                weekly: 'Weekly'
+
+            },
+
+            membershipOptions: {
+
+                term: 'Term',
+
+                openEnded: 'Open-ended',
+
+                paidInFull: 'Paid in Full'
+
+            },
+
+            renewalTermOptions: {
+
+                monthly: 'Monthly',
+
+                term: 'Term'
+
+            },
+
+            collectedLabel: 'Collected',
+
+            monthSingular: 'month',
+
+            monthPlural: 'months',
+
+            freeText: 'free',
+
+            weekPlural: 'weeks'
+
+        };
+
+
+
+            var $ = require('jquery'),
+
+                ko = require('knockout'),
+
+                PlanViewModel = require('modules/plans/PlanViewModel'),
+
+                ClubSelector = require('modules/clubSelect/club-select'),
+
+                utils = require('modules/common/utils'),
+
+                selectedClub = {"ID":3645,"BillingNumber":3999,"Number":"9993999","Name":"9993999 Test","Address":"111 Weir Drive","ClubFeatures":[],"IsAlloyClub":false,"IsAlloyAgreement":false};
+
+
+
+        var viewModel = new PlanViewModel({"Id":91496,"ClubNumber":"9993999","DashboardClubId":3645,"Name":"6-Month Plan","IsEnabled":true,"IsOnline":false,"IsOnlineSignupEnabled":true,"IsCorporate":true,"IsCorporateUser":true,"IsFlexibleBillingEnabled":true,"Color":"purple","Feature1":"Secure gym access 24 hours, every day","Feature2":"Free fitness consultation and 30-day fitness plan","Feature3":"Member exclusive app with access to a new workout every day","Feature4":null,"PaymentSchedule":{"MembershipType":{"Id":1,"Description":"Term"},"TotalLength":6,"MaxFreeMonths":0,"DefaultFreeMonths":0,"Frequency":{"Id":1,"Description":"Monthly"},"FirstPayment":0,"AutoRenew":false,"RenewalTerms":{"Id":1,"Description":"Monthly"},"CustomAutoRenewLength":12,"ClubAutoRenewSettings":null,"IncludeEnhancementFee":true,"IsAutoRenewCustomizable":false,"IsClubEnhanceFeeCustomizable":true},"DownpaymentAndFees":{"RequiredNumOfInstallmentsToCover":0,"MinimumNumOfInstallmentsToCover":0,"EnrollmentFee":{"Id":155013,"PlanId":91496,"PlanFeeTypeId":1,"DefaultFee":49.99,"MinimumFee":0.00},"SecurityFee":{"Id":155014,"PlanId":91496,"PlanFeeTypeId":3,"DefaultFee":49.99,"MinimumFee":0.00}},"PrimaryContract":{"Id":147109,"PlanId":91496,"ContractTypeId":1,"PrimaryDefaultDues":49.95,"SecondaryDefaultDues":49.95,"PrimaryClubMinDues":39.00,"SecondaryClubMinDues":39.00,"PrimaryMinDues":29,"SecondaryMinDues":29},"TanningContract":{"Id":0,"PlanId":0,"ContractTypeId":2,"PrimaryDefaultDues":0,"SecondaryDefaultDues":0,"PrimaryClubMinDues":0,"SecondaryClubMinDues":0,"PrimaryMinDues":0,"SecondaryMinDues":0},"Success":true,"IsReadonly":false}, '/config/SavePlan', '/config/DeletePlan', '/config/GetPaymentSchedule', '/config/PlansList/3645', [{"ID":2949,"BillingNumber":1402,"Number":"0","Name":"Anytime Fitness Corporate Office","Address":"12181 Margo Avenue S","ClubFeatures":[],"IsAlloyClub":true,"IsAlloyAgreement":false},{"ID":3645,"BillingNumber":3999,"Number":"9993999","Name":"9993999 Test","Address":"111 Weir Drive","ClubFeatures":[3,4,7,8,9,10,11,14,15,16,17,23,24,26,28,29,30,31,32,33,34,35,37,38,39,41,42,44,45,47],"IsAlloyClub":true,"IsAlloyAgreement":true}], '/config/SavePlanToMultipleClubs', null, snippets);
+
+
+
+        ko.components.register("single-club-selector", { require: "components/common/SingleClubSelectorComponent" });
+
+        viewModel.singleClubSelectorSettings = {
+
+            selectedClubNumber: '9993999',
+
+            selectedClubBillingNumber: '3999',
+
+            selectedClubFullName: '<strong>' + selectedClub.Number + '</strong> | ' + selectedClub.BillingNumber + ' ' + selectedClub.Name,
+
+            getClubsUrl: '/club/club/search',
+
+            onSelectClub: function(item) {
+
+                document.location.replace("/config/" + item.ID);
+
+            }
+
+        };
+
+        viewModel.snippets = snippets;
+
+        window.viewModel = viewModel;
+
+
+
+        $(document).ready(function() {
+
+            $('#helpReportingLink').click(function () {
+
+                $('#helpReporting').slideToggle('slow');
+
+                $(this).toggleClass('active');
+
+            });
+
+            $('#helpReporting .btn-close').click(function () {
+
+                $('#helpReporting').slideUp(500, "easeOutCubic");
+
+                $('#helpReportingLink').removeClass('active');
+
+            });
+
+
+
+
+
+            var url = '/config/__clubId__/Plan',
+
+                cs = new ClubSelector({
+
+                    currentRoute: url,
+
+                    selectedClub: selectedClub,
+
+                    selectedDefaultText: 'Please click here to select a club'});
+
+
+
+            $('#search').keyup(utils.throttledFunction(function(e) {
+
+                searchTable($('#search').val());
+
+            }, 500));
+
+
+
+            ko.applyBindings(viewModel);
+
+        });
+
+
+
+        // toggles plan sharing to other clubs UI
+
+
+
+        $(document.body).on('click', '.menu-clubs thead tr', function() {
+
+            $(this).appendTo('.menu-clubs tbody');
+
+        });
+
+        $(document.body).on('click', '.menu-clubs tbody tr', function() {
+
+            $(this).appendTo('.menu-clubs thead');
+
+            $('#distrubute-clubs').fadeIn();
+
+        });
+
+
+
+        $('[href="#_copy"]').click(function() {
+
+            $('#select-clubs-menu').slideDown();
+
+            $('.action2').fadeOut();
+
+        });
+
+        $('[href="#_save"]').click(function() {
+
+            $('.action').hide();
+
+            $('.action2').fadeIn();
+
+        });
+
+        $('[href="#_cancel"]').click(function() {
+
+            $('#select-clubs-menu').slideUp();
+
+            $('.action').fadeIn();
+
+        });
+
+
+
+
+
+        function searchTable(inputVal) {
+
+            var url = '/club/clubwebsite/club/search?filter=' + inputVal;
+
+            if (inputVal.length >= 3 || inputVal.length == 0) {
+
+                $.ajax({
+
+                    url: url,
+
+                    dataType: 'JSON',
+
+                    type: 'POST',
+
+                    success: function(result) {
+
+                        if (result.Success) {
+
+                            var $tableBody = $('#table-body');
+
+                            $tableBody.html(''); // clear it out
+
+                            $.each(result.Data, function(index, item) {
+
+                                $tableBody.append(ClubSelector.GetRowHtml(item));
+
+                            });
+
+                            $('#table-body tr').click(function() {
+
+                                $('#clubSelected').html($(this).attr('data-club'));
+
+                                console.log($(this).attr('data-club') + ' ' + $(this).attr('data-clubID'));
+
+                                $('#select-club').attr('data-clubSelectedID', $(this).attr("data-clubID"));
+
+                                $('#select-club-menu').slideToggle();
+
+
+
+                                document.location.replace("/config/" + $('#select-club').attr('data-clubSelectedID') + "/plan");
+
+                            });
+
+                        }
+
+                    }
+
+                });
+
+            }
+
+        }
+
+    });
+
+    </script> 
+<script type="text/javascript">
+
+            require(['modules/common/searchService'], function (searchService) { searchService.initialize(); });
+
+        </script> 
+<script>
+
+/* Campaign Mock */
+	
+	$('#isCampaign').change(function(){
+		$('#isCampaignContent').slideToggle();
+		$('#planName').toggleClass('highlight').attr('disabled', true).val('6-Month Plan – Jan Campaign');
+		$('#length').toggleClass('highlight').attr('disabled', true);
+		$('#defaultFree').toggleClass('highlight').attr('disabled', true);
+		$('#defaultInstallments').toggleClass('highlight').attr('disabled', true);
+		
+		$('#securityFee input').attr('disabled', true);
+		$('#enrollment input').attr('disabled', true);
+		
+		
+	});
+	
+	
+	
+	
+	
+	
+	
+</script> 
+ 
+
+</body>
+
+</html>

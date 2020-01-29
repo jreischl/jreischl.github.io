@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Member Registration - Af.Coach.Web</title>
+	<base href="%PUBLIC_URL%/">
+	<script src="../js/main.js?v=i4PrFRLb1UrVVZ1fdvF24e4nlbvo0InfNlDt2aqBKO4"></script>
+	<link rel="stylesheet" href="../../css/bootstrap.css">
+	<link rel="stylesheet" href="../../css/fontawesome.css">	
+	<link rel="stylesheet" href="../../css/custom.css">
+	<link rel="stylesheet" href="../../css/fonts.css">
+</head>
+<body class="cover">
+<header>
+	<div class="navbar-header fixed-top">
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar first"></span>
+<span class="icon-bar second"></span>
+<span class="icon-bar third"></span>
+</button>
+<a href="https://www.anytimefitness.com" class="logo">
+<img src="https://www.anytimefitness.com/wp-content/themes/anytimefitness/img/anytime-fitness-logo.png" alt="Anytime Fitness home" title="Anytime Fitness">
+</a>
+</div>
+</header>
+<main id="registration-app" class="container center-middle">
+    <form class="form-constrainer js-float-labels needs-validation" novalidate>
+	    <h1 class="h3">Use my key fob</h1>
+		<p>Enter the middle section of characters inscribed on your Anytime Fitness key fob.</p>
+		<p><img class="img-fluid" src="https://anytimefitness.blob.core.windows.net/shared-assets/mocks/af/coach/Registration/img/fobs-sm.png" width="399" height="136" alt="Key Fob illustration highlighting the middle section of characters"/></p>
+      <div class="form-group">
+	    <label for="keyfob">Key Fob</label>	   
+		  <input id="keyfob" class="form-control" type="text" name="keyfob" required>
+          <div class="invalid-feedback" role="alert">Key fob number is required</div>
+      </div>
+	  <div class="form-group">
+		  <label for="lastName">Last Name</label> 
+		  <input id="lastName" class="form-control" type="text" name="lastName" required>		  
+		  <div class="invalid-feedback" role="alert">Last name required</div>
+	  </div>
+      <button class="btn btn-primary mb-2 btn-block btn-lg margin-top" type="submit">Continue</button>
+    </form>
+
+<script>
+     var localizationDictionary = {
+  "ConsentBarMessage": "Don't listen to Cookie Monster. Cookies are evil.",
+  "ConsentBarAccept": "Accept",
+  "CreateAnAccount": "Create an Account",
+  "AccountLinkSuccess": "You have successfully created and linked an account!",
+  "Keyfob": "Keyfob",
+  "Retype": "Retype",
+  "CreateAccount": "Create Account",
+  "SettingsTitle": "Coach Site Settings",
+  "Password": "Password",
+  "Translation Version": "1.0.1",
+  "SettingsEnvironment": "Environment",
+  "NavBarLogin": "Login",
+  "Or": "Or",
+  "NavBarHome": "Home",
+  "Email": "Email",
+  "Login": "Login",
+  "LastName": "Last Name",
+  "Continue": "Continue",
+  "NavBarSettings": "Settings",
+  "NavBarLogout": "Logout",
+  "NavBarExercises": "Exercises",
+  "FirstName": "First Name",
+  "NavBarRegistration": "Registration",
+  "UseMyKeyfob": "Use my keyfob",
+  "ConsentBarInfo": "Learn More",
+  "KeyfobEntryInstruction": "Enter the middle section of characters inscribed on your Anytime Fitness keyfob"
+};
+</script></main>
+<footer><div class="container-fluid"><small>© Anytime Fitness LLC <script>var d=new Date(); yr=d.getFullYear();document.write(""+yr);</script>. All rights reserved.</small></div></footer>
+
+<script src="/dist/registration.js?v=EiJJpXjcBxy5rkZWKeTMMdqAJZYLv0WIDzxIoV7DypE"></script>
+	
+	
+<!-- Added to enable floating labels. This doesn't necessarily need to be JQuery, it's just here to dynamically add and remove a class-->	
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+
+<script>
+	
+$(function() {
+
+	
+// Add .populate class when user starts typing in input. Remove class if the value is cleared from the input. 
+	
+	$('.js-float-labels input').keyup(function(){
+		if ($(this).val()) {
+			$(this).parent('.form-group').addClass('populated');	
+		}
+		else {
+			$(this).parent('.form-group').removeClass('populated');
+		}
+		
+	})
+});
+	
+	
+	
+	
+	
+	
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
+		
+</body>
+</html>
