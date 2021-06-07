@@ -1,0 +1,88 @@
+{
+  "sponsors": [{
+                "name":"JEC Miller, Inc",
+                "logo": "sponsor-logo-jec-miller.png",
+				"url": "https://jecmiller.com/",
+				"level":"presenting"
+            },
+	 		{
+                "name":"SPRING LAKE 'FRIDAY NIGHT' CRUISE CLUB",
+                "logo": "",
+				"url": "",
+				"level":"presenting"
+            },
+	 {
+                "name":"Designed Cabinets",
+                "logo": "sponsor-logo-designed-cabinets.png",
+				"url": "http://www.designedcabinets.com/",
+				"level":"platinum"
+            },
+	 {
+                "name":"Retail Tech, Inc.",
+                "logo": "sponsor-logo-retail-tech.png",
+				"url": "https://retailtechinc.com/",
+				"level":"platinum"
+            },
+	 {
+                "name":"Northern Home",
+                "logo": "sponsor-logo-northern-home.png",
+				"url": "http://www.northernhomeseal.com/",
+				"level":"platinum"
+            },
+	 {
+                "name":"American Legion Apple Valley",
+                "logo": "american-legion-apple-valley-twin-cities-mn.jpg",
+				"url": "#",
+				"level":"platinum"
+            },
+	 {
+                "name":"4 Corner Metal",
+                "logo": "sponsor-logo-4-corner.png",
+				"url": "http://www.fourcornermetal.com/",
+				"level":"gold"
+            },
+	 {
+                "name":"Country Financial",
+                "logo": "sponsor-logo-country-financial.png",
+				"url": "https://www.countryfinancial.com/services/forms?configNodePath=%2Fcontent%2Fcfin%2Fen%2Fjcr%3Acontent%2FrepLocator&cfLang=en&repSearchType=queryByLocation&repSearchValue=lakeville%2C+mn",
+				"level":"gold"
+            },
+	 {
+                "name":"Custom One Homes",
+                "logo": "sponsor-logo-custom-one-homes.png",
+				"url": "https://www.customonehomesmn.com/",
+				"level":"gold"
+            },
+	 {
+                "name":"Robert Thomas Homes",
+                "logo": "sponsor-logo-robert-thomas-homes.png",
+				"url": "https://www.robertthomashomes.com/",
+				"level":"gold"
+            },
+	 
+	 {
+                "name":"Country Joe Homes",
+                "logo": "sponsor-logo-country-joe-homes.png",
+				"url": "https://countryjoehomes.com/",
+				"level":"silver"
+            },
+	 {
+                "name":"Cub Foods",
+                "logo": "sponsor-logo-cub.png",
+				"url": "https://www.cub.com/",
+				"level":"silver"
+            },
+	 {
+                "name":"Tradition Wealth Management",
+                "logo": "sponsor-logo-tradition.png",
+				"url": "http://traditioncompanies.com/tradition-wealth-management/",
+				"level":"silver"
+            },
+	 {
+                "name":"MOR Golf and Utility",
+                "logo": "sponsor-logo-mor.jpg",
+				"url": "https://www.morgolfmn.com/",
+				"level":"hole-in-one"
+            }
+	 ]
+}
