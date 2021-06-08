@@ -97,6 +97,7 @@ header {
 		padding: 0;
 	}
 }
+
 .nav-pills .nav-link.active {
 	background: none;
 	color: var(--green);
@@ -117,6 +118,7 @@ header {
 .btn-outline-secondary {
 	background: #fff;
 }
+.navbar-light .navbar-nav .nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link,
 .nav-link {
 	color: var(--green)
 }
