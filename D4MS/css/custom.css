@@ -73,12 +73,29 @@ body {
 header {
 	background: rgba(255,255,255,.9)
 }
-#nav_global {
-	top: .5rem;
-    margin-top: -3.5rem;
-    z-index: 10;
-    background: rgba(255,255,255,.9);
-    backdrop-filter: blur(4px);
+	#nav_global {
+		top: .5rem;
+		margin-top: -3.5rem;
+		z-index: 10;
+	}
+#nav_global .navbar-collapse {
+		background: rgba(255,255,255,.9);
+		backdrop-filter: blur(4px);
+	padding: 1rem;
+	
+}
+@media (min-width: 768px) {
+	#nav_global {			
+		border-radius: 50rem!important;
+		background: rgba(255,255,255,.9);
+		backdrop-filter: blur(4px);
+	}
+		
+	#nav_global .navbar-collapse {
+		background: none;
+		backdrop-filter: none;
+		padding: 0;
+	}
 }
 .nav-pills .nav-link.active {
 	background: none;
