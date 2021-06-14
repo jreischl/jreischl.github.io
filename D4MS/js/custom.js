@@ -3,7 +3,7 @@
 $(document).ready(function() {		 		  
 $.getJSON('js/sponsors.json', function(data) {
 $.each(data.sponsors, function(i, f) {
-  var sponsor_item = '<div class="text-center p-3"><div class="badge mb-3 bg-'+ f.level +'">'+ f.level +' Sponsor</div><a href="'+ f.url +'" target="_blank"><img src="img/'+ f.logo +'" class="img-fluid m-auto" alt="'+ f.name +'"></a></div>'
+  var sponsor_item = '<div class="text-center p-3"><div class="badge mb-3 bg-'+ f.level +'">'+ f.level +' Sponsor</div><a href="'+ f.url +'" target="_blank"><img src="img/'+ f.logo +'" class="d-block img-fluid m-auto" alt="'+ f.name +'"></a></div>'
   $(sponsor_item).appendTo("#sponsors");		   		   		   
 });		   
 // Enable carousel 		  
