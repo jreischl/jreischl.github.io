@@ -14,6 +14,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100;500;700&display=swap" rel="stylesheet">
 
 	<style>
+		:root {
+			--blue: #007BC2;
+			--green: #93D128;
+			--red: #EF476F;
+			--black: #000;
+			--yellow: #F1A208;
+		}
 		body {
 			background: #000;
 			color: #fff;
@@ -31,7 +38,7 @@
 			text-decoration-style: solid;
 		}
 		.alert-info a {
-			color: #096C77;
+			color: var(--blue);
 		}
 		#logo {
 			max-width: 200px;
@@ -73,6 +80,31 @@
 			font-weight: 200;
 		
 		}
+		.alert {
+			border:none;
+		}
+		.alert a {
+			color: inherit;
+		}
+		.alert-info, .alert-info * {
+			background: var(--blue);
+			color: #fff;
+		}
+		.alert-success, .alert-success * {
+			background: var(--green);
+			color: var(--black);
+		}
+		.alert-danger, .alert-danger * {
+			background: var(--red);
+			color: var(--black);
+		}
+		.alert-warning, .alert-warning * {
+			background: var(--yellow);
+			color: var(--black);
+		}
+		.lead {
+			font-weight: normal;
+		}
 	</style>
 </head>
 
@@ -83,13 +115,40 @@
 	<main class="min-vh-100">
 		<div class="container">
 			<h1 class="visually-hidden">13 Howell</h1>
+			<div class="alert alert-success">
+								<h2 class="h4">Announcement</h2>
+
+			<p class="">This is a green of alert. <a href="#">This is a link.</a></p>
+
+			</div>
+			<div class="alert alert-danger">
+				<h2 class="h4">Announcement</h2>
+			<p class="">This is a red alert. <a href="#">This is a link.</a></p>
+
+			</div>
+			<div class="alert alert-warning">
+				<h2 class="h4">Announcement</h2>
+			<p class="">This is a yellow alert. <a href="#">This is a link.</a></p>
+
+			</div>
 			<div class="alert alert-info mb-5">
-				<h2>UPCOMING SHOWS</h2>
+				<h2 class="h4">UPCOMING SHOWS</h2>
 				
 				<ul class="list-unstyled mb-0" id="gigs">
 					<li class="d-md-flex align-items-center pt-4">
 						<div class="text-end px-sm-4 date">
-							<div class="display-3 text-nowrap">JAN 01</div>
+							<div class="display-4 text-nowrap">JAN 01</div>
+							<div class="display-6">2022</div>
+						</div>
+						<div class="px-sm-4">
+							<h3><a href="#"><strong>The Venue</strong></a></h3>
+							<p>Details about the show. <a href="#">This is a link.</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum quam nec venenatis luctus. In malesuada erat tempus lorem condimentum, vel pharetra diam elementum. Donec convallis leo vel sem sagittis, id consectetur odio fringilla. Phasellus vel enim metus. Nullam tellus nibh, varius in dignissim ut, lacinia vitae orci.</p>
+						</div>
+						</li>
+					
+					<li class="d-md-flex align-items-center pt-4">
+						<div class="text-end px-sm-4 date">
+							<div class="display-4 text-nowrap">JAN 01</div>
 							<div class="display-6">2022</div>
 						</div>
 						<div class="px-sm-4">
@@ -97,17 +156,6 @@
 							<p>Details about the show. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum quam nec venenatis luctus. In malesuada erat tempus lorem condimentum, vel pharetra diam elementum. Donec convallis leo vel sem sagittis, id consectetur odio fringilla. Phasellus vel enim metus. Nullam tellus nibh, varius in dignissim ut, lacinia vitae orci.</p>
 						</div>
 						</li>
-					
-					<!--<li class="d-md-flex align-items-center pt-4">
-						<div class="text-end px-sm-4 date">
-							<div class="display-3 text-nowrap">OCT 30</div>
-							<div class="display-6">2022</div>
-						</div>
-						<div class="px-sm-4">
-							<h3><a href="#"><strong>The Venue</strong></a></h3>
-							<p>Details about the show. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum quam nec venenatis luctus. In malesuada erat tempus lorem condimentum, vel pharetra diam elementum. Donec convallis leo vel sem sagittis, id consectetur odio fringilla. Phasellus vel enim metus. Nullam tellus nibh, varius in dignissim ut, lacinia vitae orci.</p>
-						</div>
-						</li>-->
 					</ul>
 				</div>
 
