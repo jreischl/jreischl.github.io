@@ -54,12 +54,16 @@
 			font-weight: 600;
 		}
 		.btn-ghost {
-			border: 2px solid #007BC2;
-			color: #007BC2;
+			border: 2px solid var(--blue);
+			color: var(--blue);
 			border-radius: 10px;
 		}
 		.btn-ghost:hover {
-			background: #007BC2;
+			background: var(--blue);
+		}
+		.btn-secondary:hover {
+			background: var(--black);
+			color: var(--blue);
 		}
 		
 		#gigs > li {
@@ -119,16 +123,20 @@
 								<h2 class="h4">Announcement</h2>
 
 			<p class="">This is a green of alert. <a href="#">This is a link.</a></p>
+				<a class="btn btn-secondary" href="#">A Button</a>
 
 			</div>
 			<div class="alert alert-danger">
 				<h2 class="h4">Announcement</h2>
 			<p class="">This is a red alert. <a href="#">This is a link.</a></p>
+				<a class="btn btn-secondary" href="#">A Button</a>
 
 			</div>
 			<div class="alert alert-warning">
 				<h2 class="h4">Announcement</h2>
 			<p class="">This is a yellow alert. <a href="#">This is a link.</a></p>
+								<a class="btn btn-secondary" href="#">A Button</a>
+
 
 			</div>
 			<div class="alert alert-info mb-5">
