@@ -1,0 +1,1775 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; minimal-ui">
+<meta name="description" content="The official website of artist Jon Reischl.">
+<meta property="og:image" content="//jonreischl.com/images/ogpreview-canyoneers.jpg" />
+<meta property="og:url" content="//jonreischl.com" />
+<meta property="og:title" content="Jon Reischl, Visual Artist" />
+<meta property="og:description" content="The official website of artist Jon Reischl." />
+<title>Jon Reischl • Visual Artist</title>
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link href="css/style.css?1" rel="stylesheet" type="text/css">
+<style>
+a.thumb {
+    display: none;
+}
+.full.spinning {
+    background: url(images/spinner.gif) no-repeat center center;
+}
+.filter {
+    display: block;
+    margin-top: 5px;
+}
+.unfilter {
+    text-align: center;
+    display: none;
+}
+.more {
+    text-align: left;
+}
+.factsheet {
+    background: rgba(255, 255, 255, 0.95);
+    display: none;
+    font-weight: 200;
+    line-height: 22px;
+    min-height: 100%;
+    left: 2%;
+    padding: 5%;
+    right: 2%;
+    top: 50px;
+    border-radius: 4px;
+    text-align: left;
+    max-height: 100vh;
+    overflow: auto;
+}
+select {
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+    display: block;
+    font-size: 14px;
+    height: 34px;
+    line-height: 1.42857;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+}
+.select-filter {
+	background: #666;
+    border: 1px solid #666;
+    border-radius: 20px;
+    margin: 1rem 1rem 0;
+    position: sticky;
+    padding: 5px;
+    text-align: center;
+    top: 1rem;
+    z-index: 1;
+}
+.select-filter a {
+    color: #fff;
+    display: block;
+}
+.select-filter a.trigger {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    justify-content: center;
+}
+.select-filter .menu {
+    background: rgba(255, 255, 255, 0.9) none repeat scroll 0 0;
+    border-radius: 0 0 4px 4px;
+    display: none;
+    margin: 4px -6px;
+    padding: 0;
+    position: absolute;
+    width: 100.5%;
+    z-index: 2;
+    list-style: none;
+}
+.select-filter .menu li .divider {
+    background: #666 none repeat scroll 0 0;
+    border-radius: 20px;
+    color: #fff;
+    display: block;
+    font-size: 8px;
+    letter-spacing: 5px;
+    margin: 8px 16px;
+    padding: 2px;
+    text-transform: uppercase;
+}
+.select-filter .menu li a {
+	color: #333;
+    cursor: pointer;
+    border: 1px dotted transparent;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 5px;
+}
+.select-filter .menu li.active a {
+    color: rgba(143,0,0,.9);
+}
+.select-filter .menu li a:hover {
+    color: rgba(143,0,0,.9);
+    border-color: rgba(143,0,0,.9);
+}
+.thumbs {
+    padding-top: 0;
+}
+.trigger {
+    cursor: pointer;
+}
+
+/* Small devices  */
+@media (max-width: 767px) {
+.select-filter {
+/*    background: url(../images/wall.jpg) fixed;*/
+    width: 92%;
+}
+.factsheet {
+    max-height: none;
+}
+}
+</style>
+</head>
+
+<body>
+<a class="close material-symbols-outlined" href="#close">cancel</a>
+<div class="backdrop"></div>
+<div class="stage">
+  <div class="nav">
+    <div class="pad"><a href="/"><img alt="Jon Reischl, Visual Artist" src="images/jonreischl-rev-clear.png"></a> <img alt="Toggle menu" class="burger" src="images/menu.png">
+      <div class="menu"><a href="//jonreischl.com/?#art">Art</a> <a href="exhibits.html">Exhibits</a> <a href="info.html">Information</a> <a href="contact.html">Contact</a><small> <a href="//us3.list-manage.com/contact-form?u=1d006331050cdee7656bbefb3&form_id=d7a262b46d1136404b0c5ee1eeb966fb"><img align="absmiddle" src="images/badge-email.png" alt="Contact Jon Reischl" target="_blank"></a><a href="//www.facebook.com/jonreischl"><img align="absmiddle" src="images/badge-facebook.png" alt="Facebook" ></a> <a href="//instagram.com/jon_reischl_art/"><img align="absmiddle" alt="Instagram" src="images/badge-instagram.png"></a> </small> </div>
+    </div>
+  </div>
+  <main>
+    <div class="full"><a class="caption-toggle material-symbols-outlined"></a>
+      <div class="intro">
+        <div class="inset">
+          <h1><img src="images/jonreischl-clear.png" alt="Jon Reischl"></h1>
+          <h2>visual artist</h2>
+        </div>
+
+<!--<div class="alert" style="font-weight: 300;  line-height: 2rem"><span style="text-transform: uppercase;letter-spacing: 2px;">Saturday Nov 1, 2025, 3-8PM</span>
+          <div style=""><span style="font-size: 1.4rem; font-weight: 500">Open Studio</span> <br>
+<span style="text-transform: uppercase;letter-spacing: 2px;">Rock9 Art Studio | St. Paul</span></div>
+          <a href="exhibits.html" style="
+    font-weight: 400; display: flex; align-items: center;justify-content: center; letter-spacing: 1px"> DETAILS <span class="material-symbols-outlined">
+chevron_right
+</span></a> </div>-->
+        <style>
+			.alert {
+    padding: 1rem;
+    background: #fff;
+    margin: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+			</style>
+        <a href="//www.pbs.org/video/Jon-Reischl-607076H-1/" target="_blank"><img src="images/mno.png" alt="TPT's Minnesota Original" style="width:68px; height:auto"></a></div>
+      <div class="factsheet carnival">
+		  
+          <a href="#" onclick="location.reload();">← Back</a>
+		  <h2>The Unsettling of Mary Henry</h2>		  
+
+        <small>(2025 — Present)</small>
+        <h3>ABOUT THE WORK</h3>
+		  <p>These paintings were initially composed by superimposing stills from Herk Harvey's 1962 film <em>Carnival of Souls</em>. The film uses a haunting, dreamlike framework to explore what it means to be emotionally and physically cut off from humanity. It's core themes of profound alienation, mortality, and psychological dissociation felt particularly resonant as I worked on these painitngs in my studio days after the highly publicized ICE raid on our building that kicked off Operation Metro Surge and laid seige to the Twin Cities in the months that followed.</p>
+		  
+		  
+		  <p>This series is ongoing.</p>
+
+		  <div><img src="https://res.cloudinary.com/reischl/image/upload/v1785286821/Four%20Compositions%20of%20Mary%20Henry.jpg" alt="">
+		  <caption>Four Compositions of Mary Henry</caption></div>
+		  
+      </div>
+		<div class="factsheet thisLedtoThis">
+			<a href="#" onclick="location.reload();">← Back</a>
+        <h2>A Wake in the Current</h2>
+        <small>(2021 — 2024)</small>
+        <h3>ABOUT THE WORK</h3>
+        <p>These paintings are from a project that began amid pandemic isolation as a socially distanced collaboration with writer Kyle Feldman. I would paint and he would write and then I’d paint something prompted by what he’d just written and he would write something prompted by what I had just painted and so on. The project is the subject of an exhibition in April 2024 at the Viewpoint Gallery. </p>
+		  <p><a href="/awake-gallery.html">
+				Check out the virtual gallery, including the paintings and poems.</a></p>
+        <p> <a href="awake.html">More information</a></p>
+      </div>
+      <div class="factsheet compoundFractures">
+		  <a href="#" onclick="location.reload();">← Back</a>
+        <h2>Compound Fractures</h2>
+        <small>(2015 — Present)</small> <img src="//jonreischl.com/images/compound-fractures.jpg" alt="postcard for Compound Fractures">
+        <h3>SOME BACKGROUND</h3>
+        <p>According to a 2012 study published in the Journal of Neuroscience, reactivation of information stored in the brain simultaneously strengthens access to and distorts the associated memories. Every time an event is recalled it is altered in some way and those alterations become part of the memory.</p>
+        <p>Similar to unfired clay that acquires fresh impressions every time it’s handled, the simple act of remembering alters the memory at its source, rendering it (presumably) less accurate with each occurrence.</p>
+        <p>In other words, the more you remember something, the less faithful it becomes.</p>
+        <p>This dispassionately ironic twist of nature can seem alternately cruel and charitable toward its subjects and their experience. Yet the affects of the phenomenon extend outward beyond the synapses, rippling through the stories we tell and the lessons derived at each retelling.</p>
+        <p>These findings and their implications have been a source of personal fascination for some time and are an underlying theme throughout this collection of work.<br>
+        </p>
+        <h3>THE WORK</h3>
+        <p>These paintings are about the distortion of memory over time and how that must affect our sense of identity on all levels—personal, cultural, spiritual, and so on.</p>
+        <p>Though composed indivdually, they are intended as pieces of a larger whole, with some designed to fit edge-to-edge in linear continuity—as if conjured by one another.</p>
+        <p>The compositions are drawn from projections of randomly captured and superimposed film stills. Overlaying the images fractures recognizable objects (and subjects) into new, abstract forms. However remnants of the original images persist, redefined in both form and context by the convergent imagery.</p>
+        <p>Not only is this process conceptually and physically reminiscent of memory distortion, it’s visually illustrative as well. The final paintings, with their prismatic approach to color and reality-adjacent treatment of bodies in space, attempt to visualize our quietly tumultuous struggle to preserve moments in time. Even if, in our desperation to hold on to them, those memories slowly give way to imagination.</p>
+        <p>Selections from this series are currently on display at <a href="exhibits.html">Tongue in Cheek</a> in St. Paul, MN.</p>
+      </div>
+      <div class="factsheet suits">
+		  <a href="#" onclick="location.reload();">← Back</a>
+        <h2>Unflattering Portraits of Men in Suits</h2>
+		  <small>(2017)</small>
+        <h3>ABOUT THE WORK</h3>
+        <p>These paintings, which were created in the first several months of 2017, derogatorily combine images of prominent political figures with random objects. They are an admittedly juvenile response to incomprehensibly stupid press conferences and similar acts of performative debasement.</p>
+<p>
+This is a series of works on paper, each created within a single session and rendered in oil. The visual components are photographs from the previous day's news cycle, superimposed and painted via projection.</p>
+      </div>
+      <div class="factsheet pilgrims">
+		  <a href="#" onclick="location.reload();">← Back</a>
+        <h2>Pilgrims</h2>
+        <p><em>Pilgrims</em> is a series of paintings about establishing familiarity in a foreign place. By interweaving familiar imagery with obscure forms and relying on the viewer’s inclination to apply narrative, artist Jon Reischl creates a sort of harmony from seemingly discordant parts.</p>
+        <p><small>Initial exhibition August 2 – September 8, 2012 at Burnsville Center for Performing Arts (Burnsville, MN).</small></p>
+      </div>
+      <div class="factsheet settlers">
+		  <a href="#" onclick="location.reload();">← Back</a>
+        <h2>Settlers</h2>
+        <p>Paintings examining the nature of memory and the presence of mind through a cast of enigmatic characters and improbable settings. Mixed-media artist Jon Reischl interweaves recognizable imagery and obscure forms to create paintings that are simultaneously comforting in their familiarity and
+          disquietingly foreign.</p>
+        <img alt="Poster for Settlers" src="//jonreischl.com/images/phipps/10304707_10152412177645499_6938886527632316515_n.jpg">
+        <p><small>Initial exhibition April 18 – May 23, 2014 at The Phipps Center for the Arts (Hudson, WI).</small></p>
+      </div>
+      <div class="factsheet odds">
+		  <a href="#" onclick="location.reload();">← Back</a>
+        <h2>An Evening of the Odds</h2>
+        <p><em>The show's title, An Evening of the Odds, with it's glib multi-entendre, is consistent with Reischl's fondness for wordplay, but also suggestive of the sense of resigned struggle present in much of his work. His subjects often seem to be, in one way or another, at odds with their surroundings, yet also at relative ease, as if to imply that there is contentment to be found amongst the chaos.
+          
+          Reischl's work covers familiar thematic ground, exploring the role of Creator by offering up the interpretive reigns to his audience. And in the case of his Variable Title paintings, blatantly encouraging them to physically interact with the pieces.</em></p>
+        <p><small>Initial exhibition March 6th - April 6th, 2010 at Nicademus Art  (St. Paul, MN).</small></p>
+      </div>
+      <div class="factsheet vt">
+		  <a href="#" onclick="location.reload();">← Back</a>
+        <h2>Variable Title Paintings</h2>
+        <p><em>"The live being recurrently loses and reestablishes equilibrium with his surroundings. The moment of passage from disturbance into harmony is that of intensest life."</em></p>
+        <small>— John Dewey</small>
+        <p>Each of these paintings features a device in the frame which allows the viewer to select a different title, this shifting of context effectively alters what the viewer sees while the image itself remains unchanged. </p>
+      </div>
+      <div class="factsheet commission">
+		  <a href="#" onclick="location.reload();">← Back</a>
+        <h2>Private Commissions</h2>
+        <p>These are paintings that were commissioned privately and were created independent of any larger body of work.</p>
+      </div>
+      <div class="frame"></div>
+      <div class="caption"><span class="specs">This is the caption</span><span class="more-container"><a class="more-toggle">[more]</a>
+        <div class="more"></div>
+        </span> <a class="popout material-symbols-outlined" href="#" target="_blank" style="font-size: 24px">open_in_new</a></div>
+    </div>
+    <div id="thumb_container">
+      <div class="select-filter"><a class="trigger" href="#filter"><span class="trigger-text">Selected Works</span> <span class="material-symbols-outlined"> arrow_drop_down </span> </a>
+        <ul class="menu">
+          <li><a href="#feature" data-filter="feature">Selected Works</a></li>
+          <li><a href="#recent" data-filter="recent">Recent Works</a></li>
+          <li><a href="#available" data-filter="avail">Available for Sale</a></li>
+          <li><a data-filter="all">Everything</a></li>
+          <li><small class="divider">series</small></li>
+		  <li><a href="#carnival" data-filter="carnival">The Unsettling of Mary Henry <small>(2025-2026)</small></a></li>
+          <li><a href="#awake" data-filter="thisLedtoThis">A Wake in the Current <small>(2021-2024)</small></a></li>
+          <li><a href="#cf" data-filter="compoundFractures">Compound Fractures <small>(ongoing)</small></a></li>
+          <li><a href="#suits" data-filter="suits">Unflattering Portraits of Men in Suits <small>(2017)</small></a></li>
+          <li><a href="#settlers" data-filter="settlers">Settlers <small>(2014)</small></a></li>
+          <li><a href="#pilgrims" data-filter="pilgrims">Pilgrims <small>(2012)</small></a></li>
+          <li><a href="#odds" data-filter="odds">An Evening of the Odds <small>(2010)</small></a></li>
+          <li><a href="#vt" data-filter="vt">Variable Title Paintings <small>(2007-2010)</small></a></li>
+        </ul>
+      </div>
+      <div id="placeholder" class="thumbs"></div>
+    </div>
+    <small class="legal">&copy; Jon Reischl <script>var d=new Date(); yr=d.getFullYear();if (yr!=1998)document.write(""+yr);</script>. All rights reserved.</small> </main>
+</div>
+<!-- hidden area for storing filters-->
+<div id="backstage" style="display:none"> <a id="commission" class="filter"> See more commissions</a> <a id="settlers" class="filter"> See more from <em>Settlers</em></a> <a id="pilgrims" class="filter"> See more from <em>Pilgrims</em></a> <a id="odds" class="filter"> See more from <em>An Evening of the Odds</em></a> <a id="hom" class="filter"> See more from House of Mercy's Station of the Cross project</a> </div>
+<script src="//code.jquery.com/jquery.js"></script> 
+<script src="js/jquery.touchwipe.1.1.1.js"></script> 
+<script src="js/jquery.lazyload.min.js"></script> 
+<script>
+    var data = { "pieces":[            
+					
+		
+		
+		{
+                "file":"MaryHenry1",
+                "caption": "<em>The First Mary Henry</em>. Oil on wood. 20 x 20",
+				"more": "From <a class='series' href='#' data-filter='carnival'>The Unsettling of Mary Henry</a><br>Completed 2026<br>Available for sale.",
+				"shows":"all avail feature recent carnival"
+            },{
+                "file":"MaryHenry2",
+                "caption": "<em>The Second Mary Henry</em>. Oil on wood. 20 x 20",
+				"more": "From <a class='series' href='#' data-filter='carnival'>The Unsettling of Mary Henry</a><br>Completed 2026<br>Available for sale.",
+				"shows":"all avail recent carnival"
+            },{
+                "file":"MaryHenry3",
+                "caption": "<em>The Third Mary Henry</em>. Oil on wood. 20 x 20",
+				"more": "From <a class='series' href='#' data-filter='carnival'>The Unsettling of Mary Henry</a><br>Completed 2026<br>Available for sale.",
+				"shows":"all feature recent carnival"
+            },{
+                "file":"MaryHenry4",
+                "caption": "<em>The Fourth Mary Henry</em>. Oil on wood. 20 x 20",
+				"more": "From <a class='series' href='#' data-filter='carnival'>The Unsettling of Mary Henry</a><br>Completed 2026<br>Available for sale.",
+				"shows":"all avail feature recent carnival"
+            },{
+                "file":"octavenal",
+                "caption": "<em>Octavenal</em>. Mixed media on wood. 10.25 in x 12.75 in",
+				"more": "Completed 2026<br>Available for sale.",
+				"more": "From <a class='series' href='#' data-filter='carnival'>The Unsettling of Mary Henry</a><br>Completed 2026<br>Available for sale.",
+				"shows":"all avail feature recent carnival"
+
+            },
+		{
+                "file":"bellows",
+                "caption": "<em>Bellows</em>. Mixed media on wood. 10.25 in x 12.75 in",
+				"more": "From <a class='series' href='#' data-filter='carnival'>The Unsettling of Mary Henry</a><br>Completed 2026<br>Available for sale.",
+				"shows":"all feature recent avail carnival"
+            },
+		{
+                "file":"shutters",
+                "caption": "<em>Shutters</em>. Mixed media on wood. 10.25 in x 12.75 in",
+				"more": "From <a class='series' href='#' data-filter='carnival'>The Unsettling of Mary Henry</a><br>Completed 2026<br>Available for sale.",
+				"shows":"all feature recent avail carnival"
+            },
+		{
+                "file":"Windchest",
+                "caption": "<em>Windchest</em>. Mixed media on wood. 10.25 in x 12.75 in",
+				"more": "From <a class='series' href='#' data-filter='carnival'>The Unsettling of Mary Henry</a><br>Completed 2026<br>Private collection.",
+				"shows":"all recent  carnival"
+            },
+			{
+                "file":"Celestes",
+                "caption": "<em>Celestes</em>. Mixed media on wood. 10.25 in x 12.75 in",
+				"more": "From <a class='series' href='#' data-filter='carnival'>The Unsettling of Mary Henry</a><br>Completed 2026<br>Private collection.",
+				"shows":"all recent  carnival"
+            },
+		{
+                "file":"Choralist",
+                "caption": "<em>Choralist</em>. Mixed media on wood. 10.25 in x 12.75 in",
+				"more": "From <a class='series' href='#' data-filter='carnival'>The Unsettling of Mary Henry</a><br>Completed 2026<br>Private collection.",
+				"shows":"all recent  carnival"
+            },
+		{
+                "file":"Clarion",
+                "caption": "<em>Clarion</em>. Mixed media on wood. 10.25 in x 12.75 in",
+				"more": "From <a class='series' href='#' data-filter='carnival'>The Unsettling of Mary Henry</a><br>Completed 2026<br>Private collection.",
+				"shows":"all recent  carnival"
+            },
+		{
+                "file":"Diapason",
+                "caption": "<em>Diapason</em>. Mixed media on wood. 10.25 in x 12.75 in",
+				"more": "From <a class='series' href='#' data-filter='carnival'>The Unsettling of Mary Henry</a><br>Completed 2026<br>Private collection.",
+				"shows":"all recent  carnival"
+            },	
+		{
+                "file":"Vox_Humana",
+                "caption": "<em>Vox Humana</em>. Mixed media on wood. 10.25 in x 12.75 in",
+				"more": "From <a class='series' href='#' data-filter='carnival'>The Unsettling of Mary Henry</a><br>Completed 2026<br>Private collection.",
+				"shows":"all recent  carnival"
+            },	
+		
+		{
+                "file":"Daisychain_tfxccc",
+                "caption": "<em>Daisychain</em>. Oil on Oil Paper. 51 in x 72 in",
+				"more": "Completed 2025<br>Available for sale.",
+				"shows":"all feature recent rhea avail"
+            },
+		{
+                "file":"Dowerdrab_fwp5bw",
+                "caption": "<em>Dowerdrab</em>. Oil on Oil Paper. 51 in x 72 in",
+				"more": "Completed 2025<br>Available for sale.",
+				"shows":"all feature recent rhea avail"
+            },
+		{
+                "file":"Uncles",
+                "caption": "<em>Uncles</em>. Oil on Oil Paper. 51 in x 72 in",
+				"more": "Completed 2025<br>Available for sale.",
+				"shows":"all feature recent rhea avail"
+            },
+		{
+                "file":"Switches_iar4rd",
+                "caption": "<em>Switches</em>. Oil on Oil Paper. 51 in x 72 in",
+				"more": "Completed 2025<br>Available for sale.",
+				"shows":"all feature recent rhea avail"
+            },{
+                "file":"the_rigors_of_a_convent_education",
+                "caption": "<em>The Rigors of a Convent Education</em>. Oil on canvas. 31.625 in x 49.75 in",
+				"more": "Completed October 2023<br>Available for sale.",
+				"shows":"all feature recent avail rhea"
+            },
+		{
+                "file":"Lubitsch",
+                "caption": "<em>Lubitsch</em>. Oil on canvas. 31.625 in x 49.75 in",
+				"more": "Completed October 2025<br>Available for sale.",
+				"shows":"all feature recent avail rhea"
+            },{
+                "file":"Littlemore",
+                "caption": "<em>Littlemore</em>. Oil on canvas. 24 in x 17 in",
+				"more": "Completed October 2025<br>Available for sale.",
+				"shows":"all  recent avail rhea"
+            },
+		{
+                "file":"And_Then_There_Was_One_yr3onr",
+                "caption": "<em>And Then There Was 1</em>. Gouache on Paper. 24 in x 30 in",
+				"more": "Completed 2025<br>Private collection.",
+				"shows":"all feature recent rhea "
+            },
+		{
+                "file":"And_Then_There_Were_Two_zv6hfv",
+                "caption": "<em>And Then There Were 2</em>. Gouache on Paper. 24 in x 30 in",
+				"more": "Completed 2025<br>Private collection.",
+				"shows":"all feature recent rhea "
+            },
+		{
+                "file":"And_Then_There_Were_Three_jvaifv",
+                "caption": "<em>And Then There Were 3</em>. Gouache on Paper. 24 in x 30 in",
+				"more": "Completed September 2025<br>Private collection.",
+				"shows":"all  recent rhea "
+            },
+		{
+                "file":"And_Then_There_Were_Four_t8yozv",
+                "caption": "<em>And Then There Were 4</em>. Gouache on Paper. 24 in x 30 in",
+				"more": "Completed September 2025<br>Private collection.",
+				"shows":"all  recent rhea "
+            },
+			
+		{
+                "file":"pawnbrokers",
+                "caption": "<em>Pawnbrokers</em>. Oil on canvas. 55.5 in x 42 in",
+				"more": "Completed September 2024<br>Available for sale.",
+				"shows":"all feature recent carnival avail"
+            }, 
+		
+		{
+                "file":"kitewinder",
+                "caption": "<em>Kitewinder</em>. Oil on wood. 14.5 in x 25.5 in",
+				"more": "Completed September 2024<brPrivate collection.",
+				"shows":"all  recent carnival"
+            },{
+                "file":"Trevorrow",
+                "caption": "<em>Trevorrow</em>. Oil on wood. 25.5 in x 49.5 in",
+				"more": "Completed September 2024<br>Available for sale.",
+				"shows":"all feature recent rhea avail"
+            },	{
+                "file":"Six_Pounds_Two_Ounces",
+                "caption": "<em>Six Pounds Two Ounces</em>. Oil on wood. 25.5 in x 28.5 in",
+				"more": "Completed September 2024<br>Available for sale.",
+				"shows":"all feature recent carnival avail"
+            },	
+		{
+                "file":"Listed_Men",
+                "caption": "<em>Listed Men</em>. Oil on wood. 25.5 in x 33 in",
+				"more": "Completed September 2024<br>Available for sale.",
+				"shows":"all feature recent rhea avail"
+            },	
+		{
+                "file":"m_hannigan",
+                "caption": "<em>M. Hannigan</em>. Oil on wood. 25.5 in x 36.5 in",
+				"more": "Completed October 2024<br>Available for sale.",
+				"shows":"all feature recent rhea avail"
+            },	
+		{
+                "file":"Breathless_Left",
+                "caption": "<em>Breathless1960 (Left)</em>. Oil on canvas. 40 in x 40 in",
+				"more": "Completed March 2024<br>Private collection.",
+				"shows":"all feature recent thisLedtoThis"
+            },{
+                "file":"Breathless_Right",
+                "caption": "<em>Breathless1960 (Right)</em>. Oil on canvas. 40 in x 40 in",
+				"more": "Completed March 2024<br>Available for sale.",
+				"shows":"all feature recent avail thisLedtoThis"
+            },{
+                "file":"Salvation_Armory",
+                "caption": "<em>Salvation Armory</em>. Oil on canvas. 59.75x37.75",
+				"more": "Completed October 2023<br>Private collection.",
+				"shows":"all feature recent rhea"
+            },{
+                "file":"commodity_a",
+                "caption": "<em>Commodity A</em>. Oil on canvas. 34.625 in x 41.75 in",
+				"more": "Completed October 2023<br>Available for sale.",
+				"shows":"all  recent avail rhea"
+            },{
+                "file":"Presidents_Ball_at_Eagles_Hall",
+                "caption": "<em>Presiddent's Ball at Eagles Hall</em>. Oil on canvas. 31.75 in x 43.75 in",
+				"more": "Completed September 2023<br>Private collection.",
+				"shows":"all recent rhea"
+            },{
+                "file":"wardenships_down",
+                "caption": "<em>Wardenship's Down</em>. Oil on wood. 13.75 in x 13.75 in",
+				"more": "Completed August 2023<br>Private collection.",
+				"shows":"all feature recent rhea"
+            },{
+                "file":"Defense_Display",
+                "caption": "<em>Defense Display</em>. Oil on wood. 13.75 in x 13.75 in",
+				"more": "Completed November 2023<br>Private collection.",
+				"shows":"all feature recent rhea"
+            },{
+                "file":"Grandmass",
+                "caption": "<em>Grandmass</em>. Oil on wood. 13.75 x 13.75",
+				"more": "Completed November 2023<br>Available for sale.",
+				"shows":"all  recent avail rhea"
+            },	
+{
+                "file":"633_Marriages",
+                "caption": "<em>633 Marriages</em>. Oil on wood. 13.75 x 13.75",
+				"more": "Completed July 2023<br>Private collection.",
+				"shows":"all feature recent rhea"
+            },{
+                "file":"Hefty_Armour_Thy_Forearm_final",
+                "caption": "<em>Hefty Armour Thy Forearm</em>. Mixed-media on canvas and wood.",
+				"more": "Completed August 2023<br>Private collection.",
+				"shows":"all recent vt"
+            },{
+                "file":"00_Transom_Bob",
+                "caption": "<em>What's a Transom, Bob?</em>. Oil on wood. 18x28",
+				"more": "Completed March 2024<br>Private collection.",
+				"shows":"all recent thisLedtoThis"
+            },{
+                "file":"A01-Stomping-Ground",
+                "caption": "<em>Stomping-Ground</em>. Oil on wood. 20 x 20",
+				"more": "Completed May 2021<br>Private collection.",
+				"shows":"all recent  thisLedtoThis"
+            },
+		{
+                "file":"A02-Mooring",
+                "caption": "<em>Mooring</em>. Oil on wood. 20 x 20",
+				"more": "Completed March 2021<br>Private collection.",
+				"shows":"all feature recent thisLedtoThis"
+            },	
+		{
+                "file":"A03-Reconnaissance",
+                "caption": "<em>Reconnaissance</em>. Oil on wood. 20 x 20",
+				"more": "Completed April 2021<br>Private collection.",
+				"shows":"all recent thisLedtoThis"
+            },
+		{
+                "file":"A04-Potluck",
+                "caption": "<em>Potluck</em>. Oil on wood. 20 x 20",
+				"more": "Completed May 2021<br>Available for sale.",
+				"shows":"all feature recent avail thisLedtoThis"
+            },{
+                "file":"A05-Holding-Pattern",
+                "caption": "<em>Holding-Pattern</em>. Oil on wood. 20 x 20",
+				"more": "Completed March 2021<br>Available for sale.",
+				"shows":"all recent avail thisLedtoThis"
+            },{
+                "file":"A06-Dispatch",
+                "caption": "<em>Dispatch</em>. Oil on wood. 20 x 20",
+				"more": "Completed March 2021<br>Private collection.",
+				"shows":"all feature recent thisLedtoThis"
+            },
+		{
+                "file":"A07-Muleteer",
+                "caption": "<em>Muleteer</em>. Oil on wood. 20 x 20",
+				"more": "Completed July 2021<br>Private collection.",
+				"shows":"all feature recent  thisLedtoThis"
+            },
+		{
+                "file":"B01-Vagabonds",
+                "caption": "<em>Vagabonds</em>. Oil on canvas. 20 x 20",
+				"more": "Completed September 2022<br>Available for sale.",
+				"shows":"all recent avail thisLedtoThis"
+            },{
+                "file":"B02-Thrush",
+                "caption": "<em>Thrush</em>. Oil on canvas. 20 x 20",
+				"more": "Completed June 2022<br>Private collection.",
+				"shows":"all recent thisLedtoThis"
+            },{
+                "file":"B03-Burnishing",
+                "caption": "<em>Burnishing</em>. Oil on canvas. 20 x 20",
+				"more": "Completed May 2022<br>Private collection.",
+				"shows":"all recent  thisLedtoThis"
+            },{
+                "file":"B04-Our-Sponsor",
+                "caption": "<em>Helmer</em>. Oil on canvas. 20 x 20",
+				"more": "Completed July 2022<br>Available for sale.",
+				"shows":"all recent avail thisLedtoThis"
+            },{
+                "file":"B05-Necks",
+                "caption": "<em>Necks</em>. Oil on canvas. 20 x 20",
+				"more": "Completed May 2021<br>Private collection.",
+				"shows":"all recent  thisLedtoThis"
+            },{
+                "file":"C01-Dowagers",
+                "caption": "<em>Dowagers</em>. Oil on wood. 20 x 20",
+				"more": "Completed June 2022<br>Private Collection.",
+				"shows":"all recent thisLedtoThis"
+            },
+		{
+                "file":"C02-Cliques",
+                "caption": "<em>Cliques</em>. Oil on wood. 20 x 20",
+				"more": "Completed July 2022<br>Private collection.",
+				"shows":"all recent thisLedtoThis"
+            },
+		{
+                "file":"C03-Bricklayers",
+                "caption": "<em>Bricklayers</em>. Oil on wood. 20 x 20",
+				"more": "Completed July 2022<br>Private collection.",
+				"shows":"all feature recent  thisLedtoThis"
+            },
+		{
+                "file":"C04-Bluffs",
+                "caption": "<em>Bluffs</em>. Oil on wood. 20 x 20",
+				"more": "Completed September 2022<br>Private collection.",
+				"shows":"all recent thisLedtoThis"
+            },
+		{
+                "file":"C05-Winch",
+                "caption": "<em>Winch</em>. Oil on wood. 20 x 20",
+				"more": "Completed September 2022<br>Private collection.",
+				"shows":"all feature recent thisLedtoThis"
+            },
+		{
+                "file":"C06-Toodle-Loo",
+                "caption": "<em>Toodle-Loo</em>. Oil on wood. 20 x 20",
+				"more": "Completed October 2022<br>Available for sale.",
+				"shows":"all feature recent avail thisLedtoThis"
+            },
+		{
+                "file":"C07-Postlude",
+                "caption": "<em>Postlude</em>. Oil on wood. 20 x 20",
+				"more": "Completed December 2022<br>Private collection.",
+				"shows":"all recent thisLedtoThis"
+            },
+		{
+                "file":"C08-Sitting-Room",
+                "caption": "<em>Sitting-Room</em>. Oil on wood. 20 x 20",
+				"more": "Completed December 2022<br>Private collection.",
+				"shows":"all recent thisLedtoThis"
+            },
+				
+		{
+                "file":"Babettesfeast1987",
+                "caption": "<em>Babettesfeast1987</em>. Oil on canvas. 38 x 50",
+				"more": "Completed March 2022<br>Private collection.",
+				"shows":"all feature recent compoundFractures"
+            },	
+			{
+                "file":"Voyager1991",
+                "caption": "<em>Voyager1991</em>. Oil on wood. 20 x 20",
+				"more": "Completed February 2021<br>Private collection.",
+				"shows":"all recent compoundFractures"
+            },	
+			{
+                "file":"Fortysecondstreet1933",
+                "caption": "<em>Fortysecondstreet1933</em>. Oil on wood. 80 x 76",
+				"more": "Completed October 2018<br>Available for sale.",
+				"shows":"all feature avail compoundFractures"
+            },
+		{
+                "file":"IthappenedInflatbrush1942",
+                "caption": "<em>IthappenedInflatbrush1942</em>. Oil on wood. 20 x 20",
+				"more": "Completed September 2019<br>Private collection.",
+				"shows":"all  compoundFractures"
+            },						
+			{
+                "file":"Acanterburytale1944",
+                "caption": "<em>Acanterburytale1944</em>. Oil on wood. 20 x 20",
+				"more": "Completed October 2018<br>Private collection.",
+				"shows":"all feature compoundFractures"
+            },
+			{
+                "file":"Partiedecampagne1936",
+                "caption": "<em>Partiedecampagne1936</em>. Oil on wood. 20 x 20",
+				"more": "Completed October 2018<br>Private collection.",
+				"shows":"all compoundFractures"
+            },
+			{
+                "file":"blue",
+                "caption": "<em>Untitled (Blue)</em>. Collaboration with Ethan Rohde. Acrylic on canvas. 40 x 40",
+				"more": "Completed 2019<br>Private collection.",
+				"shows":"all  ethan"
+            },
+		{
+                "file":"yellow",
+                "caption": "<em>Untitled (Yellow)</em>. Collaboration with Ethan Rohde. Acrylic on canvas. 40 x 40",
+				"more": "Completed 2019<br>Available for sale, currently on loan.",
+				"shows":"all  avail ethan"
+            },
+		{
+                "file":"red",
+                "caption": "<em>Untitled (Red)</em>. Collaboration with Ethan Rohde. Acrylic on canvas. 40 x 40",
+				"more": "Completed 2019<br>Available for sale, currently on loan.",
+				"shows":"all  avail ethan"
+            },
+		
+			{
+                "file":"Acoltpassport1967",
+                "caption": "<em>Acoltismypassport1967</em>. Oil on canvas. 80 x 40",
+				"more": "Completed June 2018<br>Private collection.",
+				"shows":"all  compoundFractures"
+            },
+			{
+                "file":"Adayinthecountry1936",
+                "caption": "<em>Adayinthecountry1936</em>. Oil on wood. 20 x 20",
+				"more": "Completed October 2018<br>Available for sale.",
+				"shows":"all feature avail compoundFractures"
+            },
+			{
+                "file":"Amoderncoed1966",
+                "caption": "<em>Amoderncoed1966</em>. Oil on wood. 20 x 20",
+				"more": "Completed October 2018<br>Available for sale.",
+				"shows":"all feature avail compoundFractures"
+            },					
+			{
+                "file":"Pina2011",
+                "caption": "<em>Pina2011</em>. Oil on canvas. 80 x 40",
+				"more": "Completed November 2017<br>Available for sale.",
+				"shows":"all feature avail compoundFractures"
+            },{
+                "file":"Paristexas1984",
+                "caption": "<em>Paristexas1984</em>. Oil on canvas. 40 x 40",
+				"more": "Completed November 2017<br>Available for sale.",
+				"shows":"all feature avail compoundFractures"
+            },
+			{
+                "file":"Rashomon1950",
+                "caption": "<em>Rashomon1950</em>. Oil on canvas. 40 x 40",
+				"more": "Completed October 2017<br>Available for sale.",
+				"shows":"all feature avail compoundFractures"
+            },
+			{
+                "file":"Abriefhistoryoftime1991",
+                "caption": "<em>Abriefhistoryoftime1991</em>. Oil on wood. 24 x 24",
+				"more": "Completed October 2017<br>Private collection.",
+				"shows":"all compoundFractures"
+            },
+			{
+                "file":"Julesandjim1962w",
+                "caption": "<em>Julesandjim1962w</em>. Oil on wood. 24 x 24",
+				"more": "Completed October 2017<br>Private collection.",
+				"shows":"all compoundFractures"
+            },
+			{
+                "file":"Julesandjim1962",
+                "caption": "<em>Julesandjim1962</em>. Oil on canvas. 40 x 40",
+				"more": "Completed September 2017<br>Available for sale.",
+				"shows":"all feature avail compoundFractures"
+            },
+		{
+                "file":"Certifiedcopy2011_C",
+                "caption": "<em>Certifiedcopy2011</em>. Oil on canvas. 40 x 40",
+				"more": "Completed July 2017<br>Available for sale. <a href='/exhibits.html'>Currently on display at Tongue in Cheek</a>",
+				"shows":"all feature avail compoundFractures"
+            },
+			{
+                "file":"Thefortyninthparallel1941",
+                "caption": "<em>Thefortyninthparallel1941</em>. Oil on canvas. 40 x 40",
+				"more": "Completed July 2017<br>Available for sale.",
+				"shows":"all avail compoundFractures"
+            },
+			{
+                "file":"nostalgia_1972",
+                "caption": "<em>(Nostalgia)1972</em>. Oil on wood. 24 x 24",
+				"more": "Completed June 2017<br>Private collection.",
+				"shows":"all compoundFractures"
+            },{
+                "file":"Certifiedcopy2011_W",
+                "caption": "<em>Certifiedcopy2011W</em>. Oil on wood. 24 x 24",
+				"more": "Completed May 2017<br>Private collection.",
+				"shows":"all feature compoundFractures"
+            },
+			{
+                "file":"Adancersworld1957",
+                "caption": "<em>Adancersworld1957</em>. Oil on wood. 24 x 24",
+				"more": "Completed May 2017<br>Private collection.",
+				"shows":"all feature compoundFractures"
+            },
+			{
+                "file":"Turntablism",
+                "caption": "<em>Turntablism</em>. Oil on paper. 26 x 20",
+				"more": "Completed February 2017<br>Unavailable.",
+				"shows":"all feature suits"
+            },
+			{
+                "file":"Total_Loss",
+                "caption": "<em>Total Loss</em>. Oil on paper. 26 x 20",
+				"more": "Completed February 2017<br>Unavailable.",
+				"shows":"all feature suits"
+            },
+			{
+                "file":"Uddergate",
+                "caption": "<em>Uddergate</em>. Oil on paper. 26 x 20",
+				"more": "Completed February 2017<br>Unavailable.",
+				"shows":"all suits"
+            },
+			{
+                "file":"Foilstamping",
+                "caption": "<em>Foilstamping</em>. Oil on paper. 26 x 20",
+				"more": "Completed February 2017<br>Unavailable.",
+				"shows":"all suits"
+            },
+			{
+                "file":"Drain_Snakes",
+                "caption": "<em>Drain Snakes</em>. Oil on paper. 26 x 20",
+				"more": "Completed February 2017<br>Unavailable.",
+				"shows":"all suits"
+            },
+			{
+                "file":"Bleu1993",
+                "caption": "<em>Bleu1993</em>. Oil on wood. 31.5 x 17",
+				"more": "Completed November 2016<br>Private collection.",
+				"shows":"all compoundFractures"
+            },
+			{
+                "file":"Rouge1994",
+                "caption": "<em>Rouge1994</em>. Oil on wood. 29 x 19",
+				"more": "Completed November 2016<br>Private collection.",
+				"shows":"all compoundFractures"
+            },{
+                "file":"Blanc1994",
+                "caption": "<em>Blanc1994</em>. Oil on wood. 28.5 x 18.5",
+				"more": "Completed November 2016<br>Available for sale.",
+				"shows":"all compoundFractures"
+            },
+			{
+                "file":"Amarcord1973",
+                "caption": "<em>Amarcord1973</em>. Oil on canvas. 40 x 40",
+				"more": "Completed November 2016<br>Available for sale.",
+				"shows":"all feature avail compoundFractures"
+            },
+			{
+                "file":"Allthesewomen1964",
+                "caption": "<em>Allthesewomen1964</em>. Oil on canvas. 40 x 40",
+				"more": "Completed November 2016<br>Available for sale.  <a href='/exhibits.html'>Currently on display at Tongue in Cheek</a>",
+				"shows":"all feature avail compoundFractures"
+            },		
+			/* Update this photo
+			{
+                "file":"Thethirtyninesteps1935_Pamela",
+                "caption": "<em>Thethirtyninesteps1935 (Pamela)</em>. Oil on wood. 11 x 16",
+				"more": "Completed October 2016<br>Private collection.",
+				"shows":"avail compoundFractures"
+            },*/
+			{
+                "file":"Spellbound1945",
+                "caption": "<em>Spellbound1945</em>. Oil on wood. 11 x 16",
+				"more": "Completed October 2016<br>Private collection.",
+				"shows":"all feature compoundFractures"
+            },
+			{
+                "file":"Allthesewomen1964-Cecilia",
+                "caption": "<em>Allthesewomen1964 (Cecilia)</em>. Oil on wood. 18 x 16",
+				"more": "Completed September 2016<br>Private collection.",
+				"shows":"all compoundFractures"
+            },											
+			{
+                "file":"Bicyclethieves1948",
+                "caption": "<em>Bicyclethieves1948</em>. Oil on canvas. 40 x 40",
+				"more": "Completed August 2016<br>Private collection.",
+				"shows":"all feature compoundFractures "
+            },
+			{
+                "file":"Greygardens1975",
+                "caption": "<em>Greygardens1975</em>. Oil on wood. 18 x 28",
+				"more": "Completed June 2016<br>Available for sale.",
+				"shows":"all avail compoundFractures"
+            },
+			{
+                "file":"Alltheboysarecalledpatrick1959",
+                "caption": "<em>Alltheboysarecalledpatrick1959</em>. Oil on wood. 18 x 16",
+				"more": "Completed July 2016<br>Private collection.",
+				"shows":"all compoundFractures"
+            },
+			{
+                "file":"Thethirtyninesteps1935",
+                "caption": "<em>Thethirtyninesteps1935</em>. Oil on canvas. 18 x 24",
+				"more": "Completed July 2016<br>Private collection.",
+				"shows":"all compoundFractures"
+            },
+			{
+                "file":"shadows1959-leila",
+                "caption": "<em>Shadows1959-leila</em>. Mixed-media on wood.",
+				"more": "Completed July 2015<br>Private collection.",
+				"shows":"all feature compoundFractures"
+            },
+			{
+                "file":"shadows1959-hugh",
+                "caption": "<em>Shadows1959-hugh</em>. Mixed-media on wood.",
+				"more": "Completed July 2015<br>Available for sale.",
+				"shows":"all feature avail compoundFractures"
+            },	
+			{
+                "file":"R_Lampert_63",
+                "caption": "<em>R. Lampert 63</em>. Acrylic on wood. 11 x 13",
+				"more": "Completed April 2016<br>Private collection.",
+				"shows":"all compoundFractures"
+            },	
+			{
+                "file":"Alifeareatsthesoul1974",
+                "caption": "<em>Alifeareatsthesoul1974</em>. Oil on canvas. 40 x 40",
+				"more": "Completed March 2016<br>Available for sale. <a href='/exhibits.html'>Currently on display at Tongue in Cheek</a>",
+				"shows":"all feature avail compoundFractures"
+            },
+			{
+                "file":"Twelveangrymen1957",
+                "caption": "<em>Twelveangrymen1957</em>. Oil on canvas. 40 x 40",
+				"more": "Completed February 2016<br>Private collection.",
+				"shows":"all compoundFractures"
+            },
+			{
+                "file":"eightandahalf1963",
+                "caption": "<em>Eightandahalf1963</em>. Oil on canvas. 40 x 40",
+				"more": "Completed July 2015<br>Private collection.",
+				"shows":"all feature compoundFractures"
+            },
+			{
+                "file":"Ageofthemedici1972",
+                "caption": "<em>Ageofthemedici1972</em>. Oil on canvas. 40 x 40",
+				"more": "Completed July 2015<br>Private collection.",
+				"shows":"all compoundFractures"
+            },
+			{
+                "file":"alambrista1977",
+                "caption": "<em>Alambrista1977</em>. Oil on canvas. 40 x 40",
+				"more": "Completed July 2015<br>Available for sale. <a href='/exhibits.html'>Currently on display at Tongue in Cheek</a>",
+				"shows":"all feature avail compoundFractures"
+            },				
+			{
+                "file":"Ruhrgebiet",
+                "caption": "<em>Aliceinthecities1974 (Ruhrgebiet)</em>. Oil on wood. 18 x 16",
+				"more": "Completed November 2015<br>Available for sale.",
+				"shows":"all avail compoundFractures"
+            },
+			{
+                "file":"Amsterdam",
+                "caption": "<em>Aliceinthecities1974 (Amsterdam)</em>. Oil on wood. 18 x 16",
+				"more": "Completed November 2015<br>Private collection.",
+				"shows":"all feature compoundFractures"
+            },
+			{
+                "file":"Manhattan",
+                "caption": "<em>Aliceinthecities1974 (Manhattan)</em>. Oil on wood. 18 x 16",
+				"more": "Completed November 2015<br>Private collection.",
+				"shows":"all feature compoundFractures"
+            },
+			{
+                "file":"Wuppertal",
+                "caption": "<em>Aliceinthecities1974 (Wuppertal)</em>. Oil on wood. 18 x 16",
+				"more": "Completed November 2015<br>Available for sale.",
+				"shows":"all compoundFractures"
+            },			
+			{
+                "file":"Andthepursuitofhappiness1986",
+                "caption": "<em>Andthepursuitofhappiness1986</em>. Oil on wood.",
+				"more": "Completed December 2015<br>Available for sale.",
+				"shows":"all avail compoundFractures vote"
+            },
+			{
+                "file":"thefourhundredblows1959",
+                "caption": "<em>Thefourhundredblows1959</em>. Oil on wood. 18 x 22",
+				"more": "Completed June 2015<br>Private collection.",
+				"shows":"all feature compoundFractures"
+            },
+			{
+                "file":"Twoorthreethingsiknowabouther1967",
+                "caption": "<em>Twoorthreethingsiknowabouther1967</em>. Oil on canvas. 70 x 40",
+				"more": "Completed June 2015<br>Private collection.",
+				"shows":"all feature compoundFractures"
+            },
+			{
+                "file":"andgodcreatedwoman1956",
+                "caption": "<em>Andgodcreatedwoman1956</em>. Oil on wood. 16 x 24",
+				"more": "Completed March 2015<br>Private collection.",
+				"shows":"all feature compoundFractures"
+            },
+            {
+               "file":"twentyonedays1940",
+                "caption": "<em>Twentyonedays1940</em>. Oil on wood. 16 x 24",
+				"more": "Completed March 2015<br>Private collection.",
+				"shows":"all compoundFractures"
+            },
+			/*{
+                "file":"fortysevenronin1941",
+                "caption": "<em>Fortysevenronin1941</em>. Oil on wood. 16 x 24",
+				"more": "Completed March 2015<br>Available for sale.",
+				"shows":"avail compoundFractures"
+            },*/
+			{               
+                "file":"lasalle-street-station",
+                "caption":"<em>LaSalle Street Station</em>. Oil on wood. 18in. x 24in. ",
+				"more": "Completed November 2014<br>Private collection.",
+				"shows":"all feature compoundFractures"
+            },
+			{
+               "file":"long-beach",
+                "caption":"<em>Long Beach</em>. Oil on wood. 18 x 24 ",
+				"more": "Completed November 2014<br>Private collection.",
+				"shows":"all compoundFractures"
+            },
+			{               
+                "file":"caffe-vivaldi-on-jones",
+                "caption":"<em>Caffe Vivaldi On Jones</em>. Oil on wood. 18 x 24",
+				"more": "Completed November 2014<br>Private collection.",
+				"shows":"all feature compoundFractures"
+            },		
+			{               
+                "file":"cottonwood-road",
+                "caption":"<em>Cottonwood Road</em>. Oil on wood. 18in. x 24in. ",
+				"more": "Completed November 2014<br>Private collection.",
+				"shows":"all feature compoundFractures"
+            },
+			{
+                "file":"hodgkin",
+                "caption": "<em>Portrait of Dorothy Hodgkin</em>. Acrylic on panel. 18 x 24",
+				"more": "Completed May 2015<br>Private collection.",
+				"shows":"all commission"
+            },
+			{
+                "file":"on-high-and-blue-tomorrows",
+                "caption": "<em>On High and Blue Tomorrows</em>. Oil on wood. 30 x 40",
+				"more": "Completed February 2015<br>Available for sale.",
+				"shows":"all compoundFractures"
+            },
+			{               
+                "file":"buckley1",
+                "caption":"A recent commission (1 of 2 panels), Oil on board. 18in. x 24in.",
+				"more": "Completed March 2015<br>Private commission.",
+				"shows":"all commission"
+            },
+			{
+               "file":"buckley2",
+                "caption":"A recent commission (1 of 2 panels), Oil on board. 18in. x 24in.",
+				"more": "Completed March 2015<br>Private commission.",
+				"shows":"all commission"
+            },
+			{
+               "file":"willa",
+                "caption":"<em>Willa</em>. Acrylic on wood. 18in. x 24in. ",
+				"more": "Completed June 2014<br>Private commission.",
+				"shows":"all commission "
+            },
+			{
+               "file":"canyoneers",
+                "caption":"<em>Canyoneers</em>. Acrylic on canvas. 48in. x 48in.",
+				"more": "Completed April 2014<br>Private collection.",
+				"shows":"all settlers feature"
+            },
+			{
+               "file":"cabinette",
+                "caption":"<em>Cabinette</em>. Acrylic on canvas. 46in. x 36in.",
+				"more": "Completed March 2014<br>Private collection.",
+				"shows":"all settlers feature "
+            },
+			{
+               "file":"baraby",
+                "caption":"<em>Baraby</em> Acrylic on canvas. 46in. x 36in.",
+				"more": "Completed March 2014<br>Private collection.",
+				"shows":"all settlers feature"
+            },
+			{
+               "file":"rockliner",
+                "caption":"Rockliner. Acrylic on canvas. 46in. x 36in.",
+				"more": "Completed March 2014<br>Private collection.",
+				"shows":"all settlers feature "
+            },
+			{
+              "file":"gramophone",
+                "caption":"Gramophone, Acrylic on canvas. 46in. x 36",
+				"more": "Completed March 2014<br>Private collection.",
+				"shows":"all settlers feature"
+            },
+			{
+               "file":"claqueurs",
+                "caption":"Claqueurs acrylic on canvas. 72in. x 48in.",
+				"more": "Completed February 2014<br>Private collection.",
+				"shows":"all settlers feature "
+            },
+			{
+               "file":"two-looms",
+                "caption":"Two Looms. Mixed-media on canvas. 2 panels 25in. x 35in. each. ",
+				"more": "Completed April 2014<br>Private collection",
+				"shows":"all settlers "
+            },
+			{
+               "file":"span",
+                "caption":"Span. Mixed-media on wood. 24in. x 30in.",
+				"more": "Completed February 2014<br>Private collection",
+				"shows":"all feature"
+            },
+			{
+               "file":"willowers",
+                "caption":"Willowers. Mixed-media on wood. 24in. x 30in.",
+				"more": "Completed September 2013<br>Private collection",
+				"shows":"all settlers feature"
+            },
+			{
+               "file":"taciturner",
+                "caption":"Taciturner. Mixed-media on wood. 24in. x 30in.",
+				"more": "Completed November 2013<br>Available for sale <p></p>",
+				"shows":"all settlers feature avail vote"
+            },
+			{
+               "file":"sullivant",
+                "caption":"Sullivant, Mixed-media on wood. 24in. x 30in.",
+				"more": "Completed November 2013<br>Private collection",
+				"shows":"all settlers feature"
+            },
+			{
+               "file":"greinwald",
+                "caption":"Greinwald, Mixed-media on canvas. 30in. x 42in.",
+				"more": "Completed November 2013<br>Private collection",
+				"shows":"all settlers feature"
+            },
+			{
+               "file":"fence",
+                "caption":"Fence. Mixed-media on canvas. 30in. x 42in.",
+				"more": "Completed November 2013<br>Private collection",
+				"shows":"all settlers feature"
+            },
+			{
+               "file":"shields",
+                "caption":"Shields, Mixed-media on canvas. 30in. x 42in.",
+				"more": "Completed September 2013.<br>Private collection.",
+				"shows":"all settlers feature "
+            },
+			{
+               "file":"halftrack-h",
+                "caption":"Halftrack. Mixed-media on canvas. 36in. x 58in.",
+				"more": "Completed December 2013<br>Private collection.",
+				"shows":"all settlers feature "
+            },
+			{
+               "file":"hilt",
+                "caption":"Hilt. Mixed-media on canvas. 36in. x 58in.",
+				"more": "Completed December 2013<br>Available for sale.",
+				"shows":"all settlers avail vote"
+            },
+			{
+              "file":"rigs",
+                "caption":"Rigs. Mixed-media on canvas. 36in. x 58in.",
+				"more": "Completed December 2013<br>Private collection.",
+				"shows":"all settlers feature "
+            },
+			{
+               "file":"ashington",
+                "caption":"Ashington. Mixed-media on canvas. 30in. x 42in.",
+				"more": "2012<br>Private collection.",
+				"shows":"all pilgrims feature"
+            },
+			{
+               "file":"vanderbuilt",
+                "caption":"Vanderbuilt, Mixed-media on canvas. 30in. x 42in.",
+				"more": "2012<br>Private collection.",
+				"shows":"all pilgrims feature"
+            },
+			{
+               "file":"thamathis",
+                "caption":"Thamathis, Mixed-media on canvas. 30in. x 42in.",
+				"more": "2012<br>Private collection.",
+				"shows":"all pilgrims feature"
+            },
+				{
+               "file":"talularemia",
+                "caption":"Talularemia. Mixed-media on canvas 30 x 48. ",
+				"more": "2012<br>Available for sale.",
+				"shows":"all pilgrims feature"
+            },
+
+			{
+               "file":"perambola",
+                "caption":"Perambola, Mxed-media on wood. 24in. x 30in.",
+				"more": "2012<br>Private collection.",
+				"shows":"all pilgrims feature"
+            },
+			{
+               "file":"ruthiant",
+                "caption":"Ruthiant, Mxed-media on wood. 24in. x 30in. ",
+				"more": "2012<br>Private collection.",
+				"shows":"all pilgrims feature"
+            },
+			{
+               "file":"stowater",
+                "caption":"Stowater, Mxed-media on wood. 24in. x 30in. ",
+				"more": "2012<br>Private collection.",
+				"shows":"all pilgrims feature"
+            },
+			{
+               "file":"humbucker",
+                "caption":"Humbucker, Mxed-media on wood. 24in. x 30in. ",
+				"more": "2012<br>Private collection.",
+				"shows":"all pilgrims feature"
+            },
+			{
+               "file":"venusian-go-home",
+                "caption":"Venusian, Go Home . Mixed-media on wood. 24 in. x 30 in.",
+				"more": "2011<br> Private collection",
+				"shows":"all pilgrims feature"
+            },
+			{
+               "file":"earthling-go-home",
+                "caption":"Earthling, Go Home. Mixed-media on wood. 24 in. x 30 in.",
+				"more": "2011<br>Private collection",
+				"shows":"all pilgrims feature"
+            },
+			{
+               "file":"martian-go-home",
+                "caption":"Martian, Go Home. Mixed-media on wood. 24 in. x 30 in.",
+				"more": "2011<br>Private collection",
+				"shows":"all pilgrims feature"
+            },
+			{
+               "file":"mercurian-go-home",
+                "caption":"Mercurian, Go Home. Mixed-media on wood. 24 in. x 30 in.",
+				"more": "2011<br>Private collection",
+				"shows":"all pilgrims"
+            },
+			{
+               "file":"adjustmen",
+                "caption":"Adjustmen. Mixed-media on canvas. 48 in. x 60 in.",
+				"more": "2011<br>Private collection.",
+				"shows":"all pilgrims feature"
+            },
+			{
+               "file":"lamarginal",
+                "caption":"Lamarginal. Mixed-media on canvas. 48 in. x 60 in.",
+				"more": "2011<br>Private collection.",
+				"shows":"all pilgrims feature"
+            },
+			{
+               "file":"alpollo",
+                "caption":"Alpollo. Mixed-media on canvas. 48 in. x 60 in.",
+				"more": "2011<br>Private collection.",
+				"shows":"all pilgrims feature "
+            },
+			{
+               "file":"pnewmatic",
+                "caption":"Pnewmatic. Mixed-media on canvas. 48 in. x 60 in.",
+				"more": "2011<br>Private collection.",
+				"shows":"all pilgrims feature"
+            },
+			{
+               "file":"trunkert",
+                "caption":"Trunkert. Mixed-media on canvas 30 x 48. ",
+				"more": "2012<br>Private collection.",
+				"shows":"all pilgrims feature "
+            },
+			{
+               "file":"ambridge",
+                "caption":"Ambridge. Mixed-media on canvas 30 x 48. ",
+				"more": "2012<br>Private collection.",
+				"shows":"all pilgrims feature"
+            },
+			{
+               "file":"nativitive",
+                "caption":"Nativitive. Mixed-media on canvas 30 x 48. ",
+				"more": "2012<br>Private collection.",
+				"shows":"all pilgrims art-incognito"
+            },
+			{
+               "file":"exstation",
+                "caption":"Exstation. Mixed-media on canvas 30in x 48in.",
+				"more": "Initially shown as part of House of Mercy’s “Gas Stations of the Crossin. exhibit. 2012<br>Available for sale.",
+				"shows":"all pilgrims hom avail vote"
+            },
+			{
+				"file":"lama",
+                "caption":"A recent commission, Oil on board. 18in x 24in",
+				"more": "2014<br>Private commission.",
+				"shows":"all commission"
+            },
+			{
+				"file":"newman",
+                "caption":"Mixed-media on wood panel. 24in x 30in",
+				"more": "2013<br>Private commission.",
+				"shows":"all commission"
+            },
+			{
+				"file":"fawcett",
+                "caption":"Mixed-media on wood panel. 24in x 30in",
+				"more": "2013<br>Private commission.",
+				"shows":"all commission"
+            },
+			{
+				"file":"pedal-pushers",
+                "caption":"<em>Pedal Pushers</em> Mixed-media on wood. 8in x 10in",
+				"more": "2010<br>Private collection.",
+				"shows":"all odds feature"
+            },
+			{
+				"file":"public-works",
+                "caption":"<em>Public Works</em> Mixed-media on wood. 8in x 10in",
+				"more": "2010<br>Private collection.",
+				"shows":"all odds feature"
+            },
+			{
+				"file":"permanent-press",
+                "caption":"<em>Permanent Press</em> Mixed-media on wood. 8in x 10in",
+				"more": "2010<br>Private collection.",
+				"shows":"all odds feature"
+            },
+			{
+				"file":"private-eye",
+                "caption":"<em>Private Eye</em> Mixed-media on wood. 8in x 10in",
+				"more": "2010<br>Private collection.",
+				"shows":"all odds feature"
+            },
+			{
+				"file":"prime-ministry",
+                "caption":"<em>Prime Ministry</em> Mixed-media on wood. 8in x 10in",
+				"more": "2010<br>Private collection.",
+				"shows":"all odds"
+            },
+			{
+				"file":"lordy",
+                "caption":"<em>Lordy</em> Mixed-media on wood.",
+				"more": "2010<br>Private collection.",
+				"shows":"all odds feature"
+            },
+			{
+				"file":"intelligent-design",
+                "caption":"<em>Intelligent Design</em> Mixed-media on wood.",
+				"more": "2010<br>Private collection.",
+				"shows":"all odds "
+            },
+			{
+				"file":"screw-eyes",
+                "caption":"<em>Screw Eyes</em> Mixed-media on wood.",
+				"more": "2010<br>Private collection.",
+				"shows":"all odds "
+            },
+			{
+				"file":"shipper",
+                "caption":"<em>Shipper</em> Mixed-media on wood.",
+				"more": "2010<br>Private collection.",
+				"shows":"all odds "
+            },
+			{
+				"file":"christopher",
+                "caption":"<em>Christopher</em> Mixed-media on wood.",
+				"more": "2010<br>Private collection.",
+				"shows":"all odds "
+            },
+			{
+				"file":"stage-three",
+                "caption":"<em>Stage Three</em> Mixed-media on wood.",
+				"more": "2010<br>Private collection.",
+				"shows":"all odds "
+            },
+			{
+				"file":"clayton_michigan",
+                "caption":"<em>Clayton Michigan</em> Mixed-media on wood.",
+				"more": "2010<br>Available for sale.",
+				"shows":"all odds  avail vote"
+            },
+			{
+				"file":"clayton_alabama",
+                "caption":"<em>Clayton Alabama</em> Mixed-media on wood.",
+				"more": "2010<br>Available for sale.",
+				"shows":"all odds  avail vote"
+            },
+			{
+				"file":"clayton_delaware",
+                "caption":"<em>Clayton Delaware</em> Mixed-media on wood.",
+				"more": "2010<brAvailable for sale.",
+				"shows":"all odds  avail vote"
+            },
+			{
+				"file":"pass",
+                "caption":"<em>Pass</em> Mixed-media on paper.",
+				"more": "2009<br>Available for sale.",
+				"shows":"all odds  avail vote"
+            },
+			{
+				"file":"cover",
+                "caption":"<em>Cover</em> Mixed-media on paper.",
+				"more": "2009<br>Available for sale.",
+				"shows":"all odds  avail vote"
+            },
+			{
+				"file":"receiver",
+                "caption":"<em>Receiver</em> Mixed-media on paper.",
+				"more": "2009<br>Available for sale.",
+				"shows":"all odds  avail vote"
+            },
+			{
+				"file":"variable-title-i",
+                "caption":"<em>Variable Title I</em> Mixed-media on canvas.",
+				"more": "2007<br>Private collection.<br>Titles: BASTILLE DAY | NO ONE SUSPECTS A THING | YOU WERE MEANT FOR THE STAGE | [blank]",
+				"shows":"all vt"
+            },
+			{
+				"file":"variable-title-iv",
+                "caption":"<em>Variable Title IV</em> Mixed-media on canvas.",
+				"more": "2008<br>Destroyed.<br>Titles: OUR AFFAIR | AU REVOIR | RESERVOIR",
+				"shows":"all vt  vote"
+            },
+			{
+				"file":"variable-title-v",
+                "caption":"<em>Variable Title V</em> Mixed-media on canvas.",
+				"more": "2008<br>Private collection.<br>Titles: THE OPEN WINDOW | THE OPERA WIDOW | THE OPERATOR | [blank]",
+				"shows":"all vt "
+            },
+			{
+				"file":"variable-title-vi",
+                "caption":"<em>Variable Title VI</em> Mixed-media on canvas.",
+				"more": "2008<br>Private collection. Titles: OBJECTS TO BE OBSERVED | THE BIRTH OF A NATION | STAGGERLY AND ONWARD | [blank]",
+				"shows":"all vt "
+            },
+			{
+				"file":"variable-title-vii",
+                "caption":"<em>Variable Title VII</em> Mixed-media on canvas.",
+				"more": "2009<br>Private collection.<br> Titles: INDEPENDENCE DAY | MEMORIAL DAY | MIDDAY | [blank]",
+				"shows":"all vt"
+            },
+			{
+				"file":"variable-title-viii",
+                "caption":"<em>Variable Title VIII</em> Mixed-media on canvas.",
+				"more": "2009<br>Private collection.<br>Titles: NATIONAL PROPERTY OF THE HIGHEST VALUE | TRANQUIL & STEADY DEDICATION | AT LEAST I KNOW I'M FREE | [blank]",
+				"shows":"all vt "
+            },
+			{
+				"file":"variable-title-x",
+                "caption":"<em>Variable Title X</em> Mixed-media on canvas.",
+				"more": "2010<br>Available for sale.<br>Titles: WITNESS STANDS | THE PROSECUTION RESTS | DELIBERATION | [blank]",
+				"shows":"all vt  "
+            },
+			{
+				"file":"variable-title-xi",
+                "caption":"<em>Variable Title XI</em> Mixed-media on canvas.",
+				"more": "2010<br>Private collection.<br>Titles: BAPTISM | COMMUNION | RECONCILIATION | [blank]",
+				"shows":"all vt "
+            },
+			{
+				"file":"variable-title-xii",
+                "caption":"<em>Variable Title XII</em> Mixed-media on canvas.",
+				"more": "2010<br>Private collection.<br>Titles: NOCTURN | NOCTURNE | NOCTURNAVIS | [blank]",
+				"shows":"all vt "
+            },
+			{
+				"file":"variable-title-xiv",
+                "caption":"<em>Variable Title XIV</em> Mixed-media on canvas.",
+				"more": "2010<br>Private collection.<br>Titles: PROSTITUTE | DESTITUTE | SUBSTITUTE | [blank]",
+				"shows":"all vt "
+            },
+			{
+				"file":"variable-title-xv",
+                "caption":"<em>Variable Title XV</em> Mixed-media on canvas.",
+				"more": "2010<br>Private collection.<br>Titles: A CRIME AGAINST THE STATE | THE VERDICT THEY REACHED | THE COPY SOUNDS BETTER | [blank]",
+				"shows":"all vt "
+            },
+			{
+				"file":"variable-title-xvi",
+                "caption":"<em>Variable Title XVI</em> Mixed-media on canvas.",
+				"more": "2010<br>Private collection.<br>Titles: ONE IN THE MORNING | TWO IN THE AFTERNOON | THREE AT NIGHT | [blank]",
+				"shows":"all vt "
+            }
+			
+			
+			
+    ]}
+
+    var output="<ul>";
+    for (var i in data.pieces) {
+        output+="<li><a id='"+data.pieces[i].file+"' class='thumb' href='#'><img class='lazy "+data.pieces[i].shows+"' alt='Artwork by Jon Reischl' src='images/spinner.gif' data-original='//res.cloudinary.com/reischl/image/upload/t_thumb/"+data.pieces[i].file+"' data-large='//res.cloudinary.com/reischl/image/upload/q_auto/t_frame/"+ data.pieces[i].file+".jpg'></a><span class='caption'>"+ data.pieces[i].caption+"</span><span class='more'>"+data.pieces[i].more+"</span></li>";
+    }
+    output+="</ul><div class='unfilter'><a>All artwork.</a></div>";
+
+    document.getElementById("placeholder").innerHTML=output;
+</script><script>
+
+
+$(function() {
+	
+// Displays the image defined by view parameter ie. ?view=Paristexas1984
+	
+if(window.location.href.indexOf("view") > -1) {
+	var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
+
+	var theArt= getUrlParameter('view');
+	var tbg = $('#'+theArt+' img').attr('data-large')
+	var cap = $('#'+theArt).next().html()
+	var more = $('#'+theArt).next().next().html()
+	var tags = $('#'+theArt).attr('data-tags')
+
+
+	$('.full .frame').fadeIn(1000).css("background-image", "url("+tbg+")");
+	$('.full .specs').html(cap);
+	$('.thumb').removeClass('active');
+	$('#'+theArt).addClass('active');
+	$('.full .caption').fadeIn();
+	$('.full .caption-toggle').show();
+	$('.popout').attr("href", tbg);
+	$('.full .more').html(more);
+
+    }
+
+// Automatically displays the first image of the gallery if the url contains #art
+    if ( document.location.href.indexOf('#art') > -1 ) {
+		var first = $('.thumbs li:first-child img')
+        var tbg = $(first).attr('data-large')
+		var cap = $(first).parent().next().html()
+		var more = $(first).parent().next().next().html()
+		$('.full .caption').fadeIn();
+		$('.intro').fadeOut();
+		$('.full').show().addClass("spinning");
+		$('.full .frame').fadeIn(1000).css("background-image", "url("+tbg+")");
+		$('.full .specs').html(cap);
+		$('.full .more').html(more);
+		$('.popout').attr("href", tbg);
+		$('.thumb').removeClass('active');
+		$(first).parent().addClass('active');
+		$('.close').show();
+    }
+
+
+});
+
+
+
+// Thumbnails fade in on page load
+$('.thumbs').fadeIn(500);
+$('.thumb .feature').parent().css('display','inline-block').addClass('active');
+
+// Displays the large image (with caption, etc) when a thumbnail is clicked
+$('.thumbs a').on('click', function(){
+	var tbg = $(this).children('img').attr('data-large')
+	var cap = $(this).next().html()
+	var more = $(this).next().next().html()
+	var tags = $(this).attr('data-tags')
+	$('.full').show().addClass("spinning");
+	$('.full .caption').fadeIn();
+	$('.full .caption-toggle').show();
+	$('.intro').fadeOut();
+	$('.full .frame').fadeIn(1000).css("background-image", "url("+tbg+")");
+	$('.full .specs').html(cap);
+	$('.more .filter').appendTo('#backstage');
+	$('.full .more').html(more);
+	$('.popout').attr("href", tbg);
+	$('.thumb').removeClass('active');
+	$(this).addClass('active');
+	$('.close').show();
+	$('.full .tags').addClass(tags);
+	$('.factsheet').hide();
+	
+	
+	
+	// filters thumbnails from More link
+$('a.series').click(function() {
+	var a = $(this).attr('data-filter');
+	var b = $('.thumb img');
+	$('main').scrollTop(0);
+	$('.thumb').addClass('active').css( "opacity", "0" ).hide();
+	$('.select-filter .menu').fadeOut(100);
+	$('.intro').fadeIn();
+	$('.full').removeClass('spinning');
+	$('.full .frame').hide();
+	$('.full .caption').hide();
+	$('.full .caption-toggle').hide();
+	$('.full .more').hide();
+	$('.factsheet').hide();
+	$('.factsheet.'+a).show();
+		$('.intro').hide();
+	$('.trigger-text').contents().replaceWith($(this).text());
+	if (b.hasClass(a)) {
+	$('.thumbs .'+a).parent().css('display', 'inline-block').fadeTo( "slow", 1.00 );
+		
+	}
+});
+	
+});
+
+// Slides in Captions on mobile 
+$('.caption-toggle').click(function(){
+	$('.full .caption').toggleClass('active');
+	if ($('.full .caption').hasClass('active')) {
+		$('.full .caption').animate({
+		left: "0"
+	  })
+	}
+	else {
+		$('.full .caption').animate({
+		left: "-100%"
+	  })
+	}
+});
+
+// Displays "more" content
+$('.more-toggle').click(function(){
+	$(this).next().fadeToggle();
+});
+
+// Moves filter into "more"
+$('.thumbs img').click(function() {
+	if ($(this).hasClass('commission')) {
+	$('#backstage #commission').appendTo('.full .more');
+	}
+	if ($(this).hasClass('settlers')) {
+	$('#backstage #settlers').appendTo('.full .more');
+	}
+	if ($(this).hasClass('pilgrims')) {
+	$('#backstage #pilgrims').appendTo('.full .more');
+	}
+	if ($(this).hasClass('odds')) {
+	$('#backstage #odds').appendTo('.full .more');
+	}
+	if ($(this).hasClass('hom')) {
+	$('#backstage #hom').appendTo('.full .more');
+	}
+});
+// filters thumbnails 
+$('.filter').click(function() {
+	var a = $(this).attr('id');
+	var b = $('.thumb img');
+	$('.thumb').addClass('active').hide();
+	$('.full .frame').hide();
+	$('.full .caption').hide();
+	$('.full .caption-toggle').hide();
+	$('.full .more').hide();
+	$('.factsheet.'+a).show();
+	$('.intro').hide();
+	$('.unfilter').show();
+	if (b.hasClass(a)) {
+	$('.thumbs .'+a).parent().css('display', 'inline-block');
+	}
+});
+$('.unfilter a').click(function(){
+	$('.thumb').addClass('active').css('display', 'inline-block');
+	$('.factsheet').hide();
+	$('.intro').show();
+	$(this).parent().hide();
+});
+
+// Closes the large image on mobile devices
+$('.close').click(function(){
+	$(this).hide();
+	$('.full').fadeOut();
+	$('.full .frame').fadeOut();
+	$('.full .caption').fadeOut();
+	$('.full .caption-toggle').fadeOut();
+	$('.factsheet').hide();
+});
+
+// Toggles the mobile navigation
+$('.burger').click(function(){
+	$('.nav .menu').slideToggle();
+});
+
+
+// enables touch swipe scrolling 
+$(".frame").touchwipe({
+     wipeLeft: function() {
+	 	var tbg = $('.thumb.active').parent().next().find('img').attr('data-large')
+		var cap = $('.thumb.active').parent().next().find('.caption').html()
+		var more = $('.thumb.active').parent().next().find('.more').html()
+		$('.thumb').removeClass('deactivating');
+		$('.full .frame').css("background-image", "url("+tbg+")");
+		$('.full .specs').html(cap);
+		$('.more .filter').appendTo('#backstage');
+		$('.full .more').html(more);
+		$('.popout').attr("href", tbg);
+		$('.thumb.active').addClass('deactivating').removeClass('active');
+		$('.thumb.deactivating').parent().next().children('.thumb').addClass('active');
+		$('.full .tags').addClass(tags);
+	}, 
+	wipeRight: function() {
+	 	var tbg = $('.thumb.active').parent().prev().find('img').attr('data-large')
+		var cap = $('.thumb.active').parent().prev().find('.caption').html()
+		var more = $('.thumb.active').parent().prev().find('.more').html()
+		$('.thumb').removeClass('deactivating');
+		$('.full .frame').css("background-image", "url("+tbg+")");
+		$('.full .specs').html(cap);
+		$('.more .filter').appendTo('#backstage');
+		$('.full .more').html(more);
+		$('.popout').attr("href", tbg);
+		$('.thumb.active').addClass('deactivating').removeClass('active');
+		$('.thumb.deactivating').parent().prev().children('.thumb').addClass('active');
+		$('.full .tags').addClass(tags);
+	},
+	    
+     min_move_x: 20,
+     min_move_y: 20,
+     preventDefaultEvents: true
+});
+
+// enables lazy loading (images load when scrolled into the viewport)
+$(function() {
+    $("img.lazy").lazyload({
+        event : "sporty"
+    });
+});
+
+$(window).bind("load", function() {
+    var timeout = setTimeout(function() {
+        $("img.lazy").trigger("sporty")
+    }, 5000);
+});
+
+
+
+$(".select-filter .trigger").click(function(){
+   $(".select-filter .menu").slideToggle();
+});
+
+
+// filters thumbnails from menu
+$('.select-filter .menu a').click(function() {
+	var a = $(this).attr('data-filter');
+	var b = $('.thumb img');
+	$('main').scrollTop(0);
+	$('.thumb').addClass('active').css( "opacity", "0" ).hide();
+	$('.select-filter .menu').fadeOut(100);
+	$('.intro').fadeIn();
+	$('.full').removeClass('spinning');
+	$('.full .frame').hide();
+	$('.full .caption').hide();
+	$('.full .caption-toggle').hide();
+	$('.full .more').hide();
+	$('.factsheet').hide();
+	$('.factsheet.'+a).show();
+		$('.intro').hide();
+	$('.trigger-text').contents().replaceWith($(this).text());
+	if (b.hasClass(a)) {
+	$('.thumbs .'+a).parent().css('display', 'inline-block').fadeTo( "slow", 1.00 );
+		
+	}
+});
+	
+
+</script> 
+
+<!-- Google tag (gtag.js) --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QXKMGM12EG"></script> 
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QXKMGM12EG');
+</script>
+</body>
+</html>
