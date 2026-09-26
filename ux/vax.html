@@ -1,0 +1,86 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; minimal-ui">
+<meta name="description" content="Jon Reischl • Product Designer.">
+
+	
+<meta property="og:title" content="Jon Reischl • Product Designer">
+<meta property="og:site_name" content="Jon Reischl • Product Designer">
+<meta property="og:url" content="jonreischl.com/design">
+<meta property="og:description" content="Jon Reisch has worked in user experience design for over 20 years. His love languages are usability, accessibility, and consistency. ">
+<meta property="og:type" content="website">
+<meta property="og:image" content="http://jonreischl.com/design/img/afa-workflow.png">
+	
+<title>Jon Reischl • Product Designer</title>
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link href="//fonts.googleapis.com/css?family=Pathway+Gothic+One" rel="stylesheet" type="text/css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+	<link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+	<div class="position-relative overflow-hidden bg-light">
+        <div class="p-md-5 mx-auto  bg-header" style="background-image: url(img/cdb-banner.jpg)">
+		<div class="container p-5">
+      <h1 class="h1">Vaccine Status Recording system</h1>
+      <p class="lead fw-normal text-muted">Concepts for rapidly developed solution allowing gym owners to manage access to their gyms during unstaffed hours based on local public health requirements.
+	 This project was fast-tracked in order to (as quickly as possible) provide a solution for franchisees in an environment where the rules and regulations surrounding public health protocols related to COVID-19 are changing on a daily basis.</p>
+		<p>The Anytime Fitness business model allows members to securely access the gyms 24/7 using a key fob. Gyms are typically only staffed during regular business hours. In areas where businesses must require proof of vaccination, after hours gym access needed to be revoked until members could present proof of their vaccination status.</p>
+		</div>
+      
+    </div>
+		<div class="row align-items-center bg-dark text-white">
+			<div class="col-lg-4"><p class="lead p-4 text-md-end">My initial iteration on the UX included a multi-platform solution: the first being a mechanism where gym owners could opt-in to the system which would automatically notify gym members via email that their gym access was being revoked until they could present proof of vaccination. The email would link members to a secure portal where they could upload their documentation.</p></div>
+			<div class="col-md-8"><div class="p-5"><img src="img/vax-proof.png" class="img-fluid rounded" alt=""></div></div>
+			</div>
+		
+		<div class="row align-items-center  flex-row-reverse" style="background: #ddd">
+			<div class="col-lg-4"><p class="lead p-4 text-md-start">The gym would be notified of the submission, which would appear in a queue where gym staff could review the documentation and either approve or reject the member's after-hours gym access, in accordance with local requirements. </p></div>
+			<div class="col-md-8"><div class="p-5"><img src="img/vax-submission.png" class="img-fluid rounded" alt=""></div></div>
+			</div>
+		
+		<div class="row align-items-center bg-dark text-white">
+			<div class="col-lg-4"><p class="lead p-4 text-md-end">I used Miro to help stakeholders understand all the critical components to the complex, multi-tiered user experience. I leveraged a Sketch plugin for Miro to sync my design files with the board. This helped ensure that my collaborators on the Security, Development, and Operations teams were always seeing the freshest designs in a rapidly evolving environment.</p></div>
+			<div class="col-md-8"><div class="p-5"><img src="img/vax-workflow.png" class="img-fluid rounded" alt=""></div></div>
+			</div>
+		
+		
+		<div class="p-lg-5 mx-auto my-0 text-center bg-danger p-2 text-dark bg-opacity-50">
+			<div class="container">
+      <p class="lead fw-normal">Then we learned that citizens of Canada (et al.) are not allowed to reproduce their vaccine cards in any way. Since the member submission piece of this workflow relied on members photographing and uploading this information, that portion of the workflow was scrapped in favor of a more analog approach: members would need to present their documentation in person during staffed hours. 
+	</p>
+      </div>
+    </div>
+		
+		<div class="row align-items-center bg-dark text-white">
+			<div class="col-md-4"><p class="lead p-4 justify">Despite being a much lower-tech solution, the system still required a method for gym staff to look up members and record their status in order to restore their gym access. I designed the interface so it would be flexible enough to support locations in a variety of circumstances. For example, some locations would be allowed to accept a negative COVID-19 test for unvaccinated members. We also built in a way for staff to set an expiration date, at which time the access would be revoked again and require fresh documentation.</p></div>
+			<div class="col-md-8"><div class="p-5"><img src="img/vax-lookup.png" class="img-fluid rounded" alt=""></div></div>
+			</div>
+		
+		
+		
+		
+		
+  </div>
+
+
+	</body>
+</html>
