@@ -335,8 +335,11 @@ function mce_success_cb(resp){
 
 
 </div>
-<small class="legal">&copy; Jon Reischl <script>var d=new Date(); yr=d.getFullYear();if (yr!=1998)document.write(""+yr);</script>. All rights reserved.</small><script src="http://code.jquery.com/jquery.js"></script> 
+<small class="legal">&copy; Jon Reischl <script>var d=new Date(); yr=d.getFullYear();if (yr!=1998)document.write(""+yr);</script>. All rights reserved.</small><script src="//code.jquery.com/jquery.js"></script> 
 <script>
+$('.burger').click(function(){
+	$('.nav .menu').slideToggle();
+});
 
 
 
@@ -350,10 +353,6 @@ $('.close').click(function(){
 	$('.full .caption').fadeOut();
 
 });
-$('.burger').click(function(){
-	$('.nav .menu').slideToggle();
-});
-
 </script>
 
 </body>
